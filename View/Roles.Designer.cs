@@ -1,5 +1,5 @@
 ﻿
-namespace View
+namespace TEST_SEC_USERS.GUI
 {
     partial class Roles
     {
@@ -29,15 +29,18 @@ namespace View
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.ToolStripRoles = new System.Windows.Forms.ToolStrip();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.btnAddNewRole = new System.Windows.Forms.ToolStripButton();
             this.btnChangeRole = new System.Windows.Forms.ToolStripButton();
             this.btnRemoveRole = new System.Windows.Forms.ToolStripButton();
             this.ButtonsToFinderSeparator = new System.Windows.Forms.ToolStripSeparator();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.ToolStripRoles.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // ToolStripRoles
@@ -53,24 +56,6 @@ namespace View
             this.ToolStripRoles.Size = new System.Drawing.Size(800, 39);
             this.ToolStripRoles.TabIndex = 0;
             this.ToolStripRoles.Text = "toolStrip1";
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 39);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(800, 328);
-            this.dataGridView1.TabIndex = 1;
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 410);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(800, 40);
-            this.panel1.TabIndex = 2;
             // 
             // btnAddNewRole
             // 
@@ -104,6 +89,26 @@ namespace View
             this.ButtonsToFinderSeparator.Name = "ButtonsToFinderSeparator";
             this.ButtonsToFinderSeparator.Size = new System.Drawing.Size(6, 39);
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AutoGenerateColumns = false;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.DataSource = this.bindingSource1;
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.dataGridView1.Location = new System.Drawing.Point(0, 39);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(800, 328);
+            this.dataGridView1.TabIndex = 1;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel1.Location = new System.Drawing.Point(0, 410);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(800, 40);
+            this.panel1.TabIndex = 2;
+            // 
             // Roles
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -117,6 +122,7 @@ namespace View
             this.ToolStripRoles.ResumeLayout(false);
             this.ToolStripRoles.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -131,5 +137,6 @@ namespace View
         private System.Windows.Forms.ToolStripButton btnChangeRole;
         private System.Windows.Forms.ToolStripButton btnRemoveRole;
         private System.Windows.Forms.ToolStripSeparator ButtonsToFinderSeparator;
+        private System.Windows.Forms.BindingSource bindingSource1;
     }
 }

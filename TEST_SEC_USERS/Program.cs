@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TEST_SEC_USERS.GUI;
 
 namespace TEST_SEC_USERS
 {
@@ -16,7 +17,8 @@ namespace TEST_SEC_USERS
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new Roles());
+            
         }
     }
 }
