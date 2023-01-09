@@ -54,6 +54,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Roles.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Roles.Designer.cs">
+      <DependentUpon>Roles.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -62,7 +68,29 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Roles.resx">
+      <DependentUpon>Roles.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\DataSources\Model.dtsSecUsers+SEC_ROLEDataTable.datasource" />
+    <None Include="Properties\DataSources\Model.dtsSecUsers+SEC_ROLERow.datasource" />
+    <None Include="Properties\DataSources\Model.dtsSecUsers+SEC_ROLERowChangeEvent.datasource" />
+    <None Include="Properties\DataSources\Model.dtsSecUsers+SEC_ROLERowChangeEventHandler.datasource" />
+    <None Include="Properties\DataSources\Model.dtsSecUsers+SEC_USERDataTable.datasource" />
+    <None Include="Properties\DataSources\Model.dtsSecUsers+SEC_USERRow.datasource" />
+    <None Include="Properties\DataSources\Model.dtsSecUsers+SEC_USERRowChangeEvent.datasource" />
+    <None Include="Properties\DataSources\Model.dtsSecUsers+SEC_USERRowChangeEventHandler.datasource" />
+    <None Include="Properties\DataSources\Model.dtsSecUsers+SEC_USER_ROLEDataTable.datasource" />
+    <None Include="Properties\DataSources\Model.dtsSecUsers+SEC_USER_ROLERow.datasource" />
+    <None Include="Properties\DataSources\Model.dtsSecUsers+SEC_USER_ROLERowChangeEvent.datasource" />
+    <None Include="Properties\DataSources\Model.dtsSecUsers+SEC_USER_ROLERowChangeEventHandler.datasource" />
+    <None Include="Properties\DataSources\Model.dtsSecUsers.datasource" />
+    <None Include="Properties\DataSources\Model.dtsSecUsersTableAdapters.SEC_ROLETableAdapter.datasource" />
+    <None Include="Properties\DataSources\Model.dtsSecUsersTableAdapters.SEC_USERTableAdapter.datasource" />
+    <None Include="Properties\DataSources\Model.dtsSecUsersTableAdapters.SEC_USER_ROLETableAdapter.datasource" />
+    <None Include="Properties\DataSources\Model.dtsSecUsersTableAdapters.TableAdapterManager+UpdateOrderOption.datasource" />
+    <None Include="Properties\DataSources\Model.dtsSecUsersTableAdapters.TableAdapterManager.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -77,9 +105,18 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\View\View.csproj">
-      <Project>{167EF7C7-FC51-427E-BA55-3602368C51AE}</Project>
-      <Name>View</Name>
+    <None Include="Resources\Knob Add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Knob Refresh.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Knob Remove Red.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Model\Model\Model.csproj">
+      <Project>{f6c7ab38-8704-4a2c-93a9-eb841ff857b3}</Project>
+      <Name>Model</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

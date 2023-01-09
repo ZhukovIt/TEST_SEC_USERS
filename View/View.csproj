@@ -63,6 +63,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="Properties\DataSources\Model.dtsSecUsers.datasource" />
+    <None Include="Properties\DataSources\Model.dtsSecUsersTableAdapters.SEC_ROLETableAdapter.datasource" />
+    <None Include="Properties\DataSources\Model.dtsSecUsersTableAdapters.SEC_USERTableAdapter.datasource" />
+    <None Include="Properties\DataSources\Model.dtsSecUsersTableAdapters.SEC_USER_ROLETableAdapter.datasource" />
+    <None Include="Properties\DataSources\Model.dtsSecUsersTableAdapters.TableAdapterManager+UpdateOrderOption.datasource" />
+    <None Include="Properties\DataSources\Model.dtsSecUsersTableAdapters.TableAdapterManager.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -76,15 +82,6 @@
     <EmbeddedResource Include="Roles.resx">
       <DependentUpon>Roles.cs</DependentUpon>
     </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Knob Add.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Knob Refresh.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Knob Remove Red.png" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Model\Model\Model.csproj">
