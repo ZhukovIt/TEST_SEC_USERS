@@ -13,15 +13,16 @@ namespace TEST_SEC_USERS.GUI
 {
     public partial class Roles : Form
     {
-        private Presenter.Presenter m_presenter;
+        private Presenter.RolePresenter m_presenter;
 
         public Roles()
         {
             InitializeComponent();
-            m_presenter = new Presenter.Presenter(this, new Model.ModelWorker());
+            m_presenter = new Presenter.RolePresenter(this, new Model.ModelWorker());
+            SetEventHandlersFromUIElements();
         }
 
-        public void SetPresenter(Presenter.Presenter presenter)
+        public void SetPresenter(Presenter.RolePresenter presenter)
         {
             m_presenter = presenter;
         }
@@ -50,9 +51,28 @@ namespace TEST_SEC_USERS.GUI
             }
         }
 
+        internal ToolStripTextBox FinderTextBox
+        {
+            get
+            {
+                return tbox_Roles;
+            }
+        }
+
         private void Roles_Load(object sender, EventArgs e)
         {
             m_presenter.LoadDataSource();
+        }
+
+        private void SetEventHandlersFromUIElements()
+        {
+            btnAddNewRole.Click += new EventHandler(m_presenter.btnAddNewRole_Click);
+            btnCopyRole.Click += new EventHandler(m_presenter.btnCopyRole_Click);
+            btnEditRole.Click += new EventHandler(m_presenter.btnEditRole_Click);
+            btnRemoveRole.Click += new EventHandler(m_presenter.btnRemoveRole_Click);
+            btnRefreshRoles.Click += new EventHandler(m_presenter.btnRefreshRole_Click);
+            btnClearFinderRoles.Click += new EventHandler(m_presenter.btnClearFinderRoles_Click);
+            tbox_Roles.TextChanged += new EventHandler(m_presenter.tbox_Roles_TextChanged);
         }
     }
 }

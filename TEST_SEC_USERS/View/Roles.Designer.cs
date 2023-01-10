@@ -38,14 +38,14 @@ namespace TEST_SEC_USERS.GUI
             this.btnRemoveRole = new System.Windows.Forms.ToolStripButton();
             this.btnRefreshRoles = new System.Windows.Forms.ToolStripButton();
             this.ButtonsToFinderSeparator = new System.Windows.Forms.ToolStripSeparator();
+            this.lblFinder = new System.Windows.Forms.ToolStripLabel();
+            this.tbox_Roles = new System.Windows.Forms.ToolStripTextBox();
+            this.btnClearFinderRoles = new System.Windows.Forms.ToolStripButton();
             this.dgv_SEC_ROLE = new System.Windows.Forms.DataGridView();
             this.sECROLENAMEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bsSEC_ROLE = new System.Windows.Forms.BindingSource(this.components);
             this.dtsSecUsers = new Model.dtsSecUsers();
             this.seC_ROLETableAdapter = new Model.dtsSecUsersTableAdapters.SEC_ROLETableAdapter();
-            this.tbox_Roles = new System.Windows.Forms.ToolStripTextBox();
-            this.btnClearFinderRoles = new System.Windows.Forms.ToolStripButton();
-            this.lblFinder = new System.Windows.Forms.ToolStripLabel();
             this.ts_btn_Role.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_SEC_ROLE)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsSEC_ROLE)).BeginInit();
@@ -67,7 +67,7 @@ namespace TEST_SEC_USERS.GUI
             this.btnClearFinderRoles});
             this.ts_btn_Role.Location = new System.Drawing.Point(0, 0);
             this.ts_btn_Role.Name = "ts_btn_Role";
-            this.ts_btn_Role.Size = new System.Drawing.Size(567, 39);
+            this.ts_btn_Role.Size = new System.Drawing.Size(571, 39);
             this.ts_btn_Role.TabIndex = 0;
             this.ts_btn_Role.Text = "toolStrip1";
             // 
@@ -121,6 +121,27 @@ namespace TEST_SEC_USERS.GUI
             this.ButtonsToFinderSeparator.Name = "ButtonsToFinderSeparator";
             this.ButtonsToFinderSeparator.Size = new System.Drawing.Size(6, 39);
             // 
+            // lblFinder
+            // 
+            this.lblFinder.Name = "lblFinder";
+            this.lblFinder.Size = new System.Drawing.Size(45, 36);
+            this.lblFinder.Text = "Поиск:";
+            // 
+            // tbox_Roles
+            // 
+            this.tbox_Roles.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tbox_Roles.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.tbox_Roles.Name = "tbox_Roles";
+            this.tbox_Roles.Size = new System.Drawing.Size(300, 39);
+            // 
+            // btnClearFinderRoles
+            // 
+            this.btnClearFinderRoles.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.btnClearFinderRoles.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnClearFinderRoles.Name = "btnClearFinderRoles";
+            this.btnClearFinderRoles.Size = new System.Drawing.Size(23, 36);
+            this.btnClearFinderRoles.Text = "X";
+            // 
             // dgv_SEC_ROLE
             // 
             this.dgv_SEC_ROLE.AllowUserToAddRows = false;
@@ -133,7 +154,7 @@ namespace TEST_SEC_USERS.GUI
             this.dgv_SEC_ROLE.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgv_SEC_ROLE.Location = new System.Drawing.Point(0, 39);
             this.dgv_SEC_ROLE.Name = "dgv_SEC_ROLE";
-            this.dgv_SEC_ROLE.Size = new System.Drawing.Size(567, 347);
+            this.dgv_SEC_ROLE.Size = new System.Drawing.Size(571, 333);
             this.dgv_SEC_ROLE.TabIndex = 1;
             // 
             // sECROLENAMEDataGridViewTextBoxColumn
@@ -157,32 +178,11 @@ namespace TEST_SEC_USERS.GUI
             // 
             this.seC_ROLETableAdapter.ClearBeforeFill = true;
             // 
-            // tbox_Roles
-            // 
-            this.tbox_Roles.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tbox_Roles.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.tbox_Roles.Name = "tbox_Roles";
-            this.tbox_Roles.Size = new System.Drawing.Size(300, 39);
-            // 
-            // btnClearFinderRoles
-            // 
-            this.btnClearFinderRoles.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.btnClearFinderRoles.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnClearFinderRoles.Name = "btnClearFinderRoles";
-            this.btnClearFinderRoles.Size = new System.Drawing.Size(23, 36);
-            this.btnClearFinderRoles.Text = "X";
-            // 
-            // lblFinder
-            // 
-            this.lblFinder.Name = "lblFinder";
-            this.lblFinder.Size = new System.Drawing.Size(45, 36);
-            this.lblFinder.Text = "Поиск:";
-            // 
             // Roles
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(567, 386);
+            this.ClientSize = new System.Drawing.Size(571, 372);
             this.Controls.Add(this.dgv_SEC_ROLE);
             this.Controls.Add(this.ts_btn_Role);
             this.Name = "Roles";
