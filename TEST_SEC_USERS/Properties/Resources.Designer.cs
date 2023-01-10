@@ -19,7 +19,7 @@ namespace TEST_SEC_USERS.Properties {
     // с помощью такого средства, как ResGen или Visual Studio.
     // Чтобы добавить или удалить член, измените файл .ResX и снова запустите ResGen
     // с параметром /str или перестройте свой проект VS.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Resources {
@@ -63,9 +63,9 @@ namespace TEST_SEC_USERS.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Knob_Add {
+        internal static System.Drawing.Bitmap addButton {
             get {
-                object obj = ResourceManager.GetObject("Knob Add", resourceCulture);
+                object obj = ResourceManager.GetObject("addButton", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -73,9 +73,9 @@ namespace TEST_SEC_USERS.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Knob_Refresh {
+        internal static System.Drawing.Bitmap copyButton {
             get {
-                object obj = ResourceManager.GetObject("Knob Refresh", resourceCulture);
+                object obj = ResourceManager.GetObject("copyButton", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -83,9 +83,39 @@ namespace TEST_SEC_USERS.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Knob_Remove_Red {
+        internal static System.Drawing.Bitmap copyButton1 {
             get {
-                object obj = ResourceManager.GetObject("Knob Remove Red", resourceCulture);
+                object obj = ResourceManager.GetObject("copyButton1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap editButton {
+            get {
+                object obj = ResourceManager.GetObject("editButton", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap refreshButton {
+            get {
+                object obj = ResourceManager.GetObject("refreshButton", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap removeButton {
+            get {
+                object obj = ResourceManager.GetObject("removeButton", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
