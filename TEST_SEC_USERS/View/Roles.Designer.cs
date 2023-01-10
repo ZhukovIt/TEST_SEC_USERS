@@ -31,19 +31,20 @@ namespace TEST_SEC_USERS.GUI
         {
             this.components = new System.ComponentModel.Container();
             this.ToolStripRoles = new System.Windows.Forms.ToolStrip();
-            this.ButtonsToFinderSeparator = new System.Windows.Forms.ToolStripSeparator();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.btnAddNewRole = new System.Windows.Forms.ToolStripButton();
             this.btnChangeRole = new System.Windows.Forms.ToolStripButton();
             this.btnRemoveRole = new System.Windows.Forms.ToolStripButton();
-            this.sECROLEIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sECROLEBUILTINDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.ButtonsToFinderSeparator = new System.Windows.Forms.ToolStripSeparator();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.bsSEC_ROLE = new System.Windows.Forms.BindingSource(this.components);
+            this.dtsSecUsers = new Model.dtsSecUsers();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.seC_ROLETableAdapter = new Model.dtsSecUsersTableAdapters.SEC_ROLETableAdapter();
             this.sECROLENAMEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ToolStripRoles.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsSEC_ROLE)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtsSecUsers)).BeginInit();
             this.SuspendLayout();
             // 
             // ToolStripRoles
@@ -59,40 +60,6 @@ namespace TEST_SEC_USERS.GUI
             this.ToolStripRoles.Size = new System.Drawing.Size(800, 39);
             this.ToolStripRoles.TabIndex = 0;
             this.ToolStripRoles.Text = "toolStrip1";
-            // 
-            // ButtonsToFinderSeparator
-            // 
-            this.ButtonsToFinderSeparator.Name = "ButtonsToFinderSeparator";
-            this.ButtonsToFinderSeparator.Size = new System.Drawing.Size(6, 39);
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AutoGenerateColumns = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.sECROLEIDDataGridViewTextBoxColumn,
-            this.sECROLENAMEDataGridViewTextBoxColumn,
-            this.sECROLEBUILTINDataGridViewCheckBoxColumn});
-            this.dataGridView1.DataSource = this.bindingSource1;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 39);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(800, 335);
-            this.dataGridView1.TabIndex = 1;
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 410);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(800, 40);
-            this.panel1.TabIndex = 2;
-            // 
-            // bindingSource1
-            // 
-            this.bindingSource1.DataMember = "SEC_ROLE";
-            this.bindingSource1.DataSource = typeof(Model.dtsSecUsers);
             // 
             // btnAddNewRole
             // 
@@ -121,23 +88,54 @@ namespace TEST_SEC_USERS.GUI
             this.btnRemoveRole.Size = new System.Drawing.Size(36, 36);
             this.btnRemoveRole.Text = "Удаление роли";
             // 
-            // sECROLEIDDataGridViewTextBoxColumn
+            // ButtonsToFinderSeparator
             // 
-            this.sECROLEIDDataGridViewTextBoxColumn.DataPropertyName = "SEC_ROLE_ID";
-            this.sECROLEIDDataGridViewTextBoxColumn.HeaderText = "SEC_ROLE_ID";
-            this.sECROLEIDDataGridViewTextBoxColumn.Name = "sECROLEIDDataGridViewTextBoxColumn";
+            this.ButtonsToFinderSeparator.Name = "ButtonsToFinderSeparator";
+            this.ButtonsToFinderSeparator.Size = new System.Drawing.Size(6, 39);
             // 
-            // sECROLEBUILTINDataGridViewCheckBoxColumn
+            // dataGridView1
             // 
-            this.sECROLEBUILTINDataGridViewCheckBoxColumn.DataPropertyName = "SEC_ROLE_BUILTIN";
-            this.sECROLEBUILTINDataGridViewCheckBoxColumn.HeaderText = "SEC_ROLE_BUILTIN";
-            this.sECROLEBUILTINDataGridViewCheckBoxColumn.Name = "sECROLEBUILTINDataGridViewCheckBoxColumn";
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AutoGenerateColumns = false;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.sECROLENAMEDataGridViewTextBoxColumn});
+            this.dataGridView1.DataSource = this.bsSEC_ROLE;
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.dataGridView1.Location = new System.Drawing.Point(0, 39);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(800, 335);
+            this.dataGridView1.TabIndex = 1;
+            // 
+            // bsSEC_ROLE
+            // 
+            this.bsSEC_ROLE.DataMember = "SEC_ROLE";
+            this.bsSEC_ROLE.DataSource = this.dtsSecUsers;
+            // 
+            // dtsSecUsers
+            // 
+            this.dtsSecUsers.DataSetName = "dtsSecUsers";
+            this.dtsSecUsers.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel1.Location = new System.Drawing.Point(0, 409);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(800, 41);
+            this.panel1.TabIndex = 2;
+            // 
+            // seC_ROLETableAdapter
+            // 
+            this.seC_ROLETableAdapter.ClearBeforeFill = true;
             // 
             // sECROLENAMEDataGridViewTextBoxColumn
             // 
             this.sECROLENAMEDataGridViewTextBoxColumn.DataPropertyName = "SEC_ROLE_NAME";
-            this.sECROLENAMEDataGridViewTextBoxColumn.HeaderText = "SEC_ROLE_NAME";
+            this.sECROLENAMEDataGridViewTextBoxColumn.HeaderText = "Наименование";
             this.sECROLENAMEDataGridViewTextBoxColumn.Name = "sECROLENAMEDataGridViewTextBoxColumn";
+            this.sECROLENAMEDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // Roles
             // 
@@ -149,10 +147,12 @@ namespace TEST_SEC_USERS.GUI
             this.Controls.Add(this.ToolStripRoles);
             this.Name = "Roles";
             this.Text = "Roles";
+            this.Load += new System.EventHandler(this.Roles_Load);
             this.ToolStripRoles.ResumeLayout(false);
             this.ToolStripRoles.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsSEC_ROLE)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtsSecUsers)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -161,15 +161,15 @@ namespace TEST_SEC_USERS.GUI
         #endregion
 
         private System.Windows.Forms.ToolStrip ToolStripRoles;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.ToolStripButton btnAddNewRole;
         private System.Windows.Forms.ToolStripButton btnChangeRole;
         private System.Windows.Forms.ToolStripButton btnRemoveRole;
         private System.Windows.Forms.ToolStripSeparator ButtonsToFinderSeparator;
-        private System.Windows.Forms.BindingSource bindingSource1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sECROLEIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource bsSEC_ROLE;
+        private Model.dtsSecUsersTableAdapters.SEC_ROLETableAdapter seC_ROLETableAdapter;
+        private Model.dtsSecUsers dtsSecUsers;
+        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn sECROLENAMEDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn sECROLEBUILTINDataGridViewCheckBoxColumn;
     }
 }

@@ -18,7 +18,6 @@ namespace TEST_SEC_USERS
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Roles());
-            
         }
     }
 }
