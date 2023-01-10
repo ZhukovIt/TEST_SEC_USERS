@@ -6,9 +6,9 @@ using System.Windows.Forms;
 
 namespace TEST_SEC_USERS.Presenter
 {
-    public class RolePresenter : AbstractPresenter
+    public class RolesPresenter : AbstractPresenter
     {
-        public RolePresenter(Roles view, Model.ModelWorker model) : base(view, model)
+        public RolesPresenter(Roles view, Model.ModelWorker model) : base(view, model)
         {
             m_dtsSec = view.DTS_SEC_USERS;
             m_taSec = view.TA_SEC_USERS;
@@ -41,7 +41,11 @@ namespace TEST_SEC_USERS.Presenter
 
         internal void btnRemoveRole_Click(object sender, EventArgs e)
         {
-
+            BindingSource bs = ((Roles)m_view).BS_SEC_ROLE;
+            if (bs.Current != null)
+            {
+                bs.RemoveCurrent();
+            }
         }
 
         internal void btnRefreshRole_Click(object sender, EventArgs e)

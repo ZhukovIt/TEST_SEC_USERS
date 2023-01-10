@@ -13,16 +13,16 @@ namespace TEST_SEC_USERS.GUI
 {
     public partial class Roles : Form
     {
-        private Presenter.RolePresenter m_presenter;
+        private Presenter.RolesPresenter m_presenter;
 
         public Roles()
         {
             InitializeComponent();
-            m_presenter = new Presenter.RolePresenter(this, new Model.ModelWorker());
+            m_presenter = new Presenter.RolesPresenter(this, new Model.ModelWorker());
             SetEventHandlersFromUIElements();
         }
 
-        public void SetPresenter(Presenter.RolePresenter presenter)
+        public void SetPresenter(Presenter.RolesPresenter presenter)
         {
             m_presenter = presenter;
         }
