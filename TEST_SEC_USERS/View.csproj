@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Presenter\AbstractPresenter.cs" />
+    <Compile Include="Presenter\RolePresenter.cs" />
     <Compile Include="Presenter\RolesPresenter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -71,6 +72,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Role.resx">
+      <DependentUpon>Role.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Roles.resx">
       <DependentUpon>Roles.cs</DependentUpon>
