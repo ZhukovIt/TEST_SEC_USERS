@@ -6,11 +6,8 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    public class ModelWorker : IModel
+    public interface IModel
     {
-        public object GetObjectModel()
-        {
-            return null;
-        }
+        object GetObjectModel();
     }
 }

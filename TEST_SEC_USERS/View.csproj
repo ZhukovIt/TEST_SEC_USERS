@@ -46,12 +46,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
     <Compile Include="Presenter\AbstractPresenter.cs" />
     <Compile Include="Presenter\RolesPresenter.cs" />
     <Compile Include="Program.cs" />
@@ -60,6 +54,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="View\Role.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Role.Designer.cs">
+      <DependentUpon>Role.cs</DependentUpon>
     </Compile>
     <Compile Include="View\Roles.cs">
       <SubType>Form</SubType>

@@ -49,6 +49,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dtsSecUsers.xsd</DependentUpon>
     </Compile>
+    <Compile Include="IModel.cs" />
     <Compile Include="Model.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
@@ -56,6 +57,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="RoleWorker.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

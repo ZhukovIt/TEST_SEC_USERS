@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace TEST_SEC_USERS
+namespace TEST_SEC_USERS.View
 {
-    public partial class Form1 : Form
+    public partial class Role : Form
     {
-        public Form1()
+        public Role()
         {
             InitializeComponent();
         }
