@@ -19,5 +19,11 @@ namespace TEST_SEC_USERS.Presenter
         {
             throw new NotImplementedException();
         }
+
+        // Методы-обработчики для формы Role..................
+        
+
+
+        //.....................................................
     }
 }

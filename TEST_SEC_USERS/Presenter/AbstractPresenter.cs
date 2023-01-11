@@ -15,6 +15,7 @@ namespace TEST_SEC_USERS.Presenter
         protected Form m_view;
         protected DataSet m_dtsSec;
         protected Component m_taSec;
+        protected Component m_bsSec;
 
         protected AbstractPresenter(Form view, object model)
         {

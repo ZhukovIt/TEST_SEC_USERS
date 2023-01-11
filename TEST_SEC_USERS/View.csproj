@@ -57,6 +57,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="View\FormState.cs" />
     <Compile Include="View\Role.cs">
       <SubType>Form</SubType>
     </Compile>
