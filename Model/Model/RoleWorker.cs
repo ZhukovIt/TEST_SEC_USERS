@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    public class RoleWorker : IModel
+    public class RoleWorker
     {
         private int m_Id;
         private string m_Name;
@@ -41,11 +41,6 @@ namespace Model
             m_Id = id;
             m_Name = name;
             m_BuiltIn = builtIn;
-        }
-
-        public object GetObjectModel()
-        {
-            return null;
         }
     }
 }

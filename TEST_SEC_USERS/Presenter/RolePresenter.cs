@@ -12,7 +12,7 @@ namespace TEST_SEC_USERS.Presenter
     {
         public RolePresenter(Role view, RoleWorker model) : base(view, model)
         {
-            
+            view.SetPresenter(this);
         }
 
         public override void LoadDataSource()

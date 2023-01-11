@@ -11,12 +11,12 @@ namespace TEST_SEC_USERS.Presenter
 {
     public abstract class AbstractPresenter
     {
-        protected Model.IModel m_model;
+        protected object m_model;
         protected Form m_view;
         protected DataSet m_dtsSec;
         protected Component m_taSec;
 
-        protected AbstractPresenter(Form view, Model.IModel model)
+        protected AbstractPresenter(Form view, object model)
         {
             m_view = view;
             m_model = model;

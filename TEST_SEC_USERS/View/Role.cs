@@ -12,9 +12,16 @@ namespace TEST_SEC_USERS.View
 {
     public partial class Role : Form
     {
+        private Presenter.RolePresenter m_presenter;
+
         public Role()
         {
             InitializeComponent();
+        }
+
+        internal void SetPresenter(Presenter.RolePresenter presenter)
+        {
+            m_presenter = presenter;
         }
     }
 }
