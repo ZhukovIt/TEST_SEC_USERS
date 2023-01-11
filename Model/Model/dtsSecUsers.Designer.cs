@@ -2018,13 +2018,9 @@ namespace Model.dtsSecUsersTableAdapters {
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[SEC_ROLE] WHERE (([SEC_ROLE_ID] = @Original_SEC_ROLE_ID) AND (" +
-                "[SEC_ROLE_NAME] = @Original_SEC_ROLE_NAME) AND ([SEC_ROLE_BUILTIN] = @Original_S" +
-                "EC_ROLE_BUILTIN))";
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[SEC_ROLE] WHERE (([SEC_ROLE_ID] = @Original_SEC_ROLE_ID))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_SEC_ROLE_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SEC_ROLE_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_SEC_ROLE_NAME", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SEC_ROLE_NAME", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_SEC_ROLE_BUILTIN", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SEC_ROLE_BUILTIN", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[SEC_ROLE] ([SEC_ROLE_ID], [SEC_ROLE_NAME], [SEC_ROLE_BUILTIN])" +
@@ -2037,22 +2033,20 @@ namespace Model.dtsSecUsersTableAdapters {
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SEC_ROLE_BUILTIN", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SEC_ROLE_BUILTIN", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[SEC_ROLE] SET [SEC_ROLE_ID] = @SEC_ROLE_ID, [SEC_ROLE_NAME] = @SEC_ROLE_NAME, [SEC_ROLE_BUILTIN] = @SEC_ROLE_BUILTIN WHERE (([SEC_ROLE_ID] = @Original_SEC_ROLE_ID) AND ([SEC_ROLE_NAME] = @Original_SEC_ROLE_NAME) AND ([SEC_ROLE_BUILTIN] = @Original_SEC_ROLE_BUILTIN));
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[SEC_ROLE] SET [SEC_ROLE_ID] = @SEC_ROLE_ID, [SEC_ROLE_NAME] = @SEC_ROLE_NAME, [SEC_ROLE_BUILTIN] = @SEC_ROLE_BUILTIN WHERE (([SEC_ROLE_ID] = @Original_SEC_ROLE_ID));
 SELECT SEC_ROLE_ID, SEC_ROLE_NAME, SEC_ROLE_BUILTIN FROM SEC_ROLE WHERE (SEC_ROLE_ID = @SEC_ROLE_ID)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SEC_ROLE_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SEC_ROLE_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SEC_ROLE_NAME", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SEC_ROLE_NAME", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SEC_ROLE_BUILTIN", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SEC_ROLE_BUILTIN", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_SEC_ROLE_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SEC_ROLE_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_SEC_ROLE_NAME", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SEC_ROLE_NAME", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_SEC_ROLE_BUILTIN", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SEC_ROLE_BUILTIN", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::ModelWorker.Properties.Settings.Default.clinic10ConnectionString;
+            this._connection.ConnectionString = global::Model.Properties.Settings.Default.clinic10ConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2122,15 +2116,8 @@ SELECT SEC_ROLE_ID, SEC_ROLE_NAME, SEC_ROLE_BUILTIN FROM SEC_ROLE WHERE (SEC_ROL
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_SEC_ROLE_ID, string Original_SEC_ROLE_NAME, bool Original_SEC_ROLE_BUILTIN) {
+        public virtual int Delete(int Original_SEC_ROLE_ID) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_SEC_ROLE_ID));
-            if ((Original_SEC_ROLE_NAME == null)) {
-                throw new global::System.ArgumentNullException("Original_SEC_ROLE_NAME");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((string)(Original_SEC_ROLE_NAME));
-            }
-            this.Adapter.DeleteCommand.Parameters[2].Value = ((bool)(Original_SEC_ROLE_BUILTIN));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -2180,7 +2167,7 @@ SELECT SEC_ROLE_ID, SEC_ROLE_NAME, SEC_ROLE_BUILTIN FROM SEC_ROLE WHERE (SEC_ROL
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int SEC_ROLE_ID, string SEC_ROLE_NAME, bool SEC_ROLE_BUILTIN, int Original_SEC_ROLE_ID, string Original_SEC_ROLE_NAME, bool Original_SEC_ROLE_BUILTIN) {
+        public virtual int Update(int SEC_ROLE_ID, string SEC_ROLE_NAME, bool SEC_ROLE_BUILTIN, int Original_SEC_ROLE_ID) {
             this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(SEC_ROLE_ID));
             if ((SEC_ROLE_NAME == null)) {
                 throw new global::System.ArgumentNullException("SEC_ROLE_NAME");
@@ -2190,13 +2177,6 @@ SELECT SEC_ROLE_ID, SEC_ROLE_NAME, SEC_ROLE_BUILTIN FROM SEC_ROLE WHERE (SEC_ROL
             }
             this.Adapter.UpdateCommand.Parameters[2].Value = ((bool)(SEC_ROLE_BUILTIN));
             this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(Original_SEC_ROLE_ID));
-            if ((Original_SEC_ROLE_NAME == null)) {
-                throw new global::System.ArgumentNullException("Original_SEC_ROLE_NAME");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(Original_SEC_ROLE_NAME));
-            }
-            this.Adapter.UpdateCommand.Parameters[5].Value = ((bool)(Original_SEC_ROLE_BUILTIN));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -2217,8 +2197,8 @@ SELECT SEC_ROLE_ID, SEC_ROLE_NAME, SEC_ROLE_BUILTIN FROM SEC_ROLE WHERE (SEC_ROL
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string SEC_ROLE_NAME, bool SEC_ROLE_BUILTIN, int Original_SEC_ROLE_ID, string Original_SEC_ROLE_NAME, bool Original_SEC_ROLE_BUILTIN) {
-            return this.Update(Original_SEC_ROLE_ID, SEC_ROLE_NAME, SEC_ROLE_BUILTIN, Original_SEC_ROLE_ID, Original_SEC_ROLE_NAME, Original_SEC_ROLE_BUILTIN);
+        public virtual int Update(string SEC_ROLE_NAME, bool SEC_ROLE_BUILTIN, int Original_SEC_ROLE_ID) {
+            return this.Update(Original_SEC_ROLE_ID, SEC_ROLE_NAME, SEC_ROLE_BUILTIN, Original_SEC_ROLE_ID);
         }
     }
     
@@ -2359,29 +2339,9 @@ SELECT SEC_ROLE_ID, SEC_ROLE_NAME, SEC_ROLE_BUILTIN FROM SEC_ROLE WHERE (SEC_ROL
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[SEC_USER] WHERE (([SEC_USER_ID] = @Original_SEC_USER_ID) AND ([SEC_USER_LOGIN] = @Original_SEC_USER_LOGIN) AND ((@IsNull_SEC_USER_PASSWORD = 1 AND [SEC_USER_PASSWORD] IS NULL) OR ([SEC_USER_PASSWORD] = @Original_SEC_USER_PASSWORD)) AND ([SEC_USER_FIO] = @Original_SEC_USER_FIO) AND ([SEC_USER_BUILTIN] = @Original_SEC_USER_BUILTIN) AND ((@IsNull_SEC_USER_DISABLED = 1 AND [SEC_USER_DISABLED] IS NULL) OR ([SEC_USER_DISABLED] = @Original_SEC_USER_DISABLED)) AND ((@IsNull_SEC_USER_NO_CHECK = 1 AND [SEC_USER_NO_CHECK] IS NULL) OR ([SEC_USER_NO_CHECK] = @Original_SEC_USER_NO_CHECK)) AND ((@IsNull_WORK_ID = 1 AND [WORK_ID] IS NULL) OR ([WORK_ID] = @Original_WORK_ID)) AND ((@IsNull_SEC_USER_KKM_PASSWORD = 1 AND [SEC_USER_KKM_PASSWORD] IS NULL) OR ([SEC_USER_KKM_PASSWORD] = @Original_SEC_USER_KKM_PASSWORD)) AND ((@IsNull_SEC_USER_PROCURATORY = 1 AND [SEC_USER_PROCURATORY] IS NULL) OR ([SEC_USER_PROCURATORY] = @Original_SEC_USER_PROCURATORY)) AND ((@IsNull_SEC_USER_KKM_LOGIN = 1 AND [SEC_USER_KKM_LOGIN] IS NULL) OR ([SEC_USER_KKM_LOGIN] = @Original_SEC_USER_KKM_LOGIN)) AND ((@IsNull_SEC_USER_KKM_INN = 1 AND [SEC_USER_KKM_INN] IS NULL) OR ([SEC_USER_KKM_INN] = @Original_SEC_USER_KKM_INN)) AND ([SEC_USER_TYPE_ID] = @Original_SEC_USER_TYPE_ID))";
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[SEC_USER] WHERE (([SEC_USER_ID] = @Original_SEC_USER_ID))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_SEC_USER_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SEC_USER_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_SEC_USER_LOGIN", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SEC_USER_LOGIN", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_SEC_USER_PASSWORD", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SEC_USER_PASSWORD", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_SEC_USER_PASSWORD", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SEC_USER_PASSWORD", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_SEC_USER_FIO", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SEC_USER_FIO", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_SEC_USER_BUILTIN", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SEC_USER_BUILTIN", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_SEC_USER_DISABLED", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SEC_USER_DISABLED", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_SEC_USER_DISABLED", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SEC_USER_DISABLED", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_SEC_USER_NO_CHECK", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SEC_USER_NO_CHECK", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_SEC_USER_NO_CHECK", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SEC_USER_NO_CHECK", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_WORK_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "WORK_ID", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_WORK_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "WORK_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_SEC_USER_KKM_PASSWORD", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SEC_USER_KKM_PASSWORD", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_SEC_USER_KKM_PASSWORD", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SEC_USER_KKM_PASSWORD", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_SEC_USER_PROCURATORY", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SEC_USER_PROCURATORY", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_SEC_USER_PROCURATORY", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SEC_USER_PROCURATORY", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_SEC_USER_KKM_LOGIN", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SEC_USER_KKM_LOGIN", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_SEC_USER_KKM_LOGIN", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SEC_USER_KKM_LOGIN", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_SEC_USER_KKM_INN", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SEC_USER_KKM_INN", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_SEC_USER_KKM_INN", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SEC_USER_KKM_INN", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_SEC_USER_TYPE_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SEC_USER_TYPE_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[SEC_USER] ([SEC_USER_ID], [SEC_USER_LOGIN], [SEC_USER_PASSWORD], [SEC_USER_FIO], [SEC_USER_BUILTIN], [SEC_USER_DISABLED], [SEC_USER_NO_CHECK], [WORK_ID], [SEC_USER_KKM_PASSWORD], [SEC_USER_PROCURATORY], [SEC_USER_KKM_LOGIN], [SEC_USER_KKM_INN], [SEC_USER_TYPE_ID]) VALUES (@SEC_USER_ID, @SEC_USER_LOGIN, @SEC_USER_PASSWORD, @SEC_USER_FIO, @SEC_USER_BUILTIN, @SEC_USER_DISABLED, @SEC_USER_NO_CHECK, @WORK_ID, @SEC_USER_KKM_PASSWORD, @SEC_USER_PROCURATORY, @SEC_USER_KKM_LOGIN, @SEC_USER_KKM_INN, @SEC_USER_TYPE_ID);
@@ -2402,32 +2362,8 @@ SELECT SEC_USER_ID, SEC_USER_LOGIN, SEC_USER_PASSWORD, SEC_USER_FIO, SEC_USER_BU
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SEC_USER_TYPE_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SEC_USER_TYPE_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[SEC_USER] SET [SEC_USER_ID] = @SEC_USER_ID, [SEC_USER_LOGIN] = @SEC" +
-                "_USER_LOGIN, [SEC_USER_PASSWORD] = @SEC_USER_PASSWORD, [SEC_USER_FIO] = @SEC_USE" +
-                "R_FIO, [SEC_USER_BUILTIN] = @SEC_USER_BUILTIN, [SEC_USER_DISABLED] = @SEC_USER_D" +
-                "ISABLED, [SEC_USER_NO_CHECK] = @SEC_USER_NO_CHECK, [WORK_ID] = @WORK_ID, [SEC_US" +
-                "ER_KKM_PASSWORD] = @SEC_USER_KKM_PASSWORD, [SEC_USER_PROCURATORY] = @SEC_USER_PR" +
-                "OCURATORY, [SEC_USER_KKM_LOGIN] = @SEC_USER_KKM_LOGIN, [SEC_USER_KKM_INN] = @SEC" +
-                "_USER_KKM_INN, [SEC_USER_TYPE_ID] = @SEC_USER_TYPE_ID WHERE (([SEC_USER_ID] = @O" +
-                "riginal_SEC_USER_ID) AND ([SEC_USER_LOGIN] = @Original_SEC_USER_LOGIN) AND ((@Is" +
-                "Null_SEC_USER_PASSWORD = 1 AND [SEC_USER_PASSWORD] IS NULL) OR ([SEC_USER_PASSWO" +
-                "RD] = @Original_SEC_USER_PASSWORD)) AND ([SEC_USER_FIO] = @Original_SEC_USER_FIO" +
-                ") AND ([SEC_USER_BUILTIN] = @Original_SEC_USER_BUILTIN) AND ((@IsNull_SEC_USER_D" +
-                "ISABLED = 1 AND [SEC_USER_DISABLED] IS NULL) OR ([SEC_USER_DISABLED] = @Original" +
-                "_SEC_USER_DISABLED)) AND ((@IsNull_SEC_USER_NO_CHECK = 1 AND [SEC_USER_NO_CHECK]" +
-                " IS NULL) OR ([SEC_USER_NO_CHECK] = @Original_SEC_USER_NO_CHECK)) AND ((@IsNull_" +
-                "WORK_ID = 1 AND [WORK_ID] IS NULL) OR ([WORK_ID] = @Original_WORK_ID)) AND ((@Is" +
-                "Null_SEC_USER_KKM_PASSWORD = 1 AND [SEC_USER_KKM_PASSWORD] IS NULL) OR ([SEC_USE" +
-                "R_KKM_PASSWORD] = @Original_SEC_USER_KKM_PASSWORD)) AND ((@IsNull_SEC_USER_PROCU" +
-                "RATORY = 1 AND [SEC_USER_PROCURATORY] IS NULL) OR ([SEC_USER_PROCURATORY] = @Ori" +
-                "ginal_SEC_USER_PROCURATORY)) AND ((@IsNull_SEC_USER_KKM_LOGIN = 1 AND [SEC_USER_" +
-                "KKM_LOGIN] IS NULL) OR ([SEC_USER_KKM_LOGIN] = @Original_SEC_USER_KKM_LOGIN)) AN" +
-                "D ((@IsNull_SEC_USER_KKM_INN = 1 AND [SEC_USER_KKM_INN] IS NULL) OR ([SEC_USER_K" +
-                "KM_INN] = @Original_SEC_USER_KKM_INN)) AND ([SEC_USER_TYPE_ID] = @Original_SEC_U" +
-                "SER_TYPE_ID));\r\nSELECT SEC_USER_ID, SEC_USER_LOGIN, SEC_USER_PASSWORD, SEC_USER_" +
-                "FIO, SEC_USER_BUILTIN, SEC_USER_DISABLED, SEC_USER_NO_CHECK, WORK_ID, SEC_USER_K" +
-                "KM_PASSWORD, SEC_USER_PROCURATORY, SEC_USER_KKM_LOGIN, SEC_USER_KKM_INN, SEC_USE" +
-                "R_TYPE_ID FROM SEC_USER WHERE (SEC_USER_ID = @SEC_USER_ID)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[SEC_USER] SET [SEC_USER_ID] = @SEC_USER_ID, [SEC_USER_LOGIN] = @SEC_USER_LOGIN, [SEC_USER_PASSWORD] = @SEC_USER_PASSWORD, [SEC_USER_FIO] = @SEC_USER_FIO, [SEC_USER_BUILTIN] = @SEC_USER_BUILTIN, [SEC_USER_DISABLED] = @SEC_USER_DISABLED, [SEC_USER_NO_CHECK] = @SEC_USER_NO_CHECK, [WORK_ID] = @WORK_ID, [SEC_USER_KKM_PASSWORD] = @SEC_USER_KKM_PASSWORD, [SEC_USER_PROCURATORY] = @SEC_USER_PROCURATORY, [SEC_USER_KKM_LOGIN] = @SEC_USER_KKM_LOGIN, [SEC_USER_KKM_INN] = @SEC_USER_KKM_INN, [SEC_USER_TYPE_ID] = @SEC_USER_TYPE_ID WHERE (([SEC_USER_ID] = @Original_SEC_USER_ID));
+SELECT SEC_USER_ID, SEC_USER_LOGIN, SEC_USER_PASSWORD, SEC_USER_FIO, SEC_USER_BUILTIN, SEC_USER_DISABLED, SEC_USER_NO_CHECK, WORK_ID, SEC_USER_KKM_PASSWORD, SEC_USER_PROCURATORY, SEC_USER_KKM_LOGIN, SEC_USER_KKM_INN, SEC_USER_TYPE_ID FROM SEC_USER WHERE (SEC_USER_ID = @SEC_USER_ID)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SEC_USER_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SEC_USER_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SEC_USER_LOGIN", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SEC_USER_LOGIN", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -2443,33 +2379,13 @@ SELECT SEC_USER_ID, SEC_USER_LOGIN, SEC_USER_PASSWORD, SEC_USER_FIO, SEC_USER_BU
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SEC_USER_KKM_INN", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SEC_USER_KKM_INN", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SEC_USER_TYPE_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SEC_USER_TYPE_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_SEC_USER_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SEC_USER_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_SEC_USER_LOGIN", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SEC_USER_LOGIN", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_SEC_USER_PASSWORD", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SEC_USER_PASSWORD", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_SEC_USER_PASSWORD", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SEC_USER_PASSWORD", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_SEC_USER_FIO", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SEC_USER_FIO", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_SEC_USER_BUILTIN", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SEC_USER_BUILTIN", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_SEC_USER_DISABLED", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SEC_USER_DISABLED", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_SEC_USER_DISABLED", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SEC_USER_DISABLED", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_SEC_USER_NO_CHECK", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SEC_USER_NO_CHECK", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_SEC_USER_NO_CHECK", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SEC_USER_NO_CHECK", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_WORK_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "WORK_ID", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_WORK_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "WORK_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_SEC_USER_KKM_PASSWORD", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SEC_USER_KKM_PASSWORD", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_SEC_USER_KKM_PASSWORD", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SEC_USER_KKM_PASSWORD", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_SEC_USER_PROCURATORY", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SEC_USER_PROCURATORY", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_SEC_USER_PROCURATORY", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SEC_USER_PROCURATORY", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_SEC_USER_KKM_LOGIN", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SEC_USER_KKM_LOGIN", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_SEC_USER_KKM_LOGIN", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SEC_USER_KKM_LOGIN", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_SEC_USER_KKM_INN", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SEC_USER_KKM_INN", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_SEC_USER_KKM_INN", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SEC_USER_KKM_INN", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_SEC_USER_TYPE_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SEC_USER_TYPE_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::ModelWorker.Properties.Settings.Default.clinic10ConnectionString;
+            this._connection.ConnectionString = global::Model.Properties.Settings.Default.clinic10ConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2542,86 +2458,8 @@ SELECT SEC_USER_ID, SEC_USER_LOGIN, SEC_USER_PASSWORD, SEC_USER_FIO, SEC_USER_BU
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_SEC_USER_ID, string Original_SEC_USER_LOGIN, string Original_SEC_USER_PASSWORD, string Original_SEC_USER_FIO, bool Original_SEC_USER_BUILTIN, global::System.Nullable<bool> Original_SEC_USER_DISABLED, global::System.Nullable<bool> Original_SEC_USER_NO_CHECK, global::System.Nullable<int> Original_WORK_ID, string Original_SEC_USER_KKM_PASSWORD, string Original_SEC_USER_PROCURATORY, string Original_SEC_USER_KKM_LOGIN, string Original_SEC_USER_KKM_INN, int Original_SEC_USER_TYPE_ID) {
+        public virtual int Delete(int Original_SEC_USER_ID) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_SEC_USER_ID));
-            if ((Original_SEC_USER_LOGIN == null)) {
-                throw new global::System.ArgumentNullException("Original_SEC_USER_LOGIN");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((string)(Original_SEC_USER_LOGIN));
-            }
-            if ((Original_SEC_USER_PASSWORD == null)) {
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[3].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((string)(Original_SEC_USER_PASSWORD));
-            }
-            if ((Original_SEC_USER_FIO == null)) {
-                throw new global::System.ArgumentNullException("Original_SEC_USER_FIO");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((string)(Original_SEC_USER_FIO));
-            }
-            this.Adapter.DeleteCommand.Parameters[5].Value = ((bool)(Original_SEC_USER_BUILTIN));
-            if ((Original_SEC_USER_DISABLED.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[6].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[7].Value = ((bool)(Original_SEC_USER_DISABLED.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[6].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[7].Value = global::System.DBNull.Value;
-            }
-            if ((Original_SEC_USER_NO_CHECK.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[8].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[9].Value = ((bool)(Original_SEC_USER_NO_CHECK.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[8].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[9].Value = global::System.DBNull.Value;
-            }
-            if ((Original_WORK_ID.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[10].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[11].Value = ((int)(Original_WORK_ID.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[10].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[11].Value = global::System.DBNull.Value;
-            }
-            if ((Original_SEC_USER_KKM_PASSWORD == null)) {
-                this.Adapter.DeleteCommand.Parameters[12].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[13].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[12].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[13].Value = ((string)(Original_SEC_USER_KKM_PASSWORD));
-            }
-            if ((Original_SEC_USER_PROCURATORY == null)) {
-                this.Adapter.DeleteCommand.Parameters[14].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[15].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[14].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[15].Value = ((string)(Original_SEC_USER_PROCURATORY));
-            }
-            if ((Original_SEC_USER_KKM_LOGIN == null)) {
-                this.Adapter.DeleteCommand.Parameters[16].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[17].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[16].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[17].Value = ((string)(Original_SEC_USER_KKM_LOGIN));
-            }
-            if ((Original_SEC_USER_KKM_INN == null)) {
-                this.Adapter.DeleteCommand.Parameters[18].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[19].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[18].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[19].Value = ((string)(Original_SEC_USER_KKM_INN));
-            }
-            this.Adapter.DeleteCommand.Parameters[20].Value = ((int)(Original_SEC_USER_TYPE_ID));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -2726,33 +2564,7 @@ SELECT SEC_USER_ID, SEC_USER_LOGIN, SEC_USER_PASSWORD, SEC_USER_FIO, SEC_USER_BU
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(
-                    int SEC_USER_ID, 
-                    string SEC_USER_LOGIN, 
-                    string SEC_USER_PASSWORD, 
-                    string SEC_USER_FIO, 
-                    bool SEC_USER_BUILTIN, 
-                    global::System.Nullable<bool> SEC_USER_DISABLED, 
-                    global::System.Nullable<bool> SEC_USER_NO_CHECK, 
-                    global::System.Nullable<int> WORK_ID, 
-                    string SEC_USER_KKM_PASSWORD, 
-                    string SEC_USER_PROCURATORY, 
-                    string SEC_USER_KKM_LOGIN, 
-                    string SEC_USER_KKM_INN, 
-                    int SEC_USER_TYPE_ID, 
-                    int Original_SEC_USER_ID, 
-                    string Original_SEC_USER_LOGIN, 
-                    string Original_SEC_USER_PASSWORD, 
-                    string Original_SEC_USER_FIO, 
-                    bool Original_SEC_USER_BUILTIN, 
-                    global::System.Nullable<bool> Original_SEC_USER_DISABLED, 
-                    global::System.Nullable<bool> Original_SEC_USER_NO_CHECK, 
-                    global::System.Nullable<int> Original_WORK_ID, 
-                    string Original_SEC_USER_KKM_PASSWORD, 
-                    string Original_SEC_USER_PROCURATORY, 
-                    string Original_SEC_USER_KKM_LOGIN, 
-                    string Original_SEC_USER_KKM_INN, 
-                    int Original_SEC_USER_TYPE_ID) {
+        public virtual int Update(int SEC_USER_ID, string SEC_USER_LOGIN, string SEC_USER_PASSWORD, string SEC_USER_FIO, bool SEC_USER_BUILTIN, global::System.Nullable<bool> SEC_USER_DISABLED, global::System.Nullable<bool> SEC_USER_NO_CHECK, global::System.Nullable<int> WORK_ID, string SEC_USER_KKM_PASSWORD, string SEC_USER_PROCURATORY, string SEC_USER_KKM_LOGIN, string SEC_USER_KKM_INN, int SEC_USER_TYPE_ID, int Original_SEC_USER_ID) {
             this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(SEC_USER_ID));
             if ((SEC_USER_LOGIN == null)) {
                 throw new global::System.ArgumentNullException("SEC_USER_LOGIN");
@@ -2817,84 +2629,6 @@ SELECT SEC_USER_ID, SEC_USER_LOGIN, SEC_USER_PASSWORD, SEC_USER_FIO, SEC_USER_BU
             }
             this.Adapter.UpdateCommand.Parameters[12].Value = ((int)(SEC_USER_TYPE_ID));
             this.Adapter.UpdateCommand.Parameters[13].Value = ((int)(Original_SEC_USER_ID));
-            if ((Original_SEC_USER_LOGIN == null)) {
-                throw new global::System.ArgumentNullException("Original_SEC_USER_LOGIN");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((string)(Original_SEC_USER_LOGIN));
-            }
-            if ((Original_SEC_USER_PASSWORD == null)) {
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[16].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((string)(Original_SEC_USER_PASSWORD));
-            }
-            if ((Original_SEC_USER_FIO == null)) {
-                throw new global::System.ArgumentNullException("Original_SEC_USER_FIO");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((string)(Original_SEC_USER_FIO));
-            }
-            this.Adapter.UpdateCommand.Parameters[18].Value = ((bool)(Original_SEC_USER_BUILTIN));
-            if ((Original_SEC_USER_DISABLED.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[20].Value = ((bool)(Original_SEC_USER_DISABLED.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[20].Value = global::System.DBNull.Value;
-            }
-            if ((Original_SEC_USER_NO_CHECK.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[21].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[22].Value = ((bool)(Original_SEC_USER_NO_CHECK.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[21].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[22].Value = global::System.DBNull.Value;
-            }
-            if ((Original_WORK_ID.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[23].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[24].Value = ((int)(Original_WORK_ID.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[23].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[24].Value = global::System.DBNull.Value;
-            }
-            if ((Original_SEC_USER_KKM_PASSWORD == null)) {
-                this.Adapter.UpdateCommand.Parameters[25].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[26].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[25].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[26].Value = ((string)(Original_SEC_USER_KKM_PASSWORD));
-            }
-            if ((Original_SEC_USER_PROCURATORY == null)) {
-                this.Adapter.UpdateCommand.Parameters[27].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[28].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[27].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[28].Value = ((string)(Original_SEC_USER_PROCURATORY));
-            }
-            if ((Original_SEC_USER_KKM_LOGIN == null)) {
-                this.Adapter.UpdateCommand.Parameters[29].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[30].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[29].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[30].Value = ((string)(Original_SEC_USER_KKM_LOGIN));
-            }
-            if ((Original_SEC_USER_KKM_INN == null)) {
-                this.Adapter.UpdateCommand.Parameters[31].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[32].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[31].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[32].Value = ((string)(Original_SEC_USER_KKM_INN));
-            }
-            this.Adapter.UpdateCommand.Parameters[33].Value = ((int)(Original_SEC_USER_TYPE_ID));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -2915,33 +2649,8 @@ SELECT SEC_USER_ID, SEC_USER_LOGIN, SEC_USER_PASSWORD, SEC_USER_FIO, SEC_USER_BU
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(
-                    string SEC_USER_LOGIN, 
-                    string SEC_USER_PASSWORD, 
-                    string SEC_USER_FIO, 
-                    bool SEC_USER_BUILTIN, 
-                    global::System.Nullable<bool> SEC_USER_DISABLED, 
-                    global::System.Nullable<bool> SEC_USER_NO_CHECK, 
-                    global::System.Nullable<int> WORK_ID, 
-                    string SEC_USER_KKM_PASSWORD, 
-                    string SEC_USER_PROCURATORY, 
-                    string SEC_USER_KKM_LOGIN, 
-                    string SEC_USER_KKM_INN, 
-                    int SEC_USER_TYPE_ID, 
-                    int Original_SEC_USER_ID, 
-                    string Original_SEC_USER_LOGIN, 
-                    string Original_SEC_USER_PASSWORD, 
-                    string Original_SEC_USER_FIO, 
-                    bool Original_SEC_USER_BUILTIN, 
-                    global::System.Nullable<bool> Original_SEC_USER_DISABLED, 
-                    global::System.Nullable<bool> Original_SEC_USER_NO_CHECK, 
-                    global::System.Nullable<int> Original_WORK_ID, 
-                    string Original_SEC_USER_KKM_PASSWORD, 
-                    string Original_SEC_USER_PROCURATORY, 
-                    string Original_SEC_USER_KKM_LOGIN, 
-                    string Original_SEC_USER_KKM_INN, 
-                    int Original_SEC_USER_TYPE_ID) {
-            return this.Update(Original_SEC_USER_ID, SEC_USER_LOGIN, SEC_USER_PASSWORD, SEC_USER_FIO, SEC_USER_BUILTIN, SEC_USER_DISABLED, SEC_USER_NO_CHECK, WORK_ID, SEC_USER_KKM_PASSWORD, SEC_USER_PROCURATORY, SEC_USER_KKM_LOGIN, SEC_USER_KKM_INN, SEC_USER_TYPE_ID, Original_SEC_USER_ID, Original_SEC_USER_LOGIN, Original_SEC_USER_PASSWORD, Original_SEC_USER_FIO, Original_SEC_USER_BUILTIN, Original_SEC_USER_DISABLED, Original_SEC_USER_NO_CHECK, Original_WORK_ID, Original_SEC_USER_KKM_PASSWORD, Original_SEC_USER_PROCURATORY, Original_SEC_USER_KKM_LOGIN, Original_SEC_USER_KKM_INN, Original_SEC_USER_TYPE_ID);
+        public virtual int Update(string SEC_USER_LOGIN, string SEC_USER_PASSWORD, string SEC_USER_FIO, bool SEC_USER_BUILTIN, global::System.Nullable<bool> SEC_USER_DISABLED, global::System.Nullable<bool> SEC_USER_NO_CHECK, global::System.Nullable<int> WORK_ID, string SEC_USER_KKM_PASSWORD, string SEC_USER_PROCURATORY, string SEC_USER_KKM_LOGIN, string SEC_USER_KKM_INN, int SEC_USER_TYPE_ID, int Original_SEC_USER_ID) {
+            return this.Update(Original_SEC_USER_ID, SEC_USER_LOGIN, SEC_USER_PASSWORD, SEC_USER_FIO, SEC_USER_BUILTIN, SEC_USER_DISABLED, SEC_USER_NO_CHECK, WORK_ID, SEC_USER_KKM_PASSWORD, SEC_USER_PROCURATORY, SEC_USER_KKM_LOGIN, SEC_USER_KKM_INN, SEC_USER_TYPE_ID, Original_SEC_USER_ID);
         }
     }
     
@@ -3099,7 +2808,7 @@ SELECT SEC_ROLE_ID, SEC_USER_ID FROM SEC_USER_ROLE WHERE (SEC_ROLE_ID = @SEC_ROL
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::ModelWorker.Properties.Settings.Default.clinic10ConnectionString;
+            this._connection.ConnectionString = global::Model.Properties.Settings.Default.clinic10ConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

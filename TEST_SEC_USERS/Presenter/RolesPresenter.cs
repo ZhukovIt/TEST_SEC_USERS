@@ -3,13 +3,21 @@ using Model;
 using Model.dtsSecUsersTableAdapters;
 using System;
 using System.Windows.Forms;
+using System.Data;
+using System.Linq;
+using System.Collections;
+using System.Collections.Generic;
+using TEST_SEC_USERS.Extensions;
 
 namespace TEST_SEC_USERS.Presenter
 {
     public class RolesPresenter : AbstractPresenter
     {
+        private readonly List<string> m_RemovedRowsId;
+
         public RolesPresenter(Roles view, Model.ModelWorker model) : base(view, model)
         {
+            m_RemovedRowsId = new List<string>();
             m_dtsSec = view.DTS_SEC_USERS;
             m_taSec = view.TA_SEC_USERS;
             view.SetPresenter(this);
@@ -22,6 +30,8 @@ namespace TEST_SEC_USERS.Presenter
             m_dtsSecRole.SEC_ROLE.Clear();
             m_taSecRole.Fill(m_dtsSecRole.SEC_ROLE);
         }
+
+        
 
         // Методы-обработчики для формы Roles..................
         internal void btnAddNewRole_Click(object sender, EventArgs e)
@@ -41,15 +51,23 @@ namespace TEST_SEC_USERS.Presenter
 
         internal void btnRemoveRole_Click(object sender, EventArgs e)
         {
-            BindingSource bs = ((Roles)m_view).BS_SEC_ROLE;
-            if (bs.Current != null)
-            {
-                bs.RemoveCurrent();
-            }
+            var selectedRows = ((Roles)m_view).DGV_SEC_ROLE.SelectedRows;
+            selectedRows.StrikeSelectedRowsExtensions(m_RemovedRowsId);
         }
 
-        internal void btnRefreshRole_Click(object sender, EventArgs e)
+        internal void btnSaveChanges_Click(object sender, EventArgs e)
         {
+            BindingSource bs = ((Roles)m_view).BS_SEC_ROLE;
+            var m_dtsSecRole = (dtsSecUsers)m_dtsSec;
+            var m_taSecRole = (SEC_ROLETableAdapter)m_taSec;
+            foreach (DataRowView element in bs.List)
+            {
+                if (m_RemovedRowsId.Contains(element.Row.Field<string>("SEC_ROLE_NAME")))
+                {
+                    bs.Remove(element);
+                }
+            }
+            m_taSecRole.Update(m_dtsSecRole.SEC_ROLE);
             LoadDataSource();
         }
 

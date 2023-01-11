@@ -31,12 +31,13 @@ namespace TEST_SEC_USERS.GUI
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Roles));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.ts_btn_Role = new System.Windows.Forms.ToolStrip();
             this.btnAddNewRole = new System.Windows.Forms.ToolStripButton();
             this.btnCopyRole = new System.Windows.Forms.ToolStripButton();
             this.btnEditRole = new System.Windows.Forms.ToolStripButton();
             this.btnRemoveRole = new System.Windows.Forms.ToolStripButton();
-            this.btnRefreshRoles = new System.Windows.Forms.ToolStripButton();
+            this.btnSaveChanges = new System.Windows.Forms.ToolStripButton();
             this.ButtonsToFinderSeparator = new System.Windows.Forms.ToolStripSeparator();
             this.lblFinder = new System.Windows.Forms.ToolStripLabel();
             this.tbox_Roles = new System.Windows.Forms.ToolStripTextBox();
@@ -60,7 +61,7 @@ namespace TEST_SEC_USERS.GUI
             this.btnCopyRole,
             this.btnEditRole,
             this.btnRemoveRole,
-            this.btnRefreshRoles,
+            this.btnSaveChanges,
             this.ButtonsToFinderSeparator,
             this.lblFinder,
             this.tbox_Roles,
@@ -107,14 +108,14 @@ namespace TEST_SEC_USERS.GUI
             this.btnRemoveRole.Size = new System.Drawing.Size(36, 36);
             this.btnRemoveRole.Text = "Удаление роли";
             // 
-            // btnRefreshRoles
+            // btnSaveChanges
             // 
-            this.btnRefreshRoles.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnRefreshRoles.Image = ((System.Drawing.Image)(resources.GetObject("btnRefreshRoles.Image")));
-            this.btnRefreshRoles.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnRefreshRoles.Name = "btnRefreshRoles";
-            this.btnRefreshRoles.Size = new System.Drawing.Size(36, 36);
-            this.btnRefreshRoles.Text = "Обновление ролей";
+            this.btnSaveChanges.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnSaveChanges.Image = global::TEST_SEC_USERS.Properties.Resources.saveButton1;
+            this.btnSaveChanges.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnSaveChanges.Name = "btnSaveChanges";
+            this.btnSaveChanges.Size = new System.Drawing.Size(36, 36);
+            this.btnSaveChanges.Text = "Сохранение всех изменений";
             // 
             // ButtonsToFinderSeparator
             // 
@@ -154,6 +155,9 @@ namespace TEST_SEC_USERS.GUI
             this.dgv_SEC_ROLE.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgv_SEC_ROLE.Location = new System.Drawing.Point(0, 39);
             this.dgv_SEC_ROLE.Name = "dgv_SEC_ROLE";
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.dgv_SEC_ROLE.RowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgv_SEC_ROLE.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_SEC_ROLE.Size = new System.Drawing.Size(571, 333);
             this.dgv_SEC_ROLE.TabIndex = 1;
             // 
@@ -203,7 +207,7 @@ namespace TEST_SEC_USERS.GUI
 
         private System.Windows.Forms.ToolStrip ts_btn_Role;
         private System.Windows.Forms.ToolStripButton btnAddNewRole;
-        private System.Windows.Forms.ToolStripButton btnRefreshRoles;
+        private System.Windows.Forms.ToolStripButton btnSaveChanges;
         private System.Windows.Forms.ToolStripButton btnRemoveRole;
         private System.Windows.Forms.ToolStripSeparator ButtonsToFinderSeparator;
         private System.Windows.Forms.BindingSource bsSEC_ROLE;

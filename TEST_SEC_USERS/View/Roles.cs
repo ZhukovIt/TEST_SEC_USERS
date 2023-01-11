@@ -59,6 +59,14 @@ namespace TEST_SEC_USERS.GUI
             }
         }
 
+        internal DataGridView DGV_SEC_ROLE
+        {
+            get
+            {
+                return dgv_SEC_ROLE;
+            }
+        }
+
         private void Roles_Load(object sender, EventArgs e)
         {
             m_presenter.LoadDataSource();
@@ -70,7 +78,7 @@ namespace TEST_SEC_USERS.GUI
             btnCopyRole.Click += new EventHandler(m_presenter.btnCopyRole_Click);
             btnEditRole.Click += new EventHandler(m_presenter.btnEditRole_Click);
             btnRemoveRole.Click += new EventHandler(m_presenter.btnRemoveRole_Click);
-            btnRefreshRoles.Click += new EventHandler(m_presenter.btnRefreshRole_Click);
+            btnSaveChanges.Click += new EventHandler(m_presenter.btnSaveChanges_Click);
             btnClearFinderRoles.Click += new EventHandler(m_presenter.btnClearFinderRoles_Click);
             tbox_Roles.TextChanged += new EventHandler(m_presenter.tbox_Roles_TextChanged);
         }

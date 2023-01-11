@@ -103,9 +103,9 @@ namespace TEST_SEC_USERS.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap refreshButton {
+        internal static System.Drawing.Bitmap removeButton {
             get {
-                object obj = ResourceManager.GetObject("refreshButton", resourceCulture);
+                object obj = ResourceManager.GetObject("removeButton", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -113,9 +113,19 @@ namespace TEST_SEC_USERS.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap removeButton {
+        internal static System.Drawing.Bitmap saveButton {
             get {
-                object obj = ResourceManager.GetObject("removeButton", resourceCulture);
+                object obj = ResourceManager.GetObject("saveButton", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap saveButton1 {
+            get {
+                object obj = ResourceManager.GetObject("saveButton1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
