@@ -9,7 +9,7 @@
 //------------------------------------------------------------------------------
 
 
-namespace SECURITY_USERS.Properties
+namespace SECURITY_USERS_GUI.Properties
 {
     /// <summary>
     ///   Класс ресурсов со строгим типом для поиска локализованных строк и пр.

@@ -7,14 +7,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using SECURITY_USERS;
 
-namespace SECURITY_USERS
+namespace SECURITY_USERS_GUI
 {
-    public partial class Form1 : Form
+    public partial class Users : Form
     {
-        public Form1()
+        public Users()
         {
             InitializeComponent();
+            new FillDB().LoadData();
         }
     }
 }

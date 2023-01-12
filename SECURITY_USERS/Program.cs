@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace SECURITY_USERS
+namespace SECURITY_USERS_GUI
 {
     static class Program
     {
@@ -16,7 +16,7 @@ namespace SECURITY_USERS
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new Users());
         }
     }
 }
