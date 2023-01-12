@@ -2502,7 +2502,7 @@ SELECT SEC_ROLE_ID, SEC_ROLE_NAME, SEC_ROLE_BUILTIN FROM SEC_ROLE WHERE (SEC_ROL
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::SECURITY_USERS.Properties.Settings.Default.clinic10ConnectionString;
+            this._connection.ConnectionString = global::SECURITY_USE.Properties.Settings.Default.clinic10ConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2842,13 +2842,13 @@ SELECT SEC_USER_ID, SEC_USER_LOGIN, SEC_USER_PASSWORD, SEC_USER_FIO, SEC_USER_BU
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::SECURITY_USERS.Properties.Settings.Default.clinic10ConnectionString;
+            this._connection.ConnectionString = global::SECURITY_USE.Properties.Settings.Default.clinic10ConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[3];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = @"SELECT SEC_USER_ID, SEC_USER_LOGIN, SEC_USER_PASSWORD, SEC_USER_FIO, SEC_USER_BUILTIN, SEC_USER_DISABLED, SEC_USER_NO_CHECK, WORK_ID, SEC_USER_KKM_PASSWORD, SEC_USER_PROCURATORY, SEC_USER_KKM_LOGIN, SEC_USER_KKM_INN, SEC_USER_TYPE_ID, dbo.GetRoles(SEC_USER_ID) AS SEC_ROLES
@@ -2858,6 +2858,25 @@ FROM dbo.SEC_USER";
             this._commandCollection[1].Connection = this.Connection;
             this._commandCollection[1].CommandText = "SELECT MAX(SEC_USER_ID) FROM SEC_USER";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[2].Connection = this.Connection;
+            this._commandCollection[2].CommandText = @"INSERT INTO [dbo].[SEC_USER] (
+[SEC_USER_ID], [SEC_USER_LOGIN], [SEC_USER_FIO], [SEC_USER_BUILTIN], [SEC_USER_DISABLED], [SEC_USER_NO_CHECK], [SEC_USER_TYPE_ID]) 
+VALUES (
+(SELECT MAX(SEC_USER_ID) FROM SEC_USER) + 1,
+@SEC_USER_LOGIN, 
+@SEC_USER_FIO, 
+@SEC_USER_BUILTIN, 
+@SEC_USER_DISABLED, 
+@SEC_USER_NO_CHECK, 
+@SEC_USER_TYPE_ID);";
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SEC_USER_LOGIN", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "SEC_USER_LOGIN", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SEC_USER_FIO", global::System.Data.SqlDbType.VarChar, 150, global::System.Data.ParameterDirection.Input, 0, 0, "SEC_USER_FIO", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SEC_USER_BUILTIN", global::System.Data.SqlDbType.Bit, 1, global::System.Data.ParameterDirection.Input, 0, 0, "SEC_USER_BUILTIN", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SEC_USER_DISABLED", global::System.Data.SqlDbType.Bit, 1, global::System.Data.ParameterDirection.Input, 0, 0, "SEC_USER_DISABLED", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SEC_USER_NO_CHECK", global::System.Data.SqlDbType.Bit, 1, global::System.Data.ParameterDirection.Input, 0, 0, "SEC_USER_NO_CHECK", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SEC_USER_TYPE_ID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "SEC_USER_TYPE_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3139,6 +3158,55 @@ FROM dbo.SEC_USER";
                 return new global::System.Nullable<int>(((int)(returnValue)));
             }
         }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
+        public virtual int InsertQuery(string SEC_USER_LOGIN, string SEC_USER_FIO, bool SEC_USER_BUILTIN, global::System.Nullable<bool> SEC_USER_DISABLED, global::System.Nullable<bool> SEC_USER_NO_CHECK, int SEC_USER_TYPE_ID) {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[2];
+            if ((SEC_USER_LOGIN == null)) {
+                throw new global::System.ArgumentNullException("SEC_USER_LOGIN");
+            }
+            else {
+                command.Parameters[0].Value = ((string)(SEC_USER_LOGIN));
+            }
+            if ((SEC_USER_FIO == null)) {
+                throw new global::System.ArgumentNullException("SEC_USER_FIO");
+            }
+            else {
+                command.Parameters[1].Value = ((string)(SEC_USER_FIO));
+            }
+            command.Parameters[2].Value = ((bool)(SEC_USER_BUILTIN));
+            if ((SEC_USER_DISABLED.HasValue == true)) {
+                command.Parameters[3].Value = ((bool)(SEC_USER_DISABLED.Value));
+            }
+            else {
+                command.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            if ((SEC_USER_NO_CHECK.HasValue == true)) {
+                command.Parameters[4].Value = ((bool)(SEC_USER_NO_CHECK.Value));
+            }
+            else {
+                command.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            command.Parameters[5].Value = ((int)(SEC_USER_TYPE_ID));
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            int returnValue;
+            try {
+                returnValue = command.ExecuteNonQuery();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            return returnValue;
+        }
     }
     
     /// <summary>
@@ -3295,7 +3363,7 @@ SELECT SEC_ROLE_ID, SEC_USER_ID FROM SEC_USER_ROLE WHERE (SEC_ROLE_ID = @SEC_ROL
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::SECURITY_USERS.Properties.Settings.Default.clinic10ConnectionString;
+            this._connection.ConnectionString = global::SECURITY_USE.Properties.Settings.Default.clinic10ConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3595,7 +3663,7 @@ SELECT SEC_USER_TYPE_ID, SEC_USER_TYPE_NAME FROM SEC_USER_TYPE WHERE (SEC_USER_T
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::SECURITY_USERS.Properties.Settings.Default.clinic10ConnectionString;
+            this._connection.ConnectionString = global::SECURITY_USE.Properties.Settings.Default.clinic10ConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

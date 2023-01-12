@@ -15,7 +15,7 @@ namespace SECURITY_USERS
         public UserForm()
         {
             InitializeComponent();
-            MessageBox.Show(new WorkerDB(dts_SEC_USERS).GetMaxUserIdFor_SEC_USER().ToString());
+            new WorkerDB(dts_SEC_USERS).InsertUser(params??????);
         }
     }
 }
