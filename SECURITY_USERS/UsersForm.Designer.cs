@@ -31,6 +31,9 @@ namespace SECURITY_USERS_GUI
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UsersForm));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.ts_HeaderButtons = new System.Windows.Forms.ToolStrip();
             this.btn_AddNewUser = new System.Windows.Forms.ToolStripButton();
             this.btn_AddNewUserWithCopy = new System.Windows.Forms.ToolStripButton();
@@ -41,16 +44,19 @@ namespace SECURITY_USERS_GUI
             this.txtBox_FinderField = new System.Windows.Forms.ToolStripTextBox();
             this.btn_ClearFinder = new System.Windows.Forms.ToolStripButton();
             this.dgv_SEC_USERS = new System.Windows.Forms.DataGridView();
+            this.bs_SEC_USER_TYPE = new System.Windows.Forms.BindingSource(this.components);
+            this.dts_SEC_USERS = new SECURITY_USERS_GUI.dtsSEC_USERS();
             this.bs_SEC_USER = new System.Windows.Forms.BindingSource(this.components);
-            this.dts_SEC_USERS = new SECURITY_USERS.dtsSEC_USERS();
             this.sECUSERFIODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sECUSERLOGINDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SEC_USER_TYPE = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.SEC_ROLES = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sECUSERDISABLEDDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.ts_HeaderButtons.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_SEC_USERS)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bs_SEC_USER)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bs_SEC_USER_TYPE)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dts_SEC_USERS)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bs_SEC_USER)).BeginInit();
             this.SuspendLayout();
             // 
             // ts_HeaderButtons
@@ -67,7 +73,7 @@ namespace SECURITY_USERS_GUI
             this.btn_ClearFinder});
             this.ts_HeaderButtons.Location = new System.Drawing.Point(0, 0);
             this.ts_HeaderButtons.Name = "ts_HeaderButtons";
-            this.ts_HeaderButtons.Size = new System.Drawing.Size(913, 39);
+            this.ts_HeaderButtons.Size = new System.Drawing.Size(1057, 39);
             this.ts_HeaderButtons.TabIndex = 0;
             this.ts_HeaderButtons.Text = "toolStrip1";
             // 
@@ -138,76 +144,123 @@ namespace SECURITY_USERS_GUI
             // dgv_SEC_USERS
             // 
             this.dgv_SEC_USERS.AllowUserToAddRows = false;
+            this.dgv_SEC_USERS.AllowUserToDeleteRows = false;
             this.dgv_SEC_USERS.AllowUserToResizeRows = false;
             this.dgv_SEC_USERS.AutoGenerateColumns = false;
-            this.dgv_SEC_USERS.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            this.dgv_SEC_USERS.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgv_SEC_USERS.ColumnHeadersHeight = 31;
+            this.dgv_SEC_USERS.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgv_SEC_USERS.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.sECUSERFIODataGridViewTextBoxColumn,
             this.sECUSERLOGINDataGridViewTextBoxColumn,
             this.SEC_USER_TYPE,
+            this.SEC_ROLES,
             this.sECUSERDISABLEDDataGridViewCheckBoxColumn});
             this.dgv_SEC_USERS.DataSource = this.bs_SEC_USER;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_SEC_USERS.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgv_SEC_USERS.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgv_SEC_USERS.Location = new System.Drawing.Point(0, 39);
             this.dgv_SEC_USERS.Name = "dgv_SEC_USERS";
             this.dgv_SEC_USERS.ReadOnly = true;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            this.dgv_SEC_USERS.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgv_SEC_USERS.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_SEC_USERS.Size = new System.Drawing.Size(913, 326);
+            this.dgv_SEC_USERS.Size = new System.Drawing.Size(1057, 523);
             this.dgv_SEC_USERS.TabIndex = 1;
             // 
-            // bs_SEC_USER
+            // bs_SEC_USER_TYPE
             // 
-            this.bs_SEC_USER.DataMember = "SEC_USER";
-            this.bs_SEC_USER.DataSource = this.dts_SEC_USERS;
+            this.bs_SEC_USER_TYPE.DataMember = "SEC_USER_TYPE";
+            this.bs_SEC_USER_TYPE.DataSource = this.dts_SEC_USERS;
             // 
             // dts_SEC_USERS
             // 
             this.dts_SEC_USERS.DataSetName = "dtsSEC_USERS";
             this.dts_SEC_USERS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
+            // bs_SEC_USER
+            // 
+            this.bs_SEC_USER.DataMember = "SEC_USER";
+            this.bs_SEC_USER.DataSource = this.dts_SEC_USERS;
+            // 
             // sECUSERFIODataGridViewTextBoxColumn
             // 
             this.sECUSERFIODataGridViewTextBoxColumn.DataPropertyName = "SEC_USER_FIO";
             this.sECUSERFIODataGridViewTextBoxColumn.HeaderText = "Фамилия Имя Отчество";
             this.sECUSERFIODataGridViewTextBoxColumn.Name = "sECUSERFIODataGridViewTextBoxColumn";
-            this.sECUSERFIODataGridViewTextBoxColumn.Width = 250;
+            this.sECUSERFIODataGridViewTextBoxColumn.ReadOnly = true;
+            this.sECUSERFIODataGridViewTextBoxColumn.Width = 200;
             // 
             // sECUSERLOGINDataGridViewTextBoxColumn
             // 
             this.sECUSERLOGINDataGridViewTextBoxColumn.DataPropertyName = "SEC_USER_LOGIN";
             this.sECUSERLOGINDataGridViewTextBoxColumn.HeaderText = "Логин";
             this.sECUSERLOGINDataGridViewTextBoxColumn.Name = "sECUSERLOGINDataGridViewTextBoxColumn";
-            this.sECUSERLOGINDataGridViewTextBoxColumn.Width = 250;
+            this.sECUSERLOGINDataGridViewTextBoxColumn.ReadOnly = true;
+            this.sECUSERLOGINDataGridViewTextBoxColumn.Width = 150;
             // 
             // SEC_USER_TYPE
             // 
-            this.SEC_USER_TYPE.DataSource = this.bs_SEC_USER;
+            this.SEC_USER_TYPE.DataPropertyName = "SEC_USER_TYPE_ID";
+            this.SEC_USER_TYPE.DataSource = this.bs_SEC_USER_TYPE;
+            this.SEC_USER_TYPE.DisplayMember = "SEC_USER_TYPE_NAME";
+            this.SEC_USER_TYPE.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
             this.SEC_USER_TYPE.HeaderText = "Тип пользователя";
             this.SEC_USER_TYPE.Name = "SEC_USER_TYPE";
+            this.SEC_USER_TYPE.ReadOnly = true;
+            this.SEC_USER_TYPE.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.SEC_USER_TYPE.ValueMember = "SEC_USER_TYPE_ID";
-            this.SEC_USER_TYPE.Width = 200;
+            this.SEC_USER_TYPE.Width = 120;
+            // 
+            // SEC_ROLES
+            // 
+            this.SEC_ROLES.DataPropertyName = "SEC_ROLES";
+            this.SEC_ROLES.HeaderText = "Роли";
+            this.SEC_ROLES.Name = "SEC_ROLES";
+            this.SEC_ROLES.ReadOnly = true;
+            this.SEC_ROLES.Width = 300;
             // 
             // sECUSERDISABLEDDataGridViewCheckBoxColumn
             // 
             this.sECUSERDISABLEDDataGridViewCheckBoxColumn.DataPropertyName = "SEC_USER_DISABLED";
             this.sECUSERDISABLEDDataGridViewCheckBoxColumn.HeaderText = "Заблокирован";
             this.sECUSERDISABLEDDataGridViewCheckBoxColumn.Name = "sECUSERDISABLEDDataGridViewCheckBoxColumn";
+            this.sECUSERDISABLEDDataGridViewCheckBoxColumn.ReadOnly = true;
             // 
-            // Users
+            // UsersForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(913, 365);
+            this.ClientSize = new System.Drawing.Size(1057, 562);
             this.Controls.Add(this.dgv_SEC_USERS);
             this.Controls.Add(this.ts_HeaderButtons);
-            this.Name = "Users";
+            this.Name = "UsersForm";
             this.Text = "Пользователи";
             this.ts_HeaderButtons.ResumeLayout(false);
             this.ts_HeaderButtons.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_SEC_USERS)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bs_SEC_USER)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bs_SEC_USER_TYPE)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dts_SEC_USERS)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bs_SEC_USER)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -217,7 +270,8 @@ namespace SECURITY_USERS_GUI
 
         private System.Windows.Forms.ToolStrip ts_HeaderButtons;
         private System.Windows.Forms.BindingSource bs_SEC_USER;
-        private SECURITY_USERS.dtsSEC_USERS dts_SEC_USERS;
+        private System.Windows.Forms.BindingSource bs_SEC_USER_TYPE;
+        private SECURITY_USERS_GUI.dtsSEC_USERS dts_SEC_USERS;
         private System.Windows.Forms.DataGridView dgv_SEC_USERS;
         private System.Windows.Forms.ToolStripButton btn_AddNewUser;
         private System.Windows.Forms.ToolStripButton btn_AddNewUserWithCopy;
@@ -230,6 +284,7 @@ namespace SECURITY_USERS_GUI
         private System.Windows.Forms.DataGridViewTextBoxColumn sECUSERFIODataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn sECUSERLOGINDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewComboBoxColumn SEC_USER_TYPE;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SEC_ROLES;
         private System.Windows.Forms.DataGridViewCheckBoxColumn sECUSERDISABLEDDataGridViewCheckBoxColumn;
     }
 }

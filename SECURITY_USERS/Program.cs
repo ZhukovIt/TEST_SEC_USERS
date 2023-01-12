@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SECURITY_USERS;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,7 +17,7 @@ namespace SECURITY_USERS_GUI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new UsersForm());
+            Application.Run(new UserForm());
         }
     }
 }

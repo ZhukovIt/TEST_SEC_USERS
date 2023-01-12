@@ -7,16 +7,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using SECURITY_USERS;
 
-namespace SECURITY_USERS_GUI
+namespace SECURITY_USERS
 {
-    public partial class UsersForm : Form
+    public partial class UserForm : Form
     {
-        public UsersForm()
+        public UserForm()
         {
             InitializeComponent();
-            new FillDB(dts_SEC_USERS).LoadData();
+            MessageBox.Show(new WorkerDB(dts_SEC_USERS).GetMaxUserIdFor_SEC_USER().ToString());
         }
     }
 }
