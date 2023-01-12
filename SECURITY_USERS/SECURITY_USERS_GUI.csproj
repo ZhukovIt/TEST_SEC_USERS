@@ -46,16 +46,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Users.cs">
+    <Compile Include="UsersFrom.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Users.Designer.cs">
-      <DependentUpon>Users.cs</DependentUpon>
+    <Compile Include="UsersFrom.Designer.cs">
+      <DependentUpon>UsersFrom.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Users.resx">
-      <DependentUpon>Users.cs</DependentUpon>
+    <EmbeddedResource Include="UsersFrom.resx">
+      <DependentUpon>UsersFrom.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -65,7 +65,9 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="Properties\DataSources\dtsSEC_USERS.datasource" />
     <None Include="Properties\DataSources\SECURITY_USERS_GUI.dtsSEC_USERS.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -85,6 +87,18 @@
       <Project>{88590f08-4e0f-4671-a77e-aabdb43ae422}</Project>
       <Name>SECURITY_USERS</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\addButton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\copyButton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\editButton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\removeButton.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

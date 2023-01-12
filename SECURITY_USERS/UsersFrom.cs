@@ -11,12 +11,12 @@ using SECURITY_USERS;
 
 namespace SECURITY_USERS_GUI
 {
-    public partial class Users : Form
+    public partial class UsersForm : Form
     {
-        public Users()
+        public UsersForm()
         {
             InitializeComponent();
-            new FillDB().LoadData();
+            new FillDB(dts_SEC_USERS).LoadData();
         }
     }
 }

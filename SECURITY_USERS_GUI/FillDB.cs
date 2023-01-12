@@ -12,9 +12,9 @@ namespace SECURITY_USERS
     {
         private dtsSEC_USERS m_dtsSEC_USERS;
 
-        public FillDB()
+        public FillDB(dtsSEC_USERS dts_SEC_USERS)
         {
-            m_dtsSEC_USERS = new dtsSEC_USERS();
+            m_dtsSEC_USERS = dts_SEC_USERS;
         }
 
         public void LoadData()
