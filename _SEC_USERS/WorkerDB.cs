@@ -100,5 +100,22 @@ namespace _SEC_USERS
         {
             TA_SEC_USER.InsertNewUser(TryGetMaxIdAndIncrementHis(), login, fio, builtIn, isDisabled, no_check, typeId);
         }
+
+        public void UpdateUser(int id, string login, string fio, bool builtIn, bool isDisabled, bool no_check, int typeId)
+        {
+            string loginDB = TA_SEC_USER.CheckLoginUserFromHisId(id);
+            if (TA_SEC_USER.CheckExistsIdFromSEC_USER(id) == 0 && login != loginDB)
+            {
+                TA_SEC_USER.UpdateUser(login, fio, builtIn, isDisabled, no_check, typeId, id);
+            }
+        }
+
+        public void DeleteUsers(IEnumerable<int> idsUsers)
+        {
+            foreach (int userId in idsUsers)
+            {
+                TA_SEC_USER.DeleteUserFromId(userId);
+            }
+        }
     }
 }
