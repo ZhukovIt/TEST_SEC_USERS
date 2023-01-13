@@ -1,4 +1,5 @@
-﻿using System;
+﻿using _SEC_USERS;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,10 +13,35 @@ namespace _SEC_USERS_GUI
 {
     public partial class UserForm : Form
     {
+        private FormState m_State;
+        private WorkerDB m_WorkerDB;
+
+        public WorkerDB GetWorkerDB
+        {
+            get
+            {
+                return m_WorkerDB;
+            }
+        }
+
         public UserForm()
         {
             InitializeComponent();
-            //new WorkerDB(dts_SEC_USERS).InsertUser();
+            m_WorkerDB = new WorkerDB(dts_SEC_USERS);
+        }
+
+        public UserForm(FormState state) : this()
+        {
+            m_State = state;
+            StateRequest();
+        }
+
+        internal void StateRequest()
+        {
+            if (!m_State.TryExecute(this))
+            {
+                MessageBox.Show(m_State.ExceptionMessage);
+            }
         }
     }
 }

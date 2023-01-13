@@ -13,10 +13,32 @@ namespace _SEC_USERS_GUI
 {
     public partial class UsersForm : Form
     {
+        private WorkerDB m_WorkerDB;
+
         public UsersForm()
         {
             InitializeComponent();
-            new WorkerDB(dts_SEC_USERS).LoadData();
+            m_WorkerDB = new WorkerDB(dts_SEC_USERS);
+            m_WorkerDB.LoadData();
+        }
+
+        // Для добавления новых условий фильтра в данный метод, достаточно
+        // добавить проверяемый атрибут(столбец) в список items
+        private void txtBox_TextChanged(object sender, EventArgs e)
+        {
+            string enterText = ((ToolStripTextBox)sender).Text;
+            List<string> items = new List<string>
+            {
+                "SEC_USER_LOGIN",
+                "SEC_USER_FIO"
+            };
+            bs_SEC_USERS.Filter = items.JoinConditionsExtensions($" LIKE '%{enterText}%'", " OR ");
+        }
+
+        private void btn_ClearFinder_Click(object sender, EventArgs e)
+        {
+            txtBox_FinderField.Text = "";
+            txtBox_FinderField.Focus();
         }
     }
 }

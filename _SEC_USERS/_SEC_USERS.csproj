@@ -43,11 +43,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConnectionSingleton.cs" />
+    <Compile Include="dtsSEC_USERS.cs">
+      <DependentUpon>dtsSEC_USERS.xsd</DependentUpon>
+    </Compile>
     <Compile Include="dtsSEC_USERS.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>dtsSEC_USERS.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Extensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>

@@ -130,6 +130,7 @@ namespace _SEC_USERS_GUI
             this.txtBox_FinderField.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtBox_FinderField.Name = "txtBox_FinderField";
             this.txtBox_FinderField.Size = new System.Drawing.Size(400, 39);
+            this.txtBox_FinderField.TextChanged += new System.EventHandler(this.txtBox_TextChanged);
             // 
             // btn_ClearFinder
             // 
@@ -140,6 +141,7 @@ namespace _SEC_USERS_GUI
             this.btn_ClearFinder.Size = new System.Drawing.Size(23, 36);
             this.btn_ClearFinder.Text = "X";
             this.btn_ClearFinder.ToolTipText = "Очистить поле поиска";
+            this.btn_ClearFinder.Click += new System.EventHandler(this.btn_ClearFinder_Click);
             // 
             // dgv_SEC_USERS
             // 

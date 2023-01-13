@@ -88,9 +88,17 @@ namespace _SEC_USERS
             TA_SEC_USER_TYPE.Fill(m_dtsSEC_USERS.SEC_USER_TYPE);
         }
 
+        private int TryGetMaxIdAndIncrementHis()
+        {
+            int maxId = -1;
+            int? tempMaxId = TA_SEC_USER.GetMaxIdFromSEC_USER();
+            if (tempMaxId != null) maxId = ((int)tempMaxId) + 1;
+            return maxId;
+        }
+
         public void InsertUser(string login, string fio, bool builtIn, bool isDisabled, bool no_check, int typeId)
         {
-            TA_SEC_USER.InsertQuery(login, fio, builtIn, isDisabled, no_check, typeId);
+            TA_SEC_USER.InsertNewUser(TryGetMaxIdAndIncrementHis(), login, fio, builtIn, isDisabled, no_check, typeId);
         }
     }
 }
