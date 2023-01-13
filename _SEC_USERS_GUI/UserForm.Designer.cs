@@ -32,24 +32,27 @@ namespace _SEC_USERS_GUI
             this.components = new System.ComponentModel.Container();
             this.dts_SEC_USERS = new _SEC_USERS.dtsSEC_USERS();
             this.bs_SEC_USER = new System.Windows.Forms.BindingSource(this.components);
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.bs_SEC_USER_TYPE = new System.Windows.Forms.BindingSource(this.components);
+            this.TLP_UserInfoContainer = new System.Windows.Forms.TableLayoutPanel();
+            this.checkBoxIsDisabled = new System.Windows.Forms.CheckBox();
             this.lbl_UserLogin = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
+            this.lbl_userTypeId = new System.Windows.Forms.Label();
             this.lbl_UserFIO = new System.Windows.Forms.Label();
-            this.lbl_UserBuiltIn = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.checkBoxNoCheck = new System.Windows.Forms.CheckBox();
+            this.comboBox_TypeUser = new System.Windows.Forms.ComboBox();
+            this.checkBoxBuiltIn = new System.Windows.Forms.CheckBox();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.sECROLENAMEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btn_AddNewRole = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.btn_DeleteRole = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dts_SEC_USERS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bs_SEC_USER)).BeginInit();
-            this.tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bs_SEC_USER_TYPE)).BeginInit();
+            this.TLP_UserInfoContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -60,161 +63,147 @@ namespace _SEC_USERS_GUI
             // 
             // bs_SEC_USER
             // 
-            this.bs_SEC_USER.DataMember = "SEC_USER";
+            this.bs_SEC_USER.DataMember = "SEC_ROLE";
             this.bs_SEC_USER.DataSource = this.dts_SEC_USERS;
             // 
-            // tableLayoutPanel1
+            // bs_SEC_USER_TYPE
             // 
-            this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 32.57199F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 67.428F));
-            this.tableLayoutPanel1.Controls.Add(this.lbl_UserLogin, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.label6, 0, 5);
-            this.tableLayoutPanel1.Controls.Add(this.lbl_UserFIO, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.lbl_UserBuiltIn, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.label4, 0, 3);
-            this.tableLayoutPanel1.Controls.Add(this.label5, 0, 4);
-            this.tableLayoutPanel1.Controls.Add(this.textBox1, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.textBox2, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.checkBox2, 1, 3);
-            this.tableLayoutPanel1.Controls.Add(this.checkBox3, 1, 4);
-            this.tableLayoutPanel1.Controls.Add(this.comboBox1, 1, 5);
-            this.tableLayoutPanel1.Controls.Add(this.checkBox1, 1, 2);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tableLayoutPanel1.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 6;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.669F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.669F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.669F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.662F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.662F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.669F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1007, 320);
-            this.tableLayoutPanel1.TabIndex = 0;
+            this.bs_SEC_USER_TYPE.DataMember = "SEC_USER_TYPE";
+            this.bs_SEC_USER_TYPE.DataSource = this.dts_SEC_USERS;
+            // 
+            // TLP_UserInfoContainer
+            // 
+            this.TLP_UserInfoContainer.ColumnCount = 2;
+            this.TLP_UserInfoContainer.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.TLP_UserInfoContainer.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 80F));
+            this.TLP_UserInfoContainer.Controls.Add(this.checkBoxIsDisabled, 0, 4);
+            this.TLP_UserInfoContainer.Controls.Add(this.lbl_UserLogin, 0, 1);
+            this.TLP_UserInfoContainer.Controls.Add(this.lbl_userTypeId, 0, 2);
+            this.TLP_UserInfoContainer.Controls.Add(this.lbl_UserFIO, 0, 0);
+            this.TLP_UserInfoContainer.Controls.Add(this.textBox1, 1, 0);
+            this.TLP_UserInfoContainer.Controls.Add(this.textBox2, 1, 1);
+            this.TLP_UserInfoContainer.Controls.Add(this.checkBoxNoCheck, 0, 5);
+            this.TLP_UserInfoContainer.Controls.Add(this.comboBox_TypeUser, 1, 2);
+            this.TLP_UserInfoContainer.Controls.Add(this.checkBoxBuiltIn, 0, 3);
+            this.TLP_UserInfoContainer.Dock = System.Windows.Forms.DockStyle.Top;
+            this.TLP_UserInfoContainer.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
+            this.TLP_UserInfoContainer.Location = new System.Drawing.Point(0, 0);
+            this.TLP_UserInfoContainer.Name = "TLP_UserInfoContainer";
+            this.TLP_UserInfoContainer.RowCount = 6;
+            this.TLP_UserInfoContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.669F));
+            this.TLP_UserInfoContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.669F));
+            this.TLP_UserInfoContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.669F));
+            this.TLP_UserInfoContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.662F));
+            this.TLP_UserInfoContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.662F));
+            this.TLP_UserInfoContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.669F));
+            this.TLP_UserInfoContainer.Size = new System.Drawing.Size(1067, 320);
+            this.TLP_UserInfoContainer.TabIndex = 0;
+            // 
+            // checkBoxIsDisabled
+            // 
+            this.checkBoxIsDisabled.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.checkBoxIsDisabled.AutoSize = true;
+            this.TLP_UserInfoContainer.SetColumnSpan(this.checkBoxIsDisabled, 2);
+            this.checkBoxIsDisabled.Location = new System.Drawing.Point(446, 230);
+            this.checkBoxIsDisabled.Name = "checkBoxIsDisabled";
+            this.checkBoxIsDisabled.Size = new System.Drawing.Size(174, 17);
+            this.checkBoxIsDisabled.TabIndex = 3;
+            this.checkBoxIsDisabled.Text = "Пользователь заблокирован";
+            this.checkBoxIsDisabled.UseVisualStyleBackColor = true;
             // 
             // lbl_UserLogin
             // 
             this.lbl_UserLogin.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lbl_UserLogin.AutoSize = true;
-            this.lbl_UserLogin.Location = new System.Drawing.Point(107, 73);
+            this.lbl_UserLogin.Location = new System.Drawing.Point(50, 73);
             this.lbl_UserLogin.Name = "lbl_UserLogin";
             this.lbl_UserLogin.Size = new System.Drawing.Size(112, 13);
             this.lbl_UserLogin.TabIndex = 1;
             this.lbl_UserLogin.Text = "Логин пользователя";
             // 
-            // label6
+            // lbl_userTypeId
             // 
-            this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(146, 286);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(35, 13);
-            this.label6.TabIndex = 5;
-            this.label6.Text = "label6";
+            this.lbl_userTypeId.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lbl_userTypeId.AutoSize = true;
+            this.lbl_userTypeId.Location = new System.Drawing.Point(56, 126);
+            this.lbl_userTypeId.Name = "lbl_userTypeId";
+            this.lbl_userTypeId.Size = new System.Drawing.Size(100, 13);
+            this.lbl_userTypeId.TabIndex = 5;
+            this.lbl_userTypeId.Text = "Тип пользователя";
             // 
             // lbl_UserFIO
             // 
             this.lbl_UserFIO.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lbl_UserFIO.AutoSize = true;
             this.lbl_UserFIO.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lbl_UserFIO.Location = new System.Drawing.Point(95, 20);
+            this.lbl_UserFIO.Location = new System.Drawing.Point(38, 20);
             this.lbl_UserFIO.Name = "lbl_UserFIO";
             this.lbl_UserFIO.Size = new System.Drawing.Size(137, 13);
             this.lbl_UserFIO.TabIndex = 0;
             this.lbl_UserFIO.Text = "Фамилия, Имя, Отчество";
             // 
-            // lbl_UserBuiltIn
-            // 
-            this.lbl_UserBuiltIn.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lbl_UserBuiltIn.AutoSize = true;
-            this.lbl_UserBuiltIn.Location = new System.Drawing.Point(130, 126);
-            this.lbl_UserBuiltIn.Name = "lbl_UserBuiltIn";
-            this.lbl_UserBuiltIn.Size = new System.Drawing.Size(66, 13);
-            this.lbl_UserBuiltIn.TabIndex = 2;
-            this.lbl_UserBuiltIn.Text = "Внутренний";
-            // 
-            // label4
-            // 
-            this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(81, 179);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(165, 13);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "Заблокировать пользователя?";
-            // 
-            // label5
-            // 
-            this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(146, 232);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(35, 13);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "label5";
-            // 
             // textBox1
             // 
             this.textBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox1.Location = new System.Drawing.Point(617, 16);
+            this.textBox1.Location = new System.Drawing.Point(538, 16);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.Size = new System.Drawing.Size(203, 20);
             this.textBox1.TabIndex = 6;
             // 
             // textBox2
             // 
             this.textBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox2.Location = new System.Drawing.Point(617, 69);
+            this.textBox2.Location = new System.Drawing.Point(538, 69);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
+            this.textBox2.Size = new System.Drawing.Size(204, 20);
             this.textBox2.TabIndex = 7;
             // 
-            // checkBox1
+            // checkBoxNoCheck
             // 
-            this.checkBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(627, 124);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(80, 17);
-            this.checkBox1.TabIndex = 8;
-            this.checkBox1.Text = "checkBox1";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBoxNoCheck.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.checkBoxNoCheck.AutoSize = true;
+            this.TLP_UserInfoContainer.SetColumnSpan(this.checkBoxNoCheck, 2);
+            this.checkBoxNoCheck.Location = new System.Drawing.Point(424, 284);
+            this.checkBoxNoCheck.Name = "checkBoxNoCheck";
+            this.checkBoxNoCheck.Size = new System.Drawing.Size(218, 17);
+            this.checkBoxNoCheck.TabIndex = 10;
+            this.checkBoxNoCheck.Text = "Не выполнять проверку прав доступа";
+            this.checkBoxNoCheck.UseVisualStyleBackColor = true;
+            // 
+            // comboBox_TypeUser
+            // 
+            this.comboBox_TypeUser.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.comboBox_TypeUser.DataSource = this.bs_SEC_USER_TYPE;
+            this.comboBox_TypeUser.DisplayMember = "SEC_USER_TYPE_NAME";
+            this.comboBox_TypeUser.FormattingEnabled = true;
+            this.comboBox_TypeUser.Location = new System.Drawing.Point(538, 122);
+            this.comboBox_TypeUser.Name = "comboBox_TypeUser";
+            this.comboBox_TypeUser.Size = new System.Drawing.Size(203, 21);
+            this.comboBox_TypeUser.TabIndex = 11;
+            // 
+            // checkBoxBuiltIn
+            // 
+            this.checkBoxBuiltIn.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.checkBoxBuiltIn.AutoSize = true;
+            this.TLP_UserInfoContainer.SetColumnSpan(this.checkBoxBuiltIn, 2);
+            this.checkBoxBuiltIn.Location = new System.Drawing.Point(411, 177);
+            this.checkBoxBuiltIn.Name = "checkBoxBuiltIn";
+            this.checkBoxBuiltIn.Size = new System.Drawing.Size(244, 17);
+            this.checkBoxBuiltIn.TabIndex = 8;
+            this.checkBoxBuiltIn.Text = "Пользователь является администратором";
+            this.checkBoxBuiltIn.UseVisualStyleBackColor = true;
             // 
             // checkBox2
             // 
             this.checkBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.checkBox2.AutoSize = true;
             this.checkBox2.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.checkBox2.Location = new System.Drawing.Point(627, 177);
+            this.checkBox2.Location = new System.Drawing.Point(556, 177);
             this.checkBox2.Name = "checkBox2";
             this.checkBox2.Size = new System.Drawing.Size(80, 17);
             this.checkBox2.TabIndex = 9;
             this.checkBox2.Text = "checkBox2";
             this.checkBox2.UseVisualStyleBackColor = true;
-            // 
-            // checkBox3
-            // 
-            this.checkBox3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.Location = new System.Drawing.Point(627, 230);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(80, 17);
-            this.checkBox3.TabIndex = 10;
-            this.checkBox3.Text = "checkBox3";
-            this.checkBox3.UseVisualStyleBackColor = true;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.comboBox1.DataSource = this.bs_SEC_USER;
-            this.comboBox1.DisplayMember = "SEC_ROLES";
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(606, 282);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 11;
             // 
             // tableLayoutPanel2
             // 
@@ -222,37 +211,63 @@ namespace _SEC_USERS_GUI
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 446);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 515);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(1007, 100);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(1067, 47);
             this.tableLayoutPanel2.TabIndex = 2;
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 349);
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.sECROLENAMEDataGridViewTextBoxColumn,
+            this.btn_AddNewRole,
+            this.btn_DeleteRole});
+            this.dataGridView1.DataSource = this.bs_SEC_USER;
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.dataGridView1.Location = new System.Drawing.Point(0, 320);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(1007, 91);
+            this.dataGridView1.Size = new System.Drawing.Size(1067, 189);
             this.dataGridView1.TabIndex = 1;
+            // 
+            // sECROLENAMEDataGridViewTextBoxColumn
+            // 
+            this.sECROLENAMEDataGridViewTextBoxColumn.DataPropertyName = "SEC_ROLE_NAME";
+            this.sECROLENAMEDataGridViewTextBoxColumn.HeaderText = "Наименование";
+            this.sECROLENAMEDataGridViewTextBoxColumn.Name = "sECROLENAMEDataGridViewTextBoxColumn";
+            // 
+            // btn_AddNewRole
+            // 
+            this.btn_AddNewRole.HeaderText = "";
+            this.btn_AddNewRole.Name = "btn_AddNewRole";
+            this.btn_AddNewRole.Width = 32;
+            // 
+            // btn_DeleteRole
+            // 
+            this.btn_DeleteRole.HeaderText = "";
+            this.btn_DeleteRole.Name = "btn_DeleteRole";
+            this.btn_DeleteRole.Width = 32;
             // 
             // UserForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1007, 546);
+            this.ClientSize = new System.Drawing.Size(1067, 562);
             this.Controls.Add(this.tableLayoutPanel2);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.tableLayoutPanel1);
+            this.Controls.Add(this.TLP_UserInfoContainer);
             this.Name = "UserForm";
-            this.Text = "UserForm";
+            this.Text = "Пользователь";
             ((System.ComponentModel.ISupportInitialize)(this.dts_SEC_USERS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bs_SEC_USER)).EndInit();
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bs_SEC_USER_TYPE)).EndInit();
+            this.TLP_UserInfoContainer.ResumeLayout(false);
+            this.TLP_UserInfoContainer.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
@@ -261,21 +276,28 @@ namespace _SEC_USERS_GUI
         #endregion
 
         private System.Windows.Forms.BindingSource bs_SEC_USER;
+        private System.Windows.Forms.BindingSource bs_SEC_USER_TYPE;
         private _SEC_USERS.dtsSEC_USERS dts_SEC_USERS;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.TableLayoutPanel TLP_UserInfoContainer;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Label lbl_UserLogin;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lbl_userTypeId;
         private System.Windows.Forms.Label lbl_UserFIO;
-        private System.Windows.Forms.Label lbl_UserBuiltIn;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox checkBoxBuiltIn;
         private System.Windows.Forms.CheckBox checkBox2;
-        private System.Windows.Forms.CheckBox checkBox3;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.CheckBox checkBoxNoCheck;
+        private System.Windows.Forms.ComboBox comboBox_TypeUser;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.CheckBox checkBoxIsDisabled;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sECROLENAMEDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewButtonColumn btn_AddNewRole;
+        private System.Windows.Forms.DataGridViewButtonColumn btn_DeleteRole;
+
+
+        // Здесь добавлены свойства для доступа к элементам GUI
+
+
     }
 }

@@ -22,6 +22,17 @@ namespace _SEC_USERS_GUI
             m_WorkerDB.LoadData();
         }
 
+
+
+
+
+        // Методы-обработчики событий
+
+
+
+
+
+
         // Для добавления новых условий фильтра в данный метод, достаточно
         // добавить проверяемый атрибут(столбец) в список items
         private void txtBox_TextChanged(object sender, EventArgs e)

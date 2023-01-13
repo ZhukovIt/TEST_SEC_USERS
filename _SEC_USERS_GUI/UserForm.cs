@@ -28,6 +28,9 @@ namespace _SEC_USERS_GUI
         {
             InitializeComponent();
             m_WorkerDB = new WorkerDB(dts_SEC_USERS);
+
+            // ДАННЫЙ МЕТОД НЕ ДОЛЖЕН БЫТЬ В РЕЛИЗЕ!
+            m_WorkerDB.LoadData();
         }
 
         public UserForm(FormState state) : this()
