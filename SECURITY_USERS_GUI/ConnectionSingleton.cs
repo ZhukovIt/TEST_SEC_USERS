@@ -15,8 +15,8 @@ namespace SECURITY_USERS
 
         private ConnectionSingleton()
         {
-            string nameConnectionString = "SECURITY_USERS_GUI.Properties.Settings.clinic10ConnectionString";
-            //m_connectionString = ConfigurationManager.ConnectionStrings[nameConnectionString].ConnectionString;
+            string nameConnectionString = "SECURITY_USERS.Properties.Settings.clinic10ConnectionString";
+            m_connectionString = ConfigurationManager.ConnectionStrings[nameConnectionString].ConnectionString;
             m_connection = new SqlConnection(@"Data Source=SM-SERV01\SQL10_5_SIMPLEX;Initial Catalog=clinic10;User ID=sa;Password=Q12werty");
         }
 

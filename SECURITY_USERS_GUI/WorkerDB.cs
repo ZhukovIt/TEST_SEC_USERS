@@ -88,12 +88,6 @@ namespace SECURITY_USERS
             TA_SEC_USER_TYPE.Fill(m_dtsSEC_USERS.SEC_USER_TYPE);
         }
 
-        public int GetMaxUserIdFor_SEC_USER()
-        {
-            return (int)TA_SEC_USER.GetMax_SEC_USER_ID_FOR_SEC_USER();
-
-        }
-
         public void InsertUser(string login, string fio, bool builtIn, bool isDisabled, bool no_check, int typeId)
         {
             TA_SEC_USER.InsertQuery(login, fio, builtIn, isDisabled, no_check, typeId);

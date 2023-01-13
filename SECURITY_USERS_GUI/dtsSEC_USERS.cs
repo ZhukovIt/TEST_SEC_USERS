@@ -1,4 +1,4 @@
-﻿namespace SECURITY_USERS_GUI
+﻿namespace SECURITY_USERS
 {
 
 
@@ -7,7 +7,7 @@
     }
 }
 
-namespace SECURITY_USERS_GUI.dtsSEC_USERSTableAdapters
+namespace SECURITY_USERS.dtsSEC_USERSTableAdapters
 {
 
 

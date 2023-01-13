@@ -33,26 +33,29 @@ namespace SECURITY_USERS
             this.dts_SEC_USERS = new SECURITY_USERS_GUI.dtsSEC_USERS();
             this.bs_SEC_USERS = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dts_SEC_USERS)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bs_SEC_USERS)).BeginInit();
             this.SuspendLayout();
-            // 
-            // bs_SEC_USERS
-            //
-            this.bs_SEC_USERS.DataSource = this.dts_SEC_USERS;
-            this.bs_SEC_USERS.DataMember = "SEC_USER";
             // 
             // dts_SEC_USERS
             // 
             this.dts_SEC_USERS.DataSetName = "dtsSEC_USERS";
             this.dts_SEC_USERS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            //
+            // 
+            // bs_SEC_USERS
+            // 
+            this.bs_SEC_USERS.DataMember = "SEC_USER";
+            this.bs_SEC_USERS.DataSource = this.dts_SEC_USERS;
+            // 
             // UserForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(981, 485);
             this.Name = "UserForm";
             this.Text = "UserForm";
             ((System.ComponentModel.ISupportInitialize)(this.dts_SEC_USERS)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bs_SEC_USERS)).EndInit();
             this.ResumeLayout(false);
 
         }

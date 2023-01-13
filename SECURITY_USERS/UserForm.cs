@@ -15,7 +15,7 @@ namespace SECURITY_USERS
         public UserForm()
         {
             InitializeComponent();
-            new WorkerDB(dts_SEC_USERS).InsertUser(params??????);
+            //new WorkerDB(dts_SEC_USERS).InsertUser();
         }
     }
 }
