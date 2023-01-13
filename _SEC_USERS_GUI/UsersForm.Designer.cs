@@ -1,5 +1,5 @@
 ﻿
-namespace SECURITY_USERS_GUI
+namespace _SEC_USERS_GUI
 {
     partial class UsersForm
     {
@@ -44,19 +44,19 @@ namespace SECURITY_USERS_GUI
             this.txtBox_FinderField = new System.Windows.Forms.ToolStripTextBox();
             this.btn_ClearFinder = new System.Windows.Forms.ToolStripButton();
             this.dgv_SEC_USERS = new System.Windows.Forms.DataGridView();
-            this.bs_SEC_USER_TYPE = new System.Windows.Forms.BindingSource(this.components);
-            this.dts_SEC_USERS = new SECURITY_USERS.dtsSEC_USERS();
-            this.bs_SEC_USER = new System.Windows.Forms.BindingSource(this.components);
             this.sECUSERFIODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sECUSERLOGINDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SEC_USER_TYPE = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.bs_SEC_USER_TYPE = new System.Windows.Forms.BindingSource(this.components);
+            this.dts_SEC_USERS = new _SEC_USERS.dtsSEC_USERS();
             this.SEC_ROLES = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sECUSERDISABLEDDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.bs_SEC_USERS = new System.Windows.Forms.BindingSource(this.components);
             this.ts_HeaderButtons.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_SEC_USERS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bs_SEC_USER_TYPE)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dts_SEC_USERS)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bs_SEC_USER)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bs_SEC_USERS)).BeginInit();
             this.SuspendLayout();
             // 
             // ts_HeaderButtons
@@ -80,7 +80,7 @@ namespace SECURITY_USERS_GUI
             // btn_AddNewUser
             // 
             this.btn_AddNewUser.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btn_AddNewUser.Image = global::SECURITY_USERS.Properties.Resources.addButton;
+            this.btn_AddNewUser.Image = global::_SEC_USERS_GUI.Properties.Resources.addButton;
             this.btn_AddNewUser.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btn_AddNewUser.Name = "btn_AddNewUser";
             this.btn_AddNewUser.Size = new System.Drawing.Size(36, 36);
@@ -89,7 +89,7 @@ namespace SECURITY_USERS_GUI
             // btn_AddNewUserWithCopy
             // 
             this.btn_AddNewUserWithCopy.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btn_AddNewUserWithCopy.Image = global::SECURITY_USERS.Properties.Resources.copyButton;
+            this.btn_AddNewUserWithCopy.Image = global::_SEC_USERS_GUI.Properties.Resources.copyButton;
             this.btn_AddNewUserWithCopy.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btn_AddNewUserWithCopy.Name = "btn_AddNewUserWithCopy";
             this.btn_AddNewUserWithCopy.Size = new System.Drawing.Size(36, 36);
@@ -98,7 +98,7 @@ namespace SECURITY_USERS_GUI
             // btn_EditUset
             // 
             this.btn_EditUset.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btn_EditUset.Image = global::SECURITY_USERS.Properties.Resources.editButton;
+            this.btn_EditUset.Image = global::_SEC_USERS_GUI.Properties.Resources.editButton;
             this.btn_EditUset.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btn_EditUset.Name = "btn_EditUset";
             this.btn_EditUset.Size = new System.Drawing.Size(36, 36);
@@ -107,7 +107,7 @@ namespace SECURITY_USERS_GUI
             // btn_RemoveUser
             // 
             this.btn_RemoveUser.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btn_RemoveUser.Image = global::SECURITY_USERS.Properties.Resources.removeButton;
+            this.btn_RemoveUser.Image = global::_SEC_USERS_GUI.Properties.Resources.removeButton;
             this.btn_RemoveUser.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btn_RemoveUser.Name = "btn_RemoveUser";
             this.btn_RemoveUser.Size = new System.Drawing.Size(36, 36);
@@ -162,7 +162,7 @@ namespace SECURITY_USERS_GUI
             this.SEC_USER_TYPE,
             this.SEC_ROLES,
             this.sECUSERDISABLEDDataGridViewCheckBoxColumn});
-            this.dgv_SEC_USERS.DataSource = this.bs_SEC_USER;
+            this.dgv_SEC_USERS.DataSource = this.bs_SEC_USERS;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -185,21 +185,6 @@ namespace SECURITY_USERS_GUI
             this.dgv_SEC_USERS.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_SEC_USERS.Size = new System.Drawing.Size(1057, 523);
             this.dgv_SEC_USERS.TabIndex = 1;
-            // 
-            // bs_SEC_USER_TYPE
-            // 
-            this.bs_SEC_USER_TYPE.DataMember = "SEC_USER_TYPE";
-            this.bs_SEC_USER_TYPE.DataSource = this.dts_SEC_USERS;
-            // 
-            // dts_SEC_USERS
-            // 
-            this.dts_SEC_USERS.DataSetName = "dtsSEC_USERS";
-            this.dts_SEC_USERS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // bs_SEC_USER
-            // 
-            this.bs_SEC_USER.DataMember = "SEC_USER";
-            this.bs_SEC_USER.DataSource = this.dts_SEC_USERS;
             // 
             // sECUSERFIODataGridViewTextBoxColumn
             // 
@@ -230,6 +215,16 @@ namespace SECURITY_USERS_GUI
             this.SEC_USER_TYPE.ValueMember = "SEC_USER_TYPE_ID";
             this.SEC_USER_TYPE.Width = 120;
             // 
+            // bs_SEC_USER_TYPE
+            // 
+            this.bs_SEC_USER_TYPE.DataMember = "SEC_USER_TYPE";
+            this.bs_SEC_USER_TYPE.DataSource = this.dts_SEC_USERS;
+            // 
+            // dts_SEC_USERS
+            // 
+            this.dts_SEC_USERS.DataSetName = "dtsSEC_USERS";
+            this.dts_SEC_USERS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // SEC_ROLES
             // 
             this.SEC_ROLES.DataPropertyName = "SEC_ROLES";
@@ -244,6 +239,11 @@ namespace SECURITY_USERS_GUI
             this.sECUSERDISABLEDDataGridViewCheckBoxColumn.HeaderText = "Заблокирован";
             this.sECUSERDISABLEDDataGridViewCheckBoxColumn.Name = "sECUSERDISABLEDDataGridViewCheckBoxColumn";
             this.sECUSERDISABLEDDataGridViewCheckBoxColumn.ReadOnly = true;
+            // 
+            // bs_SEC_USERS
+            // 
+            this.bs_SEC_USERS.DataMember = "SEC_USER";
+            this.bs_SEC_USERS.DataSource = this.dts_SEC_USERS;
             // 
             // UsersForm
             // 
@@ -260,7 +260,7 @@ namespace SECURITY_USERS_GUI
             ((System.ComponentModel.ISupportInitialize)(this.dgv_SEC_USERS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bs_SEC_USER_TYPE)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dts_SEC_USERS)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bs_SEC_USER)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bs_SEC_USERS)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -269,9 +269,9 @@ namespace SECURITY_USERS_GUI
         #endregion
 
         private System.Windows.Forms.ToolStrip ts_HeaderButtons;
-        private System.Windows.Forms.BindingSource bs_SEC_USER;
+        private System.Windows.Forms.BindingSource bs_SEC_USERS;
         private System.Windows.Forms.BindingSource bs_SEC_USER_TYPE;
-        private SECURITY_USERS.dtsSEC_USERS dts_SEC_USERS;
+        private _SEC_USERS.dtsSEC_USERS dts_SEC_USERS;
         private System.Windows.Forms.DataGridView dgv_SEC_USERS;
         private System.Windows.Forms.ToolStripButton btn_AddNewUser;
         private System.Windows.Forms.ToolStripButton btn_AddNewUserWithCopy;

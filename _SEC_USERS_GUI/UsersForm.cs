@@ -7,15 +7,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using _SEC_USERS;
 
-namespace SECURITY_USERS_GUI
+namespace _SEC_USERS_GUI
 {
-    public partial class UserForm : Form
+    public partial class UsersForm : Form
     {
-        public UserForm()
+        public UsersForm()
         {
             InitializeComponent();
-            //new WorkerDB(dts_SEC_USERS).InsertUser();
+            new WorkerDB(dts_SEC_USERS).LoadData();
         }
     }
 }

@@ -77,7 +77,7 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\DataSources\dtsSEC_USERS.datasource" />
-    <None Include="Properties\DataSources\SECURITY_USERS_GUI.dtsSEC_USERS.datasource" />
+    <None Include="Properties\DataSources\SECURITY_USERS.dtsSEC_USERS.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -90,12 +90,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\SECURITY_USERS_GUI\SECURITY_USERS.csproj">
-      <Project>{88590f08-4e0f-4671-a77e-aabdb43ae422}</Project>
-      <Name>SECURITY_USERS</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\addButton.png" />

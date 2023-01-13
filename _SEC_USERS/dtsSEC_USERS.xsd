@@ -4,7 +4,7 @@
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
       <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
         <Connections>
-          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="clinic10ConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="clinic10ConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.SECURITY_USERS.Properties.Settings.GlobalReference.Default.clinic10ConnectionString" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="clinic10ConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="clinic10ConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings._SEC_USERS.Properties.Settings.GlobalReference.Default.clinic10ConnectionString" Provider="System.Data.SqlClient" />
         </Connections>
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="SEC_ROLETableAdapter" GeneratorDataComponentClassName="SEC_ROLETableAdapter" Name="SEC_ROLE" UserDataComponentName="SEC_ROLETableAdapter">

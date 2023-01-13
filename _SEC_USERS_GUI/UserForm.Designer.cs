@@ -1,5 +1,5 @@
 ﻿
-namespace SECURITY_USERS_GUI
+namespace _SEC_USERS_GUI
 {
     partial class UserForm
     {
@@ -30,10 +30,10 @@ namespace SECURITY_USERS_GUI
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.dts_SEC_USERS = new SECURITY_USERS.dtsSEC_USERS();
-            this.bs_SEC_USERS = new System.Windows.Forms.BindingSource(this.components);
+            this.dts_SEC_USERS = new _SEC_USERS.dtsSEC_USERS();
+            this.bs_SEC_USER = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dts_SEC_USERS)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bs_SEC_USERS)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bs_SEC_USER)).BeginInit();
             this.SuspendLayout();
             // 
             // dts_SEC_USERS
@@ -41,10 +41,10 @@ namespace SECURITY_USERS_GUI
             this.dts_SEC_USERS.DataSetName = "dtsSEC_USERS";
             this.dts_SEC_USERS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // bs_SEC_USERS
+            // bs_SEC_USER
             // 
-            this.bs_SEC_USERS.DataMember = "SEC_USER";
-            this.bs_SEC_USERS.DataSource = this.dts_SEC_USERS;
+            this.bs_SEC_USER.DataMember = "SEC_USER";
+            this.bs_SEC_USER.DataSource = this.dts_SEC_USERS;
             // 
             // UserForm
             // 
@@ -55,14 +55,14 @@ namespace SECURITY_USERS_GUI
             this.Name = "UserForm";
             this.Text = "UserForm";
             ((System.ComponentModel.ISupportInitialize)(this.dts_SEC_USERS)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bs_SEC_USERS)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bs_SEC_USER)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.BindingSource bs_SEC_USERS;
-        private SECURITY_USERS.dtsSEC_USERS dts_SEC_USERS;
+        private System.Windows.Forms.BindingSource bs_SEC_USER;
+        private _SEC_USERS.dtsSEC_USERS dts_SEC_USERS;
     }
 }

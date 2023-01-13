@@ -4,9 +4,10 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using SECURITY_USERS.dtsSEC_USERSTableAdapters;
+using _SEC_USERS;
+using _SEC_USERS.dtsSEC_USERSTableAdapters;
 
-namespace SECURITY_USERS
+namespace _SEC_USERS
 {
     public class WorkerDB
     {

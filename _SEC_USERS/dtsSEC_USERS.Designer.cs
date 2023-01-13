@@ -10,7 +10,7 @@
 
 #pragma warning disable 1591
 
-namespace SECURITY_USERS {
+namespace _SEC_USERS {
     
     
     /// <summary>
@@ -2344,7 +2344,7 @@ namespace SECURITY_USERS {
         }
     }
 }
-namespace SECURITY_USERS.dtsSEC_USERSTableAdapters {
+namespace _SEC_USERS.dtsSEC_USERSTableAdapters {
     
     
     /// <summary>
@@ -2508,7 +2508,7 @@ SELECT SEC_ROLE_ID, SEC_ROLE_NAME, SEC_ROLE_BUILTIN FROM SEC_ROLE WHERE (SEC_ROL
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::SECURITY_USERS.Properties.Settings.Default.clinic10ConnectionString;
+            this._connection.ConnectionString = global::_SEC_USERS.Properties.Settings.Default.clinic10ConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2927,7 +2927,7 @@ SELECT SEC_USER_ID, SEC_USER_LOGIN, SEC_USER_PASSWORD, SEC_USER_FIO, SEC_USER_BU
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::SECURITY_USERS.Properties.Settings.Default.clinic10ConnectionString;
+            this._connection.ConnectionString = global::_SEC_USERS.Properties.Settings.Default.clinic10ConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3623,7 +3623,7 @@ SELECT SEC_ROLE_ID, SEC_USER_ID FROM SEC_USER_ROLE WHERE (SEC_ROLE_ID = @SEC_ROL
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::SECURITY_USERS.Properties.Settings.Default.clinic10ConnectionString;
+            this._connection.ConnectionString = global::_SEC_USERS.Properties.Settings.Default.clinic10ConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3923,7 +3923,7 @@ SELECT SEC_USER_TYPE_ID, SEC_USER_TYPE_NAME FROM SEC_USER_TYPE WHERE (SEC_USER_T
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::SECURITY_USERS.Properties.Settings.Default.clinic10ConnectionString;
+            this._connection.ConnectionString = global::_SEC_USERS.Properties.Settings.Default.clinic10ConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

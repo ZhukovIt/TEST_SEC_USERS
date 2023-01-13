@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // Общие сведения об этой сборке предоставляются следующим набором
 // набора атрибутов. Измените значения этих атрибутов для изменения сведений,
 // связанных со сборкой.
-[assembly: AssemblyTitle("SECURITY_USERS_GUI")]
+[assembly: AssemblyTitle("_SEC_USERS_GUI")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("SECURITY_USERS_GUI")]
+[assembly: AssemblyProduct("_SEC_USERS_GUI")]
 [assembly: AssemblyCopyright("Copyright ©  2023")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // Следующий GUID служит для идентификации библиотеки типов, если этот проект будет видимым для COM
-[assembly: Guid("238fb409-ea0e-4af0-b69a-334148290327")]
+[assembly: Guid("1a6c4294-c3fe-41bd-a657-a63c6e00079a")]
 
 // Сведения о версии сборки состоят из указанных ниже четырех значений:
 //

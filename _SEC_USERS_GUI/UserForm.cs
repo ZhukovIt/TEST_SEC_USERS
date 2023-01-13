@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace SECURITY_USERS_GUI
+namespace _SEC_USERS_GUI
 {
     public partial class UserForm : Form
     {
