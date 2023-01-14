@@ -17,7 +17,7 @@ namespace _SEC_USERS
         {
             string nameConnectionString = "SECURITY_USERS.Properties.Settings.clinic10ConnectionString";
             m_connectionString = ConfigurationManager.ConnectionStrings[nameConnectionString].ConnectionString;
-            m_connection = new SqlConnection(@"Data Source=SM-SERV01\SQL10_5_SIMPLEX;Initial Catalog=clinic10;User ID=sa;Password=Q12werty");
+            m_connection = new SqlConnection("Server=.; Database=clinic10; Trusted_Connection=True");
         }
 
         ~ConnectionSingleton()
@@ -30,7 +30,7 @@ namespace _SEC_USERS
         {
             if (m_connection == null)
             {
-                m_connection = new SqlConnection(@"Data Source=SM-SERV01\SQL10_5_SIMPLEX;Initial Catalog=clinic10;User ID=sa;Password=Q12werty");
+                m_connection = new SqlConnection("Server=.; Database=clinic10; Trusted_Connection=True");
             }
             return m_connection;
         }
