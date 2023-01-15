@@ -40,22 +40,23 @@ namespace _SEC_USERS_GUI
             }
         }
 
-        protected abstract void FillData(Form form);
+        internal abstract void FillData(Form form);
     }
 
-    public class UserFormAddingState : FormState
+    public sealed class UserFormAddingState : FormState
     {
-        protected override void FillData(Form t_form)
+        internal override void FillData(Form t_form)
         {
             UserForm form = (UserForm)t_form;
 
+            
             //form.GetWorkerDB.InsertUser();
         }
     }
 
-    public class UserFormCopyingState : FormState
+    public sealed class UserFormCopyingState : FormState
     {
-        protected override void FillData(Form t_form)
+        internal override void FillData(Form t_form)
         {
             UserForm form = (UserForm)t_form;
 
@@ -63,9 +64,9 @@ namespace _SEC_USERS_GUI
         }
     }
 
-    public class UserFormEditingState : FormState
+    public sealed class UserFormEditingState : FormState
     {
-        protected override void FillData(Form t_form)
+        internal override void FillData(Form t_form)
         {
             UserForm form = (UserForm)t_form;
 

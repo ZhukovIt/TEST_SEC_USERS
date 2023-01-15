@@ -9,7 +9,7 @@ using _SEC_USERS.dtsSEC_USERSTableAdapters;
 
 namespace _SEC_USERS
 {
-    public class WorkerDB
+    public sealed class WorkerDB
     {
         private dtsSEC_USERS m_dtsSEC_USERS;
         private SEC_USERTableAdapter m_ta_SEC_USER;

@@ -8,7 +8,7 @@ using System.Configuration;
 
 namespace _SEC_USERS
 {
-    public class ConnectionSingleton
+    public sealed class ConnectionSingleton
     {
         private static SqlConnection m_connection;
 

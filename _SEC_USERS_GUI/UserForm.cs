@@ -46,5 +46,10 @@ namespace _SEC_USERS_GUI
                 MessageBox.Show(m_State.ExceptionMessage);
             }
         }
+
+        private void btn_CancelExecute_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }
