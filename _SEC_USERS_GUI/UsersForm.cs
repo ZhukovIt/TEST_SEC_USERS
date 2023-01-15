@@ -43,7 +43,7 @@ namespace _SEC_USERS_GUI
 
         private void btn_AddNewUser_Click(object sender, EventArgs e)
         {
-            UserForm form = new UserForm();
+            UserForm form = new UserForm(m_WorkerDB);
             FormState state = new UserFormAddingState(form);
             form.SetState(state);
             form.ShowDialog();
@@ -52,7 +52,7 @@ namespace _SEC_USERS_GUI
 
         private void btn_AddNewUserWithCopy_Click(object sender, EventArgs e)
         {
-            UserForm form = new UserForm();
+            UserForm form = new UserForm(m_WorkerDB);
             FormState state = new UserFormCopyingState(form);
             state.FillMembersData(CreateCurrentUserData());
             form.SetState(state);
@@ -61,7 +61,7 @@ namespace _SEC_USERS_GUI
 
         private void btn_EditUser_Click(object sender, EventArgs e)
         {
-            UserForm form = new UserForm();
+            UserForm form = new UserForm(m_WorkerDB);
             FormState state = new UserFormEditingState(form);
             state.FillMembersData(CreateCurrentUserData());
             form.SetState(state);

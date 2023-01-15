@@ -85,9 +85,9 @@ namespace _SEC_USERS_GUI
             m_FIOTextBox.Text = m_FIO;
             m_LoginTextBox.Text = m_Login;
             m_UserTypeComboBox.SelectedItem = m_UserTypeComboBox;
-            m_BuiltInCheckBox.Checked = m_BuiltInCheckBox.Checked;
-            m_DisabledCheckBox.Checked = m_DisabledCheckBox.Checked;
-            m_NoCheckCheckBox.Checked = m_NoCheckCheckBox.Checked;
+            m_BuiltInCheckBox.Checked = m_BuiltIn;
+            m_DisabledCheckBox.Checked = m_Disabled;
+            m_NoCheckCheckBox.Checked = m_NoCheck;
         }
 
         internal abstract void EventHandlerFromSaveButton(object sender, EventArgs e);

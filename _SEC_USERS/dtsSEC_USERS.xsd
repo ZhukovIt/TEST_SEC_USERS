@@ -297,77 +297,77 @@ WHERE [SEC_USER_TYPE_NAME] = @SEC_USER_TYPE_NAME;</CommandText>
         <xs:element name="SEC_ROLE" msprop:Generator_RowEvHandlerName="SEC_ROLERowChangeEventHandler" msprop:Generator_RowDeletedName="SEC_ROLERowDeleted" msprop:Generator_RowDeletingName="SEC_ROLERowDeleting" msprop:Generator_RowEvArgName="SEC_ROLERowChangeEvent" msprop:Generator_TablePropName="SEC_ROLE" msprop:Generator_RowChangedName="SEC_ROLERowChanged" msprop:Generator_UserTableName="SEC_ROLE" msprop:Generator_RowChangingName="SEC_ROLERowChanging" msprop:Generator_RowClassName="SEC_ROLERow" msprop:Generator_TableClassName="SEC_ROLEDataTable" msprop:Generator_TableVarName="tableSEC_ROLE">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="SEC_ROLE_ID" msprop:Generator_UserColumnName="SEC_ROLE_ID" msprop:Generator_ColumnPropNameInTable="SEC_ROLE_IDColumn" msprop:Generator_ColumnPropNameInRow="SEC_ROLE_ID" msprop:Generator_ColumnVarNameInTable="columnSEC_ROLE_ID" type="xs:int" />
-              <xs:element name="SEC_ROLE_NAME" msprop:Generator_UserColumnName="SEC_ROLE_NAME" msprop:Generator_ColumnPropNameInTable="SEC_ROLE_NAMEColumn" msprop:Generator_ColumnPropNameInRow="SEC_ROLE_NAME" msprop:Generator_ColumnVarNameInTable="columnSEC_ROLE_NAME">
+              <xs:element name="SEC_ROLE_ID" msprop:Generator_ColumnPropNameInTable="SEC_ROLE_IDColumn" msprop:Generator_ColumnPropNameInRow="SEC_ROLE_ID" msprop:Generator_UserColumnName="SEC_ROLE_ID" msprop:Generator_ColumnVarNameInTable="columnSEC_ROLE_ID" type="xs:int" />
+              <xs:element name="SEC_ROLE_NAME" msprop:Generator_ColumnPropNameInTable="SEC_ROLE_NAMEColumn" msprop:Generator_ColumnPropNameInRow="SEC_ROLE_NAME" msprop:Generator_UserColumnName="SEC_ROLE_NAME" msprop:Generator_ColumnVarNameInTable="columnSEC_ROLE_NAME">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="SEC_ROLE_BUILTIN" msprop:Generator_UserColumnName="SEC_ROLE_BUILTIN" msprop:Generator_ColumnPropNameInTable="SEC_ROLE_BUILTINColumn" msprop:Generator_ColumnPropNameInRow="SEC_ROLE_BUILTIN" msprop:Generator_ColumnVarNameInTable="columnSEC_ROLE_BUILTIN" type="xs:boolean" />
+              <xs:element name="SEC_ROLE_BUILTIN" msprop:Generator_ColumnPropNameInTable="SEC_ROLE_BUILTINColumn" msprop:Generator_ColumnPropNameInRow="SEC_ROLE_BUILTIN" msprop:Generator_UserColumnName="SEC_ROLE_BUILTIN" msprop:Generator_ColumnVarNameInTable="columnSEC_ROLE_BUILTIN" type="xs:boolean" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
         <xs:element name="SEC_USER" msprop:Generator_RowEvHandlerName="SEC_USERRowChangeEventHandler" msprop:Generator_RowDeletedName="SEC_USERRowDeleted" msprop:Generator_RowDeletingName="SEC_USERRowDeleting" msprop:Generator_RowEvArgName="SEC_USERRowChangeEvent" msprop:Generator_TablePropName="SEC_USER" msprop:Generator_RowChangedName="SEC_USERRowChanged" msprop:Generator_UserTableName="SEC_USER" msprop:Generator_RowChangingName="SEC_USERRowChanging" msprop:Generator_RowClassName="SEC_USERRow" msprop:Generator_TableClassName="SEC_USERDataTable" msprop:Generator_TableVarName="tableSEC_USER">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="SEC_USER_ID" msprop:Generator_UserColumnName="SEC_USER_ID" msprop:Generator_ColumnPropNameInTable="SEC_USER_IDColumn" msprop:Generator_ColumnPropNameInRow="SEC_USER_ID" msprop:Generator_ColumnVarNameInTable="columnSEC_USER_ID" type="xs:int" />
-              <xs:element name="SEC_USER_LOGIN" msprop:Generator_UserColumnName="SEC_USER_LOGIN" msprop:Generator_ColumnPropNameInTable="SEC_USER_LOGINColumn" msprop:Generator_ColumnPropNameInRow="SEC_USER_LOGIN" msprop:Generator_ColumnVarNameInTable="columnSEC_USER_LOGIN">
+              <xs:element name="SEC_USER_ID" msprop:Generator_ColumnPropNameInTable="SEC_USER_IDColumn" msprop:Generator_ColumnPropNameInRow="SEC_USER_ID" msprop:Generator_UserColumnName="SEC_USER_ID" msprop:Generator_ColumnVarNameInTable="columnSEC_USER_ID" type="xs:int" />
+              <xs:element name="SEC_USER_LOGIN" msprop:Generator_ColumnPropNameInTable="SEC_USER_LOGINColumn" msprop:Generator_ColumnPropNameInRow="SEC_USER_LOGIN" msprop:Generator_UserColumnName="SEC_USER_LOGIN" msprop:Generator_ColumnVarNameInTable="columnSEC_USER_LOGIN">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="20" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="SEC_USER_PASSWORD" msprop:Generator_UserColumnName="SEC_USER_PASSWORD" msprop:Generator_ColumnPropNameInTable="SEC_USER_PASSWORDColumn" msprop:Generator_ColumnPropNameInRow="SEC_USER_PASSWORD" msprop:Generator_ColumnVarNameInTable="columnSEC_USER_PASSWORD" minOccurs="0">
+              <xs:element name="SEC_USER_PASSWORD" msprop:Generator_ColumnPropNameInTable="SEC_USER_PASSWORDColumn" msprop:Generator_ColumnPropNameInRow="SEC_USER_PASSWORD" msprop:Generator_UserColumnName="SEC_USER_PASSWORD" msprop:Generator_ColumnVarNameInTable="columnSEC_USER_PASSWORD" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="128" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="SEC_USER_FIO" msprop:Generator_UserColumnName="SEC_USER_FIO" msprop:Generator_ColumnPropNameInTable="SEC_USER_FIOColumn" msprop:Generator_ColumnPropNameInRow="SEC_USER_FIO" msprop:Generator_ColumnVarNameInTable="columnSEC_USER_FIO">
+              <xs:element name="SEC_USER_FIO" msprop:Generator_ColumnPropNameInTable="SEC_USER_FIOColumn" msprop:Generator_ColumnPropNameInRow="SEC_USER_FIO" msprop:Generator_UserColumnName="SEC_USER_FIO" msprop:Generator_ColumnVarNameInTable="columnSEC_USER_FIO">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="150" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="SEC_USER_BUILTIN" msprop:Generator_UserColumnName="SEC_USER_BUILTIN" msprop:Generator_ColumnPropNameInTable="SEC_USER_BUILTINColumn" msprop:Generator_ColumnPropNameInRow="SEC_USER_BUILTIN" msprop:Generator_ColumnVarNameInTable="columnSEC_USER_BUILTIN" type="xs:boolean" />
-              <xs:element name="SEC_USER_DISABLED" msprop:Generator_UserColumnName="SEC_USER_DISABLED" msprop:Generator_ColumnPropNameInTable="SEC_USER_DISABLEDColumn" msprop:Generator_ColumnPropNameInRow="SEC_USER_DISABLED" msprop:Generator_ColumnVarNameInTable="columnSEC_USER_DISABLED" type="xs:boolean" />
-              <xs:element name="SEC_USER_NO_CHECK" msprop:Generator_UserColumnName="SEC_USER_NO_CHECK" msprop:Generator_ColumnPropNameInTable="SEC_USER_NO_CHECKColumn" msprop:Generator_ColumnPropNameInRow="SEC_USER_NO_CHECK" msprop:Generator_ColumnVarNameInTable="columnSEC_USER_NO_CHECK" type="xs:boolean" />
-              <xs:element name="WORK_ID" msprop:Generator_UserColumnName="WORK_ID" msprop:Generator_ColumnPropNameInTable="WORK_IDColumn" msprop:Generator_ColumnPropNameInRow="WORK_ID" msprop:Generator_ColumnVarNameInTable="columnWORK_ID" type="xs:int" minOccurs="0" />
-              <xs:element name="SEC_USER_KKM_PASSWORD" msprop:Generator_UserColumnName="SEC_USER_KKM_PASSWORD" msprop:Generator_ColumnPropNameInTable="SEC_USER_KKM_PASSWORDColumn" msprop:Generator_ColumnPropNameInRow="SEC_USER_KKM_PASSWORD" msprop:Generator_ColumnVarNameInTable="columnSEC_USER_KKM_PASSWORD" minOccurs="0">
+              <xs:element name="SEC_USER_BUILTIN" msprop:Generator_ColumnPropNameInTable="SEC_USER_BUILTINColumn" msprop:Generator_ColumnPropNameInRow="SEC_USER_BUILTIN" msprop:Generator_UserColumnName="SEC_USER_BUILTIN" msprop:Generator_ColumnVarNameInTable="columnSEC_USER_BUILTIN" type="xs:boolean" />
+              <xs:element name="SEC_USER_DISABLED" msprop:Generator_ColumnPropNameInTable="SEC_USER_DISABLEDColumn" msprop:Generator_ColumnPropNameInRow="SEC_USER_DISABLED" msprop:Generator_UserColumnName="SEC_USER_DISABLED" msprop:Generator_ColumnVarNameInTable="columnSEC_USER_DISABLED" type="xs:boolean" />
+              <xs:element name="SEC_USER_NO_CHECK" msprop:Generator_ColumnPropNameInTable="SEC_USER_NO_CHECKColumn" msprop:Generator_ColumnPropNameInRow="SEC_USER_NO_CHECK" msprop:Generator_UserColumnName="SEC_USER_NO_CHECK" msprop:Generator_ColumnVarNameInTable="columnSEC_USER_NO_CHECK" type="xs:boolean" />
+              <xs:element name="WORK_ID" msprop:Generator_ColumnPropNameInTable="WORK_IDColumn" msprop:Generator_ColumnPropNameInRow="WORK_ID" msprop:Generator_UserColumnName="WORK_ID" msprop:Generator_ColumnVarNameInTable="columnWORK_ID" type="xs:int" minOccurs="0" />
+              <xs:element name="SEC_USER_KKM_PASSWORD" msprop:Generator_ColumnPropNameInTable="SEC_USER_KKM_PASSWORDColumn" msprop:Generator_ColumnPropNameInRow="SEC_USER_KKM_PASSWORD" msprop:Generator_UserColumnName="SEC_USER_KKM_PASSWORD" msprop:Generator_ColumnVarNameInTable="columnSEC_USER_KKM_PASSWORD" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="20" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="SEC_USER_PROCURATORY" msprop:Generator_UserColumnName="SEC_USER_PROCURATORY" msprop:Generator_ColumnPropNameInTable="SEC_USER_PROCURATORYColumn" msprop:Generator_ColumnPropNameInRow="SEC_USER_PROCURATORY" msprop:Generator_ColumnVarNameInTable="columnSEC_USER_PROCURATORY" minOccurs="0">
+              <xs:element name="SEC_USER_PROCURATORY" msprop:Generator_ColumnPropNameInTable="SEC_USER_PROCURATORYColumn" msprop:Generator_ColumnPropNameInRow="SEC_USER_PROCURATORY" msprop:Generator_UserColumnName="SEC_USER_PROCURATORY" msprop:Generator_ColumnVarNameInTable="columnSEC_USER_PROCURATORY" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="500" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="SEC_USER_KKM_LOGIN" msprop:Generator_UserColumnName="SEC_USER_KKM_LOGIN" msprop:Generator_ColumnPropNameInTable="SEC_USER_KKM_LOGINColumn" msprop:Generator_ColumnPropNameInRow="SEC_USER_KKM_LOGIN" msprop:Generator_ColumnVarNameInTable="columnSEC_USER_KKM_LOGIN" minOccurs="0">
+              <xs:element name="SEC_USER_KKM_LOGIN" msprop:Generator_ColumnPropNameInTable="SEC_USER_KKM_LOGINColumn" msprop:Generator_ColumnPropNameInRow="SEC_USER_KKM_LOGIN" msprop:Generator_UserColumnName="SEC_USER_KKM_LOGIN" msprop:Generator_ColumnVarNameInTable="columnSEC_USER_KKM_LOGIN" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="SEC_USER_KKM_INN" msprop:Generator_UserColumnName="SEC_USER_KKM_INN" msprop:Generator_ColumnPropNameInTable="SEC_USER_KKM_INNColumn" msprop:Generator_ColumnPropNameInRow="SEC_USER_KKM_INN" msprop:Generator_ColumnVarNameInTable="columnSEC_USER_KKM_INN" minOccurs="0">
+              <xs:element name="SEC_USER_KKM_INN" msprop:Generator_ColumnPropNameInTable="SEC_USER_KKM_INNColumn" msprop:Generator_ColumnPropNameInRow="SEC_USER_KKM_INN" msprop:Generator_UserColumnName="SEC_USER_KKM_INN" msprop:Generator_ColumnVarNameInTable="columnSEC_USER_KKM_INN" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="20" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="SEC_USER_TYPE_ID" msprop:Generator_UserColumnName="SEC_USER_TYPE_ID" msprop:Generator_ColumnPropNameInTable="SEC_USER_TYPE_IDColumn" msprop:Generator_ColumnPropNameInRow="SEC_USER_TYPE_ID" msprop:Generator_ColumnVarNameInTable="columnSEC_USER_TYPE_ID" type="xs:int" />
-              <xs:element name="SEC_ROLES" msdata:ReadOnly="true" msprop:Generator_UserColumnName="SEC_ROLES" msprop:Generator_ColumnPropNameInTable="SEC_ROLESColumn" msprop:Generator_ColumnPropNameInRow="SEC_ROLES" msprop:Generator_ColumnVarNameInTable="columnSEC_ROLES" minOccurs="0">
+              <xs:element name="SEC_USER_TYPE_ID" msprop:Generator_ColumnPropNameInTable="SEC_USER_TYPE_IDColumn" msprop:Generator_ColumnPropNameInRow="SEC_USER_TYPE_ID" msprop:Generator_UserColumnName="SEC_USER_TYPE_ID" msprop:Generator_ColumnVarNameInTable="columnSEC_USER_TYPE_ID" type="xs:int" />
+              <xs:element name="SEC_ROLES" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInTable="SEC_ROLESColumn" msprop:Generator_ColumnPropNameInRow="SEC_ROLES" msprop:Generator_UserColumnName="SEC_ROLES" msprop:Generator_ColumnVarNameInTable="columnSEC_ROLES" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="2147483647" />
@@ -380,16 +380,16 @@ WHERE [SEC_USER_TYPE_NAME] = @SEC_USER_TYPE_NAME;</CommandText>
         <xs:element name="SEC_USER_ROLE" msprop:Generator_RowEvHandlerName="SEC_USER_ROLERowChangeEventHandler" msprop:Generator_RowDeletedName="SEC_USER_ROLERowDeleted" msprop:Generator_RowDeletingName="SEC_USER_ROLERowDeleting" msprop:Generator_RowEvArgName="SEC_USER_ROLERowChangeEvent" msprop:Generator_TablePropName="SEC_USER_ROLE" msprop:Generator_RowChangedName="SEC_USER_ROLERowChanged" msprop:Generator_UserTableName="SEC_USER_ROLE" msprop:Generator_RowChangingName="SEC_USER_ROLERowChanging" msprop:Generator_RowClassName="SEC_USER_ROLERow" msprop:Generator_TableClassName="SEC_USER_ROLEDataTable" msprop:Generator_TableVarName="tableSEC_USER_ROLE">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="SEC_ROLE_ID" msprop:Generator_UserColumnName="SEC_ROLE_ID" msprop:Generator_ColumnPropNameInTable="SEC_ROLE_IDColumn" msprop:Generator_ColumnPropNameInRow="SEC_ROLE_ID" msprop:Generator_ColumnVarNameInTable="columnSEC_ROLE_ID" type="xs:int" />
-              <xs:element name="SEC_USER_ID" msprop:Generator_UserColumnName="SEC_USER_ID" msprop:Generator_ColumnPropNameInTable="SEC_USER_IDColumn" msprop:Generator_ColumnPropNameInRow="SEC_USER_ID" msprop:Generator_ColumnVarNameInTable="columnSEC_USER_ID" type="xs:int" />
+              <xs:element name="SEC_ROLE_ID" msprop:Generator_ColumnPropNameInTable="SEC_ROLE_IDColumn" msprop:Generator_ColumnPropNameInRow="SEC_ROLE_ID" msprop:Generator_UserColumnName="SEC_ROLE_ID" msprop:Generator_ColumnVarNameInTable="columnSEC_ROLE_ID" type="xs:int" />
+              <xs:element name="SEC_USER_ID" msprop:Generator_ColumnPropNameInTable="SEC_USER_IDColumn" msprop:Generator_ColumnPropNameInRow="SEC_USER_ID" msprop:Generator_UserColumnName="SEC_USER_ID" msprop:Generator_ColumnVarNameInTable="columnSEC_USER_ID" type="xs:int" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
         <xs:element name="SEC_USER_TYPE" msprop:Generator_RowEvHandlerName="SEC_USER_TYPERowChangeEventHandler" msprop:Generator_RowDeletedName="SEC_USER_TYPERowDeleted" msprop:Generator_RowDeletingName="SEC_USER_TYPERowDeleting" msprop:Generator_RowEvArgName="SEC_USER_TYPERowChangeEvent" msprop:Generator_TablePropName="SEC_USER_TYPE" msprop:Generator_RowChangedName="SEC_USER_TYPERowChanged" msprop:Generator_UserTableName="SEC_USER_TYPE" msprop:Generator_RowChangingName="SEC_USER_TYPERowChanging" msprop:Generator_RowClassName="SEC_USER_TYPERow" msprop:Generator_TableClassName="SEC_USER_TYPEDataTable" msprop:Generator_TableVarName="tableSEC_USER_TYPE">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="SEC_USER_TYPE_ID" msprop:Generator_UserColumnName="SEC_USER_TYPE_ID" msprop:Generator_ColumnPropNameInTable="SEC_USER_TYPE_IDColumn" msprop:Generator_ColumnPropNameInRow="SEC_USER_TYPE_ID" msprop:Generator_ColumnVarNameInTable="columnSEC_USER_TYPE_ID" type="xs:int" />
-              <xs:element name="SEC_USER_TYPE_NAME" msprop:Generator_UserColumnName="SEC_USER_TYPE_NAME" msprop:Generator_ColumnPropNameInTable="SEC_USER_TYPE_NAMEColumn" msprop:Generator_ColumnPropNameInRow="SEC_USER_TYPE_NAME" msprop:Generator_ColumnVarNameInTable="columnSEC_USER_TYPE_NAME">
+              <xs:element name="SEC_USER_TYPE_ID" msprop:Generator_ColumnPropNameInTable="SEC_USER_TYPE_IDColumn" msprop:Generator_ColumnPropNameInRow="SEC_USER_TYPE_ID" msprop:Generator_UserColumnName="SEC_USER_TYPE_ID" msprop:Generator_ColumnVarNameInTable="columnSEC_USER_TYPE_ID" type="xs:int" />
+              <xs:element name="SEC_USER_TYPE_NAME" msprop:Generator_ColumnPropNameInTable="SEC_USER_TYPE_NAMEColumn" msprop:Generator_ColumnPropNameInRow="SEC_USER_TYPE_NAME" msprop:Generator_UserColumnName="SEC_USER_TYPE_NAME" msprop:Generator_ColumnVarNameInTable="columnSEC_USER_TYPE_NAME">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="100" />
@@ -421,9 +421,9 @@ WHERE [SEC_USER_TYPE_NAME] = @SEC_USER_TYPE_NAME;</CommandText>
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
-      <msdata:Relationship name="FK_SEC_USER_SEC_USER_TYPE" msdata:parent="SEC_USER_TYPE" msdata:child="SEC_USER" msdata:parentkey="SEC_USER_TYPE_ID" msdata:childkey="SEC_USER_TYPE_ID" msprop:Generator_UserParentTable="SEC_USER_TYPE" msprop:Generator_UserChildTable="SEC_USER" msprop:Generator_RelationVarName="relationFK_SEC_USER_SEC_USER_TYPE" msprop:Generator_ChildPropName="GetSEC_USERRows" msprop:Generator_UserRelationName="FK_SEC_USER_SEC_USER_TYPE" msprop:Generator_ParentPropName="SEC_USER_TYPERow" />
-      <msdata:Relationship name="FK_SEC_USER_SEC_USER__SEC_ROLE" msdata:parent="SEC_ROLE" msdata:child="SEC_USER_ROLE" msdata:parentkey="SEC_ROLE_ID" msdata:childkey="SEC_ROLE_ID" msprop:Generator_UserParentTable="SEC_ROLE" msprop:Generator_UserChildTable="SEC_USER_ROLE" msprop:Generator_RelationVarName="relationFK_SEC_USER_SEC_USER__SEC_ROLE" msprop:Generator_ChildPropName="GetSEC_USER_ROLERows" msprop:Generator_ParentPropName="SEC_ROLERow" msprop:Generator_UserRelationName="FK_SEC_USER_SEC_USER__SEC_ROLE" />
-      <msdata:Relationship name="FK_SEC_USER_SEC_USER__SEC_USER" msdata:parent="SEC_USER" msdata:child="SEC_USER_ROLE" msdata:parentkey="SEC_USER_ID" msdata:childkey="SEC_USER_ID" msprop:Generator_UserParentTable="SEC_USER" msprop:Generator_UserChildTable="SEC_USER_ROLE" msprop:Generator_RelationVarName="relationFK_SEC_USER_SEC_USER__SEC_USER" msprop:Generator_ChildPropName="GetSEC_USER_ROLERows" msprop:Generator_ParentPropName="SEC_USERRow" msprop:Generator_UserRelationName="FK_SEC_USER_SEC_USER__SEC_USER" />
+      <msdata:Relationship name="FK_SEC_USER_SEC_USER_TYPE" msdata:parent="SEC_USER_TYPE" msdata:child="SEC_USER" msdata:parentkey="SEC_USER_TYPE_ID" msdata:childkey="SEC_USER_TYPE_ID" msprop:Generator_UserParentTable="SEC_USER_TYPE" msprop:Generator_UserChildTable="SEC_USER" msprop:Generator_RelationVarName="relationFK_SEC_USER_SEC_USER_TYPE" msprop:Generator_ChildPropName="GetSEC_USERRows" msprop:Generator_ParentPropName="SEC_USER_TYPERow" msprop:Generator_UserRelationName="FK_SEC_USER_SEC_USER_TYPE" />
+      <msdata:Relationship name="FK_SEC_USER_SEC_USER__SEC_ROLE" msdata:parent="SEC_ROLE" msdata:child="SEC_USER_ROLE" msdata:parentkey="SEC_ROLE_ID" msdata:childkey="SEC_ROLE_ID" msprop:Generator_UserParentTable="SEC_ROLE" msprop:Generator_UserChildTable="SEC_USER_ROLE" msprop:Generator_RelationVarName="relationFK_SEC_USER_SEC_USER__SEC_ROLE" msprop:Generator_ChildPropName="GetSEC_USER_ROLERows" msprop:Generator_UserRelationName="FK_SEC_USER_SEC_USER__SEC_ROLE" msprop:Generator_ParentPropName="SEC_ROLERow" />
+      <msdata:Relationship name="FK_SEC_USER_SEC_USER__SEC_USER" msdata:parent="SEC_USER" msdata:child="SEC_USER_ROLE" msdata:parentkey="SEC_USER_ID" msdata:childkey="SEC_USER_ID" msprop:Generator_UserParentTable="SEC_USER" msprop:Generator_UserChildTable="SEC_USER_ROLE" msprop:Generator_RelationVarName="relationFK_SEC_USER_SEC_USER__SEC_USER" msprop:Generator_ChildPropName="GetSEC_USER_ROLERows" msprop:Generator_UserRelationName="FK_SEC_USER_SEC_USER__SEC_USER" msprop:Generator_ParentPropName="SEC_USERRow" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>
