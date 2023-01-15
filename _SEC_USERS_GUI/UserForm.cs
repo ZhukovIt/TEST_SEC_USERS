@@ -33,7 +33,7 @@ namespace _SEC_USERS_GUI
             m_WorkerDB.LoadData();
         }
 
-        public UserForm(FormState state) : this()
+        public void SetState(FormState state)
         {
             m_State = state;
             StateRequest();
