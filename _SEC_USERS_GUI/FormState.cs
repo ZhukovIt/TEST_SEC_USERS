@@ -26,11 +26,11 @@ namespace _SEC_USERS_GUI
             }
         }
 
-        public bool TryExecute(Form form)
+        public bool TryExecute()
         {
             try
             {
-                FillData(form);
+                FillData();
                 return true;
             }
             catch (Exception ex)
@@ -40,36 +40,83 @@ namespace _SEC_USERS_GUI
             }
         }
 
-        internal abstract void FillData(Form form);
+        internal abstract void FillData();
     }
 
-    public sealed class UserFormAddingState : FormState
+    public abstract class UserFormState : FormState
     {
-        internal override void FillData(Form t_form)
-        {
-            UserForm form = (UserForm)t_form;
+        protected readonly UserForm m_form;
+        protected readonly Button m_SaveButton;
 
+        protected UserFormState(UserForm form)
+        {
+            m_form = form;
+            m_SaveButton = m_form.GetButtonSaveExecute;
+            m_SaveButton.Click += new EventHandler(EventHandlerFromSaveButton);
+        }
+
+        internal abstract void EventHandlerFromSaveButton(object sender, EventArgs e);
+    }
+
+    public sealed class UserFormAddingState : UserFormState
+    {
+        public UserFormAddingState(UserForm form) : base(form)
+        {
+
+        }
+
+        internal override void FillData()
+        {
+            m_form.Text = "Добавление нового пользователя";
+            m_SaveButton.Text = "Добавить";
+            
             
             //form.GetWorkerDB.InsertUser();
         }
+
+        internal override void EventHandlerFromSaveButton(object sender, EventArgs e)
+        {
+            
+        }
     }
 
-    public sealed class UserFormCopyingState : FormState
+    public sealed class UserFormCopyingState : UserFormState
     {
-        internal override void FillData(Form t_form)
+        public UserFormCopyingState(UserForm form) : base(form)
         {
-            UserForm form = (UserForm)t_form;
 
+        }
+
+        internal override void FillData()
+        {
+            m_form.Text = "Создание нового пользователя на основе копии";
+            m_SaveButton.Text = "Добавить";
+
+            //form.GetWorkerDB.InsertUser();
+        }
+
+        internal override void EventHandlerFromSaveButton(object sender, EventArgs e)
+        {
 
         }
     }
 
-    public sealed class UserFormEditingState : FormState
+    public sealed class UserFormEditingState : UserFormState
     {
-        internal override void FillData(Form t_form)
+        public UserFormEditingState(UserForm form) : base(form)
         {
-            UserForm form = (UserForm)t_form;
 
+        }
+
+        internal override void FillData()
+        {
+            m_form.Text = "Редактирование пользователя";
+
+            //form.GetWorkerDB.InsertUser();
+        }
+
+        internal override void EventHandlerFromSaveButton(object sender, EventArgs e)
+        {
 
         }
     }

@@ -348,6 +348,12 @@ namespace _SEC_USERS_GUI
 
         // Здесь добавлены свойства для доступа к элементам GUI
 
-
+        public System.Windows.Forms.Button GetButtonSaveExecute
+        {
+            get
+            {
+                return btn_SaveExecute;
+            }
+        }
     }
 }

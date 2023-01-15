@@ -41,7 +41,7 @@ namespace _SEC_USERS_GUI
 
         internal void StateRequest()
         {
-            if (!m_State.TryExecute(this))
+            if (!m_State.TryExecute())
             {
                 MessageBox.Show(m_State.ExceptionMessage);
             }
