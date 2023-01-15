@@ -10,14 +10,11 @@ namespace _SEC_USERS
 {
     public class ConnectionSingleton
     {
-        private static SqlConnection m_connection = null;
-        private string m_connectionString;
+        private static SqlConnection m_connection;
 
         private ConnectionSingleton()
         {
-            string nameConnectionString = "SECURITY_USERS.Properties.Settings.clinic10ConnectionString";
-            m_connectionString = ConfigurationManager.ConnectionStrings[nameConnectionString].ConnectionString;
-            m_connection = new SqlConnection("Server=.; Database=clinic10; Trusted_Connection=True");
+            m_connection = new SqlConnection(GetTestClinic10ConnectionString());
         }
 
         ~ConnectionSingleton()
@@ -30,9 +27,30 @@ namespace _SEC_USERS
         {
             if (m_connection == null)
             {
-                m_connection = new SqlConnection("Server=.; Database=clinic10; Trusted_Connection=True");
+                new ConnectionSingleton();
             }
             return m_connection;
+        }
+
+        private string GetConnectionStringByName(string name)
+        {
+            string returnValue = null;
+            ConnectionStringSettings settings = ConfigurationManager.ConnectionStrings[name];
+            if (settings != null)
+            {
+                return settings.ConnectionString;
+            }
+            return returnValue;
+        }
+        
+        private string GetTestClinic10ConnectionString()
+        {
+            return GetConnectionStringByName("TEST_clinic10ConnectionString");
+        }
+
+        private string GetClinic10ConnectionString()
+        {
+            return GetConnectionStringByName("clinic10ConnectionString");
         }
     }
 }

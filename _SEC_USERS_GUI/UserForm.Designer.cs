@@ -88,6 +88,7 @@ namespace _SEC_USERS_GUI
             this.TLP_UserInfoContainer.Dock = System.Windows.Forms.DockStyle.Top;
             this.TLP_UserInfoContainer.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
             this.TLP_UserInfoContainer.Location = new System.Drawing.Point(0, 0);
+            this.TLP_UserInfoContainer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.TLP_UserInfoContainer.Name = "TLP_UserInfoContainer";
             this.TLP_UserInfoContainer.RowCount = 6;
             this.TLP_UserInfoContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.669F));
@@ -96,7 +97,7 @@ namespace _SEC_USERS_GUI
             this.TLP_UserInfoContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.662F));
             this.TLP_UserInfoContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.662F));
             this.TLP_UserInfoContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.669F));
-            this.TLP_UserInfoContainer.Size = new System.Drawing.Size(1067, 320);
+            this.TLP_UserInfoContainer.Size = new System.Drawing.Size(935, 394);
             this.TLP_UserInfoContainer.TabIndex = 0;
             // 
             // checkBoxIsDisabled
@@ -104,9 +105,10 @@ namespace _SEC_USERS_GUI
             this.checkBoxIsDisabled.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.checkBoxIsDisabled.AutoSize = true;
             this.TLP_UserInfoContainer.SetColumnSpan(this.checkBoxIsDisabled, 2);
-            this.checkBoxIsDisabled.Location = new System.Drawing.Point(446, 230);
+            this.checkBoxIsDisabled.Location = new System.Drawing.Point(356, 282);
+            this.checkBoxIsDisabled.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.checkBoxIsDisabled.Name = "checkBoxIsDisabled";
-            this.checkBoxIsDisabled.Size = new System.Drawing.Size(174, 17);
+            this.checkBoxIsDisabled.Size = new System.Drawing.Size(222, 20);
             this.checkBoxIsDisabled.TabIndex = 3;
             this.checkBoxIsDisabled.Text = "Пользователь заблокирован";
             this.checkBoxIsDisabled.UseVisualStyleBackColor = true;
@@ -115,9 +117,10 @@ namespace _SEC_USERS_GUI
             // 
             this.lbl_UserLogin.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lbl_UserLogin.AutoSize = true;
-            this.lbl_UserLogin.Location = new System.Drawing.Point(50, 73);
+            this.lbl_UserLogin.Location = new System.Drawing.Point(22, 89);
+            this.lbl_UserLogin.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_UserLogin.Name = "lbl_UserLogin";
-            this.lbl_UserLogin.Size = new System.Drawing.Size(112, 13);
+            this.lbl_UserLogin.Size = new System.Drawing.Size(142, 16);
             this.lbl_UserLogin.TabIndex = 1;
             this.lbl_UserLogin.Text = "Логин пользователя";
             // 
@@ -125,9 +128,10 @@ namespace _SEC_USERS_GUI
             // 
             this.lbl_userTypeId.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lbl_userTypeId.AutoSize = true;
-            this.lbl_userTypeId.Location = new System.Drawing.Point(56, 126);
+            this.lbl_userTypeId.Location = new System.Drawing.Point(29, 154);
+            this.lbl_userTypeId.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_userTypeId.Name = "lbl_userTypeId";
-            this.lbl_userTypeId.Size = new System.Drawing.Size(100, 13);
+            this.lbl_userTypeId.Size = new System.Drawing.Size(128, 16);
             this.lbl_userTypeId.TabIndex = 5;
             this.lbl_userTypeId.Text = "Тип пользователя";
             // 
@@ -136,26 +140,29 @@ namespace _SEC_USERS_GUI
             this.lbl_UserFIO.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lbl_UserFIO.AutoSize = true;
             this.lbl_UserFIO.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lbl_UserFIO.Location = new System.Drawing.Point(38, 20);
+            this.lbl_UserFIO.Location = new System.Drawing.Point(5, 24);
+            this.lbl_UserFIO.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_UserFIO.Name = "lbl_UserFIO";
-            this.lbl_UserFIO.Size = new System.Drawing.Size(137, 13);
+            this.lbl_UserFIO.Size = new System.Drawing.Size(176, 17);
             this.lbl_UserFIO.TabIndex = 0;
             this.lbl_UserFIO.Text = "Фамилия, Имя, Отчество";
             // 
             // textBox1
             // 
             this.textBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox1.Location = new System.Drawing.Point(538, 16);
+            this.textBox1.Location = new System.Drawing.Point(426, 21);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(203, 20);
+            this.textBox1.Size = new System.Drawing.Size(269, 22);
             this.textBox1.TabIndex = 6;
             // 
             // textBox2
             // 
             this.textBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox2.Location = new System.Drawing.Point(538, 69);
+            this.textBox2.Location = new System.Drawing.Point(425, 86);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(204, 20);
+            this.textBox2.Size = new System.Drawing.Size(271, 22);
             this.textBox2.TabIndex = 7;
             // 
             // checkBoxNoCheck
@@ -163,9 +170,10 @@ namespace _SEC_USERS_GUI
             this.checkBoxNoCheck.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.checkBoxNoCheck.AutoSize = true;
             this.TLP_UserInfoContainer.SetColumnSpan(this.checkBoxNoCheck, 2);
-            this.checkBoxNoCheck.Location = new System.Drawing.Point(424, 284);
+            this.checkBoxNoCheck.Location = new System.Drawing.Point(328, 349);
+            this.checkBoxNoCheck.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.checkBoxNoCheck.Name = "checkBoxNoCheck";
-            this.checkBoxNoCheck.Size = new System.Drawing.Size(218, 17);
+            this.checkBoxNoCheck.Size = new System.Drawing.Size(278, 20);
             this.checkBoxNoCheck.TabIndex = 10;
             this.checkBoxNoCheck.Text = "Не выполнять проверку прав доступа";
             this.checkBoxNoCheck.UseVisualStyleBackColor = true;
@@ -176,9 +184,10 @@ namespace _SEC_USERS_GUI
             this.comboBox_TypeUser.DataSource = this.bs_SEC_USER_TYPE;
             this.comboBox_TypeUser.DisplayMember = "SEC_USER_TYPE_NAME";
             this.comboBox_TypeUser.FormattingEnabled = true;
-            this.comboBox_TypeUser.Location = new System.Drawing.Point(538, 122);
+            this.comboBox_TypeUser.Location = new System.Drawing.Point(426, 150);
+            this.comboBox_TypeUser.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.comboBox_TypeUser.Name = "comboBox_TypeUser";
-            this.comboBox_TypeUser.Size = new System.Drawing.Size(203, 21);
+            this.comboBox_TypeUser.Size = new System.Drawing.Size(269, 24);
             this.comboBox_TypeUser.TabIndex = 11;
             // 
             // checkBoxBuiltIn
@@ -186,9 +195,10 @@ namespace _SEC_USERS_GUI
             this.checkBoxBuiltIn.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.checkBoxBuiltIn.AutoSize = true;
             this.TLP_UserInfoContainer.SetColumnSpan(this.checkBoxBuiltIn, 2);
-            this.checkBoxBuiltIn.Location = new System.Drawing.Point(411, 177);
+            this.checkBoxBuiltIn.Location = new System.Drawing.Point(313, 217);
+            this.checkBoxBuiltIn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.checkBoxBuiltIn.Name = "checkBoxBuiltIn";
-            this.checkBoxBuiltIn.Size = new System.Drawing.Size(244, 17);
+            this.checkBoxBuiltIn.Size = new System.Drawing.Size(308, 20);
             this.checkBoxBuiltIn.TabIndex = 8;
             this.checkBoxBuiltIn.Text = "Пользователь является администратором";
             this.checkBoxBuiltIn.UseVisualStyleBackColor = true;
@@ -211,12 +221,13 @@ namespace _SEC_USERS_GUI
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 515);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 634);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(1067, 47);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(935, 58);
             this.tableLayoutPanel2.TabIndex = 2;
             // 
             // dataGridView1
@@ -229,38 +240,45 @@ namespace _SEC_USERS_GUI
             this.btn_DeleteRole});
             this.dataGridView1.DataSource = this.bs_SEC_USER;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 320);
+            this.dataGridView1.Location = new System.Drawing.Point(0, 394);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(1067, 189);
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.Size = new System.Drawing.Size(935, 233);
             this.dataGridView1.TabIndex = 1;
             // 
             // sECROLENAMEDataGridViewTextBoxColumn
             // 
             this.sECROLENAMEDataGridViewTextBoxColumn.DataPropertyName = "SEC_ROLE_NAME";
             this.sECROLENAMEDataGridViewTextBoxColumn.HeaderText = "Наименование";
+            this.sECROLENAMEDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.sECROLENAMEDataGridViewTextBoxColumn.Name = "sECROLENAMEDataGridViewTextBoxColumn";
+            this.sECROLENAMEDataGridViewTextBoxColumn.Width = 125;
             // 
             // btn_AddNewRole
             // 
             this.btn_AddNewRole.HeaderText = "";
+            this.btn_AddNewRole.MinimumWidth = 6;
             this.btn_AddNewRole.Name = "btn_AddNewRole";
             this.btn_AddNewRole.Width = 32;
             // 
             // btn_DeleteRole
             // 
             this.btn_DeleteRole.HeaderText = "";
+            this.btn_DeleteRole.MinimumWidth = 6;
             this.btn_DeleteRole.Name = "btn_DeleteRole";
             this.btn_DeleteRole.Width = 32;
             // 
             // UserForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1067, 562);
+            this.ClientSize = new System.Drawing.Size(935, 692);
             this.Controls.Add(this.tableLayoutPanel2);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.TLP_UserInfoContainer);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "UserForm";
             this.Text = "Пользователь";
             ((System.ComponentModel.ISupportInitialize)(this.dts_SEC_USERS)).EndInit();
