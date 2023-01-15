@@ -37,7 +37,7 @@ namespace _SEC_USERS_GUI
             this.ts_HeaderButtons = new System.Windows.Forms.ToolStrip();
             this.btn_AddNewUser = new System.Windows.Forms.ToolStripButton();
             this.btn_AddNewUserWithCopy = new System.Windows.Forms.ToolStripButton();
-            this.btn_EditUset = new System.Windows.Forms.ToolStripButton();
+            this.btn_EditUser = new System.Windows.Forms.ToolStripButton();
             this.btn_RemoveUser = new System.Windows.Forms.ToolStripButton();
             this.sep_ButtonsToFinder = new System.Windows.Forms.ToolStripSeparator();
             this.lbl_FinderTitle = new System.Windows.Forms.ToolStripLabel();
@@ -65,7 +65,7 @@ namespace _SEC_USERS_GUI
             this.ts_HeaderButtons.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.btn_AddNewUser,
             this.btn_AddNewUserWithCopy,
-            this.btn_EditUset,
+            this.btn_EditUser,
             this.btn_RemoveUser,
             this.sep_ButtonsToFinder,
             this.lbl_FinderTitle,
@@ -73,7 +73,7 @@ namespace _SEC_USERS_GUI
             this.btn_ClearFinder});
             this.ts_HeaderButtons.Location = new System.Drawing.Point(0, 0);
             this.ts_HeaderButtons.Name = "ts_HeaderButtons";
-            this.ts_HeaderButtons.Size = new System.Drawing.Size(1057, 39);
+            this.ts_HeaderButtons.Size = new System.Drawing.Size(1409, 39);
             this.ts_HeaderButtons.TabIndex = 0;
             this.ts_HeaderButtons.Text = "toolStrip1";
             // 
@@ -85,6 +85,7 @@ namespace _SEC_USERS_GUI
             this.btn_AddNewUser.Name = "btn_AddNewUser";
             this.btn_AddNewUser.Size = new System.Drawing.Size(36, 36);
             this.btn_AddNewUser.Text = "Добавление нового пользователя";
+            this.btn_AddNewUser.Click += new System.EventHandler(this.btn_AddNewUser_Click);
             // 
             // btn_AddNewUserWithCopy
             // 
@@ -94,15 +95,17 @@ namespace _SEC_USERS_GUI
             this.btn_AddNewUserWithCopy.Name = "btn_AddNewUserWithCopy";
             this.btn_AddNewUserWithCopy.Size = new System.Drawing.Size(36, 36);
             this.btn_AddNewUserWithCopy.Text = "Создать нового пользователя на основе копии";
+            this.btn_AddNewUserWithCopy.Click += new System.EventHandler(this.btn_AddNewUserWithCopy_Click);
             // 
-            // btn_EditUset
+            // btn_EditUser
             // 
-            this.btn_EditUset.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btn_EditUset.Image = global::_SEC_USERS_GUI.Properties.Resources.editButton;
-            this.btn_EditUset.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btn_EditUset.Name = "btn_EditUset";
-            this.btn_EditUset.Size = new System.Drawing.Size(36, 36);
-            this.btn_EditUset.Text = "Редактировать данные пользователя";
+            this.btn_EditUser.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btn_EditUser.Image = global::_SEC_USERS_GUI.Properties.Resources.editButton;
+            this.btn_EditUser.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btn_EditUser.Name = "btn_EditUser";
+            this.btn_EditUser.Size = new System.Drawing.Size(36, 36);
+            this.btn_EditUser.Text = "Редактировать данные пользователя";
+            this.btn_EditUser.Click += new System.EventHandler(this.btn_EditUser_Click);
             // 
             // btn_RemoveUser
             // 
@@ -121,7 +124,7 @@ namespace _SEC_USERS_GUI
             // lbl_FinderTitle
             // 
             this.lbl_FinderTitle.Name = "lbl_FinderTitle";
-            this.lbl_FinderTitle.Size = new System.Drawing.Size(42, 36);
+            this.lbl_FinderTitle.Size = new System.Drawing.Size(52, 36);
             this.lbl_FinderTitle.Text = "Поиск";
             // 
             // txtBox_FinderField
@@ -129,7 +132,7 @@ namespace _SEC_USERS_GUI
             this.txtBox_FinderField.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtBox_FinderField.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtBox_FinderField.Name = "txtBox_FinderField";
-            this.txtBox_FinderField.Size = new System.Drawing.Size(400, 39);
+            this.txtBox_FinderField.Size = new System.Drawing.Size(533, 39);
             this.txtBox_FinderField.TextChanged += new System.EventHandler(this.txtBox_TextChanged);
             // 
             // btn_ClearFinder
@@ -138,7 +141,7 @@ namespace _SEC_USERS_GUI
             this.btn_ClearFinder.Image = ((System.Drawing.Image)(resources.GetObject("btn_ClearFinder.Image")));
             this.btn_ClearFinder.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btn_ClearFinder.Name = "btn_ClearFinder";
-            this.btn_ClearFinder.Size = new System.Drawing.Size(23, 36);
+            this.btn_ClearFinder.Size = new System.Drawing.Size(29, 36);
             this.btn_ClearFinder.Text = "X";
             this.btn_ClearFinder.ToolTipText = "Очистить поле поиска";
             this.btn_ClearFinder.Click += new System.EventHandler(this.btn_ClearFinder_Click);
@@ -175,6 +178,7 @@ namespace _SEC_USERS_GUI
             this.dgv_SEC_USERS.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgv_SEC_USERS.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgv_SEC_USERS.Location = new System.Drawing.Point(0, 39);
+            this.dgv_SEC_USERS.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgv_SEC_USERS.Name = "dgv_SEC_USERS";
             this.dgv_SEC_USERS.ReadOnly = true;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -184,14 +188,16 @@ namespace _SEC_USERS_GUI
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.WindowText;
             this.dgv_SEC_USERS.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.dgv_SEC_USERS.RowHeadersWidth = 51;
             this.dgv_SEC_USERS.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_SEC_USERS.Size = new System.Drawing.Size(1057, 523);
+            this.dgv_SEC_USERS.Size = new System.Drawing.Size(1409, 653);
             this.dgv_SEC_USERS.TabIndex = 1;
             // 
             // sECUSERFIODataGridViewTextBoxColumn
             // 
             this.sECUSERFIODataGridViewTextBoxColumn.DataPropertyName = "SEC_USER_FIO";
             this.sECUSERFIODataGridViewTextBoxColumn.HeaderText = "Фамилия Имя Отчество";
+            this.sECUSERFIODataGridViewTextBoxColumn.MinimumWidth = 6;
             this.sECUSERFIODataGridViewTextBoxColumn.Name = "sECUSERFIODataGridViewTextBoxColumn";
             this.sECUSERFIODataGridViewTextBoxColumn.ReadOnly = true;
             this.sECUSERFIODataGridViewTextBoxColumn.Width = 200;
@@ -200,6 +206,7 @@ namespace _SEC_USERS_GUI
             // 
             this.sECUSERLOGINDataGridViewTextBoxColumn.DataPropertyName = "SEC_USER_LOGIN";
             this.sECUSERLOGINDataGridViewTextBoxColumn.HeaderText = "Логин";
+            this.sECUSERLOGINDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.sECUSERLOGINDataGridViewTextBoxColumn.Name = "sECUSERLOGINDataGridViewTextBoxColumn";
             this.sECUSERLOGINDataGridViewTextBoxColumn.ReadOnly = true;
             this.sECUSERLOGINDataGridViewTextBoxColumn.Width = 150;
@@ -211,6 +218,7 @@ namespace _SEC_USERS_GUI
             this.SEC_USER_TYPE.DisplayMember = "SEC_USER_TYPE_NAME";
             this.SEC_USER_TYPE.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
             this.SEC_USER_TYPE.HeaderText = "Тип пользователя";
+            this.SEC_USER_TYPE.MinimumWidth = 6;
             this.SEC_USER_TYPE.Name = "SEC_USER_TYPE";
             this.SEC_USER_TYPE.ReadOnly = true;
             this.SEC_USER_TYPE.Resizable = System.Windows.Forms.DataGridViewTriState.True;
@@ -231,6 +239,7 @@ namespace _SEC_USERS_GUI
             // 
             this.SEC_ROLES.DataPropertyName = "SEC_ROLES";
             this.SEC_ROLES.HeaderText = "Роли";
+            this.SEC_ROLES.MinimumWidth = 6;
             this.SEC_ROLES.Name = "SEC_ROLES";
             this.SEC_ROLES.ReadOnly = true;
             this.SEC_ROLES.Width = 300;
@@ -239,8 +248,10 @@ namespace _SEC_USERS_GUI
             // 
             this.sECUSERDISABLEDDataGridViewCheckBoxColumn.DataPropertyName = "SEC_USER_DISABLED";
             this.sECUSERDISABLEDDataGridViewCheckBoxColumn.HeaderText = "Заблокирован";
+            this.sECUSERDISABLEDDataGridViewCheckBoxColumn.MinimumWidth = 6;
             this.sECUSERDISABLEDDataGridViewCheckBoxColumn.Name = "sECUSERDISABLEDDataGridViewCheckBoxColumn";
             this.sECUSERDISABLEDDataGridViewCheckBoxColumn.ReadOnly = true;
+            this.sECUSERDISABLEDDataGridViewCheckBoxColumn.Width = 125;
             // 
             // bs_SEC_USERS
             // 
@@ -249,12 +260,13 @@ namespace _SEC_USERS_GUI
             // 
             // UsersForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1057, 562);
+            this.ClientSize = new System.Drawing.Size(1409, 692);
             this.Controls.Add(this.dgv_SEC_USERS);
             this.Controls.Add(this.ts_HeaderButtons);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "UsersForm";
             this.Text = "Пользователи";
             this.ts_HeaderButtons.ResumeLayout(false);
@@ -277,7 +289,7 @@ namespace _SEC_USERS_GUI
         private System.Windows.Forms.DataGridView dgv_SEC_USERS;
         private System.Windows.Forms.ToolStripButton btn_AddNewUser;
         private System.Windows.Forms.ToolStripButton btn_AddNewUserWithCopy;
-        private System.Windows.Forms.ToolStripButton btn_EditUset;
+        private System.Windows.Forms.ToolStripButton btn_EditUser;
         private System.Windows.Forms.ToolStripButton btn_RemoveUser;
         private System.Windows.Forms.ToolStripSeparator sep_ButtonsToFinder;
         private System.Windows.Forms.ToolStripLabel lbl_FinderTitle;

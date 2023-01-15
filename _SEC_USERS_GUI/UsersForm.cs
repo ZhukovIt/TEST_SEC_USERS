@@ -22,13 +22,51 @@ namespace _SEC_USERS_GUI
             m_WorkerDB.LoadData();
         }
 
+        private Tuple<int, string, string, bool, bool, bool, int> CreateCurrentUserData()
+        {
+            DataRow dataRow = ((DataRowView)bs_SEC_USERS.Current).Row;
+            int id = dataRow.Field<int>("SEC_USER_ID");
+            string login = dataRow.Field<string>("SEC_USER_LOGIN");
+            string fio = dataRow.Field<string>("SEC_USER_FIO");
+            bool builtIn = dataRow.Field<bool>("SEC_USER_BUILTIN");
+            bool isDisabled = dataRow.Field<bool>("SEC_USER_DISABLED");
+            bool noCheck = dataRow.Field<bool>("SEC_USER_NO_CHECK");
+            int typeId = dataRow.Field<int>("SEC_USER_TYPE_ID");
+            return Tuple.Create(id, login, fio, builtIn, isDisabled, noCheck, typeId);
+        }
+
 
 
 
 
         // Методы-обработчики событий
 
+        private void btn_AddNewUser_Click(object sender, EventArgs e)
+        {
+            UserForm form = new UserForm();
+            FormState state = new UserFormAddingState(form);
+            form.SetState(state);
+            form.ShowDialog();
+            
+        }
 
+        private void btn_AddNewUserWithCopy_Click(object sender, EventArgs e)
+        {
+            UserForm form = new UserForm();
+            FormState state = new UserFormCopyingState(form);
+            state.FillMembersData(CreateCurrentUserData());
+            form.SetState(state);
+            form.ShowDialog();
+        }
+
+        private void btn_EditUser_Click(object sender, EventArgs e)
+        {
+            UserForm form = new UserForm();
+            FormState state = new UserFormEditingState(form);
+            state.FillMembersData(CreateCurrentUserData());
+            form.SetState(state);
+            form.ShowDialog();
+        }
 
 
 

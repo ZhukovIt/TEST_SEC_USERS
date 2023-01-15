@@ -3532,11 +3532,17 @@ SELECT SEC_USER_TYPE_ID, SEC_USER_TYPE_NAME FROM SEC_USER_TYPE WHERE (SEC_USER_T
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT SEC_USER_TYPE_ID, SEC_USER_TYPE_NAME FROM dbo.SEC_USER_TYPE";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "SELECT SEC_USER_TYPE_ID\r\nFROM SEC_USER_TYPE\r\nWHERE [SEC_USER_TYPE_NAME] = @SEC_US" +
+                "ER_TYPE_NAME;";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SEC_USER_TYPE_NAME", global::System.Data.SqlDbType.NVarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, "SEC_USER_TYPE_NAME", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3689,6 +3695,40 @@ SELECT SEC_USER_TYPE_ID, SEC_USER_TYPE_NAME FROM SEC_USER_TYPE WHERE (SEC_USER_T
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
         public virtual int Update(string SEC_USER_TYPE_NAME, int Original_SEC_USER_TYPE_ID, string Original_SEC_USER_TYPE_NAME) {
             return this.Update(Original_SEC_USER_TYPE_ID, SEC_USER_TYPE_NAME, Original_SEC_USER_TYPE_ID, Original_SEC_USER_TYPE_NAME);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual global::System.Nullable<int> Get_SEC_USER_TYPE_ID_From_SEC_USER_TYPE_NAME(string SEC_USER_TYPE_NAME) {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[1];
+            if ((SEC_USER_TYPE_NAME == null)) {
+                throw new global::System.ArgumentNullException("SEC_USER_TYPE_NAME");
+            }
+            else {
+                command.Parameters[0].Value = ((string)(SEC_USER_TYPE_NAME));
+            }
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            object returnValue;
+            try {
+                returnValue = command.ExecuteScalar();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            if (((returnValue == null) 
+                        || (returnValue.GetType() == typeof(global::System.DBNull)))) {
+                return new global::System.Nullable<int>();
+            }
+            else {
+                return new global::System.Nullable<int>(((int)(returnValue)));
+            }
         }
     }
     

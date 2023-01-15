@@ -96,13 +96,15 @@ namespace _SEC_USERS
             return maxId;
         }
 
-        public void InsertUser(string login, string fio, bool builtIn, bool isDisabled, bool no_check, int typeId)
+        public void InsertUser(string login, string fio, bool builtIn, bool isDisabled, bool no_check, string typeName)
         {
+            int typeId = (int)TA_SEC_USER_TYPE.Get_SEC_USER_TYPE_ID_From_SEC_USER_TYPE_NAME(typeName);
             TA_SEC_USER.InsertNewUser(TryGetMaxIdAndIncrementHis(), login, fio, builtIn, isDisabled, no_check, typeId);
         }
 
-        public void UpdateUser(int id, string login, string fio, bool builtIn, bool isDisabled, bool no_check, int typeId)
+        public void UpdateUser(int id, string login, string fio, bool builtIn, bool isDisabled, bool no_check, string typeName)
         {
+            int typeId = (int)TA_SEC_USER_TYPE.Get_SEC_USER_TYPE_ID_From_SEC_USER_TYPE_NAME(typeName);
             string loginDB = TA_SEC_USER.CheckLoginUserFromHisId(id);
             if (TA_SEC_USER.CheckExistsIdFromSEC_USER(id) == 0 && login != loginDB)
             {
