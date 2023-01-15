@@ -24,10 +24,11 @@ namespace _SEC_USERS_GUI
             }
         }
 
-        public UserForm(WorkerDB workerDB)
+        public UserForm()
         {
             InitializeComponent();
-            m_WorkerDB = workerDB;
+            m_WorkerDB = new WorkerDB(dts_SEC_USERS);
+            m_WorkerDB.LoadData();
         }
 
         public void SetState(FormState state)

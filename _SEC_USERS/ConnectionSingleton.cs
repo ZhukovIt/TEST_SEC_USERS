@@ -8,31 +8,16 @@ using System.Configuration;
 
 namespace _SEC_USERS
 {
-    public sealed class ConnectionSingleton
+    public static class ConnectionSingleton
     {
-        private static SqlConnection m_connection;
-
-        private ConnectionSingleton()
-        {
-            m_connection = new SqlConnection(GetTestClinic10ConnectionString());
-        }
-
-        ~ConnectionSingleton()
-        {
-            m_connection.Close();
-            m_connection.Dispose();
-        }
+        private static SqlConnection m_connection = new SqlConnection(GetTestClinic10ConnectionString());
 
         public static SqlConnection getInstance()
         {
-            if (m_connection == null)
-            {
-                new ConnectionSingleton();
-            }
             return m_connection;
         }
 
-        private string GetConnectionStringByName(string name)
+        private static string GetConnectionStringByName(string name)
         {
             string returnValue = null;
             ConnectionStringSettings settings = ConfigurationManager.ConnectionStrings[name];
@@ -43,12 +28,12 @@ namespace _SEC_USERS
             return returnValue;
         }
         
-        private string GetTestClinic10ConnectionString()
+        private static string GetTestClinic10ConnectionString()
         {
             return GetConnectionStringByName("TEST_clinic10ConnectionString");
         }
 
-        private string GetClinic10ConnectionString()
+        private static string GetClinic10ConnectionString()
         {
             return GetConnectionStringByName("clinic10ConnectionString");
         }
