@@ -15,6 +15,7 @@ namespace _SEC_USERS_GUI
     {
         private FormState m_State;
         private WorkerDB m_WorkerDB;
+        private Sec_User m_Sec_User;
 
         public WorkerDB GetWorkerDB
         {
@@ -27,8 +28,6 @@ namespace _SEC_USERS_GUI
         public UserForm()
         {
             InitializeComponent();
-            m_WorkerDB = new WorkerDB(dts_SEC_USERS);
-            m_WorkerDB.LoadData();
         }
 
         public void SetState(FormState state)
@@ -80,6 +79,11 @@ namespace _SEC_USERS_GUI
             {
 
             }
+        }
+
+        private void dataGridView_Roles_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

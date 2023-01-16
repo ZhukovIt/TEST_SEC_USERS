@@ -18,7 +18,7 @@ namespace _SEC_USERS_GUI
         public UsersForm()
         {
             InitializeComponent();
-            m_WorkerDB = new WorkerDB(dts_SEC_USERS);
+            m_WorkerDB = new WorkerDB();
             m_WorkerDB.LoadData();
         }
 
@@ -78,6 +78,12 @@ namespace _SEC_USERS_GUI
 
         private void btn_EditUser_Click(object sender, EventArgs e)
         {
+            int selectedUserId = ((DataRowView)bs_SEC_USERS.Current).Row.Field<int>("SEC_USER_ID");
+            Sec_User currentUser = m_WorkerDB.CreateSecUser(selectedUserId);
+
+
+
+
             UserForm form = new UserForm();
             FormState state = new UserFormEditingState(form);
             state.FillMembersData(CreateCurrentUserData());

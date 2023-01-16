@@ -81,17 +81,6 @@ namespace _SEC_USERS_GUI
             m_SaveButton.Click += new EventHandler(EventHandlerFromSaveButton);
         }
 
-        protected void FillAllFieldsOnForm()
-        {
-            m_FIOTextBox.Text = m_FIO;
-            m_LoginTextBox.Text = m_Login;
-            m_BuiltInCheckBox.Checked = m_BuiltIn;
-            m_DisabledCheckBox.Checked = m_Disabled;
-            m_NoCheckCheckBox.Checked = m_NoCheck;
-            m_TypeUser_Name = m_WorkerDB.TA_SEC_USER_TYPE.Get_SEC_USER_TYPE_NAME_From_SEC_USER_TYPE_ID(m_TypeId);
-            m_UserTypeComboBox.SelectedValue = m_TypeUser_Name;
-        }
-
         protected void FillAllFieldsFromForm()
         {
             m_Login = m_LoginTextBox.Text;
@@ -141,7 +130,6 @@ namespace _SEC_USERS_GUI
             m_form.Text = "Создание нового пользователя на основе копии";
             m_form.Width += 20;
             m_SaveButton.Text = "Добавить";
-            FillAllFieldsOnForm();
         }
 
         internal override void EventHandlerFromSaveButton(object sender, EventArgs e)
@@ -165,7 +153,6 @@ namespace _SEC_USERS_GUI
         internal override void FillFormData()
         {
             m_form.Text = "Редактирование пользователя";
-            FillAllFieldsOnForm();
         }
 
         internal override void EventHandlerFromSaveButton(object sender, EventArgs e)

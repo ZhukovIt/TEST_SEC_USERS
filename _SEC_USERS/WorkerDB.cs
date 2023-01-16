@@ -69,9 +69,9 @@ namespace _SEC_USERS
             }
         }
 
-        public WorkerDB(dtsSEC_USERS dts_SEC_USERS)
+        public WorkerDB()
         {
-            m_dtsSEC_USERS = dts_SEC_USERS;
+            m_dtsSEC_USERS = new dtsSEC_USERS();
         }
 
         public void LoadData()
@@ -119,6 +119,33 @@ namespace _SEC_USERS
         public bool CheckUserLoginOnUnique(string login)
         {
             return TA_SEC_USER.Check_SEC_USER_LOGIN_IN_SEC_USER(login) == 0;
+        }
+
+        public Sec_User CreateSecUser(int SecUserId)
+        {
+            dtsSEC_USERS dts_SEC_USERS = new dtsSEC_USERS();
+
+            SEC_USERTableAdapter ta_SEC_USER = new SEC_USERTableAdapter();
+            ta_SEC_USER.Connection = ConnectionSingleton.getInstance();
+
+            SEC_ROLETableAdapter ta_SEC_ROLE = new SEC_ROLETableAdapter();
+            ta_SEC_ROLE.Connection = ConnectionSingleton.getInstance();
+
+            SEC_USER_ROLETableAdapter ta_SEC_USER_ROLE = new SEC_USER_ROLETableAdapter();
+            ta_SEC_USER_ROLE.Connection = ConnectionSingleton.getInstance();
+
+            SEC_USER_TYPETableAdapter ta_SEC_USER_TYPE = new SEC_USER_TYPETableAdapter();
+            ta_SEC_USER_TYPE.Connection = ConnectionSingleton.getInstance();
+
+
+            ta_SEC_USER.FillByUser(dts_SEC_USERS.SEC_USER, SecUserId);
+            ta_SEC_ROLE.FillByUser(dts_SEC_USERS.SEC_ROLE, SecUserId);
+            ta_SEC_USER_ROLE.FillByUser(dts_SEC_USERS.SEC_USER_ROLE, SecUserId);
+            ta_SEC_USER_TYPE.FillByUser(dts_SEC_USERS.SEC_USER_TYPE, SecUserId);
+
+            Sec_User user = new Sec_User(dts_SEC_USERS);
+
+            return user;
         }
     }
 }

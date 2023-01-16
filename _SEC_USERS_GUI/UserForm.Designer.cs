@@ -30,8 +30,8 @@ namespace _SEC_USERS_GUI
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dts_SEC_USERS = new _SEC_USERS.dtsSEC_USERS();
             this.bs_SEC_USER = new System.Windows.Forms.BindingSource(this.components);
             this.bs_SEC_ROLE = new System.Windows.Forms.BindingSource(this.components);
@@ -87,6 +87,7 @@ namespace _SEC_USERS_GUI
             // 
             // bs_SEC_USER_FROM_SEC_ROLES
             // 
+            this.bs_SEC_USER_FROM_SEC_ROLES.DataMember = "FK_SEC_USER_SEC_USER__SEC_USER";
             this.bs_SEC_USER_FROM_SEC_ROLES.DataSource = this.bs_SEC_USER;
             // 
             // TLP_UserInfoContainer
@@ -122,6 +123,7 @@ namespace _SEC_USERS_GUI
             this.checkBoxIsDisabled.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.checkBoxIsDisabled.AutoSize = true;
             this.TLP_UserInfoContainer.SetColumnSpan(this.checkBoxIsDisabled, 2);
+            this.checkBoxIsDisabled.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.bs_SEC_USER, "SEC_USER_DISABLED", true));
             this.checkBoxIsDisabled.Location = new System.Drawing.Point(131, 230);
             this.checkBoxIsDisabled.Name = "checkBoxIsDisabled";
             this.checkBoxIsDisabled.Size = new System.Drawing.Size(174, 17);
@@ -163,6 +165,7 @@ namespace _SEC_USERS_GUI
             // textBox_FIO
             // 
             this.textBox_FIO.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.textBox_FIO.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bs_SEC_USER, "SEC_USER_FIO", true));
             this.textBox_FIO.Location = new System.Drawing.Point(176, 16);
             this.textBox_FIO.Name = "textBox_FIO";
             this.textBox_FIO.Size = new System.Drawing.Size(226, 20);
@@ -171,6 +174,7 @@ namespace _SEC_USERS_GUI
             // textBox_Login
             // 
             this.textBox_Login.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.textBox_Login.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bs_SEC_USER, "SEC_USER_LOGIN", true));
             this.textBox_Login.Location = new System.Drawing.Point(176, 69);
             this.textBox_Login.Name = "textBox_Login";
             this.textBox_Login.Size = new System.Drawing.Size(226, 20);
@@ -181,6 +185,7 @@ namespace _SEC_USERS_GUI
             this.checkBoxNoCheck.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.checkBoxNoCheck.AutoSize = true;
             this.TLP_UserInfoContainer.SetColumnSpan(this.checkBoxNoCheck, 2);
+            this.checkBoxNoCheck.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.bs_SEC_USER, "SEC_USER_NO_CHECK", true));
             this.checkBoxNoCheck.Location = new System.Drawing.Point(109, 284);
             this.checkBoxNoCheck.Name = "checkBoxNoCheck";
             this.checkBoxNoCheck.Size = new System.Drawing.Size(218, 17);
@@ -191,6 +196,7 @@ namespace _SEC_USERS_GUI
             // comboBox_TypeUser
             // 
             this.comboBox_TypeUser.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.comboBox_TypeUser.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.bs_SEC_ROLE, "SEC_ROLE_NAME", true));
             this.comboBox_TypeUser.DataSource = this.bs_SEC_USER_TYPE;
             this.comboBox_TypeUser.DisplayMember = "SEC_USER_TYPE_NAME";
             this.comboBox_TypeUser.FormattingEnabled = true;
@@ -205,6 +211,7 @@ namespace _SEC_USERS_GUI
             this.checkBoxBuiltIn.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.checkBoxBuiltIn.AutoSize = true;
             this.TLP_UserInfoContainer.SetColumnSpan(this.checkBoxBuiltIn, 2);
+            this.checkBoxBuiltIn.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.bs_SEC_USER, "SEC_USER_BUILTIN", true));
             this.checkBoxBuiltIn.Location = new System.Drawing.Point(96, 177);
             this.checkBoxBuiltIn.Name = "checkBoxBuiltIn";
             this.checkBoxBuiltIn.Size = new System.Drawing.Size(244, 17);
@@ -262,7 +269,6 @@ namespace _SEC_USERS_GUI
             this.btn_AddNewRole,
             this.btn_DeleteRole,
             this.sECUSERIDDataGridViewTextBoxColumn});
-            this.dataGridView_Roles.DataMember = "FK_SEC_USER_SEC_USER__SEC_USER";
             this.dataGridView_Roles.DataSource = this.bs_SEC_USER_FROM_SEC_ROLES;
             this.dataGridView_Roles.Dock = System.Windows.Forms.DockStyle.Top;
             this.dataGridView_Roles.Location = new System.Drawing.Point(0, 320);
@@ -272,6 +278,7 @@ namespace _SEC_USERS_GUI
             this.dataGridView_Roles.Size = new System.Drawing.Size(436, 189);
             this.dataGridView_Roles.TabIndex = 1;
             this.dataGridView_Roles.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_Roles_CellClick);
+            this.dataGridView_Roles.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_Roles_CellContentClick);
             // 
             // SEC_ROLES_FROM_SEC_USER
             // 
@@ -291,12 +298,12 @@ namespace _SEC_USERS_GUI
             // 
             // btn_AddNewRole
             // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
-            this.btn_AddNewRole.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            this.btn_AddNewRole.DefaultCellStyle = dataGridViewCellStyle3;
             this.btn_AddNewRole.HeaderText = "";
             this.btn_AddNewRole.MinimumWidth = 6;
             this.btn_AddNewRole.Name = "btn_AddNewRole";
@@ -308,12 +315,12 @@ namespace _SEC_USERS_GUI
             // 
             // btn_DeleteRole
             // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
-            this.btn_DeleteRole.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
+            this.btn_DeleteRole.DefaultCellStyle = dataGridViewCellStyle4;
             this.btn_DeleteRole.HeaderText = "";
             this.btn_DeleteRole.MinimumWidth = 6;
             this.btn_DeleteRole.Name = "btn_DeleteRole";
