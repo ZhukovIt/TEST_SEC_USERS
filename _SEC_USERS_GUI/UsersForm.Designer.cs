@@ -115,6 +115,7 @@ namespace _SEC_USERS_GUI
             this.btn_RemoveUser.Name = "btn_RemoveUser";
             this.btn_RemoveUser.Size = new System.Drawing.Size(36, 36);
             this.btn_RemoveUser.Text = "Удалить пользователя";
+            this.btn_RemoveUser.Click += new System.EventHandler(btn_RemoveUser_Click);
             // 
             // sep_ButtonsToFinder
             // 

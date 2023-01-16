@@ -217,7 +217,7 @@ namespace _SEC_USERS_GUI
             this.btn_SaveExecute.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn_SaveExecute.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btn_SaveExecute.Location = new System.Drawing.Point(64, 14);
-            this.btn_SaveExecute.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_SaveExecute.Margin = new System.Windows.Forms.Padding(2);
             this.btn_SaveExecute.Name = "btn_SaveExecute";
             this.btn_SaveExecute.Size = new System.Drawing.Size(90, 28);
             this.btn_SaveExecute.TabIndex = 0;
@@ -229,7 +229,7 @@ namespace _SEC_USERS_GUI
             this.btn_CancelExecute.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn_CancelExecute.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btn_CancelExecute.Location = new System.Drawing.Point(282, 14);
-            this.btn_CancelExecute.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_CancelExecute.Margin = new System.Windows.Forms.Padding(2);
             this.btn_CancelExecute.Name = "btn_CancelExecute";
             this.btn_CancelExecute.Size = new System.Drawing.Size(90, 28);
             this.btn_CancelExecute.TabIndex = 0;

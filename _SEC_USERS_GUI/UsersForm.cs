@@ -36,9 +36,6 @@ namespace _SEC_USERS_GUI
         }
 
 
-
-
-
         // Методы-обработчики событий
 
         private void btn_AddNewUser_Click(object sender, EventArgs e)
@@ -47,7 +44,8 @@ namespace _SEC_USERS_GUI
             FormState state = new UserFormAddingState(form);
             form.SetState(state);
             form.ShowDialog();
-            
+            m_WorkerDB.LoadData();
+            dgv_SEC_USERS.Update();
         }
 
         private void btn_AddNewUserWithCopy_Click(object sender, EventArgs e)
@@ -57,6 +55,8 @@ namespace _SEC_USERS_GUI
             state.FillMembersData(CreateCurrentUserData());
             form.SetState(state);
             form.ShowDialog();
+            m_WorkerDB.LoadData();
+            dgv_SEC_USERS.Update();
         }
 
         private void btn_EditUser_Click(object sender, EventArgs e)
@@ -66,10 +66,32 @@ namespace _SEC_USERS_GUI
             state.FillMembersData(CreateCurrentUserData());
             form.SetState(state);
             form.ShowDialog();
+            m_WorkerDB.LoadData();
+            dgv_SEC_USERS.Update();
         }
 
+        private void btn_RemoveUser_Click(object sender, EventArgs e)
+        {
+            List<string> loginStrings = new List<string>();
+            List<int> userIds = new List<int>();
 
+            foreach (DataGridViewRow row in dgv_SEC_USERS.SelectedRows)
+            {
+                loginStrings.Add((string)row.Cells[1].Value);
+            }
 
+            foreach (DataRowView row in bs_SEC_USERS.List)
+            {
+                if (loginStrings.Contains(row.Row.Field<string>("SEC_USER_LOGIN")))
+                {
+                    userIds.Add(row.Row.Field<int>("SEC_USER_ID"));
+                }
+            }
+
+            m_WorkerDB.DeleteUsers(userIds);
+            m_WorkerDB.LoadData();
+            dgv_SEC_USERS.Update();
+        }
 
         // Для добавления новых условий фильтра в данный метод, достаточно
         // добавить проверяемый атрибут(столбец) в список items

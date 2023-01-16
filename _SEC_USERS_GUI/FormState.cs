@@ -16,6 +16,7 @@ namespace _SEC_USERS_GUI
         protected bool m_Disabled;
         protected bool m_NoCheck;
         protected int m_TypeId;
+        protected string m_TypeUser_Name;
         protected string m_ExceptionMessage;
 
         public string ExceptionMessage
@@ -84,10 +85,21 @@ namespace _SEC_USERS_GUI
         {
             m_FIOTextBox.Text = m_FIO;
             m_LoginTextBox.Text = m_Login;
-            m_UserTypeComboBox.SelectedItem = m_UserTypeComboBox;
             m_BuiltInCheckBox.Checked = m_BuiltIn;
             m_DisabledCheckBox.Checked = m_Disabled;
             m_NoCheckCheckBox.Checked = m_NoCheck;
+            m_TypeUser_Name = m_WorkerDB.TA_SEC_USER_TYPE.Get_SEC_USER_TYPE_NAME_From_SEC_USER_TYPE_ID(m_TypeId);
+            m_UserTypeComboBox.SelectedValue = m_TypeUser_Name;
+        }
+
+        protected void FillAllFieldsFromForm()
+        {
+            m_Login = m_LoginTextBox.Text;
+            m_FIO = m_FIOTextBox.Text;
+            m_TypeUser_Name = (string)m_UserTypeComboBox.SelectedValue;
+            m_BuiltIn = m_BuiltInCheckBox.Checked;
+            m_Disabled = m_DisabledCheckBox.Checked;
+            m_NoCheck = m_NoCheckCheckBox.Checked;
         }
 
         internal abstract void EventHandlerFromSaveButton(object sender, EventArgs e);
@@ -104,14 +116,13 @@ namespace _SEC_USERS_GUI
         {
             m_form.Text = "Добавление нового пользователя";
             m_SaveButton.Text = "Добавить";
-            
-            
         }
 
         internal override void EventHandlerFromSaveButton(object sender, EventArgs e)
         {
-            //form.GetWorkerDB.InsertUser();
-            
+            FillAllFieldsFromForm();
+            m_WorkerDB.InsertUser(m_Login, m_FIO, m_BuiltIn, m_Disabled, m_NoCheck, m_TypeUser_Name);
+            m_form.Close();
         }
     }
 
@@ -128,13 +139,14 @@ namespace _SEC_USERS_GUI
             m_form.Width += 20;
             m_SaveButton.Text = "Добавить";
             FillAllFieldsOnForm();
-
-            //form.GetWorkerDB.InsertUser();
         }
 
         internal override void EventHandlerFromSaveButton(object sender, EventArgs e)
         {
-
+            FillAllFieldsFromForm();
+            m_WorkerDB.InsertUser(m_Login, m_FIO, m_BuiltIn, m_Disabled, m_NoCheck, m_TypeUser_Name);
+            
+            m_form.Close();
         }
     }
 
@@ -149,13 +161,13 @@ namespace _SEC_USERS_GUI
         {
             m_form.Text = "Редактирование пользователя";
             FillAllFieldsOnForm();
-
-            //form.GetWorkerDB.InsertUser();
         }
 
         internal override void EventHandlerFromSaveButton(object sender, EventArgs e)
         {
-
+            FillAllFieldsFromForm();
+            m_WorkerDB.UpdateUser(m_Id, m_Login, m_FIO, m_BuiltIn, m_Disabled, m_NoCheck, m_TypeUser_Name);
+            m_form.Close();
         }
     }
 }
