@@ -25,9 +25,13 @@ namespace _SEC_USERS_GUI
             }
         }
 
-        public UserForm()
+        public UserForm(Sec_User secUser)
         {
             InitializeComponent();
+            m_Sec_User = secUser;
+            bs_SEC_USER.DataSource = m_Sec_User.Create_SEC_USER();
+            bs_SEC_ROLE.DataSource = m_Sec_User.Create_SEC_ROLE();
+            bs_SEC_USER_TYPE.DataSource = m_Sec_User.Create_SEC_USER_TYPE();
         }
 
         public void SetState(FormState state)
@@ -47,43 +51,6 @@ namespace _SEC_USERS_GUI
         private void btn_CancelExecute_Click(object sender, EventArgs e)
         {
             Close();
-        }
-
-        private void btn_AddNewRole_Click(DataGridViewButtonCell sender, DataGridViewCellEventArgs e)
-        {
-            
-        }
-
-        private void btn_RemoveRole_Click(DataGridViewButtonCell sender, DataGridViewCellEventArgs e)
-        {
-            
-        }
-
-        private void dataGridView_Roles_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            try
-            {
-                DataGridView dgv = (DataGridView)sender;
-                DataGridViewButtonCell senderButton = (DataGridViewButtonCell)dgv.CurrentCell;
-                int columnIndex = senderButton.ColumnIndex;
-                if (columnIndex == 1)
-                {
-                    btn_AddNewRole_Click(senderButton, e);
-                }
-                else if (columnIndex == 2)
-                {
-                    btn_RemoveRole_Click(senderButton, e);
-                }
-            }
-            catch (Exception)
-            {
-
-            }
-        }
-
-        private void dataGridView_Roles_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
     }
 }

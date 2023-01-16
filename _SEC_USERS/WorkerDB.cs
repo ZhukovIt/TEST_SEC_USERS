@@ -17,6 +17,14 @@ namespace _SEC_USERS
         private SEC_USER_ROLETableAdapter m_ta_SEC_USER_ROLE;
         private SEC_USER_TYPETableAdapter m_ta_SEC_USER_TYPE;
 
+        public dtsSEC_USERS dts_SEC_USERS
+        {
+            get
+            {
+                return m_dtsSEC_USERS;
+            }
+        }
+
         public SEC_USERTableAdapter TA_SEC_USER
         {
             get

@@ -30,8 +30,8 @@ namespace _SEC_USERS_GUI
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dts_SEC_USERS = new _SEC_USERS.dtsSEC_USERS();
             this.bs_SEC_USER = new System.Windows.Forms.BindingSource(this.components);
             this.bs_SEC_ROLE = new System.Windows.Forms.BindingSource(this.components);
@@ -54,7 +54,6 @@ namespace _SEC_USERS_GUI
             this.SEC_ROLES_FROM_SEC_USER = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.btn_AddNewRole = new System.Windows.Forms.DataGridViewButtonColumn();
             this.btn_DeleteRole = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.sECUSERIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dts_SEC_USERS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bs_SEC_USER)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bs_SEC_ROLE)).BeginInit();
@@ -196,7 +195,6 @@ namespace _SEC_USERS_GUI
             // comboBox_TypeUser
             // 
             this.comboBox_TypeUser.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.comboBox_TypeUser.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.bs_SEC_ROLE, "SEC_ROLE_NAME", true));
             this.comboBox_TypeUser.DataSource = this.bs_SEC_USER_TYPE;
             this.comboBox_TypeUser.DisplayMember = "SEC_USER_TYPE_NAME";
             this.comboBox_TypeUser.FormattingEnabled = true;
@@ -204,7 +202,6 @@ namespace _SEC_USERS_GUI
             this.comboBox_TypeUser.Name = "comboBox_TypeUser";
             this.comboBox_TypeUser.Size = new System.Drawing.Size(226, 21);
             this.comboBox_TypeUser.TabIndex = 11;
-            this.comboBox_TypeUser.ValueMember = "SEC_USER_TYPE_NAME";
             // 
             // checkBoxBuiltIn
             // 
@@ -262,14 +259,11 @@ namespace _SEC_USERS_GUI
             // 
             // dataGridView_Roles
             // 
-            this.dataGridView_Roles.AutoGenerateColumns = false;
             this.dataGridView_Roles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView_Roles.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.SEC_ROLES_FROM_SEC_USER,
             this.btn_AddNewRole,
-            this.btn_DeleteRole,
-            this.sECUSERIDDataGridViewTextBoxColumn});
-            this.dataGridView_Roles.DataSource = this.bs_SEC_USER_FROM_SEC_ROLES;
+            this.btn_DeleteRole});
             this.dataGridView_Roles.Dock = System.Windows.Forms.DockStyle.Top;
             this.dataGridView_Roles.Location = new System.Drawing.Point(0, 320);
             this.dataGridView_Roles.Name = "dataGridView_Roles";
@@ -277,14 +271,9 @@ namespace _SEC_USERS_GUI
             this.dataGridView_Roles.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.dataGridView_Roles.Size = new System.Drawing.Size(436, 189);
             this.dataGridView_Roles.TabIndex = 1;
-            this.dataGridView_Roles.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_Roles_CellClick);
-            this.dataGridView_Roles.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_Roles_CellContentClick);
             // 
             // SEC_ROLES_FROM_SEC_USER
             // 
-            this.SEC_ROLES_FROM_SEC_USER.DataPropertyName = "SEC_ROLE_ID";
-            this.SEC_ROLES_FROM_SEC_USER.DataSource = this.bs_SEC_ROLE;
-            this.SEC_ROLES_FROM_SEC_USER.DisplayMember = "SEC_ROLE_NAME";
             this.SEC_ROLES_FROM_SEC_USER.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
             this.SEC_ROLES_FROM_SEC_USER.DisplayStyleForCurrentCellOnly = true;
             this.SEC_ROLES_FROM_SEC_USER.Frozen = true;
@@ -293,17 +282,16 @@ namespace _SEC_USERS_GUI
             this.SEC_ROLES_FROM_SEC_USER.ReadOnly = true;
             this.SEC_ROLES_FROM_SEC_USER.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.SEC_ROLES_FROM_SEC_USER.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.SEC_ROLES_FROM_SEC_USER.ValueMember = "SEC_ROLE_ID";
             this.SEC_ROLES_FROM_SEC_USER.Width = 250;
             // 
             // btn_AddNewRole
             // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
-            this.btn_AddNewRole.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.Black;
+            this.btn_AddNewRole.DefaultCellStyle = dataGridViewCellStyle11;
             this.btn_AddNewRole.HeaderText = "";
             this.btn_AddNewRole.MinimumWidth = 6;
             this.btn_AddNewRole.Name = "btn_AddNewRole";
@@ -315,12 +303,12 @@ namespace _SEC_USERS_GUI
             // 
             // btn_DeleteRole
             // 
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
-            this.btn_DeleteRole.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.Black;
+            this.btn_DeleteRole.DefaultCellStyle = dataGridViewCellStyle12;
             this.btn_DeleteRole.HeaderText = "";
             this.btn_DeleteRole.MinimumWidth = 6;
             this.btn_DeleteRole.Name = "btn_DeleteRole";
@@ -329,13 +317,6 @@ namespace _SEC_USERS_GUI
             this.btn_DeleteRole.Text = "X";
             this.btn_DeleteRole.UseColumnTextForButtonValue = true;
             this.btn_DeleteRole.Width = 32;
-            // 
-            // sECUSERIDDataGridViewTextBoxColumn
-            // 
-            this.sECUSERIDDataGridViewTextBoxColumn.DataPropertyName = "SEC_USER_ID";
-            this.sECUSERIDDataGridViewTextBoxColumn.HeaderText = "SEC_USER_ID";
-            this.sECUSERIDDataGridViewTextBoxColumn.Name = "sECUSERIDDataGridViewTextBoxColumn";
-            this.sECUSERIDDataGridViewTextBoxColumn.Visible = false;
             // 
             // UserForm
             // 
@@ -386,7 +367,6 @@ namespace _SEC_USERS_GUI
         private System.Windows.Forms.DataGridViewComboBoxColumn SEC_ROLES_FROM_SEC_USER;
         private System.Windows.Forms.DataGridViewButtonColumn btn_AddNewRole;
         private System.Windows.Forms.DataGridViewButtonColumn btn_DeleteRole;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sECUSERIDDataGridViewTextBoxColumn;
 
 
         // Здесь добавлены свойства для доступа к элементам GUI

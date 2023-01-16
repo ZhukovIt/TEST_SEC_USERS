@@ -19,6 +19,8 @@ namespace _SEC_USERS_GUI
         {
             InitializeComponent();
             m_WorkerDB = new WorkerDB();
+            bs_SEC_USERS.DataSource = m_WorkerDB.dts_SEC_USERS;
+            bs_SEC_USER_TYPE.DataSource = m_WorkerDB.dts_SEC_USERS;
             m_WorkerDB.LoadData();
         }
 
@@ -57,40 +59,37 @@ namespace _SEC_USERS_GUI
 
         private void btn_AddNewUser_Click(object sender, EventArgs e)
         {
-            UserForm form = new UserForm();
-            FormState state = new UserFormAddingState(form);
-            form.SetState(state);
-            form.ShowDialog();
-            m_WorkerDB.LoadData();
-            dgv_SEC_USERS.Update();
+            //UserForm form = new UserForm();
+            //FormState state = new UserFormAddingState(form);
+            //form.SetState(state);
+            //form.ShowDialog();
+            //m_WorkerDB.LoadData();
+            //dgv_SEC_USERS.Update();
         }
 
         private void btn_AddNewUserWithCopy_Click(object sender, EventArgs e)
         {
-            UserForm form = new UserForm();
-            FormState state = new UserFormCopyingState(form);
-            state.FillMembersData(CreateCurrentUserData());
-            form.SetState(state);
-            form.ShowDialog();
-            m_WorkerDB.LoadData();
-            dgv_SEC_USERS.Update();
+            //UserForm form = new UserForm();
+            //FormState state = new UserFormCopyingState(form);
+            //state.FillMembersData(CreateCurrentUserData());
+            //form.SetState(state);
+            //form.ShowDialog();
+            //m_WorkerDB.LoadData();
+            //dgv_SEC_USERS.Update();
         }
 
         private void btn_EditUser_Click(object sender, EventArgs e)
         {
             int selectedUserId = ((DataRowView)bs_SEC_USERS.Current).Row.Field<int>("SEC_USER_ID");
             Sec_User currentUser = m_WorkerDB.CreateSecUser(selectedUserId);
+            new UserForm(currentUser).ShowDialog();
 
-
-
-
-            UserForm form = new UserForm();
-            FormState state = new UserFormEditingState(form);
-            state.FillMembersData(CreateCurrentUserData());
-            form.SetState(state);
-            form.ShowDialog();
-            m_WorkerDB.LoadData();
-            dgv_SEC_USERS.Update();
+            //FormState state = new UserFormEditingState(form);
+            //state.FillMembersData(CreateCurrentUserData());
+            //form.SetState(state);
+            //form.ShowDialog();
+            //m_WorkerDB.LoadData();
+            //dgv_SEC_USERS.Update();
         }
 
         private void btn_RemoveUser_Click(object sender, EventArgs e)
