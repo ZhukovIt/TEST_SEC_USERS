@@ -121,5 +121,10 @@ namespace _SEC_USERS_GUI
             txtBox_FinderField.Text = "";
             txtBox_FinderField.Focus();
         }
+
+        private void dgv_SEC_USERS_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            btn_EditUser_Click(sender, e);
+        }
     }
 }

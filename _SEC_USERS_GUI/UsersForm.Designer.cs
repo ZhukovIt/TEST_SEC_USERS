@@ -44,12 +44,12 @@ namespace _SEC_USERS_GUI
             this.txtBox_FinderField = new System.Windows.Forms.ToolStripTextBox();
             this.btn_ClearFinder = new System.Windows.Forms.ToolStripButton();
             this.dgv_SEC_USERS = new System.Windows.Forms.DataGridView();
+            this.SEC_USER_TYPE = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.SEC_ROLES = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sECUSERFIODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sECUSERLOGINDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SEC_USER_TYPE = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.bs_SEC_USER_TYPE = new System.Windows.Forms.BindingSource(this.components);
             this.dts_SEC_USERS = new _SEC_USERS.dtsSEC_USERS();
-            this.SEC_ROLES = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sECUSERDISABLEDDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.bs_SEC_USERS = new System.Windows.Forms.BindingSource(this.components);
             this.ts_HeaderButtons.SuspendLayout();
@@ -73,7 +73,7 @@ namespace _SEC_USERS_GUI
             this.btn_ClearFinder});
             this.ts_HeaderButtons.Location = new System.Drawing.Point(0, 0);
             this.ts_HeaderButtons.Name = "ts_HeaderButtons";
-            this.ts_HeaderButtons.Size = new System.Drawing.Size(1409, 39);
+            this.ts_HeaderButtons.Size = new System.Drawing.Size(1057, 39);
             this.ts_HeaderButtons.TabIndex = 0;
             this.ts_HeaderButtons.Text = "toolStrip1";
             // 
@@ -115,7 +115,7 @@ namespace _SEC_USERS_GUI
             this.btn_RemoveUser.Name = "btn_RemoveUser";
             this.btn_RemoveUser.Size = new System.Drawing.Size(36, 36);
             this.btn_RemoveUser.Text = "Удалить пользователя";
-            this.btn_RemoveUser.Click += new System.EventHandler(btn_RemoveUser_Click);
+            this.btn_RemoveUser.Click += new System.EventHandler(this.btn_RemoveUser_Click);
             // 
             // sep_ButtonsToFinder
             // 
@@ -125,7 +125,7 @@ namespace _SEC_USERS_GUI
             // lbl_FinderTitle
             // 
             this.lbl_FinderTitle.Name = "lbl_FinderTitle";
-            this.lbl_FinderTitle.Size = new System.Drawing.Size(52, 36);
+            this.lbl_FinderTitle.Size = new System.Drawing.Size(42, 36);
             this.lbl_FinderTitle.Text = "Поиск";
             // 
             // txtBox_FinderField
@@ -133,7 +133,7 @@ namespace _SEC_USERS_GUI
             this.txtBox_FinderField.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtBox_FinderField.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtBox_FinderField.Name = "txtBox_FinderField";
-            this.txtBox_FinderField.Size = new System.Drawing.Size(533, 39);
+            this.txtBox_FinderField.Size = new System.Drawing.Size(400, 39);
             this.txtBox_FinderField.TextChanged += new System.EventHandler(this.txtBox_TextChanged);
             // 
             // btn_ClearFinder
@@ -142,7 +142,7 @@ namespace _SEC_USERS_GUI
             this.btn_ClearFinder.Image = ((System.Drawing.Image)(resources.GetObject("btn_ClearFinder.Image")));
             this.btn_ClearFinder.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btn_ClearFinder.Name = "btn_ClearFinder";
-            this.btn_ClearFinder.Size = new System.Drawing.Size(29, 36);
+            this.btn_ClearFinder.Size = new System.Drawing.Size(23, 36);
             this.btn_ClearFinder.Text = "X";
             this.btn_ClearFinder.ToolTipText = "Очистить поле поиска";
             this.btn_ClearFinder.Click += new System.EventHandler(this.btn_ClearFinder_Click);
@@ -179,7 +179,6 @@ namespace _SEC_USERS_GUI
             this.dgv_SEC_USERS.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgv_SEC_USERS.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgv_SEC_USERS.Location = new System.Drawing.Point(0, 39);
-            this.dgv_SEC_USERS.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgv_SEC_USERS.Name = "dgv_SEC_USERS";
             this.dgv_SEC_USERS.ReadOnly = true;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -191,8 +190,32 @@ namespace _SEC_USERS_GUI
             this.dgv_SEC_USERS.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgv_SEC_USERS.RowHeadersWidth = 51;
             this.dgv_SEC_USERS.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_SEC_USERS.Size = new System.Drawing.Size(1409, 653);
+            this.dgv_SEC_USERS.Size = new System.Drawing.Size(1057, 523);
             this.dgv_SEC_USERS.TabIndex = 1;
+            this.dgv_SEC_USERS.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgv_SEC_USERS_CellMouseDoubleClick);
+            // 
+            // SEC_USER_TYPE
+            // 
+            this.SEC_USER_TYPE.DataPropertyName = "SEC_USER_TYPE_ID";
+            this.SEC_USER_TYPE.DataSource = this.bs_SEC_USER_TYPE;
+            this.SEC_USER_TYPE.DisplayMember = "SEC_USER_TYPE_NAME";
+            this.SEC_USER_TYPE.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.SEC_USER_TYPE.HeaderText = "Тип пользователя";
+            this.SEC_USER_TYPE.MinimumWidth = 6;
+            this.SEC_USER_TYPE.Name = "SEC_USER_TYPE";
+            this.SEC_USER_TYPE.ReadOnly = true;
+            this.SEC_USER_TYPE.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.SEC_USER_TYPE.ValueMember = "SEC_USER_TYPE_ID";
+            this.SEC_USER_TYPE.Width = 120;
+            // 
+            // SEC_ROLES
+            // 
+            this.SEC_ROLES.DataPropertyName = "SEC_ROLES";
+            this.SEC_ROLES.HeaderText = "Роли";
+            this.SEC_ROLES.MinimumWidth = 6;
+            this.SEC_ROLES.Name = "SEC_ROLES";
+            this.SEC_ROLES.ReadOnly = true;
+            this.SEC_ROLES.Width = 300;
             // 
             // sECUSERFIODataGridViewTextBoxColumn
             // 
@@ -212,20 +235,6 @@ namespace _SEC_USERS_GUI
             this.sECUSERLOGINDataGridViewTextBoxColumn.ReadOnly = true;
             this.sECUSERLOGINDataGridViewTextBoxColumn.Width = 150;
             // 
-            // SEC_USER_TYPE
-            // 
-            this.SEC_USER_TYPE.DataPropertyName = "SEC_USER_TYPE_ID";
-            this.SEC_USER_TYPE.DataSource = this.bs_SEC_USER_TYPE;
-            this.SEC_USER_TYPE.DisplayMember = "SEC_USER_TYPE_NAME";
-            this.SEC_USER_TYPE.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
-            this.SEC_USER_TYPE.HeaderText = "Тип пользователя";
-            this.SEC_USER_TYPE.MinimumWidth = 6;
-            this.SEC_USER_TYPE.Name = "SEC_USER_TYPE";
-            this.SEC_USER_TYPE.ReadOnly = true;
-            this.SEC_USER_TYPE.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.SEC_USER_TYPE.ValueMember = "SEC_USER_TYPE_ID";
-            this.SEC_USER_TYPE.Width = 120;
-            // 
             // bs_SEC_USER_TYPE
             // 
             this.bs_SEC_USER_TYPE.DataMember = "SEC_USER_TYPE";
@@ -235,15 +244,6 @@ namespace _SEC_USERS_GUI
             // 
             this.dts_SEC_USERS.DataSetName = "dtsSEC_USERS";
             this.dts_SEC_USERS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // SEC_ROLES
-            // 
-            this.SEC_ROLES.DataPropertyName = "SEC_ROLES";
-            this.SEC_ROLES.HeaderText = "Роли";
-            this.SEC_ROLES.MinimumWidth = 6;
-            this.SEC_ROLES.Name = "SEC_ROLES";
-            this.SEC_ROLES.ReadOnly = true;
-            this.SEC_ROLES.Width = 300;
             // 
             // sECUSERDISABLEDDataGridViewCheckBoxColumn
             // 
@@ -261,13 +261,12 @@ namespace _SEC_USERS_GUI
             // 
             // UsersForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1409, 692);
+            this.ClientSize = new System.Drawing.Size(1057, 562);
             this.Controls.Add(this.dgv_SEC_USERS);
             this.Controls.Add(this.ts_HeaderButtons);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "UsersForm";
             this.Text = "Пользователи";
             this.ts_HeaderButtons.ResumeLayout(false);
