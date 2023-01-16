@@ -2830,7 +2830,7 @@ SELECT SEC_ROLE_ID, SEC_ROLE_NAME, SEC_ROLE_BUILTIN FROM SEC_ROLE WHERE (SEC_ROL
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = @"SELECT SEC_USER_ID, SEC_USER_LOGIN, SEC_USER_PASSWORD, SEC_USER_FIO, SEC_USER_BUILTIN, SEC_USER_DISABLED, SEC_USER_NO_CHECK, WORK_ID, SEC_USER_KKM_PASSWORD, SEC_USER_PROCURATORY, 
-                  SEC_USER_KKM_LOGIN, SEC_USER_KKM_INN, SEC_USER_TYPE_ID, 'Admin' AS SEC_ROLES
+                  SEC_USER_KKM_LOGIN, SEC_USER_KKM_INN, SEC_USER_TYPE_ID, dbo.GetRoles(SEC_USER_ID) AS SEC_ROLES
 FROM     SEC_USER";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();

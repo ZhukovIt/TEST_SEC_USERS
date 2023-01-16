@@ -99,8 +99,7 @@ namespace _SEC_USERS_GUI
             DialogResult dialogResult = new DeleteAnswerForm(loginStrings.Count).ShowDialog();
             if (dialogResult == DialogResult.Yes)
             {
-                MessageBox.Show("Delete Working!");
-                //DoDeleteUsersFromUserIds(loginStrings);
+                DoDeleteUsersFromUserIds(loginStrings);
             }
         }
 

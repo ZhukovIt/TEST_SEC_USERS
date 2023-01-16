@@ -50,13 +50,13 @@ namespace _SEC_USERS_GUI
             this.TLP_ElementsContainer.RowCount = 2;
             this.TLP_ElementsContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.TLP_ElementsContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 80F));
-            this.TLP_ElementsContainer.Size = new System.Drawing.Size(424, 144);
+            this.TLP_ElementsContainer.Size = new System.Drawing.Size(399, 144);
             this.TLP_ElementsContainer.TabIndex = 0;
             // 
             // btn_YesAnswer
             // 
             this.btn_YesAnswer.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btn_YesAnswer.Location = new System.Drawing.Point(46, 89);
+            this.btn_YesAnswer.Location = new System.Drawing.Point(39, 89);
             this.btn_YesAnswer.Name = "btn_YesAnswer";
             this.btn_YesAnswer.Size = new System.Drawing.Size(120, 30);
             this.btn_YesAnswer.TabIndex = 0;
@@ -67,7 +67,7 @@ namespace _SEC_USERS_GUI
             // btn_NoAnswer
             // 
             this.btn_NoAnswer.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btn_NoAnswer.Location = new System.Drawing.Point(258, 89);
+            this.btn_NoAnswer.Location = new System.Drawing.Point(239, 89);
             this.btn_NoAnswer.Name = "btn_NoAnswer";
             this.btn_NoAnswer.Size = new System.Drawing.Size(120, 30);
             this.btn_NoAnswer.TabIndex = 0;
@@ -80,10 +80,10 @@ namespace _SEC_USERS_GUI
             this.textBox_Information.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.textBox_Information.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TLP_ElementsContainer.SetColumnSpan(this.textBox_Information, 2);
-            this.textBox_Information.Location = new System.Drawing.Point(82, 25);
+            this.textBox_Information.Location = new System.Drawing.Point(49, 25);
             this.textBox_Information.Name = "textBox_Information";
             this.textBox_Information.ReadOnly = true;
-            this.textBox_Information.Size = new System.Drawing.Size(259, 13);
+            this.textBox_Information.Size = new System.Drawing.Size(300, 13);
             this.textBox_Information.TabIndex = 1;
             this.textBox_Information.Text = "Вы точно хотите удалить Х выбранных строк?";
             this.textBox_Information.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -92,9 +92,10 @@ namespace _SEC_USERS_GUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(424, 144);
+            this.ClientSize = new System.Drawing.Size(399, 144);
             this.Controls.Add(this.TLP_ElementsContainer);
             this.Name = "DeleteAnswerForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Удаление выбранных пользователей";
             this.TLP_ElementsContainer.ResumeLayout(false);
             this.TLP_ElementsContainer.PerformLayout();

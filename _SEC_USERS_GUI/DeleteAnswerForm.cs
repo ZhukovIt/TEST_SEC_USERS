@@ -20,12 +20,12 @@ namespace _SEC_USERS_GUI
 
         private void btn_YesAnswer_Click(object sender, EventArgs e)
         {
-
+            DialogResult = DialogResult.Yes;
         }
 
         private void btn_NoAnswer_Click(object sender, EventArgs e)
         {
-            Close();
+            DialogResult = DialogResult.No;
         }
     }
 }

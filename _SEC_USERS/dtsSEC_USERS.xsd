@@ -66,7 +66,7 @@ SELECT SEC_ROLE_ID, SEC_ROLE_NAME, SEC_ROLE_BUILTIN FROM SEC_ROLE WHERE (SEC_ROL
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT SEC_USER_ID, SEC_USER_LOGIN, SEC_USER_PASSWORD, SEC_USER_FIO, SEC_USER_BUILTIN, SEC_USER_DISABLED, SEC_USER_NO_CHECK, WORK_ID, SEC_USER_KKM_PASSWORD, SEC_USER_PROCURATORY, 
-                  SEC_USER_KKM_LOGIN, SEC_USER_KKM_INN, SEC_USER_TYPE_ID, 'Admin' AS SEC_ROLES
+                  SEC_USER_KKM_LOGIN, SEC_USER_KKM_INN, SEC_USER_TYPE_ID, dbo.GetRoles(SEC_USER_ID) AS SEC_ROLES
 FROM     SEC_USER</CommandText>
                     <Parameters />
                   </DbCommand>
@@ -433,9 +433,9 @@ WHERE [SEC_USER_TYPE_ID] = @SEC_USER_TYPE_ID;</CommandText>
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
-      <msdata:Relationship name="FK_SEC_USER_SEC_USER_TYPE" msdata:parent="SEC_USER_TYPE" msdata:child="SEC_USER" msdata:parentkey="SEC_USER_TYPE_ID" msdata:childkey="SEC_USER_TYPE_ID" msprop:Generator_UserChildTable="SEC_USER" msprop:Generator_ChildPropName="GetSEC_USERRows" msprop:Generator_UserRelationName="FK_SEC_USER_SEC_USER_TYPE" msprop:Generator_ParentPropName="SEC_USER_TYPERow" msprop:Generator_RelationVarName="relationFK_SEC_USER_SEC_USER_TYPE" msprop:Generator_UserParentTable="SEC_USER_TYPE" />
-      <msdata:Relationship name="FK_SEC_USER_SEC_USER__SEC_ROLE" msdata:parent="SEC_ROLE" msdata:child="SEC_USER_ROLE" msdata:parentkey="SEC_ROLE_ID" msdata:childkey="SEC_ROLE_ID" msprop:Generator_UserChildTable="SEC_USER_ROLE" msprop:Generator_ChildPropName="GetSEC_USER_ROLERows" msprop:Generator_UserRelationName="FK_SEC_USER_SEC_USER__SEC_ROLE" msprop:Generator_RelationVarName="relationFK_SEC_USER_SEC_USER__SEC_ROLE" msprop:Generator_UserParentTable="SEC_ROLE" msprop:Generator_ParentPropName="SEC_ROLERow" />
-      <msdata:Relationship name="FK_SEC_USER_SEC_USER__SEC_USER" msdata:parent="SEC_USER" msdata:child="SEC_USER_ROLE" msdata:parentkey="SEC_USER_ID" msdata:childkey="SEC_USER_ID" msprop:Generator_UserChildTable="SEC_USER_ROLE" msprop:Generator_ChildPropName="GetSEC_USER_ROLERows" msprop:Generator_UserRelationName="FK_SEC_USER_SEC_USER__SEC_USER" msprop:Generator_RelationVarName="relationFK_SEC_USER_SEC_USER__SEC_USER" msprop:Generator_UserParentTable="SEC_USER" msprop:Generator_ParentPropName="SEC_USERRow" />
+      <msdata:Relationship name="FK_SEC_USER_SEC_USER_TYPE" msdata:parent="SEC_USER_TYPE" msdata:child="SEC_USER" msdata:parentkey="SEC_USER_TYPE_ID" msdata:childkey="SEC_USER_TYPE_ID" msprop:Generator_UserChildTable="SEC_USER" msprop:Generator_ChildPropName="GetSEC_USERRows" msprop:Generator_UserRelationName="FK_SEC_USER_SEC_USER_TYPE" msprop:Generator_RelationVarName="relationFK_SEC_USER_SEC_USER_TYPE" msprop:Generator_UserParentTable="SEC_USER_TYPE" msprop:Generator_ParentPropName="SEC_USER_TYPERow" />
+      <msdata:Relationship name="FK_SEC_USER_SEC_USER__SEC_ROLE" msdata:parent="SEC_ROLE" msdata:child="SEC_USER_ROLE" msdata:parentkey="SEC_ROLE_ID" msdata:childkey="SEC_ROLE_ID" msprop:Generator_UserChildTable="SEC_USER_ROLE" msprop:Generator_ChildPropName="GetSEC_USER_ROLERows" msprop:Generator_UserRelationName="FK_SEC_USER_SEC_USER__SEC_ROLE" msprop:Generator_ParentPropName="SEC_ROLERow" msprop:Generator_RelationVarName="relationFK_SEC_USER_SEC_USER__SEC_ROLE" msprop:Generator_UserParentTable="SEC_ROLE" />
+      <msdata:Relationship name="FK_SEC_USER_SEC_USER__SEC_USER" msdata:parent="SEC_USER" msdata:child="SEC_USER_ROLE" msdata:parentkey="SEC_USER_ID" msdata:childkey="SEC_USER_ID" msprop:Generator_UserChildTable="SEC_USER_ROLE" msprop:Generator_ChildPropName="GetSEC_USER_ROLERows" msprop:Generator_UserRelationName="FK_SEC_USER_SEC_USER__SEC_USER" msprop:Generator_ParentPropName="SEC_USERRow" msprop:Generator_RelationVarName="relationFK_SEC_USER_SEC_USER__SEC_USER" msprop:Generator_UserParentTable="SEC_USER" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>
