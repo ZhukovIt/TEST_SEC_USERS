@@ -49,5 +49,30 @@ namespace _SEC_USERS_GUI
         {
             Close();
         }
+
+        private void btn_AddNewRole_Click(DataGridViewButtonCell sender, DataGridViewCellEventArgs e)
+        {
+            
+        }
+
+        private void btn_RemoveRole_Click(DataGridViewButtonCell sender, DataGridViewCellEventArgs e)
+        {
+            
+        }
+
+        private void dataGridView_Roles_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            DataGridView dgv = (DataGridView)sender;
+            DataGridViewButtonCell senderButton = (DataGridViewButtonCell)dgv.CurrentCell;
+            int columnIndex = senderButton.ColumnIndex;
+            if (columnIndex == 1)
+            {
+                btn_AddNewRole_Click(senderButton, e);
+            }
+            else if (columnIndex == 2)
+            {
+                btn_RemoveRole_Click(senderButton, e);
+            }
+        }
     }
 }

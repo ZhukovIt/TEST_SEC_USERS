@@ -32,7 +32,9 @@ namespace _SEC_USERS_GUI
             this.components = new System.ComponentModel.Container();
             this.dts_SEC_USERS = new _SEC_USERS.dtsSEC_USERS();
             this.bs_SEC_USER = new System.Windows.Forms.BindingSource(this.components);
+            this.bs_SEC_ROLE = new System.Windows.Forms.BindingSource(this.components);
             this.bs_SEC_USER_TYPE = new System.Windows.Forms.BindingSource(this.components);
+            this.bs_SEC_USER_FROM_SEC_ROLES = new System.Windows.Forms.BindingSource(this.components);
             this.TLP_UserInfoContainer = new System.Windows.Forms.TableLayoutPanel();
             this.checkBoxIsDisabled = new System.Windows.Forms.CheckBox();
             this.lbl_UserLogin = new System.Windows.Forms.Label();
@@ -47,12 +49,16 @@ namespace _SEC_USERS_GUI
             this.btn_SaveExecute = new System.Windows.Forms.Button();
             this.btn_CancelExecute = new System.Windows.Forms.Button();
             this.dataGridView_Roles = new System.Windows.Forms.DataGridView();
-            this.sECROLENAMEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SEC_ROLES_FROM_SEC_USER = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.btn_AddNewRole = new System.Windows.Forms.DataGridViewButtonColumn();
             this.btn_DeleteRole = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.sECROLEIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sECUSERIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dts_SEC_USERS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bs_SEC_USER)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bs_SEC_ROLE)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bs_SEC_USER_TYPE)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bs_SEC_USER_FROM_SEC_ROLES)).BeginInit();
             this.TLP_UserInfoContainer.SuspendLayout();
             this.TLP_Buttons.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Roles)).BeginInit();
@@ -65,13 +71,23 @@ namespace _SEC_USERS_GUI
             // 
             // bs_SEC_USER
             // 
-            this.bs_SEC_USER.DataMember = "SEC_ROLE";
+            this.bs_SEC_USER.DataMember = "SEC_USER";
             this.bs_SEC_USER.DataSource = this.dts_SEC_USERS;
+            // 
+            // bs_SEC_ROLE
+            // 
+            this.bs_SEC_ROLE.DataMember = "SEC_ROLE";
+            this.bs_SEC_ROLE.DataSource = this.dts_SEC_USERS;
             // 
             // bs_SEC_USER_TYPE
             // 
             this.bs_SEC_USER_TYPE.DataMember = "SEC_USER_TYPE";
             this.bs_SEC_USER_TYPE.DataSource = this.dts_SEC_USERS;
+            // 
+            // bs_SEC_USER_FROM_SEC_ROLES
+            // 
+            this.bs_SEC_USER_FROM_SEC_ROLES.DataMember = "FK_SEC_USER_SEC_USER__SEC_USER";
+            this.bs_SEC_USER_FROM_SEC_ROLES.DataSource = this.bs_SEC_USER;
             // 
             // TLP_UserInfoContainer
             // 
@@ -242,24 +258,33 @@ namespace _SEC_USERS_GUI
             this.dataGridView_Roles.AutoGenerateColumns = false;
             this.dataGridView_Roles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView_Roles.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.sECROLENAMEDataGridViewTextBoxColumn,
+            this.SEC_ROLES_FROM_SEC_USER,
             this.btn_AddNewRole,
-            this.btn_DeleteRole});
-            this.dataGridView_Roles.DataSource = this.bs_SEC_USER;
+            this.btn_DeleteRole,
+            this.sECROLEIDDataGridViewTextBoxColumn,
+            this.sECUSERIDDataGridViewTextBoxColumn});
+            this.dataGridView_Roles.DataSource = this.bs_SEC_USER_FROM_SEC_ROLES;
             this.dataGridView_Roles.Dock = System.Windows.Forms.DockStyle.Top;
             this.dataGridView_Roles.Location = new System.Drawing.Point(0, 320);
             this.dataGridView_Roles.Name = "dataGridView_Roles";
             this.dataGridView_Roles.RowHeadersWidth = 51;
             this.dataGridView_Roles.Size = new System.Drawing.Size(436, 189);
             this.dataGridView_Roles.TabIndex = 1;
+            this.dataGridView_Roles.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_Roles_CellClick);
             // 
-            // sECROLENAMEDataGridViewTextBoxColumn
+            // SEC_ROLES_FROM_SEC_USER
             // 
-            this.sECROLENAMEDataGridViewTextBoxColumn.DataPropertyName = "SEC_ROLE_NAME";
-            this.sECROLENAMEDataGridViewTextBoxColumn.HeaderText = "Наименование";
-            this.sECROLENAMEDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.sECROLENAMEDataGridViewTextBoxColumn.Name = "sECROLENAMEDataGridViewTextBoxColumn";
-            this.sECROLENAMEDataGridViewTextBoxColumn.Width = 125;
+            this.SEC_ROLES_FROM_SEC_USER.DataPropertyName = "SEC_ROLE_ID";
+            this.SEC_ROLES_FROM_SEC_USER.DataSource = this.bs_SEC_ROLE;
+            this.SEC_ROLES_FROM_SEC_USER.DisplayMember = "SEC_ROLE_NAME";
+            this.SEC_ROLES_FROM_SEC_USER.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.SEC_ROLES_FROM_SEC_USER.DisplayStyleForCurrentCellOnly = true;
+            this.SEC_ROLES_FROM_SEC_USER.HeaderText = "Наименование";
+            this.SEC_ROLES_FROM_SEC_USER.Name = "SEC_ROLES_FROM_SEC_USER";
+            this.SEC_ROLES_FROM_SEC_USER.ReadOnly = true;
+            this.SEC_ROLES_FROM_SEC_USER.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.SEC_ROLES_FROM_SEC_USER.ValueMember = "SEC_ROLE_ID";
+            this.SEC_ROLES_FROM_SEC_USER.Width = 250;
             // 
             // btn_AddNewRole
             // 
@@ -275,6 +300,20 @@ namespace _SEC_USERS_GUI
             this.btn_DeleteRole.Name = "btn_DeleteRole";
             this.btn_DeleteRole.Width = 32;
             // 
+            // sECROLEIDDataGridViewTextBoxColumn
+            // 
+            this.sECROLEIDDataGridViewTextBoxColumn.DataPropertyName = "SEC_ROLE_ID";
+            this.sECROLEIDDataGridViewTextBoxColumn.HeaderText = "SEC_ROLE_ID";
+            this.sECROLEIDDataGridViewTextBoxColumn.Name = "sECROLEIDDataGridViewTextBoxColumn";
+            this.sECROLEIDDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // sECUSERIDDataGridViewTextBoxColumn
+            // 
+            this.sECUSERIDDataGridViewTextBoxColumn.DataPropertyName = "SEC_USER_ID";
+            this.sECUSERIDDataGridViewTextBoxColumn.HeaderText = "SEC_USER_ID";
+            this.sECUSERIDDataGridViewTextBoxColumn.Name = "sECUSERIDDataGridViewTextBoxColumn";
+            this.sECUSERIDDataGridViewTextBoxColumn.Visible = false;
+            // 
             // UserForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -289,7 +328,9 @@ namespace _SEC_USERS_GUI
             this.Text = "Пользователь";
             ((System.ComponentModel.ISupportInitialize)(this.dts_SEC_USERS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bs_SEC_USER)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bs_SEC_ROLE)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bs_SEC_USER_TYPE)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bs_SEC_USER_FROM_SEC_ROLES)).EndInit();
             this.TLP_UserInfoContainer.ResumeLayout(false);
             this.TLP_UserInfoContainer.PerformLayout();
             this.TLP_Buttons.ResumeLayout(false);
@@ -301,7 +342,9 @@ namespace _SEC_USERS_GUI
         #endregion
 
         private System.Windows.Forms.BindingSource bs_SEC_USER;
+        private System.Windows.Forms.BindingSource bs_SEC_ROLE;
         private System.Windows.Forms.BindingSource bs_SEC_USER_TYPE;
+        private System.Windows.Forms.BindingSource bs_SEC_USER_FROM_SEC_ROLES;
         private _SEC_USERS.dtsSEC_USERS dts_SEC_USERS;
         private System.Windows.Forms.TableLayoutPanel TLP_UserInfoContainer;
         private System.Windows.Forms.TableLayoutPanel TLP_Buttons;
@@ -315,11 +358,13 @@ namespace _SEC_USERS_GUI
         private System.Windows.Forms.ComboBox comboBox_TypeUser;
         private System.Windows.Forms.DataGridView dataGridView_Roles;
         private System.Windows.Forms.CheckBox checkBoxIsDisabled;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sECROLENAMEDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewButtonColumn btn_AddNewRole;
-        private System.Windows.Forms.DataGridViewButtonColumn btn_DeleteRole;
         private System.Windows.Forms.Button btn_SaveExecute;
         private System.Windows.Forms.Button btn_CancelExecute;
+        private System.Windows.Forms.DataGridViewComboBoxColumn SEC_ROLES_FROM_SEC_USER;
+        private System.Windows.Forms.DataGridViewButtonColumn btn_AddNewRole;
+        private System.Windows.Forms.DataGridViewButtonColumn btn_DeleteRole;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sECROLEIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sECUSERIDDataGridViewTextBoxColumn;
 
 
         // Здесь добавлены свойства для доступа к элементам GUI
