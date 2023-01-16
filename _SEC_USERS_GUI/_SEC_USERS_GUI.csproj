@@ -147,5 +147,11 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\threeDotsRole.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\deleteRole.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

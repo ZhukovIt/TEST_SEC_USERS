@@ -83,6 +83,16 @@ namespace _SEC_USERS_GUI.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap deleteRole {
+            get {
+                object obj = ResourceManager.GetObject("deleteRole", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap editButton {
             get {
                 object obj = ResourceManager.GetObject("editButton", resourceCulture);
@@ -96,6 +106,16 @@ namespace _SEC_USERS_GUI.Properties {
         internal static System.Drawing.Bitmap removeButton {
             get {
                 object obj = ResourceManager.GetObject("removeButton", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap threeDotsRole {
+            get {
+                object obj = ResourceManager.GetObject("threeDotsRole", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
