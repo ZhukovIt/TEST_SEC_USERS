@@ -62,6 +62,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DeleteAnswerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DeleteAnswerForm.Designer.cs">
+      <DependentUpon>DeleteAnswerForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormState.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -77,6 +83,9 @@
     <Compile Include="UsersForm.Designer.cs">
       <DependentUpon>UsersForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="DeleteAnswerForm.resx">
+      <DependentUpon>DeleteAnswerForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

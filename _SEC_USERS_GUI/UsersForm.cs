@@ -35,6 +35,23 @@ namespace _SEC_USERS_GUI
             return Tuple.Create(id, login, fio, builtIn, isDisabled, noCheck, typeId);
         }
 
+        private void DoDeleteUsersFromUserIds(IEnumerable<string> loginStrings)
+        {
+            List<int> userIds = new List<int>();
+
+            foreach (DataRowView row in bs_SEC_USERS.List)
+            {
+                if (((List<string>)loginStrings).Contains(row.Row.Field<string>("SEC_USER_LOGIN")))
+                {
+                    userIds.Add(row.Row.Field<int>("SEC_USER_ID"));
+                }
+            }
+
+            m_WorkerDB.DeleteUsers(userIds);
+            m_WorkerDB.LoadData();
+            dgv_SEC_USERS.Update();
+        }
+
 
         // Методы-обработчики событий
 
@@ -73,24 +90,18 @@ namespace _SEC_USERS_GUI
         private void btn_RemoveUser_Click(object sender, EventArgs e)
         {
             List<string> loginStrings = new List<string>();
-            List<int> userIds = new List<int>();
 
             foreach (DataGridViewRow row in dgv_SEC_USERS.SelectedRows)
             {
                 loginStrings.Add((string)row.Cells[1].Value);
             }
 
-            foreach (DataRowView row in bs_SEC_USERS.List)
+            DialogResult dialogResult = new DeleteAnswerForm(loginStrings.Count).ShowDialog();
+            if (dialogResult == DialogResult.Yes)
             {
-                if (loginStrings.Contains(row.Row.Field<string>("SEC_USER_LOGIN")))
-                {
-                    userIds.Add(row.Row.Field<int>("SEC_USER_ID"));
-                }
+                MessageBox.Show("Delete Working!");
+                //DoDeleteUsersFromUserIds(loginStrings);
             }
-
-            m_WorkerDB.DeleteUsers(userIds);
-            m_WorkerDB.LoadData();
-            dgv_SEC_USERS.Update();
         }
 
         // Для добавления новых условий фильтра в данный метод, достаточно
