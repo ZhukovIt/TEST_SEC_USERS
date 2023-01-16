@@ -147,9 +147,9 @@ namespace _SEC_USERS
 
 
             ta_SEC_USER.FillByUser(dts_SEC_USERS.SEC_USER, SecUserId);
-            ta_SEC_ROLE.FillByUser(dts_SEC_USERS.SEC_ROLE, SecUserId);
             ta_SEC_USER_ROLE.FillByUser(dts_SEC_USERS.SEC_USER_ROLE, SecUserId);
-            ta_SEC_USER_TYPE.FillByUser(dts_SEC_USERS.SEC_USER_TYPE, SecUserId);
+            ta_SEC_USER_TYPE.Fill(dts_SEC_USERS.SEC_USER_TYPE);
+            ta_SEC_ROLE.Fill(dts_SEC_USERS.SEC_ROLE);
 
             Sec_User user = new Sec_User(dts_SEC_USERS);
 

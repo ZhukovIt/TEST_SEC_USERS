@@ -158,7 +158,6 @@ namespace _SEC_USERS_GUI
         internal override void EventHandlerFromSaveButton(object sender, EventArgs e)
         {
             string oldLogin = m_Login;
-            FillAllFieldsFromForm();
             if (m_Login == oldLogin || m_WorkerDB.CheckUserLoginOnUnique(m_Login))
             {
                 m_WorkerDB.UpdateUser(m_Id, m_Login, m_FIO, m_BuiltIn, m_Disabled, m_NoCheck, m_TypeUser_Name);

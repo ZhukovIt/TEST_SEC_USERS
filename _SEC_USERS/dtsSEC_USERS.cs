@@ -7,9 +7,12 @@
     }
 }
 
-namespace _SEC_USERS.dtsSEC_USERSTableAdapters {
-    
-    
+namespace _SEC_USERS.dtsSEC_USERSTableAdapters
+{
+    partial class SEC_ROLETableAdapter
+    {
+    }
+
     public partial class SEC_USERTableAdapter {
     }
 }

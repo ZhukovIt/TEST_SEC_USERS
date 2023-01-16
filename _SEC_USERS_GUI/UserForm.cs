@@ -29,9 +29,9 @@ namespace _SEC_USERS_GUI
         {
             InitializeComponent();
             m_Sec_User = secUser;
-            bs_SEC_USER.DataSource = m_Sec_User.Create_SEC_USER();
-            bs_SEC_ROLE.DataSource = m_Sec_User.Create_SEC_ROLE();
-            bs_SEC_USER_TYPE.DataSource = m_Sec_User.Create_SEC_USER_TYPE();
+            bs_SEC_USER.DataSource = m_Sec_User.Create_SEC_USER_DataView();
+            //bs_SEC_ROLE.DataSource = m_Sec_User.Create_SEC_ROLE_DataView();
+            bs_SEC_USER_TYPE.DataSource = m_Sec_User.Create_SEC_USER_TYPE_DataView();
         }
 
         public void SetState(FormState state)
@@ -51,6 +51,11 @@ namespace _SEC_USERS_GUI
         private void btn_CancelExecute_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void UserForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

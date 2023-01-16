@@ -19,26 +19,24 @@ namespace _SEC_USERS
                 m_SecUserRow = (dtsSEC_USERS.SEC_USERRow)m_dts_SEC_USERS.SEC_USER.Rows[0];
         }
 
-        public DataView Create_SEC_USER()
+        public DataView Create_SEC_USER_DataView()
         {
             return new DataView(m_dts_SEC_USERS.SEC_USER);
         }
 
-        public DataView Create_SEC_ROLE()
+        public DataView Create_SEC_ROLE_DataView()
         {
             return new DataView(m_dts_SEC_USERS.SEC_ROLE);
         }
 
-        public DataView Create_SEC_USER_ROLE()
+        public DataView Create_SEC_USER_ROLE_DataView()
         {
             return new DataView(m_dts_SEC_USERS.SEC_USER_ROLE);
         }
 
-        public DataView Create_SEC_USER_TYPE()
+        public DataView Create_SEC_USER_TYPE_DataView()
         {
             return new DataView(m_dts_SEC_USERS.SEC_USER_TYPE);
-        }
-
-        
+        } 
     }
 }

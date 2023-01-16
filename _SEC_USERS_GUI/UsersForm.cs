@@ -82,14 +82,13 @@ namespace _SEC_USERS_GUI
         {
             int selectedUserId = ((DataRowView)bs_SEC_USERS.Current).Row.Field<int>("SEC_USER_ID");
             Sec_User currentUser = m_WorkerDB.CreateSecUser(selectedUserId);
-            new UserForm(currentUser).ShowDialog();
+            UserForm form = new UserForm(currentUser);
+            FormState state = new UserFormEditingState(form);
+            form.SetState(state);
+            form.ShowDialog();
 
-            //FormState state = new UserFormEditingState(form);
-            //state.FillMembersData(CreateCurrentUserData());
-            //form.SetState(state);
-            //form.ShowDialog();
-            //m_WorkerDB.LoadData();
             //dgv_SEC_USERS.Update();
+            //m_WorkerDB.LoadData();
         }
 
         private void btn_RemoveUser_Click(object sender, EventArgs e)
