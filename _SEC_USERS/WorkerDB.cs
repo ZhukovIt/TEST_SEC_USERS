@@ -105,11 +105,7 @@ namespace _SEC_USERS
         public void UpdateUser(int id, string login, string fio, bool builtIn, bool isDisabled, bool no_check, string typeName)
         {
             int typeId = (int)TA_SEC_USER_TYPE.Get_SEC_USER_TYPE_ID_From_SEC_USER_TYPE_NAME(typeName);
-            string loginDB = TA_SEC_USER.CheckLoginUserFromHisId(id);
-            if (TA_SEC_USER.CheckExistsIdFromSEC_USER(id) == 0 && login != loginDB)
-            {
-                TA_SEC_USER.UpdateUser(login, fio, builtIn, isDisabled, no_check, typeId, id);
-            }
+            TA_SEC_USER.UpdateUser(login, fio, builtIn, isDisabled, no_check, typeId, id);
         }
 
         public void DeleteUsers(IEnumerable<int> idsUsers)
@@ -118,6 +114,11 @@ namespace _SEC_USERS
             {
                 TA_SEC_USER.DeleteUserFromId(userId);
             }
+        }
+
+        public bool CheckUserLoginOnUnique(string login)
+        {
+            return TA_SEC_USER.Check_SEC_USER_LOGIN_IN_SEC_USER(login) == 0;
         }
     }
 }
