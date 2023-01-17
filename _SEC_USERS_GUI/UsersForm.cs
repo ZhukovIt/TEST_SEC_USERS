@@ -71,6 +71,7 @@ namespace _SEC_USERS_GUI
             Sec_User currentUser = m_WorkerDB.CreateSecUser(selectedUserId);
             UserForm form = new UserForm(m_WorkerDB, currentUser);
             FormState state = new UserFormEditingState(form);
+            form.SetState(state);
             form.ShowDialog();
 
             //dgv_SEC_USERS.Update();

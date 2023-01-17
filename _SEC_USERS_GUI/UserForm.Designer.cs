@@ -327,53 +327,5 @@ namespace _SEC_USERS_GUI
                 return btn_SaveExecute;
             }
         }
-
-        public System.Windows.Forms.TextBox GetFIOTextBox
-        {
-            get
-            {
-                return textBox_FIO;
-            }
-        }
-
-        public System.Windows.Forms.TextBox GetLoginTextBox
-        {
-            get
-            {
-                return textBox_Login;
-            }
-        }
-
-        public System.Windows.Forms.ComboBox GetUserTypeComboBox
-        {
-            get
-            {
-                return comboBox_TypeUser;
-            }
-        }
-
-        public System.Windows.Forms.CheckBox GetBuiltInCheckBox
-        {
-            get
-            {
-                return checkBoxBuiltIn;
-            }
-        }
-
-        public System.Windows.Forms.CheckBox GetIsDisabledCheckBox
-        {
-            get
-            {
-                return checkBoxIsDisabled;
-            }
-        }
-
-        public System.Windows.Forms.CheckBox GetNoCheckCheckBox
-        {
-            get
-            {
-                return checkBoxNoCheck;
-            }
-        }
     }
 }

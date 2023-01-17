@@ -31,7 +31,7 @@ namespace _SEC_USERS_GUI
         {
             try
             {
-                FillFormData();
+                FillData();
                 return true;
             }
             catch (Exception ex)
@@ -41,7 +41,7 @@ namespace _SEC_USERS_GUI
             }
         }
 
-        internal abstract void FillFormData();
+        internal abstract void FillData();
     }
 
     public abstract class UserFormState : FormState
@@ -58,55 +58,60 @@ namespace _SEC_USERS_GUI
             m_SaveButton.Click += new EventHandler(EventHandlerFromSaveButton);
         }
 
+        internal override void FillData()
+        {
+
+        }
+
         internal abstract void EventHandlerFromSaveButton(object sender, EventArgs e);
     }
 
-    public sealed class UserFormAddingState : UserFormState
-    {
-        public UserFormAddingState(UserForm form) : base(form)
-        {
+    //public sealed class UserFormAddingState : UserFormState
+    //{
+    //    public UserFormAddingState(UserForm form) : base(form)
+    //    {
 
-        }
+    //    }
 
-        internal override void FillFormData()
-        {
-            m_form.Text = "Добавление нового пользователя";
-            m_SaveButton.Text = "Добавить";
-        }
+    //    internal override void FillFormData()
+    //    {
+    //        m_form.Text = "Добавление нового пользователя";
+    //        m_SaveButton.Text = "Добавить";
+    //    }
 
-        internal override void EventHandlerFromSaveButton(object sender, EventArgs e)
-        {
-            if (m_WorkerDB.CheckUserLoginOnUnique(m_Login))
-            {
-                m_WorkerDB.InsertUser(m_Login, m_FIO, m_BuiltIn, m_Disabled, m_NoCheck, m_TypeUser_Name);
-            }
-            m_form.Close();
-        }
-    }
+    //    internal override void EventHandlerFromSaveButton(object sender, EventArgs e)
+    //    {
+    //        if (m_WorkerDB.CheckUserLoginOnUnique(m_Login))
+    //        {
+    //            m_WorkerDB.InsertUser(m_Login, m_FIO, m_BuiltIn, m_Disabled, m_NoCheck, m_TypeUser_Name);
+    //        }
+    //        m_form.Close();
+    //    }
+    //}
 
-    public sealed class UserFormCopyingState : UserFormState
-    {
-        public UserFormCopyingState(UserForm form) : base(form)
-        {
+    //public sealed class UserFormCopyingState : UserFormState
+    //{
+    //    public UserFormCopyingState(UserForm form) : base(form)
+    //    {
 
-        }
+    //    }
 
-        internal override void FillFormData()
-        {
-            m_form.Text = "Создание нового пользователя на основе копии";
-            m_form.Width += 20;
-            m_SaveButton.Text = "Добавить";
-        }
+    //    internal override void FillFormData()
+    //    {
+    //        m_form.Text = "Создание нового пользователя на основе копии";
+    //        m_form.Width += 20;
+    //        m_SaveButton.Text = "Добавить";
+    //    }
 
-        internal override void EventHandlerFromSaveButton(object sender, EventArgs e)
-        {
-            if (m_WorkerDB.CheckUserLoginOnUnique(m_Login))
-            {
-                m_WorkerDB.InsertUser(m_Login, m_FIO, m_BuiltIn, m_Disabled, m_NoCheck, m_TypeUser_Name);
-            }
-            m_form.Close();
-        }
-    }
+    //    internal override void EventHandlerFromSaveButton(object sender, EventArgs e)
+    //    {
+    //        if (m_WorkerDB.CheckUserLoginOnUnique(m_Login))
+    //        {
+    //            m_WorkerDB.InsertUser(m_Login, m_FIO, m_BuiltIn, m_Disabled, m_NoCheck, m_TypeUser_Name);
+    //        }
+    //        m_form.Close();
+    //    }
+    //}
 
     public sealed class UserFormEditingState : UserFormState
     {
@@ -115,7 +120,7 @@ namespace _SEC_USERS_GUI
 
         }
 
-        internal override void FillFormData()
+        internal override void FillData()
         {
             m_form.Text = "Редактирование пользователя";
         }
