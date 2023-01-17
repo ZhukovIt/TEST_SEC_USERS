@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -11,13 +12,13 @@ namespace _SEC_USERS
 {
     public sealed class WorkerDB
     {
-        private dtsSEC_USERS m_dtsSEC_USERS;
         private SEC_USERTableAdapter m_ta_SEC_USER;
         private SEC_ROLETableAdapter m_ta_SEC_ROLE;
         private SEC_USER_ROLETableAdapter m_ta_SEC_USER_ROLE;
         private SEC_USER_TYPETableAdapter m_ta_SEC_USER_TYPE;
+        private static dtsSEC_USERS m_dtsSEC_USERS = new dtsSEC_USERS();
 
-        public dtsSEC_USERS dts_SEC_USERS
+        public dtsSEC_USERS Get_dts_SEC_USERS
         {
             get
             {
@@ -77,11 +78,6 @@ namespace _SEC_USERS
             }
         }
 
-        public WorkerDB()
-        {
-            m_dtsSEC_USERS = new dtsSEC_USERS();
-        }
-
         public void LoadData()
         {
             m_dtsSEC_USERS.SEC_ROLE.Clear();
@@ -136,24 +132,25 @@ namespace _SEC_USERS
             SEC_USERTableAdapter ta_SEC_USER = new SEC_USERTableAdapter();
             ta_SEC_USER.Connection = ConnectionSingleton.getInstance();
 
-            SEC_ROLETableAdapter ta_SEC_ROLE = new SEC_ROLETableAdapter();
-            ta_SEC_ROLE.Connection = ConnectionSingleton.getInstance();
-
             SEC_USER_ROLETableAdapter ta_SEC_USER_ROLE = new SEC_USER_ROLETableAdapter();
             ta_SEC_USER_ROLE.Connection = ConnectionSingleton.getInstance();
 
-            SEC_USER_TYPETableAdapter ta_SEC_USER_TYPE = new SEC_USER_TYPETableAdapter();
-            ta_SEC_USER_TYPE.Connection = ConnectionSingleton.getInstance();
-
-
             ta_SEC_USER.FillByUser(dts_SEC_USERS.SEC_USER, SecUserId);
             ta_SEC_USER_ROLE.FillByUser(dts_SEC_USERS.SEC_USER_ROLE, SecUserId);
-            ta_SEC_USER_TYPE.Fill(dts_SEC_USERS.SEC_USER_TYPE);
-            ta_SEC_ROLE.Fill(dts_SEC_USERS.SEC_ROLE);
 
             Sec_User user = new Sec_User(dts_SEC_USERS);
 
             return user;
+        }
+
+        public DataView Create_SEC_ROLE_DataView()
+        {
+            return new DataView(m_dtsSEC_USERS.SEC_ROLE);
+        }
+
+        public DataView Create_SEC_USER_TYPE_DataView()
+        {
+            return new DataView(m_dtsSEC_USERS.SEC_USER_TYPE);
         }
     }
 }

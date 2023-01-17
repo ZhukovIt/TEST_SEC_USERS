@@ -58,7 +58,6 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <Compile Include="ScriptGetRoles.cs" />
     <Compile Include="Sec_User.cs" />
     <Compile Include="WorkerDB.cs" />
   </ItemGroup>

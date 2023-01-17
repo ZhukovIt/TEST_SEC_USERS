@@ -24,19 +24,9 @@ namespace _SEC_USERS
             return new DataView(m_dts_SEC_USERS.SEC_USER);
         }
 
-        public DataView Create_SEC_ROLE_DataView()
-        {
-            return new DataView(m_dts_SEC_USERS.SEC_ROLE);
-        }
-
         public DataView Create_SEC_USER_ROLE_DataView()
         {
             return new DataView(m_dts_SEC_USERS.SEC_USER_ROLE);
         }
-
-        public DataView Create_SEC_USER_TYPE_DataView()
-        {
-            return new DataView(m_dts_SEC_USERS.SEC_USER_TYPE);
-        } 
     }
 }

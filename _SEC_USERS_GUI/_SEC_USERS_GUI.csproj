@@ -118,6 +118,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Model\Model\Model.csproj">
+      <Project>{F6C7AB38-8704-4A2C-93A9-EB841FF857B3}</Project>
+      <Name>Model</Name>
+    </ProjectReference>
     <ProjectReference Include="..\_SEC_USERS\_SEC_USERS.csproj">
       <Project>{8840740b-1d04-48b7-a032-5c46f61ba48d}</Project>
       <Name>_SEC_USERS</Name>

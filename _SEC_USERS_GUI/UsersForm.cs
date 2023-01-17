@@ -19,22 +19,9 @@ namespace _SEC_USERS_GUI
         {
             InitializeComponent();
             m_WorkerDB = new WorkerDB();
-            bs_SEC_USERS.DataSource = m_WorkerDB.dts_SEC_USERS;
-            bs_SEC_USER_TYPE.DataSource = m_WorkerDB.dts_SEC_USERS;
             m_WorkerDB.LoadData();
-        }
-
-        private Tuple<int, string, string, bool, bool, bool, int> CreateCurrentUserData()
-        {
-            DataRow dataRow = ((DataRowView)bs_SEC_USERS.Current).Row;
-            int id = dataRow.Field<int>("SEC_USER_ID");
-            string login = dataRow.Field<string>("SEC_USER_LOGIN");
-            string fio = dataRow.Field<string>("SEC_USER_FIO");
-            bool builtIn = dataRow.Field<bool>("SEC_USER_BUILTIN");
-            bool isDisabled = dataRow.Field<bool>("SEC_USER_DISABLED");
-            bool noCheck = dataRow.Field<bool>("SEC_USER_NO_CHECK");
-            int typeId = dataRow.Field<int>("SEC_USER_TYPE_ID");
-            return Tuple.Create(id, login, fio, builtIn, isDisabled, noCheck, typeId);
+            bs_SEC_USERS.DataSource = m_WorkerDB.Get_dts_SEC_USERS;
+            bs_SEC_USER_TYPE.DataSource = m_WorkerDB.Get_dts_SEC_USERS;
         }
 
         private void DoDeleteUsersFromUserIds(IEnumerable<string> loginStrings)
@@ -82,9 +69,8 @@ namespace _SEC_USERS_GUI
         {
             int selectedUserId = ((DataRowView)bs_SEC_USERS.Current).Row.Field<int>("SEC_USER_ID");
             Sec_User currentUser = m_WorkerDB.CreateSecUser(selectedUserId);
-            UserForm form = new UserForm(currentUser);
+            UserForm form = new UserForm(m_WorkerDB, currentUser);
             FormState state = new UserFormEditingState(form);
-            form.SetState(state);
             form.ShowDialog();
 
             //dgv_SEC_USERS.Update();

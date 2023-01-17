@@ -41,17 +41,6 @@ namespace _SEC_USERS_GUI
             }
         }
 
-        internal void FillMembersData(Tuple<int, string, string, bool, bool, bool, int> userData)
-        {
-            m_Id = userData.Item1;
-            m_Login = userData.Item2;
-            m_FIO = userData.Item3;
-            m_BuiltIn = userData.Item4;
-            m_Disabled = userData.Item5;
-            m_NoCheck = userData.Item6;
-            m_TypeId = userData.Item7;
-        }
-
         internal abstract void FillFormData();
     }
 
@@ -60,35 +49,13 @@ namespace _SEC_USERS_GUI
         protected readonly UserForm m_form;
         protected readonly _SEC_USERS.WorkerDB m_WorkerDB;
         protected readonly Button m_SaveButton;
-        protected readonly TextBox m_FIOTextBox;
-        protected readonly TextBox m_LoginTextBox;
-        protected readonly ComboBox m_UserTypeComboBox;
-        protected readonly CheckBox m_BuiltInCheckBox;
-        protected readonly CheckBox m_DisabledCheckBox;
-        protected readonly CheckBox m_NoCheckCheckBox;
 
         protected UserFormState(UserForm form)
         {
             m_form = form;
             m_WorkerDB = m_form.GetWorkerDB;
             m_SaveButton = m_form.GetButtonSaveExecute;
-            m_FIOTextBox = m_form.GetFIOTextBox;
-            m_LoginTextBox = m_form.GetLoginTextBox;
-            m_UserTypeComboBox = m_form.GetUserTypeComboBox;
-            m_BuiltInCheckBox = m_form.GetBuiltInCheckBox;
-            m_DisabledCheckBox = m_form.GetIsDisabledCheckBox;
-            m_NoCheckCheckBox = m_form.GetNoCheckCheckBox;
             m_SaveButton.Click += new EventHandler(EventHandlerFromSaveButton);
-        }
-
-        protected void FillAllFieldsFromForm()
-        {
-            m_Login = m_LoginTextBox.Text;
-            m_FIO = m_FIOTextBox.Text;
-            m_TypeUser_Name = (string)m_UserTypeComboBox.SelectedValue;
-            m_BuiltIn = m_BuiltInCheckBox.Checked;
-            m_Disabled = m_DisabledCheckBox.Checked;
-            m_NoCheck = m_NoCheckCheckBox.Checked;
         }
 
         internal abstract void EventHandlerFromSaveButton(object sender, EventArgs e);
@@ -109,7 +76,6 @@ namespace _SEC_USERS_GUI
 
         internal override void EventHandlerFromSaveButton(object sender, EventArgs e)
         {
-            FillAllFieldsFromForm();
             if (m_WorkerDB.CheckUserLoginOnUnique(m_Login))
             {
                 m_WorkerDB.InsertUser(m_Login, m_FIO, m_BuiltIn, m_Disabled, m_NoCheck, m_TypeUser_Name);
@@ -134,7 +100,6 @@ namespace _SEC_USERS_GUI
 
         internal override void EventHandlerFromSaveButton(object sender, EventArgs e)
         {
-            FillAllFieldsFromForm();
             if (m_WorkerDB.CheckUserLoginOnUnique(m_Login))
             {
                 m_WorkerDB.InsertUser(m_Login, m_FIO, m_BuiltIn, m_Disabled, m_NoCheck, m_TypeUser_Name);

@@ -10,7 +10,7 @@ namespace _SEC_USERS
 {
     public static class ConnectionSingleton
     {
-        private static SqlConnection m_connection = new SqlConnection(GetTestClinic10ConnectionString());
+        private static SqlConnection m_connection = new SqlConnection(GetClinic10ConnectionString());
 
         public static SqlConnection getInstance()
         {
