@@ -56,65 +56,85 @@ namespace _SEC_USERS_GUI
             m_form = form;
             m_SecUser = secUser;
             m_WorkerDB = m_form.GetWorkerDB;
-            FillData();
             m_SaveButton = m_form.GetButtonSaveExecute;
             m_SaveButton.Click += new EventHandler(EventHandlerFromSaveButton);
+            m_SaveButton.Click += new EventHandler(DopEventHandlerFromSaveButton);
         }
 
         internal override void FillData()
         {
             m_Id = m_SecUser.UserId;
+            m_Login = m_SecUser.UserLogin;
+            m_FIO = m_SecUser.UserFIO;
+            m_BuiltIn = m_SecUser.BuiltIn;
+            m_Disabled = m_SecUser.IsDisabled;
+            m_NoCheck = m_SecUser.NoCheck;
+            m_TypeId = m_SecUser.TypeId;
+        }
+
+        private void DopEventHandlerFromSaveButton(object sender, EventArgs e)
+        {
+            m_WorkerDB.TA_SEC_USER.Update(m_WorkerDB.Get_dts_SEC_USERS);
+            m_form.DialogResult = DialogResult.OK;
         }
 
         internal abstract void EventHandlerFromSaveButton(object sender, EventArgs e);
     }
 
-    //public sealed class UserFormAddingState : UserFormState
-    //{
-    //    public UserFormAddingState(UserForm form) : base(form)
-    //    {
+    public sealed class UserFormAddingState : UserFormState
+    {
+        public UserFormAddingState(UserForm form, _SEC_USERS.Sec_User secUser) : base(form, secUser)
+        {
 
-    //    }
+        }
 
-    //    internal override void FillFormData()
-    //    {
-    //        m_form.Text = "Добавление нового пользователя";
-    //        m_SaveButton.Text = "Добавить";
-    //    }
+        internal override void FillData()
+        {
+            m_form.Text = "Добавление нового пользователя";
+            m_SaveButton.Text = "Добавить";
+        }
 
-    //    internal override void EventHandlerFromSaveButton(object sender, EventArgs e)
-    //    {
-    //        if (m_WorkerDB.CheckUserLoginOnUnique(m_Login))
-    //        {
-    //            m_WorkerDB.InsertUser(m_Login, m_FIO, m_BuiltIn, m_Disabled, m_NoCheck, m_TypeUser_Name);
-    //        }
-    //        m_form.Close();
-    //    }
-    //}
+        internal override void EventHandlerFromSaveButton(object sender, EventArgs e)
+        {
+            base.FillData();
+            try
+            {
+                m_WorkerDB.TA_SEC_USER.UpdateUser(m_Login, m_FIO, m_BuiltIn, m_Disabled, m_NoCheck, m_TypeId, m_Id);
+            }
+            catch (Exception)
+            {
 
-    //public sealed class UserFormCopyingState : UserFormState
-    //{
-    //    public UserFormCopyingState(UserForm form) : base(form)
-    //    {
+            }
+        }
+    }
 
-    //    }
+    public sealed class UserFormCopyingState : UserFormState
+    {
+        public UserFormCopyingState(UserForm form, _SEC_USERS.Sec_User secUser) : base(form, secUser)
+        {
 
-    //    internal override void FillFormData()
-    //    {
-    //        m_form.Text = "Создание нового пользователя на основе копии";
-    //        m_form.Width += 20;
-    //        m_SaveButton.Text = "Добавить";
-    //    }
+        }
 
-    //    internal override void EventHandlerFromSaveButton(object sender, EventArgs e)
-    //    {
-    //        if (m_WorkerDB.CheckUserLoginOnUnique(m_Login))
-    //        {
-    //            m_WorkerDB.InsertUser(m_Login, m_FIO, m_BuiltIn, m_Disabled, m_NoCheck, m_TypeUser_Name);
-    //        }
-    //        m_form.Close();
-    //    }
-    //}
+        internal override void FillData()
+        {
+            m_form.Text = "Создание нового пользователя на основе копии";
+            m_form.Width += 20;
+            m_SaveButton.Text = "Добавить";
+        }
+
+        internal override void EventHandlerFromSaveButton(object sender, EventArgs e)
+        {
+            base.FillData();
+            try
+            {
+                m_WorkerDB.TA_SEC_USER.UpdateUser(m_Login, m_FIO, m_BuiltIn, m_Disabled, m_NoCheck, m_TypeId, m_Id);
+            }
+            catch (Exception)
+            {
+
+            }
+        }
+    }
 
     public sealed class UserFormEditingState : UserFormState
     {
@@ -130,12 +150,15 @@ namespace _SEC_USERS_GUI
 
         internal override void EventHandlerFromSaveButton(object sender, EventArgs e)
         {
-            string oldLogin = m_Login;
-            if (m_Login == oldLogin || m_WorkerDB.CheckUserLoginOnUnique(m_Login))
+            base.FillData();
+            try
             {
-                m_WorkerDB.UpdateUser(m_Id, m_Login, m_FIO, m_BuiltIn, m_Disabled, m_NoCheck, m_TypeUser_Name);
+                m_WorkerDB.TA_SEC_USER.UpdateUser(m_Login, m_FIO, m_BuiltIn, m_Disabled, m_NoCheck, m_TypeId, m_Id);
             }
-            m_form.Close();
+            catch (Exception)
+            {
+
+            }
         }
     }
 }

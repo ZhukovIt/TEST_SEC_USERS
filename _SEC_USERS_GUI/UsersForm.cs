@@ -72,10 +72,17 @@ namespace _SEC_USERS_GUI
             UserForm form = new UserForm(m_WorkerDB, currentUser);
             FormState state = new UserFormEditingState(form, currentUser);
             form.SetState(state);
-            form.ShowDialog();
-
-            //dgv_SEC_USERS.Update();
-            //m_WorkerDB.LoadData();
+            DialogResult result = form.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                m_WorkerDB.LoadData();
+                dgv_SEC_USERS.Update();
+            }
+            int Pos = bs_SEC_USERS.Find("SEC_USER_ID", selectedUserId);
+            if (Pos >= 0)
+            {
+                bs_SEC_USERS.Position = Pos;
+            }
         }
 
         private void btn_RemoveUser_Click(object sender, EventArgs e)

@@ -43,6 +43,38 @@ namespace _SEC_USERS
             }
         }
 
+        public bool BuiltIn
+        {
+            get
+            {
+                return m_SecUserRow.SEC_USER_BUILTIN;
+            }
+        }
+
+        public bool IsDisabled
+        {
+            get
+            {
+                return m_SecUserRow.SEC_USER_DISABLED;
+            }
+        }
+
+        public bool NoCheck
+        {
+            get
+            {
+                return m_SecUserRow.SEC_USER_NO_CHECK;
+            }
+        }
+
+        public int TypeId
+        {
+            get
+            {
+                return m_SecUserRow.SEC_USER_TYPE_ID;
+            }
+        }
+
         public DataView Create_SEC_USER_DataView()
         {
             return new DataView(m_dts_SEC_USERS.SEC_USER);

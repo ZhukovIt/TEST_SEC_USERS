@@ -248,7 +248,6 @@ namespace _SEC_USERS_GUI
             this.btn_SaveExecute.TabIndex = 0;
             this.btn_SaveExecute.Text = "Сохранить";
             this.btn_SaveExecute.UseVisualStyleBackColor = true;
-            this.btn_SaveExecute.Click += new System.EventHandler(this.btn_SaveExecute_Click);
             // 
             // btn_CancelExecute
             // 
@@ -288,7 +287,8 @@ namespace _SEC_USERS_GUI
             this.RoleName.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
             this.RoleName.HeaderText = "Наименование";
             this.RoleName.Name = "RoleName";
-            this.RoleName.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.RoleName.ReadOnly = true;
+            this.RoleName.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.RoleName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.RoleName.ValueMember = "SEC_ROLE_ID";
             this.RoleName.Width = 300;
@@ -314,12 +314,14 @@ namespace _SEC_USERS_GUI
             this.sECROLEIDDataGridViewTextBoxColumn.DataPropertyName = "SEC_ROLE_ID";
             this.sECROLEIDDataGridViewTextBoxColumn.HeaderText = "SEC_ROLE_ID";
             this.sECROLEIDDataGridViewTextBoxColumn.Name = "sECROLEIDDataGridViewTextBoxColumn";
+            this.sECROLEIDDataGridViewTextBoxColumn.Visible = false;
             // 
             // sECUSERIDDataGridViewTextBoxColumn
             // 
             this.sECUSERIDDataGridViewTextBoxColumn.DataPropertyName = "SEC_USER_ID";
             this.sECUSERIDDataGridViewTextBoxColumn.HeaderText = "SEC_USER_ID";
             this.sECUSERIDDataGridViewTextBoxColumn.Name = "sECUSERIDDataGridViewTextBoxColumn";
+            this.sECUSERIDDataGridViewTextBoxColumn.Visible = false;
             // 
             // UserForm
             // 
