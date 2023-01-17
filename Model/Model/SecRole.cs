@@ -6,8 +6,7 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    public class ModelWorker
+    internal class SecRole
     {
-
     }
 }

@@ -37,7 +37,6 @@ namespace TEST_SEC_USERS.GUI
             this.btnCopyRole = new System.Windows.Forms.ToolStripButton();
             this.btnEditRole = new System.Windows.Forms.ToolStripButton();
             this.btnRemoveRole = new System.Windows.Forms.ToolStripButton();
-            this.btnSaveChanges = new System.Windows.Forms.ToolStripButton();
             this.ButtonsToFinderSeparator = new System.Windows.Forms.ToolStripSeparator();
             this.lblFinder = new System.Windows.Forms.ToolStripLabel();
             this.tbox_Roles = new System.Windows.Forms.ToolStripTextBox();
@@ -46,7 +45,6 @@ namespace TEST_SEC_USERS.GUI
             this.sECROLENAMEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bsSEC_ROLE = new System.Windows.Forms.BindingSource(this.components);
             this.dtsSecUsers = new Model.dtsSecUsers();
-            this.seC_ROLETableAdapter = new Model.dtsSecUsersTableAdapters.SEC_ROLETableAdapter();
             this.ts_btn_Role.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_SEC_ROLE)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsSEC_ROLE)).BeginInit();
@@ -61,7 +59,6 @@ namespace TEST_SEC_USERS.GUI
             this.btnCopyRole,
             this.btnEditRole,
             this.btnRemoveRole,
-            this.btnSaveChanges,
             this.ButtonsToFinderSeparator,
             this.lblFinder,
             this.tbox_Roles,
@@ -107,15 +104,6 @@ namespace TEST_SEC_USERS.GUI
             this.btnRemoveRole.Name = "btnRemoveRole";
             this.btnRemoveRole.Size = new System.Drawing.Size(36, 36);
             this.btnRemoveRole.Text = "Удаление роли";
-            // 
-            // btnSaveChanges
-            // 
-            this.btnSaveChanges.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnSaveChanges.Image = global::TEST_SEC_USERS.Properties.Resources.saveButton1;
-            this.btnSaveChanges.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnSaveChanges.Name = "btnSaveChanges";
-            this.btnSaveChanges.Size = new System.Drawing.Size(36, 36);
-            this.btnSaveChanges.Text = "Сохранение всех изменений";
             // 
             // ButtonsToFinderSeparator
             // 
@@ -178,10 +166,6 @@ namespace TEST_SEC_USERS.GUI
             this.dtsSecUsers.DataSetName = "dtsSecUsers";
             this.dtsSecUsers.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // seC_ROLETableAdapter
-            // 
-            this.seC_ROLETableAdapter.ClearBeforeFill = true;
-            // 
             // Roles
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -191,8 +175,7 @@ namespace TEST_SEC_USERS.GUI
             this.Controls.Add(this.ts_btn_Role);
             this.Name = "Roles";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Roles";
-            this.Load += new System.EventHandler(this.Roles_Load);
+            this.Text = "Роли";
             this.ts_btn_Role.ResumeLayout(false);
             this.ts_btn_Role.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_SEC_ROLE)).EndInit();
@@ -207,11 +190,9 @@ namespace TEST_SEC_USERS.GUI
 
         private System.Windows.Forms.ToolStrip ts_btn_Role;
         private System.Windows.Forms.ToolStripButton btnAddNewRole;
-        private System.Windows.Forms.ToolStripButton btnSaveChanges;
         private System.Windows.Forms.ToolStripButton btnRemoveRole;
         private System.Windows.Forms.ToolStripSeparator ButtonsToFinderSeparator;
         private System.Windows.Forms.BindingSource bsSEC_ROLE;
-        private Model.dtsSecUsersTableAdapters.SEC_ROLETableAdapter seC_ROLETableAdapter;
         private Model.dtsSecUsers dtsSecUsers;
         private System.Windows.Forms.DataGridView dgv_SEC_ROLE;
         private System.Windows.Forms.DataGridViewTextBoxColumn sECROLENAMEDataGridViewTextBoxColumn;
