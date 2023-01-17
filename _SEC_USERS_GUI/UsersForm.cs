@@ -70,7 +70,7 @@ namespace _SEC_USERS_GUI
             int selectedUserId = ((DataRowView)bs_SEC_USERS.Current).Row.Field<int>("SEC_USER_ID");
             Sec_User currentUser = m_WorkerDB.CreateSecUser(selectedUserId);
             UserForm form = new UserForm(m_WorkerDB, currentUser);
-            FormState state = new UserFormEditingState(form);
+            FormState state = new UserFormEditingState(form, currentUser);
             form.SetState(state);
             form.ShowDialog();
 

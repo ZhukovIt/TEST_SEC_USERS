@@ -49,18 +49,21 @@ namespace _SEC_USERS_GUI
         protected readonly UserForm m_form;
         protected readonly _SEC_USERS.WorkerDB m_WorkerDB;
         protected readonly Button m_SaveButton;
+        protected readonly _SEC_USERS.Sec_User m_SecUser;
 
-        protected UserFormState(UserForm form)
+        protected UserFormState(UserForm form, _SEC_USERS.Sec_User secUser)
         {
             m_form = form;
+            m_SecUser = secUser;
             m_WorkerDB = m_form.GetWorkerDB;
+            FillData();
             m_SaveButton = m_form.GetButtonSaveExecute;
             m_SaveButton.Click += new EventHandler(EventHandlerFromSaveButton);
         }
 
         internal override void FillData()
         {
-
+            m_Id = m_SecUser.UserId;
         }
 
         internal abstract void EventHandlerFromSaveButton(object sender, EventArgs e);
@@ -115,7 +118,7 @@ namespace _SEC_USERS_GUI
 
     public sealed class UserFormEditingState : UserFormState
     {
-        public UserFormEditingState(UserForm form) : base(form)
+        public UserFormEditingState(UserForm form, _SEC_USERS.Sec_User secUser) : base(form, secUser)
         {
 
         }

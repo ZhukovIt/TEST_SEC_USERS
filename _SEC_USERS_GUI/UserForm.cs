@@ -27,10 +27,9 @@ namespace _SEC_USERS_GUI
 
         public UserForm(WorkerDB workerDB, Sec_User secUser)
         {
+            InitializeComponent();
             m_WorkerDB = workerDB;
             m_Sec_User = secUser;
-            InitializeComponent();
-            SettingBindingSources();
         }
 
         private void SettingBindingSources()
@@ -38,10 +37,10 @@ namespace _SEC_USERS_GUI
             bs_SEC_USER.DataSource = m_Sec_User.Create_SEC_USER_DataView();
             bs_SEC_ROLE.DataSource = m_WorkerDB.Create_SEC_ROLE_DataView();
             bs_SEC_USER_TYPE.DataSource = m_WorkerDB.Create_SEC_USER_TYPE_DataView();
-            bs_SEC_USER_FROM_SEC_ROLES.DataSource = bs_SEC_USER;
-            bs_SEC_USER_FROM_SEC_ROLES.DataMember = "FK_SEC_USER_SEC_USER__SEC_USER";
-            RoleName.DisplayMember = "SEC_ROLE_NAME";
-            RoleName.ValueMember = "SEC_ROLE_ID";
+            RoleName.DataSource = bs_SEC_ROLE;
+            RoleName.DataPropertyName = RoleName.DataPropertyName;
+            RoleName.DisplayMember = RoleName.DisplayMember;
+            RoleName.ValueMember = RoleName.ValueMember;
         }
 
         public void SetState(FormState state)
@@ -64,6 +63,12 @@ namespace _SEC_USERS_GUI
         }
 
         private void UserForm_Load(object sender, EventArgs e)
+        {
+            dts_SEC_USERS = m_WorkerDB.Get_dts_SEC_USERS;
+            SettingBindingSources();
+        }
+
+        private void btn_SaveExecute_Click(object sender, EventArgs e)
         {
             
         }

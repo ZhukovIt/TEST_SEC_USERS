@@ -102,6 +102,11 @@ namespace _SEC_USERS
 
         public void InsertUser(string login, string fio, bool builtIn, bool isDisabled, bool no_check, string typeName)
         {
+            TableAdapterManager taManager = new TableAdapterManager();
+            taManager.UpdateAll(m_dtsSEC_USERS);
+            
+
+
             int typeId = (int)TA_SEC_USER_TYPE.Get_SEC_USER_TYPE_ID_From_SEC_USER_TYPE_NAME(typeName);
             TA_SEC_USER.InsertNewUser(TryGetMaxIdAndIncrementHis(), login, fio, builtIn, isDisabled, no_check, typeId);
         }
