@@ -11,13 +11,14 @@ using System.Windows.Forms;
 using TEST_SEC_USERS;
 using Model;
 using TEST_SEC_USERS.View;
+using _SEC_USERS_GUI;
 
 namespace TEST_SEC_USERS.GUI
 {
     public partial class Roles : Form
     {
         private WorkerDBRole m_workerDBRole;
-        private int m_Select_SEC_ROLE_ID;
+        private int[] arr;
 
         public Roles()
         {
@@ -26,13 +27,13 @@ namespace TEST_SEC_USERS.GUI
             m_workerDBRole.LoadData();
             dtsSecUsers = m_workerDBRole.Get_dts_SEC_USERS;
             bsSEC_ROLE.DataSource = m_workerDBRole.Create_SEC_ROLE_DataView();
-            PrepareFormForGive_SEC_ROLE_ID();
         }
 
-        public Roles(ref int SEC_ROLE_ID) : this()
+        public Roles(int[] arr) : this()
         {
             PrepareFormForGive_SEC_ROLE_ID();
-            m_Select_SEC_ROLE_ID = SEC_ROLE_ID;
+            this.arr = arr;
+            temp_btn_SelectRole.Click += new EventHandler(btn_SelectRole_Click);
         }
 
         private void btnAddNewRole_Click(object sender, EventArgs e)
@@ -105,7 +106,7 @@ namespace TEST_SEC_USERS.GUI
                 RoleNames.Add((string)row.Cells[0].Value);
             }
 
-            DialogResult dialogResult = new _SEC_USERS_GUI.DeleteAnswerForm(RoleNames.Count).ShowDialog();
+            DialogResult dialogResult = new DeleteAnswerForm(RoleNames.Count).ShowDialog();
             if (dialogResult == DialogResult.Yes)
             {
                 DoDeleteUsersFromUserIds(RoleNames);
@@ -143,6 +144,12 @@ namespace TEST_SEC_USERS.GUI
         private void dgv_SEC_ROLE_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             btnEditRole_Click(sender, e);
+        }
+
+        private void btn_SelectRole_Click(object sender, EventArgs e)
+        {
+            arr[0] = ((DataRowView)bsSEC_ROLE.Current).Row.Field<int>("SEC_ROLE_ID");
+            DialogResult = DialogResult.OK;
         }
     }
 }

@@ -278,6 +278,7 @@ namespace _SEC_USERS_GUI
             this.dataGridView_Roles.Name = "dataGridView_Roles";
             this.dataGridView_Roles.Size = new System.Drawing.Size(436, 183);
             this.dataGridView_Roles.TabIndex = 3;
+            this.dataGridView_Roles.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView_Roles_CellMouseClick);
             // 
             // RoleName
             // 

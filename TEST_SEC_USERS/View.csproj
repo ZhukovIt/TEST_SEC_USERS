@@ -48,6 +48,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DeleteAnswerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DeleteAnswerForm.Designer.cs">
+      <DependentUpon>DeleteAnswerForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Extensions.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -68,6 +74,9 @@
     <Compile Include="View\Roles.Designer.cs">
       <DependentUpon>Roles.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="DeleteAnswerForm.resx">
+      <DependentUpon>DeleteAnswerForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
@@ -115,10 +124,6 @@
     <ProjectReference Include="..\Model\Model\Model.csproj">
       <Project>{f6c7ab38-8704-4a2c-93a9-eb841ff857b3}</Project>
       <Name>Model</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\_SEC_USERS_GUI\_SEC_USERS_GUI.csproj">
-      <Project>{1a6c4294-c3fe-41bd-a657-a63c6e00079a}</Project>
-      <Name>_SEC_USERS_GUI</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
