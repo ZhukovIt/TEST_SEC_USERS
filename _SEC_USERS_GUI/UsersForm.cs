@@ -75,6 +75,7 @@ namespace _SEC_USERS_GUI
             int selectedUserId = ((DataRowView)bs_SEC_USERS.Current).Row.Field<int>("SEC_USER_ID");
             int newUserId = ((int)m_WorkerDB.TA_SEC_USER.GetMaxIdFromSEC_USER()) + 1;
             Sec_User currentUser = m_WorkerDB.CreateSecUser(newUserId, selectedUserId);
+            m_WorkerDB.CopyRelationsFrom_SEC_USER_ID(selectedUserId, newUserId);
             UserForm form = new UserForm(m_WorkerDB, currentUser);
             FormState state = new UserFormCopyingState(form, currentUser);
             form.SetState(state);

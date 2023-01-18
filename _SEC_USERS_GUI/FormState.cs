@@ -127,7 +127,7 @@ namespace _SEC_USERS_GUI
             base.FillData();
             try
             {
-                m_WorkerDB.TA_SEC_USER.InsertNewUser(m_Id, m_Login, m_FIO, m_BuiltIn, m_Disabled, m_NoCheck, m_TypeId);
+                m_WorkerDB.TA_SEC_USER.UpdateUser(m_Login, m_FIO, m_BuiltIn, m_Disabled, m_NoCheck, m_TypeId, m_Id);
             }
             catch (Exception)
             {

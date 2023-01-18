@@ -199,6 +199,19 @@ namespace _SEC_USERS
 
             Sec_User user = new Sec_User(dts_SEC_USERS, newUserId);
 
+            try
+            {
+                TA_SEC_USER.InsertNewUser(user.UserId, $"_{user.UserLogin}", user.UserFIO, user.BuiltIn, user.IsDisabled, user.NoCheck, user.TypeId);
+            }
+            catch (Exception)
+            {
+                TA_SEC_USER.DeleteUserFromId((int)TA_SEC_USER.GetUserIdFromUserLogin($"_{user.UserLogin}"));
+                user = new Sec_User(dts_SEC_USERS, newUserId);
+                TA_SEC_USER.InsertNewUser(user.UserId, $"_{user.UserLogin}", user.UserFIO, user.BuiltIn, user.IsDisabled, user.NoCheck, user.TypeId);
+            }
+
+            LoadData();
+
             return user;
         }
 
@@ -219,6 +232,21 @@ namespace _SEC_USERS
         public DataView Create_SEC_USER_TYPE_DataView()
         {
             return new DataView(m_dtsSEC_USERS.SEC_USER_TYPE);
+        }
+
+        public void CopyRelationsFrom_SEC_USER_ID(int OLD_SEC_USER_ID, int NEW_SEC_USER_ID)
+        {
+            List<int> SEC_ROLE_IDS = new List<int>();
+
+            foreach (dtsSEC_USERS.SEC_USER_ROLERow row in TA_SEC_USER_ROLE.GetDataByUserTest(OLD_SEC_USER_ID))
+            {
+                SEC_ROLE_IDS.Add(row.SEC_ROLE_ID);
+            }
+
+            foreach (int SEC_ROLE_ID in SEC_ROLE_IDS)
+            {
+                TA_SEC_USER_ROLE.InsertNewRelationFromUser(SEC_ROLE_ID, NEW_SEC_USER_ID);
+            }
         }
     }
 }

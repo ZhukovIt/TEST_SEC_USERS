@@ -24,6 +24,10 @@ namespace _SEC_USERS
         public Sec_User(dtsSEC_USERS dts_SEC_USERS, int newUserId) : this(dts_SEC_USERS)
         {
             m_SecUserRow.SEC_USER_ID = newUserId;
+            foreach (dtsSEC_USERS.SEC_USER_ROLERow row in m_dts_SEC_USERS.SEC_USER_ROLE.Rows)
+            {
+                row.SEC_USER_ID = newUserId;
+            }
         }
 
         public Sec_User(dtsSEC_USERS dts_SEC_USERS, dtsSEC_USERS.SEC_USERRow secUserRow)
