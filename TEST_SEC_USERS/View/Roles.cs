@@ -42,7 +42,20 @@ namespace TEST_SEC_USERS.GUI
 
         private void btnCopyRole_Click(object sender, EventArgs e)
         {
-
+            int selectedRoleId = ((DataRowView)bsSEC_ROLE.Current).Row.Field<int>("SEC_ROLE_ID");
+            SecRole currentRole = m_workerDBRole.CreateSecRole(selectedRoleId);
+            Role form = new Role(RoleStateEnum.Editing, m_workerDBRole, currentRole);
+            DialogResult result = form.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                m_workerDBRole.LoadData();
+                dgv_SEC_ROLE.Update();
+                int Pos = bsSEC_ROLE.Find("SEC_ROLE_ID", selectedRoleId);
+                if (Pos >= 0)
+                {
+                    bsSEC_ROLE.Position = Pos;
+                }
+            }
         }
 
         private void btnEditRole_Click(object sender, EventArgs e)

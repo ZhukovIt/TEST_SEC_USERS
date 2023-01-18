@@ -29,21 +29,25 @@ namespace TEST_SEC_USERS.View
 
         private void btn_Accept_Click(object sender, EventArgs e)
         {
-            if (m_state == RoleStateEnum.Editing)
-            {
-                int roleId = m_SecRole.RoleId;
-                string roleName = m_SecRole.RoleName;
-                bool roleBuiltIn = m_SecRole.RoleBuiltIn;
+            int roleId = m_SecRole.RoleId;
+            string roleName = m_SecRole.RoleName;
+            bool roleBuiltIn = m_SecRole.RoleBuiltIn;
 
-                try
+            try
+            {
+                if (m_state == RoleStateEnum.Editing)
                 {
                     m_WorkerDBRole.TA_SEC_ROLE.UpdateUser(roleName, roleBuiltIn, roleId);
-                    DialogResult = DialogResult.OK;
                 }
-                catch (Exception)
+                else
                 {
-                    DialogResult = DialogResult.Cancel;
+
                 }
+                DialogResult = DialogResult.OK;
+            }
+            catch (Exception)
+            {
+                DialogResult = DialogResult.Cancel;
             }
         }
     }
