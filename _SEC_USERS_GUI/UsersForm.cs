@@ -81,7 +81,8 @@ namespace _SEC_USERS_GUI
 
         private void btn_AddNewUserWithCopy_Click(object sender, EventArgs e)
         {
-            int selectedUserId = ((DataRowView)bs_SEC_USERS.Current).Row.Field<int>("SEC_USER_ID");
+            DataRow currentRow = ((DataRowView)bs_SEC_USERS.Current).Row;
+            int selectedUserId = currentRow.Field<int>("SEC_USER_ID");
             int newUserId = ((int)m_WorkerDB.TA_SEC_USER.GetMaxIdFromSEC_USER()) + 1;
             Sec_User currentUser = m_WorkerDB.CreateSecUser(newUserId, selectedUserId);
             m_WorkerDB.CopyRelationsFrom_SEC_USER_ID(selectedUserId, newUserId);
@@ -89,12 +90,18 @@ namespace _SEC_USERS_GUI
             FormState state = new UserFormCopyingState(form, currentUser);
             form.SetState(state);
             DialogResult result = form.ShowDialog();
+            int Pos;
             if (result == DialogResult.OK)
             {
                 m_WorkerDB.LoadData();
                 dgv_SEC_USERS.Update();
+                Pos = bs_SEC_USERS.Find("SEC_USER_ID", newUserId);
             }
-            int Pos = bs_SEC_USERS.Find("SEC_USER_ID", newUserId);
+            else
+            {
+                m_WorkerDB.TA_SEC_USER.DeleteUserFromId(newUserId);
+                Pos = bs_SEC_USERS.Find("SEC_USER_ID", selectedUserId);
+            }
             if (Pos >= 0)
             {
                 bs_SEC_USERS.Position = Pos;
