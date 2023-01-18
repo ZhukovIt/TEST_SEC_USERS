@@ -1,4 +1,7 @@
 ﻿
+using System.Drawing;
+using System.Windows.Forms;
+
 namespace TEST_SEC_USERS.GUI
 {
     partial class Roles
@@ -170,6 +173,7 @@ namespace TEST_SEC_USERS.GUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(571, 372);
             this.Controls.Add(this.dgv_SEC_ROLE);
             this.Controls.Add(this.ts_btn_Role);
@@ -201,5 +205,39 @@ namespace TEST_SEC_USERS.GUI
         private System.Windows.Forms.ToolStripLabel lblFinder;
         private System.Windows.Forms.ToolStripTextBox tbox_Roles;
         private System.Windows.Forms.ToolStripButton btnClearFinderRoles;
+        private TableLayoutPanel temp_TLP_SelectButtonContainer;
+        private Button temp_btn_SelectRole;
+
+
+        private void PrepareFormForGive_SEC_ROLE_ID()
+        {
+            temp_TLP_SelectButtonContainer = new TableLayoutPanel();
+            temp_btn_SelectRole = new Button();
+
+            temp_TLP_SelectButtonContainer.Controls.Add(temp_btn_SelectRole, 0, 0);
+            Controls.Add(temp_TLP_SelectButtonContainer);
+
+            dgv_SEC_ROLE.Dock = DockStyle.Top;
+            dgv_SEC_ROLE.Size = new Size(571, 286);
+
+            temp_TLP_SelectButtonContainer.ColumnCount = 1;
+            temp_TLP_SelectButtonContainer.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            temp_TLP_SelectButtonContainer.Controls.Add(temp_btn_SelectRole, 0, 0);
+            temp_TLP_SelectButtonContainer.Dock = DockStyle.Bottom;
+            temp_TLP_SelectButtonContainer.Location = new Point(0, 326);
+            temp_TLP_SelectButtonContainer.Name = "TLP_SelectButtonContainer";
+            temp_TLP_SelectButtonContainer.RowCount = 1;
+            temp_TLP_SelectButtonContainer.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            temp_TLP_SelectButtonContainer.Size = new Size(571, 46);
+            temp_TLP_SelectButtonContainer.TabIndex = 2;
+
+            temp_btn_SelectRole.Anchor = AnchorStyles.None;
+            temp_btn_SelectRole.Location = new Point(225, 5);
+            temp_btn_SelectRole.Name = "btn_SelectRole";
+            temp_btn_SelectRole.Size = new Size(120, 35);
+            temp_btn_SelectRole.TabIndex = 0;
+            temp_btn_SelectRole.Text = "Выбрать";
+            temp_btn_SelectRole.UseVisualStyleBackColor = true;
+        }
     }
 }

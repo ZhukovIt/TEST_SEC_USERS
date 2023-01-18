@@ -57,7 +57,9 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="RoleStateEnum.cs" />
     <Compile Include="SecRole.cs" />
+    <Compile Include="WorkerDBRole.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

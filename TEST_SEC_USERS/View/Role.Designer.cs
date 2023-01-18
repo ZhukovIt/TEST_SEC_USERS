@@ -29,10 +29,15 @@ namespace TEST_SEC_USERS.View
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.btn_Accept = new System.Windows.Forms.Button();
             this.tBox_SEC_ROLE_NAME = new System.Windows.Forms.TextBox();
             this.lbl_SEC_ROLE_NAME = new System.Windows.Forms.Label();
             this.cb_SEC_ROLE_BUILTIN = new System.Windows.Forms.CheckBox();
+            this.bs_SEC_ROLE = new System.Windows.Forms.BindingSource(this.components);
+            this.dtsSecUsers = new Model.dtsSecUsers();
+            ((System.ComponentModel.ISupportInitialize)(this.bs_SEC_ROLE)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtsSecUsers)).BeginInit();
             this.SuspendLayout();
             // 
             // btn_Accept
@@ -46,6 +51,7 @@ namespace TEST_SEC_USERS.View
             // 
             // tBox_SEC_ROLE_NAME
             // 
+            this.tBox_SEC_ROLE_NAME.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bs_SEC_ROLE, "SEC_ROLE_NAME", true));
             this.tBox_SEC_ROLE_NAME.Location = new System.Drawing.Point(137, 31);
             this.tBox_SEC_ROLE_NAME.Name = "tBox_SEC_ROLE_NAME";
             this.tBox_SEC_ROLE_NAME.Size = new System.Drawing.Size(165, 20);
@@ -63,12 +69,23 @@ namespace TEST_SEC_USERS.View
             // cb_SEC_ROLE_BUILTIN
             // 
             this.cb_SEC_ROLE_BUILTIN.AutoSize = true;
+            this.cb_SEC_ROLE_BUILTIN.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.bs_SEC_ROLE, "SEC_ROLE_BUILTIN", true));
             this.cb_SEC_ROLE_BUILTIN.Location = new System.Drawing.Point(30, 82);
             this.cb_SEC_ROLE_BUILTIN.Name = "cb_SEC_ROLE_BUILTIN";
             this.cb_SEC_ROLE_BUILTIN.Size = new System.Drawing.Size(88, 17);
             this.cb_SEC_ROLE_BUILTIN.TabIndex = 3;
             this.cb_SEC_ROLE_BUILTIN.Text = "Встроенный";
             this.cb_SEC_ROLE_BUILTIN.UseVisualStyleBackColor = true;
+            // 
+            // bs_SEC_ROLE
+            // 
+            this.bs_SEC_ROLE.DataMember = "SEC_ROLE";
+            this.bs_SEC_ROLE.DataSource = this.dtsSecUsers;
+            // 
+            // dtsSecUsers
+            // 
+            this.dtsSecUsers.DataSetName = "dtsSecUsers";
+            this.dtsSecUsers.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // Role
             // 
@@ -84,6 +101,8 @@ namespace TEST_SEC_USERS.View
             this.Name = "Role";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Role";
+            ((System.ComponentModel.ISupportInitialize)(this.bs_SEC_ROLE)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtsSecUsers)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -95,5 +114,7 @@ namespace TEST_SEC_USERS.View
         private System.Windows.Forms.TextBox tBox_SEC_ROLE_NAME;
         private System.Windows.Forms.Label lbl_SEC_ROLE_NAME;
         private System.Windows.Forms.CheckBox cb_SEC_ROLE_BUILTIN;
+        private System.Windows.Forms.BindingSource bs_SEC_ROLE;
+        private Model.dtsSecUsers dtsSecUsers;
     }
 }
