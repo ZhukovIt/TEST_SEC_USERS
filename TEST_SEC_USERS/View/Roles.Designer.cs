@@ -80,6 +80,7 @@ namespace TEST_SEC_USERS.GUI
             this.btnAddNewRole.Name = "btnAddNewRole";
             this.btnAddNewRole.Size = new System.Drawing.Size(36, 36);
             this.btnAddNewRole.Text = "Добавление новой роли";
+            this.btnAddNewRole.Click += new System.EventHandler(this.btnAddNewRole_Click);
             // 
             // btnCopyRole
             // 
@@ -89,6 +90,7 @@ namespace TEST_SEC_USERS.GUI
             this.btnCopyRole.Name = "btnCopyRole";
             this.btnCopyRole.Size = new System.Drawing.Size(36, 36);
             this.btnCopyRole.Text = "Создание роли на основе копии";
+            this.btnCopyRole.Click += new System.EventHandler(this.btnCopyRole_Click);
             // 
             // btnEditRole
             // 
@@ -98,6 +100,7 @@ namespace TEST_SEC_USERS.GUI
             this.btnEditRole.Name = "btnEditRole";
             this.btnEditRole.Size = new System.Drawing.Size(36, 36);
             this.btnEditRole.Text = "Редактирование роли";
+            this.btnEditRole.Click += new System.EventHandler(this.btnEditRole_Click);
             // 
             // btnRemoveRole
             // 
@@ -107,6 +110,7 @@ namespace TEST_SEC_USERS.GUI
             this.btnRemoveRole.Name = "btnRemoveRole";
             this.btnRemoveRole.Size = new System.Drawing.Size(36, 36);
             this.btnRemoveRole.Text = "Удаление роли";
+            this.btnRemoveRole.Click += new System.EventHandler(this.btnRemoveRole_Click);
             // 
             // ButtonsToFinderSeparator
             // 
@@ -125,6 +129,7 @@ namespace TEST_SEC_USERS.GUI
             this.tbox_Roles.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.tbox_Roles.Name = "tbox_Roles";
             this.tbox_Roles.Size = new System.Drawing.Size(300, 39);
+            this.tbox_Roles.TextChanged += new System.EventHandler(this.tbox_Roles_TextChanged);
             // 
             // btnClearFinderRoles
             // 
@@ -133,6 +138,7 @@ namespace TEST_SEC_USERS.GUI
             this.btnClearFinderRoles.Name = "btnClearFinderRoles";
             this.btnClearFinderRoles.Size = new System.Drawing.Size(23, 36);
             this.btnClearFinderRoles.Text = "X";
+            this.btnClearFinderRoles.Click += new System.EventHandler(this.btnClearFinderRoles_Click);
             // 
             // dgv_SEC_ROLE
             // 
@@ -151,6 +157,7 @@ namespace TEST_SEC_USERS.GUI
             this.dgv_SEC_ROLE.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_SEC_ROLE.Size = new System.Drawing.Size(571, 333);
             this.dgv_SEC_ROLE.TabIndex = 1;
+            this.dgv_SEC_ROLE.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgv_SEC_ROLE_CellMouseDoubleClick);
             // 
             // sECROLENAMEDataGridViewTextBoxColumn
             // 

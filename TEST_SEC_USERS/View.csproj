@@ -114,6 +114,10 @@
       <Project>{f6c7ab38-8704-4a2c-93a9-eb841ff857b3}</Project>
       <Name>Model</Name>
     </ProjectReference>
+    <ProjectReference Include="..\_SEC_USERS_GUI\_SEC_USERS_GUI.csproj">
+      <Project>{1a6c4294-c3fe-41bd-a657-a63c6e00079a}</Project>
+      <Name>_SEC_USERS_GUI</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\copyButton.png" />

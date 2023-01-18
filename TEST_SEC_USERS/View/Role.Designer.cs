@@ -32,10 +32,10 @@ namespace TEST_SEC_USERS.View
             this.components = new System.ComponentModel.Container();
             this.btn_Accept = new System.Windows.Forms.Button();
             this.tBox_SEC_ROLE_NAME = new System.Windows.Forms.TextBox();
-            this.lbl_SEC_ROLE_NAME = new System.Windows.Forms.Label();
-            this.cb_SEC_ROLE_BUILTIN = new System.Windows.Forms.CheckBox();
             this.bs_SEC_ROLE = new System.Windows.Forms.BindingSource(this.components);
             this.dtsSecUsers = new Model.dtsSecUsers();
+            this.lbl_SEC_ROLE_NAME = new System.Windows.Forms.Label();
+            this.cb_SEC_ROLE_BUILTIN = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.bs_SEC_ROLE)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtsSecUsers)).BeginInit();
             this.SuspendLayout();
@@ -48,6 +48,7 @@ namespace TEST_SEC_USERS.View
             this.btn_Accept.TabIndex = 0;
             this.btn_Accept.Text = "Добавить";
             this.btn_Accept.UseVisualStyleBackColor = true;
+            this.btn_Accept.Click += new System.EventHandler(this.btn_Accept_Click);
             // 
             // tBox_SEC_ROLE_NAME
             // 
@@ -56,6 +57,16 @@ namespace TEST_SEC_USERS.View
             this.tBox_SEC_ROLE_NAME.Name = "tBox_SEC_ROLE_NAME";
             this.tBox_SEC_ROLE_NAME.Size = new System.Drawing.Size(165, 20);
             this.tBox_SEC_ROLE_NAME.TabIndex = 1;
+            // 
+            // bs_SEC_ROLE
+            // 
+            this.bs_SEC_ROLE.DataMember = "SEC_ROLE";
+            this.bs_SEC_ROLE.DataSource = this.dtsSecUsers;
+            // 
+            // dtsSecUsers
+            // 
+            this.dtsSecUsers.DataSetName = "dtsSecUsers";
+            this.dtsSecUsers.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // lbl_SEC_ROLE_NAME
             // 
@@ -76,16 +87,6 @@ namespace TEST_SEC_USERS.View
             this.cb_SEC_ROLE_BUILTIN.TabIndex = 3;
             this.cb_SEC_ROLE_BUILTIN.Text = "Встроенный";
             this.cb_SEC_ROLE_BUILTIN.UseVisualStyleBackColor = true;
-            // 
-            // bs_SEC_ROLE
-            // 
-            this.bs_SEC_ROLE.DataMember = "SEC_ROLE";
-            this.bs_SEC_ROLE.DataSource = this.dtsSecUsers;
-            // 
-            // dtsSecUsers
-            // 
-            this.dtsSecUsers.DataSetName = "dtsSecUsers";
-            this.dtsSecUsers.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // Role
             // 

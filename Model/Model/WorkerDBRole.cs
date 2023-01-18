@@ -46,14 +46,31 @@ namespace Model
             TA_SEC_ROLE.Fill(dts_SEC_USERS.SEC_ROLE);
         }
 
-        public SecRole CreateSecRole()
+        public SecRole CreateSecRole(int selectedRoleId)
         {
-            return null;
+            dtsSecUsers dts_SEC_USERS = new dtsSecUsers();
+
+            SEC_ROLETableAdapter ta_SEC_ROLE = new SEC_ROLETableAdapter();
+            ta_SEC_ROLE.Connection = ConnectionSingleton.getInstance();
+
+            ta_SEC_ROLE.FillByRole(dts_SEC_USERS.SEC_ROLE, selectedRoleId);
+
+            SecRole role = new SecRole(dts_SEC_USERS);
+
+            return role;
         }
 
         public DataView Create_SEC_ROLE_DataView()
         {
             return new DataView(m_dts_SEC_USERS.SEC_ROLE);
+        }
+
+        public void DeleteUsers(IEnumerable<int> idsUsers)
+        {
+            foreach (int userId in idsUsers)
+            {
+                TA_SEC_ROLE.DeleteRoleFromId(userId);
+            }
         }
     }
 }
