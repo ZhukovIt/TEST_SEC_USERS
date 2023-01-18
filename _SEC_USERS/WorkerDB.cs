@@ -224,6 +224,13 @@ namespace _SEC_USERS
             TA_CURRENT_SEC_USER_ROLE.FillByUser(userDataSet.SEC_USER_ROLE, SecUserId);
         }
 
+        public void TESTM(dtsSEC_USERS userDataSet, int SecUserId)
+        {
+            userDataSet.SEC_USER_ROLE.Clear();
+
+            TA_CURRENT_SEC_USER_ROLE.FillByUser(userDataSet.SEC_USER_ROLE, SecUserId);
+        }
+
         public DataView Create_SEC_ROLE_DataView()
         {
             return new DataView(m_dtsSEC_USERS.SEC_ROLE);

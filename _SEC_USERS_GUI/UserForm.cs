@@ -98,9 +98,16 @@ namespace _SEC_USERS_GUI
                         {
 
                         }
+                        if (m_State.GetType().ToString().Contains("Adding"))
+                        {
+                            m_WorkerDB.TESTM(m_Sec_User.User_dts_SEC_USERS, m_Sec_User.UserId);
+                        }
+                        else
+                        {
+                            m_WorkerDB.UpdateUserDataSet(m_Sec_User.User_dts_SEC_USERS, m_Sec_User.UserId);
+                        }
+                        m_Sec_User.UpdateUserSecRow();
                     }
-                    m_WorkerDB.UpdateUserDataSet(m_Sec_User.User_dts_SEC_USERS, m_Sec_User.UserId);
-                    m_Sec_User.UpdateUserSecRow();
                 }
                 else if (columnIndex == 1)
                 {
@@ -120,22 +127,40 @@ namespace _SEC_USERS_GUI
                         {
 
                         }
+                        if (m_State.GetType().ToString().Contains("Adding"))
+                        {
+                            m_WorkerDB.TESTM(m_Sec_User.User_dts_SEC_USERS, m_Sec_User.UserId);
+                        }
+                        else
+                        {
+                            m_WorkerDB.UpdateUserDataSet(m_Sec_User.User_dts_SEC_USERS, m_Sec_User.UserId);
+                        }
+                        m_Sec_User.UpdateUserSecRow();
                     }
-                    m_WorkerDB.UpdateUserDataSet(m_Sec_User.User_dts_SEC_USERS, m_Sec_User.UserId);
-                    m_Sec_User.UpdateUserSecRow();
                 }
                 else if (columnIndex == 2)
                 {
                     int SEC_ROLE_ID = (int)dataGridView_Roles[columnIndex - 2, rowIndex].Value;
                     int SEC_USER_ID = m_Sec_User.UserId;
                     m_WorkerDB.TA_SEC_USER_ROLE.DeleteRelationFromUser(SEC_USER_ID, SEC_ROLE_ID);
-                    m_WorkerDB.UpdateUserDataSet(m_Sec_User.User_dts_SEC_USERS, m_Sec_User.UserId);
+                    if (m_State.GetType().ToString().Contains("Adding"))
+                    {
+                        m_WorkerDB.TESTM(m_Sec_User.User_dts_SEC_USERS, m_Sec_User.UserId);
+                    }
+                    else
+                    {
+                        m_WorkerDB.UpdateUserDataSet(m_Sec_User.User_dts_SEC_USERS, m_Sec_User.UserId);
+                    }
                     m_Sec_User.UpdateUserSecRow();
                 }
             }
             catch (NullReferenceException)
             {
 
+            }
+            finally
+            {
+                m_WorkerDB.LoadData();
             }
         }
     }

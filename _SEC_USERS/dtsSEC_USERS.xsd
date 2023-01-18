@@ -178,6 +178,16 @@ WHERE [SEC_USER_LOGIN] = @SEC_USER_LOGIN;</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
+              <DbSource ConnectionRef="clinic10ConnectionString (Settings)" DbObjectName="clinic10.dbo.SEC_USER" DbObjectType="Table" GenerateShortCommands="true" GeneratorSourceName="CheckEmptyUser" Modifier="Public" Name="CheckEmptyUser" QueryType="Scalar" ScalarCallRetval="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy9" UserSourceName="CheckEmptyUser">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT SEC_USER_ID
+FROM SEC_USER
+WHERE SEC_USER_LOGIN = '' AND SEC_USER_FIO = '';</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
               <DbSource ConnectionRef="clinic10ConnectionString (Settings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="CheckExistsIdFromSEC_USER" Modifier="Public" Name="CheckExistsIdFromSEC_USER" QueryType="Scalar" ScalarCallRetval="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="CheckExistsIdFromSEC_USER">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">

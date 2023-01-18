@@ -68,6 +68,15 @@ namespace _SEC_USERS_GUI
                     bs_SEC_USERS.Position = Pos;
                 }
             }
+            else
+            {
+                int? emptyUserId = m_WorkerDB.TA_SEC_USER.CheckEmptyUser();
+                if (emptyUserId != null)
+                {
+                    m_WorkerDB.TA_SEC_USER.DeleteUserFromId((int)emptyUserId);
+                    m_WorkerDB.LoadData();
+                }
+            }
         }
 
         private void btn_AddNewUserWithCopy_Click(object sender, EventArgs e)
