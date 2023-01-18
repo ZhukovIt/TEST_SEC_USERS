@@ -74,59 +74,69 @@ namespace _SEC_USERS_GUI
 
         private void dataGridView_Roles_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            DataGridView dgv = (DataGridView)sender;
-            DataGridViewCell currentCell = dgv.CurrentCell;
-            int columnIndex = currentCell.ColumnIndex;
-            int rowIndex = currentCell.RowIndex;
-            int countRows = dgv.RowCount;
-            if (rowIndex == countRows - 1 && columnIndex > 0)
+            try
             {
-                int[] arr = new int[1];
-                Roles form = new Roles(arr);
-                DialogResult result = form.ShowDialog();
-                if (result == DialogResult.OK)
+                DataGridView dgv = (DataGridView)sender;
+                DataGridViewCell currentCell = dgv.CurrentCell;
+                int columnIndex = currentCell.ColumnIndex;
+                int rowIndex = currentCell.RowIndex;
+                int countRows = dgv.RowCount;
+                if (rowIndex == countRows - 1 && columnIndex > 0)
                 {
-                    int SEC_ROLE_ID = arr[0];
-                    int SEC_USER_ID = m_Sec_User.UserId;
-                    try
+                    int[] arr = new int[1];
+                    Roles form = new Roles(arr);
+                    DialogResult result = form.ShowDialog();
+                    if (result == DialogResult.OK)
                     {
-                        m_WorkerDB.TA_SEC_USER_ROLE.InsertNewRelationFromUser(SEC_ROLE_ID, SEC_USER_ID);
-                        m_WorkerDB.TA_SEC_USER_ROLE.InsertNewRelationFromUser(SEC_ROLE_ID, SEC_USER_ID);
-                    }
-                    catch(Exception)
-                    {
+                        int SEC_ROLE_ID = arr[0];
+                        int SEC_USER_ID = m_Sec_User.UserId;
+                        try
+                        {
+                            m_WorkerDB.TA_SEC_USER_ROLE.InsertNewRelationFromUser(SEC_ROLE_ID, SEC_USER_ID);
+                        }
+                        catch (Exception)
+                        {
 
+                        }
                     }
+                    m_WorkerDB.UpdateUserDataSet(m_Sec_User.User_dts_SEC_USERS, m_Sec_User.UserId);
+                    m_Sec_User.UpdateUserSecRow();
+                }
+                else if (columnIndex == 1)
+                {
+                    int[] arr = new int[1];
+                    Roles form = new Roles(arr);
+                    DialogResult result = form.ShowDialog();
+                    if (result == DialogResult.OK)
+                    {
+                        int NEW_SEC_ROLE_ID = arr[0];
+                        int OLD_SEC_ROLE_ID = (int)dataGridView_Roles[columnIndex - 1, rowIndex].Value;
+                        int SEC_USER_ID = m_Sec_User.UserId;
+                        try
+                        {
+                            m_WorkerDB.TA_SEC_USER_ROLE.UpdateRelationFromUser(NEW_SEC_ROLE_ID, OLD_SEC_ROLE_ID, SEC_USER_ID);
+                        }
+                        catch (Exception)
+                        {
+
+                        }
+                    }
+                    m_WorkerDB.UpdateUserDataSet(m_Sec_User.User_dts_SEC_USERS, m_Sec_User.UserId);
+                    m_Sec_User.UpdateUserSecRow();
+                }
+                else if (columnIndex == 2)
+                {
+                    int SEC_ROLE_ID = (int)dataGridView_Roles[columnIndex - 2, rowIndex].Value;
+                    int SEC_USER_ID = m_Sec_User.UserId;
+                    m_WorkerDB.TA_SEC_USER_ROLE.DeleteRelationFromUser(SEC_USER_ID, SEC_ROLE_ID);
+                    m_WorkerDB.UpdateUserDataSet(m_Sec_User.User_dts_SEC_USERS, m_Sec_User.UserId);
+                    m_Sec_User.UpdateUserSecRow();
                 }
             }
-            else if (columnIndex == 1)
+            catch (NullReferenceException)
             {
-                int[] arr = new int[1];
-                Roles form = new Roles(arr);
-                DialogResult result = form.ShowDialog();
-                if (result == DialogResult.OK)
-                {
-                    int NEW_SEC_ROLE_ID = arr[0];
-                    int OLD_SEC_ROLE_ID = (int)dataGridView_Roles[columnIndex - 1, rowIndex].Value;
-                    int SEC_USER_ID = m_Sec_User.UserId;
-                    try
-                    {
-                        m_WorkerDB.TA_SEC_USER_ROLE.UpdateRelationFromUser(NEW_SEC_ROLE_ID, OLD_SEC_ROLE_ID, SEC_USER_ID);
-                    }
-                    catch(Exception)
-                    {
 
-                    }
-                }
             }
-            else if (columnIndex == 2)
-            {
-                int SEC_ROLE_ID = (int)dataGridView_Roles[columnIndex - 2, rowIndex].Value;
-                int SEC_USER_ID = m_Sec_User.UserId;
-                m_WorkerDB.TA_SEC_USER_ROLE.DeleteRelationFromUser(SEC_USER_ID, SEC_ROLE_ID);
-            }
-            m_WorkerDB.LoadData();
-            dataGridView_Roles.Update();
         }
     }
 }

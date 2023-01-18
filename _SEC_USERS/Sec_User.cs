@@ -32,6 +32,22 @@ namespace _SEC_USERS
             m_SecUserRow = secUserRow;
         }
 
+        public dtsSEC_USERS User_dts_SEC_USERS
+        {
+            get
+            {
+                return m_dts_SEC_USERS;
+            }
+        }
+
+        public void UpdateUserSecRow()
+        {
+            if (m_dts_SEC_USERS.SEC_USER.Rows.Count > 0)
+            {
+                m_SecUserRow = (dtsSEC_USERS.SEC_USERRow)m_dts_SEC_USERS.SEC_USER.Rows[0];
+            }
+        }
+
         public int UserId
         {
             get

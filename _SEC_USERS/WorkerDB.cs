@@ -16,6 +16,8 @@ namespace _SEC_USERS
         private SEC_USERTableAdapter m_ta_SEC_USER;
         private SEC_ROLETableAdapter m_ta_SEC_ROLE;
         private SEC_USER_ROLETableAdapter m_ta_SEC_USER_ROLE;
+        private SEC_USERTableAdapter m_ta_CURRENT_SEC_USER;
+        private SEC_USER_ROLETableAdapter m_ta_CURRENT_SEC_USER_ROLE;
         private SEC_USER_TYPETableAdapter m_ta_SEC_USER_TYPE;
         private static dtsSEC_USERS m_dtsSEC_USERS = new dtsSEC_USERS();
 
@@ -91,6 +93,32 @@ namespace _SEC_USERS
             }
         }
 
+        public SEC_USERTableAdapter TA_CURRENT_SEC_USER
+        {
+            get
+            {
+                if (m_ta_CURRENT_SEC_USER == null)
+                {
+                    m_ta_CURRENT_SEC_USER = new SEC_USERTableAdapter();
+                    m_ta_CURRENT_SEC_USER.Connection = ConnectionSingleton.getInstance();
+                }
+                return m_ta_CURRENT_SEC_USER;
+            }
+        }
+
+        public SEC_USER_ROLETableAdapter TA_CURRENT_SEC_USER_ROLE
+        {
+            get
+            {
+                if (m_ta_CURRENT_SEC_USER_ROLE == null)
+                {
+                    m_ta_CURRENT_SEC_USER_ROLE = new SEC_USER_ROLETableAdapter();
+                    m_ta_CURRENT_SEC_USER_ROLE.Connection = ConnectionSingleton.getInstance();
+                }
+                return m_ta_CURRENT_SEC_USER_ROLE;
+            }
+        }
+
         public void LoadData()
         {
             LoadData(m_dtsSEC_USERS);
@@ -135,13 +163,10 @@ namespace _SEC_USERS
         {
             dtsSEC_USERS dts_SEC_USERS = new dtsSEC_USERS();
 
-            SEC_USERTableAdapter ta_SEC_USER = new SEC_USERTableAdapter();
-            ta_SEC_USER.Connection = ConnectionSingleton.getInstance();
-
             try
             {
-                ta_SEC_USER.InsertNewUser(newUserId, "", "", false, false, false, 5);
-                ta_SEC_USER.FillByUser(dts_SEC_USERS.SEC_USER, newUserId);
+                TA_CURRENT_SEC_USER.InsertNewUser(newUserId, "", "", false, false, false, 5);
+                TA_CURRENT_SEC_USER.FillByUser(dts_SEC_USERS.SEC_USER, newUserId);
 
                 Sec_User user = new Sec_User(dts_SEC_USERS);
 
@@ -157,14 +182,8 @@ namespace _SEC_USERS
         {
             dtsSEC_USERS dts_SEC_USERS = new dtsSEC_USERS();
 
-            SEC_USERTableAdapter ta_SEC_USER = new SEC_USERTableAdapter();
-            ta_SEC_USER.Connection = ConnectionSingleton.getInstance();
-
-            SEC_USER_ROLETableAdapter ta_SEC_USER_ROLE = new SEC_USER_ROLETableAdapter();
-            ta_SEC_USER_ROLE.Connection = ConnectionSingleton.getInstance();
-
-            ta_SEC_USER.FillByUser(dts_SEC_USERS.SEC_USER, SecUserId);
-            ta_SEC_USER_ROLE.FillByUser(dts_SEC_USERS.SEC_USER_ROLE, SecUserId);
+            TA_CURRENT_SEC_USER.FillByUser(dts_SEC_USERS.SEC_USER, SecUserId);
+            TA_CURRENT_SEC_USER_ROLE.FillByUser(dts_SEC_USERS.SEC_USER_ROLE, SecUserId);
 
             Sec_User user = new Sec_User(dts_SEC_USERS);
 
@@ -175,18 +194,21 @@ namespace _SEC_USERS
         {
             dtsSEC_USERS dts_SEC_USERS = new dtsSEC_USERS();
 
-            SEC_USERTableAdapter ta_SEC_USER = new SEC_USERTableAdapter();
-            ta_SEC_USER.Connection = ConnectionSingleton.getInstance();
-
-            SEC_USER_ROLETableAdapter ta_SEC_USER_ROLE = new SEC_USER_ROLETableAdapter();
-            ta_SEC_USER_ROLE.Connection = ConnectionSingleton.getInstance();
-
-            ta_SEC_USER.FillByUser(dts_SEC_USERS.SEC_USER, SecUserId);
-            ta_SEC_USER_ROLE.FillByUser(dts_SEC_USERS.SEC_USER_ROLE, SecUserId);
+            TA_CURRENT_SEC_USER.FillByUser(dts_SEC_USERS.SEC_USER, SecUserId);
+            TA_CURRENT_SEC_USER_ROLE.FillByUser(dts_SEC_USERS.SEC_USER_ROLE, SecUserId);
 
             Sec_User user = new Sec_User(dts_SEC_USERS, newUserId);
 
             return user;
+        }
+
+        public void UpdateUserDataSet(dtsSEC_USERS userDataSet, int SecUserId)
+        {
+            userDataSet.SEC_USER.Clear();
+            userDataSet.SEC_USER_ROLE.Clear();
+
+            TA_CURRENT_SEC_USER.FillByUser(userDataSet.SEC_USER, SecUserId);
+            TA_CURRENT_SEC_USER_ROLE.FillByUser(userDataSet.SEC_USER_ROLE, SecUserId);
         }
 
         public DataView Create_SEC_ROLE_DataView()
