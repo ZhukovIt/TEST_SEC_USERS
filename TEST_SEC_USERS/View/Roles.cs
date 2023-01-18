@@ -37,20 +37,39 @@ namespace TEST_SEC_USERS.GUI
 
         private void btnAddNewRole_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void btnCopyRole_Click(object sender, EventArgs e)
-        {
-            int selectedRoleId = ((DataRowView)bsSEC_ROLE.Current).Row.Field<int>("SEC_ROLE_ID");
-            SecRole currentRole = m_workerDBRole.CreateSecRole(selectedRoleId);
-            Role form = new Role(RoleStateEnum.Editing, m_workerDBRole, currentRole);
+            SecRole currentRole = m_workerDBRole.CreateSecRole();
+            if (currentRole == null)
+            {
+                int emptyLoginId = (int)m_workerDBRole.TA_SEC_ROLE.GetIdFromEmpltyLogin();
+                m_workerDBRole.TA_SEC_ROLE.DeleteRoleFromId(emptyLoginId);
+                currentRole = m_workerDBRole.CreateSecRole();
+            }
+            Role form = new Role(RoleStateEnum.Adding, m_workerDBRole, currentRole);
             DialogResult result = form.ShowDialog();
             if (result == DialogResult.OK)
             {
                 m_workerDBRole.LoadData();
                 dgv_SEC_ROLE.Update();
-                int Pos = bsSEC_ROLE.Find("SEC_ROLE_ID", selectedRoleId);
+                int Pos = bsSEC_ROLE.Find("SEC_ROLE_ID", m_workerDBRole.TA_SEC_ROLE.GetMax_SEC_ROLE_ID());
+                if (Pos >= 0)
+                {
+                    bsSEC_ROLE.Position = Pos;
+                }
+            }
+        }
+
+        private void btnCopyRole_Click(object sender, EventArgs e)
+        {
+            int selectedRoleId = ((DataRowView)bsSEC_ROLE.Current).Row.Field<int>("SEC_ROLE_ID");
+            int newRoleId = ((int)m_workerDBRole.TA_SEC_ROLE.GetMax_SEC_ROLE_ID()) + 1;
+            SecRole currentRole = m_workerDBRole.CreateSecRole(selectedRoleId, newRoleId);
+            Role form = new Role(RoleStateEnum.Copying, m_workerDBRole, currentRole);
+            DialogResult result = form.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                m_workerDBRole.LoadData();
+                dgv_SEC_ROLE.Update();
+                int Pos = bsSEC_ROLE.Find("SEC_ROLE_ID", newRoleId);
                 if (Pos >= 0)
                 {
                     bsSEC_ROLE.Position = Pos;

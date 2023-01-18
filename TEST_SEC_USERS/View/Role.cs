@@ -33,16 +33,17 @@ namespace TEST_SEC_USERS.View
             string roleName = m_SecRole.RoleName;
             bool roleBuiltIn = m_SecRole.RoleBuiltIn;
 
+            
+            if (m_state != RoleStateEnum.Copying)
+            {
+                m_WorkerDBRole.TA_SEC_ROLE.UpdateRole(roleName, roleBuiltIn, roleId);
+            }
+            else
+            {
+                m_WorkerDBRole.TA_SEC_ROLE.InsertRole(roleId, roleName, roleBuiltIn);
+            }
             try
             {
-                if (m_state == RoleStateEnum.Editing)
-                {
-                    m_WorkerDBRole.TA_SEC_ROLE.UpdateUser(roleName, roleBuiltIn, roleId);
-                }
-                else
-                {
-
-                }
                 DialogResult = DialogResult.OK;
             }
             catch (Exception)

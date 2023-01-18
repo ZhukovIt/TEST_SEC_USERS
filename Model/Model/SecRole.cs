@@ -21,6 +21,16 @@ namespace Model
             }
         }
 
+        public SecRole(dtsSecUsers dts_SEC_USERS, int newRoleId)
+        {
+            m_dts_SEC_USERS = dts_SEC_USERS;
+            if (dts_SEC_USERS.SEC_ROLE.Rows.Count > 0)
+            {
+                m_SEC_ROLE_Row = (dtsSecUsers.SEC_ROLERow)dts_SEC_USERS.SEC_ROLE.Rows[0];
+            }
+            m_SEC_ROLE_Row.SEC_ROLE_ID = newRoleId;
+        }
+
         public int RoleId
         {
             get
