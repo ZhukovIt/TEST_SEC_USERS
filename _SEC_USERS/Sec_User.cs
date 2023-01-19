@@ -65,6 +65,11 @@ namespace _SEC_USERS
             {
                 return m_SecUserRow.SEC_USER_ID;
             }
+
+            set
+            {
+                m_SecUserRow.SEC_USER_ID = value;
+            }
         }
 
         public string UserLogin
@@ -165,9 +170,9 @@ namespace _SEC_USERS
             dtsSEC_USERSTableAdapters.SEC_USER_ROLETableAdapter ta_SEC_USER_ROLE = new dtsSEC_USERSTableAdapters.SEC_USER_ROLETableAdapter();
             ta_SEC_USER_ROLE.Connection = ConnectionSingleton.getInstance();
 
-            m_WorkerDB.TA_SEC_USER.Update(m_dts_SEC_USERS.SEC_USER);
-            m_WorkerDB.TA_SEC_USER_ROLE.Update(m_dts_SEC_USERS.SEC_USER_ROLE);
-            //MessageBox.Show(m_dts_SEC_USERS.SEC_USER.Rows[0].Field<string>("SEC_USER_FIO"));
+
+            ta_SEC_USER.Update(m_dts_SEC_USERS.SEC_USER);
+            ta_SEC_USER_ROLE.Update(m_dts_SEC_USERS.SEC_USER_ROLE);
         }
     }
 }

@@ -63,7 +63,6 @@ namespace _SEC_USERS_GUI
             m_WorkerDB = m_form.GetWorkerDB;
             m_SaveButton = m_form.GetButtonSaveExecute;
             m_SaveButton.Click += new EventHandler(EventHandlerFromSaveButton);
-            m_SaveButton.Click += new EventHandler(DopEventHandlerFromSaveButton);
         }
 
         internal override void FillData()
@@ -81,13 +80,14 @@ namespace _SEC_USERS_GUI
             m_KKM_INN = m_SecUser.KKM_INN;
         }
 
-        private void DopEventHandlerFromSaveButton(object sender, EventArgs e)
+        private void EventHandlerFromSaveButton(object sender, EventArgs e)
         {
-            m_WorkerDB.TA_SEC_USER.Update(m_WorkerDB.Get_dts_SEC_USERS);
+            m_form.Get_bs_SEC_USER.EndEdit();
+            m_form.Get_bs_SEC_ROLE.EndEdit();
+            m_form.Get_bs_SEC_USER_TYPE.EndEdit();
+            m_SecUser.Save();
             m_form.DialogResult = DialogResult.OK;
         }
-
-        internal abstract void EventHandlerFromSaveButton(object sender, EventArgs e);
     }
 
     public sealed class UserFormAddingState : UserFormState
@@ -101,19 +101,6 @@ namespace _SEC_USERS_GUI
         {
             m_form.Text = "Добавление нового пользователя";
             m_SaveButton.Text = "Добавить";
-        }
-
-        internal override void EventHandlerFromSaveButton(object sender, EventArgs e)
-        {
-            base.FillData();
-            try
-            {
-                m_WorkerDB.TA_SEC_USER.UpdateUser(m_Login, m_FIO, m_BuiltIn, m_Disabled, m_NoCheck, m_TypeId, m_WorkId, m_Procuratory, m_KKM_LOGIN, m_KKM_PASSWORD, m_KKM_INN, m_Id);
-            }
-            catch (Exception)
-            {
-                m_WorkerDB.TA_SEC_USER.DeleteUserFromId(m_Id);
-            }
         }
     }
 
@@ -130,20 +117,6 @@ namespace _SEC_USERS_GUI
             m_form.Width += 20;
             m_SaveButton.Text = "Добавить";
         }
-
-        internal override void EventHandlerFromSaveButton(object sender, EventArgs e)
-        {
-            base.FillData();
-            try
-            {
-                m_WorkerDB.TA_SEC_USER.UpdateUser(m_Login, m_FIO, m_BuiltIn, m_Disabled, m_NoCheck, m_TypeId, m_WorkId, m_Procuratory, m_KKM_LOGIN, m_KKM_PASSWORD, m_KKM_INN, m_Id);
-            }
-            catch (Exception)
-            {
-
-            }
-
-        }
     }
 
     public sealed class UserFormEditingState : UserFormState
@@ -156,23 +129,6 @@ namespace _SEC_USERS_GUI
         internal override void FillData()
         {
             m_form.Text = "Редактирование пользователя";
-        }
-
-        internal override void EventHandlerFromSaveButton(object sender, EventArgs e)
-        {
-            m_SecUser.Save();
-            try
-            {
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes
-                
-            }
-            catch (Exception)
-            {
-
-            }
         }
     }
 }

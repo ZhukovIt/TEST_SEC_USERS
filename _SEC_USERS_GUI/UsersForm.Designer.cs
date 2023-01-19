@@ -243,6 +243,7 @@ namespace _SEC_USERS_GUI
             // 
             // SEC_ROLES
             // 
+            this.SEC_ROLES.DataPropertyName = "SEC_ROLES";
             this.SEC_ROLES.HeaderText = "Роли";
             this.SEC_ROLES.MinimumWidth = 6;
             this.SEC_ROLES.Name = "SEC_ROLES";

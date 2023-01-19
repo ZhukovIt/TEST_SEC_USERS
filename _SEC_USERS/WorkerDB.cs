@@ -268,5 +268,20 @@ namespace _SEC_USERS
                 TA_SEC_USER_ROLE.InsertNewRelationFromUser(SEC_ROLE_ID, NEW_SEC_USER_ID);
             }
         }
+
+        public void DeleteRelationsFrom_SEC_USER_ID(int SEC_USER_ID)
+        {
+            List<int> SEC_ROLE_IDS = new List<int>();
+
+            foreach (dtsSEC_USERS.SEC_USER_ROLERow row in TA_SEC_USER_ROLE.GetDataByUserTest(SEC_USER_ID))
+            {
+                SEC_ROLE_IDS.Add(row.SEC_ROLE_ID);
+            }
+
+            foreach (int SEC_ROLE_ID in SEC_ROLE_IDS)
+            {
+                TA_SEC_USER_ROLE.DeleteRelationFromUser(SEC_USER_ID, SEC_ROLE_ID);
+            }
+        }
     }
 }

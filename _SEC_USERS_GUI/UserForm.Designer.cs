@@ -1,5 +1,6 @@
 ﻿
 using Model;
+using System.Windows.Forms;
 
 namespace _SEC_USERS_GUI
 {
@@ -394,7 +395,6 @@ namespace _SEC_USERS_GUI
             this.btn_SaveExecute.TabIndex = 0;
             this.btn_SaveExecute.Text = "Сохранить";
             this.btn_SaveExecute.UseVisualStyleBackColor = true;
-            this.btn_SaveExecute.Click += new System.EventHandler(this.btn_SaveExecute_Click);
             // 
             // btn_CancelExecute
             // 
@@ -545,6 +545,30 @@ namespace _SEC_USERS_GUI
             get
             {
                 return btn_SaveExecute;
+            }
+        }
+
+        public BindingSource Get_bs_SEC_USER
+        {
+            get
+            {
+                return bs_SEC_USER;
+            }
+        }
+
+        public BindingSource Get_bs_SEC_ROLE
+        {
+            get
+            {
+                return bs_SEC_ROLE;
+            }
+        }
+
+        public BindingSource Get_bs_SEC_USER_TYPE
+        {
+            get
+            {
+                return bs_SEC_USER_TYPE;
             }
         }
     }
