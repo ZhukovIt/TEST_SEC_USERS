@@ -17,6 +17,10 @@ namespace _SEC_USERS_GUI
         protected bool m_NoCheck;
         protected int m_TypeId;
         protected int? m_WorkId;
+        protected string m_Procuratory;
+        protected string m_KKM_LOGIN;
+        protected string m_KKM_PASSWORD;
+        protected string m_KKM_INN;
         protected string m_TypeUser_Name;
         protected string m_ExceptionMessage;
 
@@ -72,6 +76,10 @@ namespace _SEC_USERS_GUI
             m_NoCheck = m_SecUser.NoCheck;
             m_TypeId = m_SecUser.TypeId;
             m_WorkId = m_SecUser.WorkId;
+            m_Procuratory = m_SecUser.Procuratory;
+            m_KKM_LOGIN = m_SecUser.KKM_LOGIN;
+            m_KKM_PASSWORD = m_SecUser.KKM_PASSWORD;
+            m_KKM_INN = m_SecUser.KKM_INN;
         }
 
         private void DopEventHandlerFromSaveButton(object sender, EventArgs e)
@@ -101,7 +109,7 @@ namespace _SEC_USERS_GUI
             base.FillData();
             try
             {
-                m_WorkerDB.TA_SEC_USER.UpdateUser(m_Login, m_FIO, m_BuiltIn, m_Disabled, m_NoCheck, m_TypeId, m_Id);
+                m_WorkerDB.TA_SEC_USER.UpdateUser(m_Login, m_FIO, m_BuiltIn, m_Disabled, m_NoCheck, m_TypeId, m_WorkId, m_Procuratory, m_KKM_LOGIN, m_KKM_PASSWORD, m_KKM_INN, m_Id);
             }
             catch (Exception)
             {
@@ -129,7 +137,7 @@ namespace _SEC_USERS_GUI
             base.FillData();
             try
             {
-                m_WorkerDB.TA_SEC_USER.UpdateUser(m_Login, m_FIO, m_BuiltIn, m_Disabled, m_NoCheck, m_TypeId, m_Id);
+                m_WorkerDB.TA_SEC_USER.UpdateUser(m_Login, m_FIO, m_BuiltIn, m_Disabled, m_NoCheck, m_TypeId, m_WorkId, m_Procuratory, m_KKM_LOGIN, m_KKM_PASSWORD, m_KKM_INN, m_Id);
             }
             catch (Exception)
             {
@@ -156,7 +164,7 @@ namespace _SEC_USERS_GUI
             base.FillData();
             try
             {
-                m_WorkerDB.TA_SEC_USER.UpdateUser(m_Login, m_FIO, m_BuiltIn, m_Disabled, m_NoCheck, m_TypeId, m_Id);
+                m_WorkerDB.TA_SEC_USER.UpdateUser(m_Login, m_FIO, m_BuiltIn, m_Disabled, m_NoCheck, m_TypeId, m_WorkId, m_Procuratory, m_KKM_LOGIN, m_KKM_PASSWORD, m_KKM_INN, m_Id);
             }
             catch (Exception)
             {

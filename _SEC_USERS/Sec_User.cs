@@ -112,7 +112,59 @@ namespace _SEC_USERS
         {
             get
             {
+                if (m_SecUserRow.IsWORK_IDNull())
+                {
+                    return null;
+                }
                 return m_SecUserRow.WORK_ID;
+            }
+        }
+
+        public string Procuratory
+        {
+            get
+            {
+                if (m_SecUserRow.IsSEC_USER_PROCURATORYNull())
+                {
+                    return "";
+                }
+                return m_SecUserRow.SEC_USER_PROCURATORY;
+            }
+        }
+
+        public string KKM_LOGIN
+        {
+            get
+            {
+                if (m_SecUserRow.IsSEC_USER_KKM_LOGINNull())
+                {
+                    return "";
+                }
+                return m_SecUserRow.SEC_USER_KKM_LOGIN;
+            }
+        }
+
+        public string KKM_PASSWORD
+        {
+            get
+            {
+                if (m_SecUserRow.IsSEC_USER_KKM_PASSWORDNull())
+                {
+                    return "";
+                }
+                return m_SecUserRow.SEC_USER_KKM_PASSWORD;
+            }
+        }
+
+        public string KKM_INN
+        {
+            get
+            {
+                if (m_SecUserRow.IsSEC_USER_KKM_INNNull())
+                {
+                    return "";
+                }
+                return m_SecUserRow.SEC_USER_KKM_INN;
             }
         }
 
