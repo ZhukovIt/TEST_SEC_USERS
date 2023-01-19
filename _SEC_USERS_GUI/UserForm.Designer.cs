@@ -251,7 +251,7 @@ namespace _SEC_USERS_GUI
             // comboBox_WORKER_FULL_NAME
             // 
             this.comboBox_WORKER_FULL_NAME.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.comboBox_WORKER_FULL_NAME.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.bs_WORKER, "WORK_ID", true));
+            this.comboBox_WORKER_FULL_NAME.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.bs_SEC_USER, "WORK_ID", true));
             this.comboBox_WORKER_FULL_NAME.DataSource = this.bs_WORKER;
             this.comboBox_WORKER_FULL_NAME.DisplayMember = "WORK_FULL_NAME";
             this.comboBox_WORKER_FULL_NAME.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;

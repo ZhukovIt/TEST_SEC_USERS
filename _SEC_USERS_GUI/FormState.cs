@@ -16,6 +16,7 @@ namespace _SEC_USERS_GUI
         protected bool m_Disabled;
         protected bool m_NoCheck;
         protected int m_TypeId;
+        protected int? m_WorkId;
         protected string m_TypeUser_Name;
         protected string m_ExceptionMessage;
 
@@ -70,6 +71,7 @@ namespace _SEC_USERS_GUI
             m_Disabled = m_SecUser.IsDisabled;
             m_NoCheck = m_SecUser.NoCheck;
             m_TypeId = m_SecUser.TypeId;
+            m_WorkId = m_SecUser.WorkId;
         }
 
         private void DopEventHandlerFromSaveButton(object sender, EventArgs e)

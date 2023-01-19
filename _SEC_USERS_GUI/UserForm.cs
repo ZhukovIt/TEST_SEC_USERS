@@ -60,7 +60,7 @@ namespace _SEC_USERS_GUI
             comboBox_TypeUser.DataBindings.Add(new Binding("SelectedValue", bs_SEC_USER, nameSelectedValueDataBindings, true));
             nameSelectedValueDataBindings = comboBox_WORKER_FULL_NAME.DataBindings["SelectedValue"].BindingMemberInfo.BindingMember;
             comboBox_WORKER_FULL_NAME.DataBindings.RemoveAt(0);
-            comboBox_WORKER_FULL_NAME.DataBindings.Add(new Binding("SelectedValue", bs_WORKER, nameSelectedValueDataBindings, true));
+            comboBox_WORKER_FULL_NAME.DataBindings.Add(new Binding("SelectedValue", bs_SEC_USER, nameSelectedValueDataBindings, true));
             RoleName.DataSource = bs_SEC_ROLE;
             RoleName.DataPropertyName = RoleName.DataPropertyName;
             RoleName.DisplayMember = RoleName.DisplayMember;
