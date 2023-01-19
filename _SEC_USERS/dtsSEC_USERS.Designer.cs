@@ -762,8 +762,6 @@ namespace _SEC_USERS {
             
             private global::System.Data.DataColumn columnSEC_USER_TYPE_ID;
             
-            private global::System.Data.DataColumn columnSEC_ROLES;
-            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public SEC_USERDataTable() {
@@ -903,14 +901,6 @@ namespace _SEC_USERS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn SEC_ROLESColumn {
-                get {
-                    return this.columnSEC_ROLES;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -946,7 +936,7 @@ namespace _SEC_USERS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public SEC_USERRow AddSEC_USERRow(int SEC_USER_ID, string SEC_USER_LOGIN, string SEC_USER_PASSWORD, string SEC_USER_FIO, bool SEC_USER_BUILTIN, bool SEC_USER_DISABLED, bool SEC_USER_NO_CHECK, WORKERRow parentWORKERRowByFK_SEC_USER_WORK_ID1_WORKER, string SEC_USER_KKM_PASSWORD, string SEC_USER_PROCURATORY, string SEC_USER_KKM_LOGIN, string SEC_USER_KKM_INN, SEC_USER_TYPERow parentSEC_USER_TYPERowByFK_SEC_USER_SEC_USER_TYPE, string SEC_ROLES) {
+            public SEC_USERRow AddSEC_USERRow(int SEC_USER_ID, string SEC_USER_LOGIN, string SEC_USER_PASSWORD, string SEC_USER_FIO, bool SEC_USER_BUILTIN, bool SEC_USER_DISABLED, bool SEC_USER_NO_CHECK, WORKERRow parentWORKERRowByFK_SEC_USER_WORK_ID1_WORKER, string SEC_USER_KKM_PASSWORD, string SEC_USER_PROCURATORY, string SEC_USER_KKM_LOGIN, string SEC_USER_KKM_INN, SEC_USER_TYPERow parentSEC_USER_TYPERowByFK_SEC_USER_SEC_USER_TYPE) {
                 SEC_USERRow rowSEC_USERRow = ((SEC_USERRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         SEC_USER_ID,
@@ -961,8 +951,7 @@ namespace _SEC_USERS {
                         SEC_USER_PROCURATORY,
                         SEC_USER_KKM_LOGIN,
                         SEC_USER_KKM_INN,
-                        null,
-                        SEC_ROLES};
+                        null};
                 if ((parentWORKERRowByFK_SEC_USER_WORK_ID1_WORKER != null)) {
                     columnValuesArray[7] = parentWORKERRowByFK_SEC_USER_WORK_ID1_WORKER[0];
                 }
@@ -1011,7 +1000,6 @@ namespace _SEC_USERS {
                 this.columnSEC_USER_KKM_LOGIN = base.Columns["SEC_USER_KKM_LOGIN"];
                 this.columnSEC_USER_KKM_INN = base.Columns["SEC_USER_KKM_INN"];
                 this.columnSEC_USER_TYPE_ID = base.Columns["SEC_USER_TYPE_ID"];
-                this.columnSEC_ROLES = base.Columns["SEC_ROLES"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1043,8 +1031,6 @@ namespace _SEC_USERS {
                 base.Columns.Add(this.columnSEC_USER_KKM_INN);
                 this.columnSEC_USER_TYPE_ID = new global::System.Data.DataColumn("SEC_USER_TYPE_ID", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnSEC_USER_TYPE_ID);
-                this.columnSEC_ROLES = new global::System.Data.DataColumn("SEC_ROLES", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnSEC_ROLES);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnSEC_USER_ID}, true));
                 this.columnSEC_USER_ID.AllowDBNull = false;
@@ -1060,8 +1046,6 @@ namespace _SEC_USERS {
                 this.columnSEC_USER_KKM_LOGIN.MaxLength = 50;
                 this.columnSEC_USER_KKM_INN.MaxLength = 20;
                 this.columnSEC_USER_TYPE_ID.AllowDBNull = false;
-                this.columnSEC_ROLES.ReadOnly = true;
-                this.columnSEC_ROLES.MaxLength = 2147483647;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2274,22 +2258,6 @@ namespace _SEC_USERS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string SEC_ROLES {
-                get {
-                    try {
-                        return ((string)(this[this.tableSEC_USER.SEC_ROLESColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("Значение для столбца \'SEC_ROLES\' в таблице \'SEC_USER\' равно DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableSEC_USER.SEC_ROLESColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public SEC_USER_TYPERow SEC_USER_TYPERow {
                 get {
                     return ((SEC_USER_TYPERow)(this.GetParentRow(this.Table.ParentRelations["FK_SEC_USER_SEC_USER_TYPE"])));
@@ -2404,18 +2372,6 @@ namespace _SEC_USERS {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetSEC_USER_KKM_INNNull() {
                 this[this.tableSEC_USER.SEC_USER_KKM_INNColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsSEC_ROLESNull() {
-                return this.IsNull(this.tableSEC_USER.SEC_ROLESColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetSEC_ROLESNull() {
-                this[this.tableSEC_USER.SEC_ROLESColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3314,7 +3270,6 @@ SELECT SEC_ROLE_ID, SEC_ROLE_NAME, SEC_ROLE_BUILTIN FROM SEC_ROLE WHERE (SEC_ROL
             tableMapping.ColumnMappings.Add("SEC_USER_KKM_LOGIN", "SEC_USER_KKM_LOGIN");
             tableMapping.ColumnMappings.Add("SEC_USER_KKM_INN", "SEC_USER_KKM_INN");
             tableMapping.ColumnMappings.Add("SEC_USER_TYPE_ID", "SEC_USER_TYPE_ID");
-            tableMapping.ColumnMappings.Add("SEC_ROLES", "SEC_ROLES");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
@@ -3323,40 +3278,40 @@ SELECT SEC_ROLE_ID, SEC_ROLE_NAME, SEC_ROLE_BUILTIN FROM SEC_ROLE WHERE (SEC_ROL
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_SEC_USER_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SEC_USER_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [SEC_USER] ([SEC_USER_ID], [SEC_USER_LOGIN], [SEC_USER_PASSWORD], [SEC_USER_FIO], [SEC_USER_BUILTIN], [SEC_USER_DISABLED], [SEC_USER_NO_CHECK], [WORK_ID], [SEC_USER_KKM_PASSWORD], [SEC_USER_PROCURATORY], [SEC_USER_KKM_LOGIN], [SEC_USER_KKM_INN], [SEC_USER_TYPE_ID]) VALUES (@SEC_USER_ID, @SEC_USER_LOGIN, @SEC_USER_PASSWORD, @SEC_USER_FIO, @SEC_USER_BUILTIN, @SEC_USER_DISABLED, @SEC_USER_NO_CHECK, @WORK_ID, @SEC_USER_KKM_PASSWORD, @SEC_USER_PROCURATORY, @SEC_USER_KKM_LOGIN, @SEC_USER_KKM_INN, @SEC_USER_TYPE_ID);
-SELECT SEC_USER_ID, SEC_USER_LOGIN, SEC_USER_PASSWORD, SEC_USER_FIO, SEC_USER_BUILTIN, SEC_USER_DISABLED, SEC_USER_NO_CHECK, WORK_ID, SEC_USER_KKM_PASSWORD, SEC_USER_PROCURATORY, SEC_USER_KKM_LOGIN, SEC_USER_KKM_INN, SEC_USER_TYPE_ID, dbo.GetRoles(SEC_USER_ID) AS SEC_ROLES FROM SEC_USER WHERE (SEC_USER_ID = @SEC_USER_ID)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [SEC_USER] ([SEC_USER_BUILTIN], [SEC_USER_DISABLED], [SEC_USER_FIO], [SEC_USER_ID], [SEC_USER_KKM_INN], [SEC_USER_KKM_LOGIN], [SEC_USER_KKM_PASSWORD], [SEC_USER_LOGIN], [SEC_USER_NO_CHECK], [SEC_USER_PASSWORD], [SEC_USER_PROCURATORY], [SEC_USER_TYPE_ID], [WORK_ID]) VALUES (@SEC_USER_BUILTIN, @SEC_USER_DISABLED, @SEC_USER_FIO, @SEC_USER_ID, @SEC_USER_KKM_INN, @SEC_USER_KKM_LOGIN, @SEC_USER_KKM_PASSWORD, @SEC_USER_LOGIN, @SEC_USER_NO_CHECK, @SEC_USER_PASSWORD, @SEC_USER_PROCURATORY, @SEC_USER_TYPE_ID, @WORK_ID);
+SELECT SEC_USER_BUILTIN, SEC_USER_DISABLED, SEC_USER_FIO, SEC_USER_ID, SEC_USER_KKM_INN, SEC_USER_KKM_LOGIN, SEC_USER_KKM_PASSWORD, SEC_USER_LOGIN, SEC_USER_NO_CHECK, SEC_USER_PASSWORD, SEC_USER_PROCURATORY, SEC_USER_TYPE_ID, WORK_ID FROM SEC_USER WHERE (SEC_USER_ID = @SEC_USER_ID)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SEC_USER_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SEC_USER_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SEC_USER_LOGIN", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SEC_USER_LOGIN", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SEC_USER_PASSWORD", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SEC_USER_PASSWORD", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SEC_USER_FIO", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SEC_USER_FIO", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SEC_USER_BUILTIN", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SEC_USER_BUILTIN", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SEC_USER_DISABLED", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SEC_USER_DISABLED", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SEC_USER_NO_CHECK", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SEC_USER_NO_CHECK", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@WORK_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "WORK_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SEC_USER_KKM_PASSWORD", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SEC_USER_KKM_PASSWORD", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SEC_USER_PROCURATORY", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SEC_USER_PROCURATORY", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SEC_USER_KKM_LOGIN", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SEC_USER_KKM_LOGIN", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SEC_USER_FIO", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SEC_USER_FIO", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SEC_USER_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SEC_USER_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SEC_USER_KKM_INN", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SEC_USER_KKM_INN", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SEC_USER_KKM_LOGIN", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SEC_USER_KKM_LOGIN", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SEC_USER_KKM_PASSWORD", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SEC_USER_KKM_PASSWORD", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SEC_USER_LOGIN", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SEC_USER_LOGIN", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SEC_USER_NO_CHECK", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SEC_USER_NO_CHECK", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SEC_USER_PASSWORD", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SEC_USER_PASSWORD", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SEC_USER_PROCURATORY", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SEC_USER_PROCURATORY", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SEC_USER_TYPE_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SEC_USER_TYPE_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@WORK_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "WORK_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [SEC_USER] SET [SEC_USER_ID] = @SEC_USER_ID, [SEC_USER_LOGIN] = @SEC_USER_LOGIN, [SEC_USER_PASSWORD] = @SEC_USER_PASSWORD, [SEC_USER_FIO] = @SEC_USER_FIO, [SEC_USER_BUILTIN] = @SEC_USER_BUILTIN, [SEC_USER_DISABLED] = @SEC_USER_DISABLED, [SEC_USER_NO_CHECK] = @SEC_USER_NO_CHECK, [WORK_ID] = @WORK_ID, [SEC_USER_KKM_PASSWORD] = @SEC_USER_KKM_PASSWORD, [SEC_USER_PROCURATORY] = @SEC_USER_PROCURATORY, [SEC_USER_KKM_LOGIN] = @SEC_USER_KKM_LOGIN, [SEC_USER_KKM_INN] = @SEC_USER_KKM_INN, [SEC_USER_TYPE_ID] = @SEC_USER_TYPE_ID WHERE (([SEC_USER_ID] = @Original_SEC_USER_ID));
-SELECT SEC_USER_ID, SEC_USER_LOGIN, SEC_USER_PASSWORD, SEC_USER_FIO, SEC_USER_BUILTIN, SEC_USER_DISABLED, SEC_USER_NO_CHECK, WORK_ID, SEC_USER_KKM_PASSWORD, SEC_USER_PROCURATORY, SEC_USER_KKM_LOGIN, SEC_USER_KKM_INN, SEC_USER_TYPE_ID, dbo.GetRoles(SEC_USER_ID) AS SEC_ROLES FROM SEC_USER WHERE (SEC_USER_ID = @SEC_USER_ID)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [SEC_USER] SET [SEC_USER_BUILTIN] = @SEC_USER_BUILTIN, [SEC_USER_DISABLED] = @SEC_USER_DISABLED, [SEC_USER_FIO] = @SEC_USER_FIO, [SEC_USER_ID] = @SEC_USER_ID, [SEC_USER_KKM_INN] = @SEC_USER_KKM_INN, [SEC_USER_KKM_LOGIN] = @SEC_USER_KKM_LOGIN, [SEC_USER_KKM_PASSWORD] = @SEC_USER_KKM_PASSWORD, [SEC_USER_LOGIN] = @SEC_USER_LOGIN, [SEC_USER_NO_CHECK] = @SEC_USER_NO_CHECK, [SEC_USER_PASSWORD] = @SEC_USER_PASSWORD, [SEC_USER_PROCURATORY] = @SEC_USER_PROCURATORY, [SEC_USER_TYPE_ID] = @SEC_USER_TYPE_ID, [WORK_ID] = @WORK_ID WHERE (([SEC_USER_ID] = @Original_SEC_USER_ID));
+SELECT SEC_USER_BUILTIN, SEC_USER_DISABLED, SEC_USER_FIO, SEC_USER_ID, SEC_USER_KKM_INN, SEC_USER_KKM_LOGIN, SEC_USER_KKM_PASSWORD, SEC_USER_LOGIN, SEC_USER_NO_CHECK, SEC_USER_PASSWORD, SEC_USER_PROCURATORY, SEC_USER_TYPE_ID, WORK_ID FROM SEC_USER WHERE (SEC_USER_ID = @SEC_USER_ID)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SEC_USER_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SEC_USER_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SEC_USER_LOGIN", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SEC_USER_LOGIN", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SEC_USER_PASSWORD", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SEC_USER_PASSWORD", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SEC_USER_FIO", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SEC_USER_FIO", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SEC_USER_BUILTIN", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SEC_USER_BUILTIN", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SEC_USER_DISABLED", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SEC_USER_DISABLED", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SEC_USER_NO_CHECK", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SEC_USER_NO_CHECK", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@WORK_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "WORK_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SEC_USER_KKM_PASSWORD", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SEC_USER_KKM_PASSWORD", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SEC_USER_PROCURATORY", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SEC_USER_PROCURATORY", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SEC_USER_KKM_LOGIN", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SEC_USER_KKM_LOGIN", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SEC_USER_FIO", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SEC_USER_FIO", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SEC_USER_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SEC_USER_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SEC_USER_KKM_INN", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SEC_USER_KKM_INN", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SEC_USER_KKM_LOGIN", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SEC_USER_KKM_LOGIN", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SEC_USER_KKM_PASSWORD", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SEC_USER_KKM_PASSWORD", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SEC_USER_LOGIN", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SEC_USER_LOGIN", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SEC_USER_NO_CHECK", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SEC_USER_NO_CHECK", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SEC_USER_PASSWORD", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SEC_USER_PASSWORD", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SEC_USER_PROCURATORY", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SEC_USER_PROCURATORY", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SEC_USER_TYPE_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SEC_USER_TYPE_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@WORK_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "WORK_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_SEC_USER_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SEC_USER_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
@@ -3373,9 +3328,10 @@ SELECT SEC_USER_ID, SEC_USER_LOGIN, SEC_USER_PASSWORD, SEC_USER_FIO, SEC_USER_BU
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[13];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT SEC_USER_ID, SEC_USER_LOGIN, SEC_USER_PASSWORD, SEC_USER_FIO, SEC_USER_BUILTIN, SEC_USER_DISABLED, SEC_USER_NO_CHECK, WORK_ID, SEC_USER_KKM_PASSWORD, SEC_USER_PROCURATORY, 
-                  SEC_USER_KKM_LOGIN, SEC_USER_KKM_INN, SEC_USER_TYPE_ID, dbo.GetRoles(SEC_USER_ID) AS SEC_ROLES
-FROM     SEC_USER";
+            this._commandCollection[0].CommandText = "SELECT SEC_USER_BUILTIN, SEC_USER_DISABLED, SEC_USER_FIO, SEC_USER_ID, SEC_USER_K" +
+                "KM_INN, SEC_USER_KKM_LOGIN, SEC_USER_KKM_PASSWORD, SEC_USER_LOGIN, SEC_USER_NO_C" +
+                "HECK, SEC_USER_PASSWORD, SEC_USER_PROCURATORY, SEC_USER_TYPE_ID, WORK_ID FROM SE" +
+                "C_USER";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
@@ -3405,13 +3361,17 @@ FROM     SEC_USER";
             this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SEC_USER_ID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "SEC_USER_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._commandCollection[6] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[6].Connection = this.Connection;
+<<<<<<< Updated upstream
             this._commandCollection[6].CommandText = @"SELECT dbo.GetRoles(SEC_USER_ID) AS SEC_ROLES, SEC_USER_BUILTIN, SEC_USER_DISABLED, SEC_USER_FIO, SEC_USER_ID, SEC_USER_KKM_INN, SEC_USER_KKM_LOGIN, SEC_USER_KKM_PASSWORD, SEC_USER_LOGIN, SEC_USER_NO_CHECK, SEC_USER_PASSWORD, SEC_USER_PROCURATORY, SEC_USER_TYPE_ID, WORK_ID FROM SEC_USER WHERE (SEC_USER_ID IN (@NewUserId, @CopyingUserId))";
+=======
+            this._commandCollection[6].CommandText = @"SELECT SEC_USER_BUILTIN, SEC_USER_DISABLED, SEC_USER_FIO, SEC_USER_ID, SEC_USER_KKM_INN, SEC_USER_KKM_LOGIN, SEC_USER_KKM_PASSWORD, SEC_USER_LOGIN, SEC_USER_NO_CHECK, SEC_USER_PASSWORD, SEC_USER_PROCURATORY, SEC_USER_TYPE_ID, WORK_ID FROM SEC_USER WHERE (SEC_USER_ID IN (@NewUserId, @CopyingUserId))";
+>>>>>>> Stashed changes
             this._commandCollection[6].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NewUserId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CopyingUserId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[7] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[7].Connection = this.Connection;
-            this._commandCollection[7].CommandText = @"SELECT dbo.GetRoles(SEC_USER_ID) AS SEC_ROLES, SEC_USER_BUILTIN, SEC_USER_DISABLED, SEC_USER_FIO, SEC_USER_ID, SEC_USER_KKM_INN, SEC_USER_KKM_LOGIN, SEC_USER_KKM_PASSWORD, SEC_USER_LOGIN, SEC_USER_NO_CHECK, SEC_USER_PASSWORD, SEC_USER_PROCURATORY, SEC_USER_TYPE_ID, WORK_ID FROM SEC_USER WHERE (SEC_USER_ID = @SEC_USER_ID)";
+            this._commandCollection[7].CommandText = @"SELECT SEC_USER_BUILTIN, SEC_USER_DISABLED, SEC_USER_FIO, SEC_USER_ID, SEC_USER_KKM_INN, SEC_USER_KKM_LOGIN, SEC_USER_KKM_PASSWORD, SEC_USER_LOGIN, SEC_USER_NO_CHECK, SEC_USER_PASSWORD, SEC_USER_PROCURATORY, SEC_USER_TYPE_ID, WORK_ID FROM SEC_USER WHERE (SEC_USER_ID = @SEC_USER_ID)";
             this._commandCollection[7].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SEC_USER_ID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "SEC_USER_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[8] = new global::System.Data.SqlClient.SqlCommand();
@@ -4318,21 +4278,21 @@ SELECT SEC_ROLE_ID, SEC_USER_ID FROM SEC_USER_ROLE WHERE (SEC_ROLE_ID = @SEC_ROL
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SEC_ROLE_ID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "SEC_ROLE_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[3].Connection = this.Connection;
-            this._commandCollection[3].CommandText = "SELECT SEC_ROLE_ID, SEC_USER_ID \r\nFROM dbo.SEC_USER_ROLE\r\nWHERE SEC_USER_ID IN (@" +
-                "NewUserId, @CopyingUserId);";
+            this._commandCollection[3].CommandText = "SELECT SEC_ROLE_ID, SEC_USER_ID FROM SEC_USER_ROLE WHERE (SEC_USER_ID IN (@NewUse" +
+                "rId, @CopyingUserId))";
             this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NewUserId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CopyingUserId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[4] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[4].Connection = this.Connection;
-            this._commandCollection[4].CommandText = "SELECT SEC_ROLE_ID, SEC_USER_ID FROM dbo.SEC_USER_ROLE\r\nWHERE [SEC_USER_ID] = @SE" +
-                "C_USER_ID;";
+            this._commandCollection[4].CommandText = "SELECT SEC_ROLE_ID, SEC_USER_ID FROM SEC_USER_ROLE WHERE (SEC_USER_ID = @SEC_USER" +
+                "_ID)";
             this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SEC_USER_ID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "SEC_USER_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[5] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[5].Connection = this.Connection;
-            this._commandCollection[5].CommandText = "SELECT SEC_ROLE_ID, SEC_USER_ID\r\nFROM SEC_USER_ROLE\r\nWHERE SEC_USER_ID = @SEC_USE" +
-                "R_ID;";
+            this._commandCollection[5].CommandText = "SELECT SEC_ROLE_ID, SEC_USER_ID FROM SEC_USER_ROLE WHERE (SEC_USER_ID = @SEC_USER" +
+                "_ID)";
             this._commandCollection[5].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SEC_USER_ID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "SEC_USER_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[6] = new global::System.Data.SqlClient.SqlCommand();

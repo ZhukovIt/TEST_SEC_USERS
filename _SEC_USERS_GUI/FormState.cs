@@ -76,7 +76,6 @@ namespace _SEC_USERS_GUI
             m_NoCheck = m_SecUser.NoCheck;
             m_TypeId = m_SecUser.TypeId;
             m_WorkId = m_SecUser.WorkId;
-            m_Procuratory = m_SecUser.Procuratory;
             m_KKM_LOGIN = m_SecUser.KKM_LOGIN;
             m_KKM_PASSWORD = m_SecUser.KKM_PASSWORD;
             m_KKM_INN = m_SecUser.KKM_INN;
@@ -161,9 +160,13 @@ namespace _SEC_USERS_GUI
 
         internal override void EventHandlerFromSaveButton(object sender, EventArgs e)
         {
-            base.FillData();
+            m_SecUser.Save();
             try
             {
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
                 
             }
             catch (Exception)

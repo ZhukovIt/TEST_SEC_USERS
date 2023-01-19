@@ -4,12 +4,14 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace _SEC_USERS
 {
     public class Sec_User
     {
         private dtsSEC_USERS m_dts_SEC_USERS;
+        private WorkerDB m_WorkerDB;
         private dtsSEC_USERS.SEC_USERRow m_SecUserRow;
 
         public Sec_User(dtsSEC_USERS dts_SEC_USERS)
@@ -42,6 +44,11 @@ namespace _SEC_USERS
             {
                 return m_dts_SEC_USERS;
             }
+        }
+
+        public void SetWorkerDB(WorkerDB workerDB)
+        {
+            m_WorkerDB = workerDB;
         }
 
         public void UpdateUserSecRow()
@@ -116,14 +123,6 @@ namespace _SEC_USERS
             }
         }
 
-        public string Procuratory
-        {
-            get
-            {
-                return m_SecUserRow.SEC_USER_PROCURATORY;
-            }
-        }
-
         public string KKM_LOGIN
         {
             get
@@ -156,6 +155,19 @@ namespace _SEC_USERS
         public DataView Create_SEC_USER_ROLE_DataView()
         {
             return new DataView(m_dts_SEC_USERS.SEC_USER_ROLE);
+        }
+
+        public void Save()
+        {
+            dtsSEC_USERSTableAdapters.SEC_USERTableAdapter ta_SEC_USER = new dtsSEC_USERSTableAdapters.SEC_USERTableAdapter();
+            ta_SEC_USER.Connection = ConnectionSingleton.getInstance();
+
+            dtsSEC_USERSTableAdapters.SEC_USER_ROLETableAdapter ta_SEC_USER_ROLE = new dtsSEC_USERSTableAdapters.SEC_USER_ROLETableAdapter();
+            ta_SEC_USER_ROLE.Connection = ConnectionSingleton.getInstance();
+
+            m_WorkerDB.TA_SEC_USER.Update(m_dts_SEC_USERS.SEC_USER);
+            m_WorkerDB.TA_SEC_USER_ROLE.Update(m_dts_SEC_USERS.SEC_USER_ROLE);
+            //MessageBox.Show(m_dts_SEC_USERS.SEC_USER.Rows[0].Field<string>("SEC_USER_FIO"));
         }
     }
 }

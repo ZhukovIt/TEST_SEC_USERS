@@ -44,14 +44,14 @@ namespace _SEC_USERS_GUI
             this.txtBox_FinderField = new System.Windows.Forms.ToolStripTextBox();
             this.btn_ClearFinder = new System.Windows.Forms.ToolStripButton();
             this.dgv_SEC_USERS = new System.Windows.Forms.DataGridView();
-            this.SEC_USER_TYPE = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.SEC_ROLES = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sECUSERFIODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sECUSERLOGINDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bs_SEC_USER_TYPE = new System.Windows.Forms.BindingSource(this.components);
             this.dts_SEC_USERS = new _SEC_USERS.dtsSEC_USERS();
-            this.sECUSERDISABLEDDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.bs_SEC_USERS = new System.Windows.Forms.BindingSource(this.components);
+            this.sECUSERFIODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sECUSERLOGINDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SEC_USER_TYPE = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.SEC_ROLES = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sECUSERDISABLEDDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.ts_HeaderButtons.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_SEC_USERS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bs_SEC_USER_TYPE)).BeginInit();
@@ -194,28 +194,20 @@ namespace _SEC_USERS_GUI
             this.dgv_SEC_USERS.TabIndex = 1;
             this.dgv_SEC_USERS.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgv_SEC_USERS_CellMouseDoubleClick);
             // 
-            // SEC_USER_TYPE
+            // bs_SEC_USER_TYPE
             // 
-            this.SEC_USER_TYPE.DataPropertyName = "SEC_USER_TYPE_ID";
-            this.SEC_USER_TYPE.DataSource = this.bs_SEC_USER_TYPE;
-            this.SEC_USER_TYPE.DisplayMember = "SEC_USER_TYPE_NAME";
-            this.SEC_USER_TYPE.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
-            this.SEC_USER_TYPE.HeaderText = "Тип пользователя";
-            this.SEC_USER_TYPE.MinimumWidth = 6;
-            this.SEC_USER_TYPE.Name = "SEC_USER_TYPE";
-            this.SEC_USER_TYPE.ReadOnly = true;
-            this.SEC_USER_TYPE.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.SEC_USER_TYPE.ValueMember = "SEC_USER_TYPE_ID";
-            this.SEC_USER_TYPE.Width = 120;
+            this.bs_SEC_USER_TYPE.DataMember = "SEC_USER_TYPE";
+            this.bs_SEC_USER_TYPE.DataSource = this.dts_SEC_USERS;
             // 
-            // SEC_ROLES
+            // dts_SEC_USERS
             // 
-            this.SEC_ROLES.DataPropertyName = "SEC_ROLES";
-            this.SEC_ROLES.HeaderText = "Роли";
-            this.SEC_ROLES.MinimumWidth = 6;
-            this.SEC_ROLES.Name = "SEC_ROLES";
-            this.SEC_ROLES.ReadOnly = true;
-            this.SEC_ROLES.Width = 300;
+            this.dts_SEC_USERS.DataSetName = "dtsSEC_USERS";
+            this.dts_SEC_USERS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // bs_SEC_USERS
+            // 
+            this.bs_SEC_USERS.DataMember = "SEC_USER";
+            this.bs_SEC_USERS.DataSource = this.dts_SEC_USERS;
             // 
             // sECUSERFIODataGridViewTextBoxColumn
             // 
@@ -235,15 +227,27 @@ namespace _SEC_USERS_GUI
             this.sECUSERLOGINDataGridViewTextBoxColumn.ReadOnly = true;
             this.sECUSERLOGINDataGridViewTextBoxColumn.Width = 150;
             // 
-            // bs_SEC_USER_TYPE
+            // SEC_USER_TYPE
             // 
-            this.bs_SEC_USER_TYPE.DataMember = "SEC_USER_TYPE";
-            this.bs_SEC_USER_TYPE.DataSource = this.dts_SEC_USERS;
+            this.SEC_USER_TYPE.DataPropertyName = "SEC_USER_TYPE_ID";
+            this.SEC_USER_TYPE.DataSource = this.bs_SEC_USER_TYPE;
+            this.SEC_USER_TYPE.DisplayMember = "SEC_USER_TYPE_NAME";
+            this.SEC_USER_TYPE.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.SEC_USER_TYPE.HeaderText = "Тип пользователя";
+            this.SEC_USER_TYPE.MinimumWidth = 6;
+            this.SEC_USER_TYPE.Name = "SEC_USER_TYPE";
+            this.SEC_USER_TYPE.ReadOnly = true;
+            this.SEC_USER_TYPE.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.SEC_USER_TYPE.ValueMember = "SEC_USER_TYPE_ID";
+            this.SEC_USER_TYPE.Width = 120;
             // 
-            // dts_SEC_USERS
+            // SEC_ROLES
             // 
-            this.dts_SEC_USERS.DataSetName = "dtsSEC_USERS";
-            this.dts_SEC_USERS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.SEC_ROLES.HeaderText = "Роли";
+            this.SEC_ROLES.MinimumWidth = 6;
+            this.SEC_ROLES.Name = "SEC_ROLES";
+            this.SEC_ROLES.ReadOnly = true;
+            this.SEC_ROLES.Width = 300;
             // 
             // sECUSERDISABLEDDataGridViewCheckBoxColumn
             // 
@@ -253,11 +257,6 @@ namespace _SEC_USERS_GUI
             this.sECUSERDISABLEDDataGridViewCheckBoxColumn.Name = "sECUSERDISABLEDDataGridViewCheckBoxColumn";
             this.sECUSERDISABLEDDataGridViewCheckBoxColumn.ReadOnly = true;
             this.sECUSERDISABLEDDataGridViewCheckBoxColumn.Width = 125;
-            // 
-            // bs_SEC_USERS
-            // 
-            this.bs_SEC_USERS.DataMember = "SEC_USER";
-            this.bs_SEC_USERS.DataSource = this.dts_SEC_USERS;
             // 
             // UsersForm
             // 
