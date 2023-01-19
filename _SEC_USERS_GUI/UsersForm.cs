@@ -100,12 +100,11 @@ namespace _SEC_USERS_GUI
             else
             {
                 m_WorkerDB.TA_SEC_USER.DeleteUserFromId(newUserId);
+                m_WorkerDB.LoadData();
+                dgv_SEC_USERS.Update();
                 Pos = bs_SEC_USERS.Find("SEC_USER_ID", selectedUserId);
             }
-            if (Pos >= 0)
-            {
-                bs_SEC_USERS.Position = Pos;
-            }
+            if (Pos >= 0) bs_SEC_USERS.Position = Pos;
         }
 
         private void btn_EditUser_Click(object sender, EventArgs e)
@@ -116,11 +115,12 @@ namespace _SEC_USERS_GUI
             FormState state = new UserFormEditingState(form, currentUser);
             form.SetState(state);
             DialogResult result = form.ShowDialog();
-            if (result == DialogResult.OK)
+            if (result != DialogResult.OK)
             {
-                m_WorkerDB.LoadData();
-                dgv_SEC_USERS.Update();
+                form.UndoUserRoles();
             }
+            m_WorkerDB.LoadData();
+            dgv_SEC_USERS.Update();
             int Pos = bs_SEC_USERS.Find("SEC_USER_ID", selectedUserId);
             if (Pos >= 0)
             {

@@ -178,7 +178,7 @@ WHERE [SEC_USER_LOGIN] = @SEC_USER_LOGIN;</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="clinic10ConnectionString (Settings)" DbObjectName="clinic10.dbo.SEC_USER" DbObjectType="Table" GenerateShortCommands="true" GeneratorSourceName="CheckEmptyUser" Modifier="Public" Name="CheckEmptyUser" QueryType="Scalar" ScalarCallRetval="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy9" UserSourceName="CheckEmptyUser">
+              <DbSource ConnectionRef="clinic10ConnectionString (Settings)" DbObjectName="clinic10.dbo.SEC_USER" DbObjectType="Table" GenerateShortCommands="true" GeneratorSourceName="CheckEmptyUser" Modifier="Public" Name="CheckEmptyUser" QueryType="Scalar" ScalarCallRetval="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="CheckEmptyUser">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT SEC_USER_ID
@@ -188,7 +188,7 @@ WHERE SEC_USER_LOGIN = '' AND SEC_USER_FIO = '';</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="clinic10ConnectionString (Settings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="CheckExistsIdFromSEC_USER" Modifier="Public" Name="CheckExistsIdFromSEC_USER" QueryType="Scalar" ScalarCallRetval="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="CheckExistsIdFromSEC_USER">
+              <DbSource ConnectionRef="clinic10ConnectionString (Settings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="CheckExistsIdFromSEC_USER" Modifier="Public" Name="CheckExistsIdFromSEC_USER" QueryType="Scalar" ScalarCallRetval="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="CheckExistsIdFromSEC_USER">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT COUNT(*) FROM SEC_USER WHERE [SEC_USER_ID] = @SEC_USER_ID</CommandText>
@@ -198,7 +198,7 @@ WHERE SEC_USER_LOGIN = '' AND SEC_USER_FIO = '';</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="clinic10ConnectionString (Settings)" DbObjectName="clinic10.dbo.SEC_USER" DbObjectType="Table" GenerateShortCommands="true" GeneratorSourceName="CheckLoginUserFromHisId" Modifier="Public" Name="CheckLoginUserFromHisId" QueryType="Scalar" ScalarCallRetval="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="CheckLoginUserFromHisId">
+              <DbSource ConnectionRef="clinic10ConnectionString (Settings)" DbObjectName="clinic10.dbo.SEC_USER" DbObjectType="Table" GenerateShortCommands="true" GeneratorSourceName="CheckLoginUserFromHisId" Modifier="Public" Name="CheckLoginUserFromHisId" QueryType="Scalar" ScalarCallRetval="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy3" UserSourceName="CheckLoginUserFromHisId">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        SEC_USER_LOGIN
@@ -210,7 +210,7 @@ WHERE        (SEC_USER_ID = @SEC_USER_ID)</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="clinic10ConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="DeleteUserFromId" Modifier="Public" Name="DeleteUserFromId" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy3" UserSourceName="DeleteUserFromId">
+              <DbSource ConnectionRef="clinic10ConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="DeleteUserFromId" Modifier="Public" Name="DeleteUserFromId" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy4" UserSourceName="DeleteUserFromId">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>DELETE FROM SEC_USER
@@ -245,7 +245,7 @@ WHERE SEC_USER_ID IN (@NewUserId, @CopyingUserId);</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="clinic10ConnectionString (Settings)" DbObjectName="clinic10.dbo.SEC_USER" DbObjectType="Table" GenerateShortCommands="true" GeneratorSourceName="GetIdFromEmpltyLogin" Modifier="Public" Name="GetIdFromEmpltyLogin" QueryType="Scalar" ScalarCallRetval="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy4" UserSourceName="GetIdFromEmpltyLogin">
+              <DbSource ConnectionRef="clinic10ConnectionString (Settings)" DbObjectName="clinic10.dbo.SEC_USER" DbObjectType="Table" GenerateShortCommands="true" GeneratorSourceName="GetIdFromEmpltyLogin" Modifier="Public" Name="GetIdFromEmpltyLogin" QueryType="Scalar" ScalarCallRetval="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy5" UserSourceName="GetIdFromEmpltyLogin">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT SEC_USER_ID
@@ -255,7 +255,7 @@ WHERE SEC_USER_LOGIN = '';</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="clinic10ConnectionString (Settings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="GetMaxIdFromSEC_USER" Modifier="Public" Name="GetMaxIdFromSEC_USER" QueryType="Scalar" ScalarCallRetval="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy5" UserSourceName="GetMaxIdFromSEC_USER">
+              <DbSource ConnectionRef="clinic10ConnectionString (Settings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="GetMaxIdFromSEC_USER" Modifier="Public" Name="GetMaxIdFromSEC_USER" QueryType="Scalar" ScalarCallRetval="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy6" UserSourceName="GetMaxIdFromSEC_USER">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT MAX(SEC_USER_ID) FROM SEC_USER</CommandText>
@@ -263,7 +263,7 @@ WHERE SEC_USER_LOGIN = '';</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="clinic10ConnectionString (Settings)" DbObjectName="clinic10.dbo.SEC_USER" DbObjectType="Table" GenerateShortCommands="true" GeneratorSourceName="GetUserIdFromUserLogin" Modifier="Public" Name="GetUserIdFromUserLogin" QueryType="Scalar" ScalarCallRetval="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy8" UserSourceName="GetUserIdFromUserLogin">
+              <DbSource ConnectionRef="clinic10ConnectionString (Settings)" DbObjectName="clinic10.dbo.SEC_USER" DbObjectType="Table" GenerateShortCommands="true" GeneratorSourceName="GetUserIdFromUserLogin" Modifier="Public" Name="GetUserIdFromUserLogin" QueryType="Scalar" ScalarCallRetval="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy7" UserSourceName="GetUserIdFromUserLogin">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT SEC_USER_ID
@@ -275,7 +275,7 @@ WHERE SEC_USER_LOGIN = @SEC_USER_LOGIN;</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="clinic10ConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InsertNewUser" Modifier="Public" Name="InsertNewUser" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy6" UserSourceName="InsertNewUser">
+              <DbSource ConnectionRef="clinic10ConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InsertNewUser" Modifier="Public" Name="InsertNewUser" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy8" UserSourceName="InsertNewUser">
                 <InsertCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>INSERT INTO [dbo].[SEC_USER] (
@@ -300,7 +300,7 @@ VALUES (
                   </DbCommand>
                 </InsertCommand>
               </DbSource>
-              <DbSource ConnectionRef="clinic10ConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateUser" Modifier="Public" Name="UpdateUser" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy7" UserSourceName="UpdateUser">
+              <DbSource ConnectionRef="clinic10ConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateUser" Modifier="Public" Name="UpdateUser" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy9" UserSourceName="UpdateUser">
                 <UpdateCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>UPDATE       SEC_USER
@@ -368,6 +368,17 @@ SELECT SEC_ROLE_ID, SEC_USER_ID FROM SEC_USER_ROLE WHERE (SEC_ROLE_ID = @SEC_ROL
               <Mapping SourceColumn="SEC_USER_ID" DataSetColumn="SEC_USER_ID" />
             </Mappings>
             <Sources>
+              <DbSource ConnectionRef="clinic10ConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="Clear_SEC_ROLE_ID_FROM_SEC_USER_ID" Modifier="Public" Name="Clear_SEC_ROLE_ID_FROM_SEC_USER_ID" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy3" UserSourceName="Clear_SEC_ROLE_ID_FROM_SEC_USER_ID">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>DELETE SEC_USER_ROLE
+WHERE [SEC_USER_ID] = @SEC_USER_ID;</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="SEC_USER_ID" ColumnName="SEC_USER_ID" DataSourceName="clinic10.dbo.SEC_USER_ROLE" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@SEC_USER_ID" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="SEC_USER_ID" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+              </DbSource>
               <DbSource ConnectionRef="clinic10ConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="DeleteRelationFromUser" Modifier="Public" Name="DeleteRelationFromUser" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="DeleteRelationFromUser">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
@@ -652,9 +663,9 @@ WHERE [SEC_USER_TYPE_ID] = @SEC_USER_TYPE_ID;</CommandText>
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
-      <msdata:Relationship name="FK_SEC_USER_SEC_USER_TYPE" msdata:parent="SEC_USER_TYPE" msdata:child="SEC_USER" msdata:parentkey="SEC_USER_TYPE_ID" msdata:childkey="SEC_USER_TYPE_ID" msprop:Generator_UserChildTable="SEC_USER" msprop:Generator_ChildPropName="GetSEC_USERRows" msprop:Generator_UserRelationName="FK_SEC_USER_SEC_USER_TYPE" msprop:Generator_ParentPropName="SEC_USER_TYPERow" msprop:Generator_RelationVarName="relationFK_SEC_USER_SEC_USER_TYPE" msprop:Generator_UserParentTable="SEC_USER_TYPE" />
-      <msdata:Relationship name="FK_SEC_USER_SEC_USER__SEC_ROLE" msdata:parent="SEC_ROLE" msdata:child="SEC_USER_ROLE" msdata:parentkey="SEC_ROLE_ID" msdata:childkey="SEC_ROLE_ID" msprop:Generator_UserChildTable="SEC_USER_ROLE" msprop:Generator_ChildPropName="GetSEC_USER_ROLERows" msprop:Generator_UserRelationName="FK_SEC_USER_SEC_USER__SEC_ROLE" msprop:Generator_RelationVarName="relationFK_SEC_USER_SEC_USER__SEC_ROLE" msprop:Generator_UserParentTable="SEC_ROLE" msprop:Generator_ParentPropName="SEC_ROLERow" />
-      <msdata:Relationship name="FK_SEC_USER_SEC_USER__SEC_USER" msdata:parent="SEC_USER" msdata:child="SEC_USER_ROLE" msdata:parentkey="SEC_USER_ID" msdata:childkey="SEC_USER_ID" msprop:Generator_UserChildTable="SEC_USER_ROLE" msprop:Generator_ChildPropName="GetSEC_USER_ROLERows" msprop:Generator_UserRelationName="FK_SEC_USER_SEC_USER__SEC_USER" msprop:Generator_RelationVarName="relationFK_SEC_USER_SEC_USER__SEC_USER" msprop:Generator_UserParentTable="SEC_USER" msprop:Generator_ParentPropName="SEC_USERRow" />
+      <msdata:Relationship name="FK_SEC_USER_SEC_USER_TYPE" msdata:parent="SEC_USER_TYPE" msdata:child="SEC_USER" msdata:parentkey="SEC_USER_TYPE_ID" msdata:childkey="SEC_USER_TYPE_ID" msprop:Generator_UserChildTable="SEC_USER" msprop:Generator_ChildPropName="GetSEC_USERRows" msprop:Generator_UserRelationName="FK_SEC_USER_SEC_USER_TYPE" msprop:Generator_RelationVarName="relationFK_SEC_USER_SEC_USER_TYPE" msprop:Generator_UserParentTable="SEC_USER_TYPE" msprop:Generator_ParentPropName="SEC_USER_TYPERow" />
+      <msdata:Relationship name="FK_SEC_USER_SEC_USER__SEC_ROLE" msdata:parent="SEC_ROLE" msdata:child="SEC_USER_ROLE" msdata:parentkey="SEC_ROLE_ID" msdata:childkey="SEC_ROLE_ID" msprop:Generator_UserChildTable="SEC_USER_ROLE" msprop:Generator_ChildPropName="GetSEC_USER_ROLERows" msprop:Generator_UserRelationName="FK_SEC_USER_SEC_USER__SEC_ROLE" msprop:Generator_ParentPropName="SEC_ROLERow" msprop:Generator_RelationVarName="relationFK_SEC_USER_SEC_USER__SEC_ROLE" msprop:Generator_UserParentTable="SEC_ROLE" />
+      <msdata:Relationship name="FK_SEC_USER_SEC_USER__SEC_USER" msdata:parent="SEC_USER" msdata:child="SEC_USER_ROLE" msdata:parentkey="SEC_USER_ID" msdata:childkey="SEC_USER_ID" msprop:Generator_UserChildTable="SEC_USER_ROLE" msprop:Generator_ChildPropName="GetSEC_USER_ROLERows" msprop:Generator_UserRelationName="FK_SEC_USER_SEC_USER__SEC_USER" msprop:Generator_ParentPropName="SEC_USERRow" msprop:Generator_RelationVarName="relationFK_SEC_USER_SEC_USER__SEC_USER" msprop:Generator_UserParentTable="SEC_USER" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>

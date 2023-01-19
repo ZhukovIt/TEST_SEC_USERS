@@ -224,7 +224,7 @@ namespace _SEC_USERS
             TA_CURRENT_SEC_USER_ROLE.FillByUser(userDataSet.SEC_USER_ROLE, SecUserId);
         }
 
-        public void TESTM(dtsSEC_USERS userDataSet, int SecUserId)
+        public void Fill_SEC_USER_ROLE_DataTable(dtsSEC_USERS userDataSet, int SecUserId)
         {
             userDataSet.SEC_USER_ROLE.Clear();
 

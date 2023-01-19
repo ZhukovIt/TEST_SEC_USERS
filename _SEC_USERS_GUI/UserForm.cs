@@ -17,6 +17,7 @@ namespace _SEC_USERS_GUI
         private WorkerDB m_WorkerDB;
         private FormState m_State;
         private Sec_User m_Sec_User;
+        private List<int> m_SEC_ROLE_IDS_From_Undo_Roles;
 
         public WorkerDB GetWorkerDB
         {
@@ -31,6 +32,7 @@ namespace _SEC_USERS_GUI
             InitializeComponent();
             m_WorkerDB = workerDB;
             m_Sec_User = secUser;
+            m_SEC_ROLE_IDS_From_Undo_Roles = new List<int>();
         }
 
         public void SetState(FormState state)
@@ -70,6 +72,21 @@ namespace _SEC_USERS_GUI
         {
             dts_SEC_USERS = m_WorkerDB.Get_dts_SEC_USERS;
             SettingBindingSources();
+
+            foreach (dtsSEC_USERS.SEC_USER_ROLERow row in m_WorkerDB.TA_SEC_USER_ROLE.GetDataByUserTest(m_Sec_User.UserId))
+            {
+                m_SEC_ROLE_IDS_From_Undo_Roles.Add(row.SEC_ROLE_ID);
+            }
+        }
+
+        public void UndoUserRoles()
+        {
+            m_WorkerDB.TA_SEC_USER_ROLE.Clear_SEC_ROLE_ID_FROM_SEC_USER_ID(m_Sec_User.UserId);
+
+            foreach (int SEC_ROLE_ID in m_SEC_ROLE_IDS_From_Undo_Roles)
+            {
+                m_WorkerDB.TA_SEC_USER_ROLE.InsertNewRelationFromUser(SEC_ROLE_ID, m_Sec_User.UserId);
+            }
         }
 
         private void dataGridView_Roles_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -100,7 +117,7 @@ namespace _SEC_USERS_GUI
                         }
                         if (m_State.GetType().ToString().Contains("Adding"))
                         {
-                            m_WorkerDB.TESTM(m_Sec_User.User_dts_SEC_USERS, m_Sec_User.UserId);
+                            m_WorkerDB.Fill_SEC_USER_ROLE_DataTable(m_Sec_User.User_dts_SEC_USERS, m_Sec_User.UserId);
                         }
                         else
                         {
@@ -129,7 +146,7 @@ namespace _SEC_USERS_GUI
                         }
                         if (m_State.GetType().ToString().Contains("Adding"))
                         {
-                            m_WorkerDB.TESTM(m_Sec_User.User_dts_SEC_USERS, m_Sec_User.UserId);
+                            m_WorkerDB.Fill_SEC_USER_ROLE_DataTable(m_Sec_User.User_dts_SEC_USERS, m_Sec_User.UserId);
                         }
                         else
                         {
@@ -145,7 +162,7 @@ namespace _SEC_USERS_GUI
                     m_WorkerDB.TA_SEC_USER_ROLE.DeleteRelationFromUser(SEC_USER_ID, SEC_ROLE_ID);
                     if (m_State.GetType().ToString().Contains("Adding"))
                     {
-                        m_WorkerDB.TESTM(m_Sec_User.User_dts_SEC_USERS, m_Sec_User.UserId);
+                        m_WorkerDB.Fill_SEC_USER_ROLE_DataTable(m_Sec_User.User_dts_SEC_USERS, m_Sec_User.UserId);
                     }
                     else
                     {
