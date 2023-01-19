@@ -199,43 +199,23 @@ namespace _SEC_USERS
             return dts_SEC_USERS;
         }
 
-        public Sec_User CreateSecUser()
+        public Sec_User CreateAddSecUser()
         {
             Sec_User user = new Sec_User(CreateDataSetAndFillData(OperationEnum.Add), SaveDataFromSecUser);
             user.SetWorkerDB(this);
             return user;
         }
 
-        public Sec_User CreateSecUser(int SecUserId)
+        public Sec_User CreateEditSecUser(int SecUserId)
         {
             Sec_User user = new Sec_User(CreateDataSetAndFillData(OperationEnum.Edit, SecUserId), SaveDataFromSecUser);
             user.SetWorkerDB(this);
             return user;
         }
 
-        public Sec_User CreateSecUser(int newUserId, int SecUserId)
+        public Sec_User CreateCopySecUser(int SecUserId)
         {
-            dtsSEC_USERS dts_SEC_USERS = new dtsSEC_USERS();
-
-            TA_CURRENT_SEC_USER.FillByUser(dts_SEC_USERS.SEC_USER, SecUserId);
-            TA_CURRENT_SEC_USER_ROLE.FillByUser(dts_SEC_USERS.SEC_USER_ROLE, SecUserId);
-
-            Sec_User user = new Sec_User(dts_SEC_USERS, newUserId);
-
-            try
-            {
-                TA_SEC_USER.InsertNewUser(user.UserId + 1, $"_{user.UserLogin}", user.UserFIO, user.BuiltIn, user.IsDisabled, user.NoCheck, user.TypeId);
-            }
-            catch (Exception)
-            {
-                TA_SEC_USER.DeleteUserFromId((int)TA_SEC_USER.GetUserIdFromUserLogin($"_{user.UserLogin}"));
-                user = new Sec_User(dts_SEC_USERS, newUserId);
-                TA_SEC_USER.InsertNewUser(user.UserId, $"_{user.UserLogin}", user.UserFIO, user.BuiltIn, user.IsDisabled, user.NoCheck, user.TypeId);
-            }
-
-            LoadData();
-
-            return user;
+            return null;
         }
 
         public void UpdateUserDataSet(dtsSEC_USERS userDataSet, int SecUserId)
