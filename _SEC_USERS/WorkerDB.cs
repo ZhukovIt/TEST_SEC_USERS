@@ -16,6 +16,7 @@ namespace _SEC_USERS
         private SEC_USERTableAdapter m_ta_SEC_USER;
         private SEC_ROLETableAdapter m_ta_SEC_ROLE;
         private SEC_USER_ROLETableAdapter m_ta_SEC_USER_ROLE;
+        private WORKERTableAdapter m_ta_WORKER;
         private SEC_USERTableAdapter m_ta_CURRENT_SEC_USER;
         private SEC_USER_ROLETableAdapter m_ta_CURRENT_SEC_USER_ROLE;
         private SEC_USER_TYPETableAdapter m_ta_SEC_USER_TYPE;
@@ -93,6 +94,19 @@ namespace _SEC_USERS
             }
         }
 
+        public WORKERTableAdapter TA_WORKER
+        {
+            get
+            {
+                if (m_ta_WORKER == null)
+                {
+                    m_ta_WORKER = new WORKERTableAdapter();
+                    m_ta_WORKER.Connection = ConnectionSingleton.getInstance();
+                }
+                return m_ta_WORKER;
+            }
+        }
+
         public SEC_USERTableAdapter TA_CURRENT_SEC_USER
         {
             get
@@ -130,20 +144,14 @@ namespace _SEC_USERS
             m_dtsSEC_USERS.SEC_USER.Clear();
             m_dtsSEC_USERS.SEC_USER_ROLE.Clear();
             m_dtsSEC_USERS.SEC_USER_TYPE.Clear();
+            m_dtsSEC_USERS.WORKER.Clear();
 
 
             TA_SEC_ROLE.Fill(m_dtsSEC_USERS.SEC_ROLE);
             TA_SEC_USER.Fill(m_dtsSEC_USERS.SEC_USER);
             TA_SEC_USER_ROLE.Fill(m_dtsSEC_USERS.SEC_USER_ROLE);
             TA_SEC_USER_TYPE.Fill(m_dtsSEC_USERS.SEC_USER_TYPE);
-        }
-
-        private int TryGetMaxIdAndIncrementHis()
-        {
-            int maxId = -1;
-            int? tempMaxId = TA_SEC_USER.GetMaxIdFromSEC_USER();
-            if (tempMaxId != null) maxId = ((int)tempMaxId) + 1;
-            return maxId;
+            TA_WORKER.Fill(m_dtsSEC_USERS.WORKER);
         }
 
         public void DeleteUsers(IEnumerable<int> idsUsers)
@@ -239,6 +247,11 @@ namespace _SEC_USERS
         public DataView Create_SEC_USER_TYPE_DataView()
         {
             return new DataView(m_dtsSEC_USERS.SEC_USER_TYPE);
+        }
+
+        public DataView Create_WORKER_DataView()
+        {
+            return new DataView(m_dtsSEC_USERS.WORKER);
         }
 
         public void CopyRelationsFrom_SEC_USER_ID(int OLD_SEC_USER_ID, int NEW_SEC_USER_ID)

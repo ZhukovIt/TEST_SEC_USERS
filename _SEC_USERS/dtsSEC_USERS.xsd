@@ -368,7 +368,7 @@ SELECT SEC_ROLE_ID, SEC_USER_ID FROM SEC_USER_ROLE WHERE (SEC_ROLE_ID = @SEC_ROL
               <Mapping SourceColumn="SEC_USER_ID" DataSetColumn="SEC_USER_ID" />
             </Mappings>
             <Sources>
-              <DbSource ConnectionRef="clinic10ConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="Clear_SEC_ROLE_ID_FROM_SEC_USER_ID" Modifier="Public" Name="Clear_SEC_ROLE_ID_FROM_SEC_USER_ID" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy3" UserSourceName="Clear_SEC_ROLE_ID_FROM_SEC_USER_ID">
+              <DbSource ConnectionRef="clinic10ConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="Clear_SEC_ROLE_ID_FROM_SEC_USER_ID" Modifier="Public" Name="Clear_SEC_ROLE_ID_FROM_SEC_USER_ID" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="Clear_SEC_ROLE_ID_FROM_SEC_USER_ID">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>DELETE SEC_USER_ROLE
@@ -379,7 +379,7 @@ WHERE [SEC_USER_ID] = @SEC_USER_ID;</CommandText>
                   </DbCommand>
                 </DeleteCommand>
               </DbSource>
-              <DbSource ConnectionRef="clinic10ConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="DeleteRelationFromUser" Modifier="Public" Name="DeleteRelationFromUser" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="DeleteRelationFromUser">
+              <DbSource ConnectionRef="clinic10ConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="DeleteRelationFromUser" Modifier="Public" Name="DeleteRelationFromUser" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="DeleteRelationFromUser">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>DELETE SEC_USER_ROLE
@@ -427,7 +427,7 @@ WHERE SEC_USER_ID = @SEC_USER_ID;</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="clinic10ConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InsertNewRelationFromUser" Modifier="Public" Name="InsertNewRelationFromUser" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="InsertNewRelationFromUser">
+              <DbSource ConnectionRef="clinic10ConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InsertNewRelationFromUser" Modifier="Public" Name="InsertNewRelationFromUser" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="InsertNewRelationFromUser">
                 <InsertCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>INSERT INTO SEC_USER_ROLE (SEC_ROLE_ID, SEC_USER_ID)
@@ -439,7 +439,7 @@ VALUES (@SEC_ROLE_ID, @SEC_USER_ID);</CommandText>
                   </DbCommand>
                 </InsertCommand>
               </DbSource>
-              <DbSource ConnectionRef="clinic10ConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateRelationFromUser" Modifier="Public" Name="UpdateRelationFromUser" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="UpdateRelationFromUser">
+              <DbSource ConnectionRef="clinic10ConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateRelationFromUser" Modifier="Public" Name="UpdateRelationFromUser" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy3" UserSourceName="UpdateRelationFromUser">
                 <UpdateCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>UPDATE SEC_USER_ROLE
@@ -527,6 +527,42 @@ WHERE [SEC_USER_TYPE_ID] = @SEC_USER_TYPE_ID;</CommandText>
                 </SelectCommand>
               </DbSource>
             </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="WORKERTableAdapter" GeneratorDataComponentClassName="WORKERTableAdapter" Name="WORKER" UserDataComponentName="WORKERTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="clinic10ConnectionString (Settings)" DbObjectName="clinic10.dbo.WORKER" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM [WORKER] WHERE (([WORK_ID] = @Original_WORK_ID))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_WORK_ID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="WORK_ID" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        WORK_ID, WORK_SURNAME + ' ' + WORK_NAME + ' ' + WORK_PATRONIMIC AS WORK_FULL_NAME
+FROM            WORKER</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE [WORKER] SET [WORK_ID] = @WORK_ID WHERE (([WORK_ID] = @Original_WORK_ID));
+SELECT WORK_ID, WORK_SURNAME + ' ' + WORK_NAME + ' ' + WORK_PATRONIMIC AS WORK_FULL_NAME FROM WORKER WHERE (WORK_ID = @WORK_ID)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@WORK_ID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="WORK_ID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_WORK_ID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="WORK_ID" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="WORK_ID" DataSetColumn="WORK_ID" />
+              <Mapping SourceColumn="WORK_FULL_NAME" DataSetColumn="WORK_FULL_NAME" />
+            </Mappings>
+            <Sources />
           </TableAdapter>
         </Tables>
         <Sources />
@@ -641,6 +677,20 @@ WHERE [SEC_USER_TYPE_ID] = @SEC_USER_TYPE_ID;</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="WORKER" msprop:Generator_TableClassName="WORKERDataTable" msprop:Generator_TableVarName="tableWORKER" msprop:Generator_TablePropName="WORKER" msprop:Generator_RowDeletingName="WORKERRowDeleting" msprop:Generator_RowChangingName="WORKERRowChanging" msprop:Generator_RowEvHandlerName="WORKERRowChangeEventHandler" msprop:Generator_RowDeletedName="WORKERRowDeleted" msprop:Generator_UserTableName="WORKER" msprop:Generator_RowChangedName="WORKERRowChanged" msprop:Generator_RowEvArgName="WORKERRowChangeEvent" msprop:Generator_RowClassName="WORKERRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="WORK_ID" msprop:Generator_ColumnVarNameInTable="columnWORK_ID" msprop:Generator_ColumnPropNameInRow="WORK_ID" msprop:Generator_ColumnPropNameInTable="WORK_IDColumn" msprop:Generator_UserColumnName="WORK_ID" type="xs:int" />
+              <xs:element name="WORK_FULL_NAME" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnWORK_FULL_NAME" msprop:Generator_ColumnPropNameInRow="WORK_FULL_NAME" msprop:Generator_ColumnPropNameInTable="WORK_FULL_NAMEColumn" msprop:Generator_UserColumnName="WORK_FULL_NAME" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="122" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
     <xs:unique name="Constraint1" msdata:PrimaryKey="true">
@@ -660,12 +710,17 @@ WHERE [SEC_USER_TYPE_ID] = @SEC_USER_TYPE_ID;</CommandText>
       <xs:selector xpath=".//mstns:SEC_USER_TYPE" />
       <xs:field xpath="mstns:SEC_USER_TYPE_ID" />
     </xs:unique>
+    <xs:unique name="WORKER_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:WORKER" />
+      <xs:field xpath="mstns:WORK_ID" />
+    </xs:unique>
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
-      <msdata:Relationship name="FK_SEC_USER_SEC_USER_TYPE" msdata:parent="SEC_USER_TYPE" msdata:child="SEC_USER" msdata:parentkey="SEC_USER_TYPE_ID" msdata:childkey="SEC_USER_TYPE_ID" msprop:Generator_UserChildTable="SEC_USER" msprop:Generator_ChildPropName="GetSEC_USERRows" msprop:Generator_UserRelationName="FK_SEC_USER_SEC_USER_TYPE" msprop:Generator_RelationVarName="relationFK_SEC_USER_SEC_USER_TYPE" msprop:Generator_UserParentTable="SEC_USER_TYPE" msprop:Generator_ParentPropName="SEC_USER_TYPERow" />
-      <msdata:Relationship name="FK_SEC_USER_SEC_USER__SEC_ROLE" msdata:parent="SEC_ROLE" msdata:child="SEC_USER_ROLE" msdata:parentkey="SEC_ROLE_ID" msdata:childkey="SEC_ROLE_ID" msprop:Generator_UserChildTable="SEC_USER_ROLE" msprop:Generator_ChildPropName="GetSEC_USER_ROLERows" msprop:Generator_UserRelationName="FK_SEC_USER_SEC_USER__SEC_ROLE" msprop:Generator_ParentPropName="SEC_ROLERow" msprop:Generator_RelationVarName="relationFK_SEC_USER_SEC_USER__SEC_ROLE" msprop:Generator_UserParentTable="SEC_ROLE" />
-      <msdata:Relationship name="FK_SEC_USER_SEC_USER__SEC_USER" msdata:parent="SEC_USER" msdata:child="SEC_USER_ROLE" msdata:parentkey="SEC_USER_ID" msdata:childkey="SEC_USER_ID" msprop:Generator_UserChildTable="SEC_USER_ROLE" msprop:Generator_ChildPropName="GetSEC_USER_ROLERows" msprop:Generator_UserRelationName="FK_SEC_USER_SEC_USER__SEC_USER" msprop:Generator_ParentPropName="SEC_USERRow" msprop:Generator_RelationVarName="relationFK_SEC_USER_SEC_USER__SEC_USER" msprop:Generator_UserParentTable="SEC_USER" />
+      <msdata:Relationship name="FK_SEC_USER_SEC_USER_TYPE" msdata:parent="SEC_USER_TYPE" msdata:child="SEC_USER" msdata:parentkey="SEC_USER_TYPE_ID" msdata:childkey="SEC_USER_TYPE_ID" msprop:Generator_UserChildTable="SEC_USER" msprop:Generator_ChildPropName="GetSEC_USERRows" msprop:Generator_UserRelationName="FK_SEC_USER_SEC_USER_TYPE" msprop:Generator_ParentPropName="SEC_USER_TYPERow" msprop:Generator_RelationVarName="relationFK_SEC_USER_SEC_USER_TYPE" msprop:Generator_UserParentTable="SEC_USER_TYPE" />
+      <msdata:Relationship name="FK_SEC_USER_SEC_USER__SEC_ROLE" msdata:parent="SEC_ROLE" msdata:child="SEC_USER_ROLE" msdata:parentkey="SEC_ROLE_ID" msdata:childkey="SEC_ROLE_ID" msprop:Generator_UserChildTable="SEC_USER_ROLE" msprop:Generator_ChildPropName="GetSEC_USER_ROLERows" msprop:Generator_UserRelationName="FK_SEC_USER_SEC_USER__SEC_ROLE" msprop:Generator_RelationVarName="relationFK_SEC_USER_SEC_USER__SEC_ROLE" msprop:Generator_UserParentTable="SEC_ROLE" msprop:Generator_ParentPropName="SEC_ROLERow" />
+      <msdata:Relationship name="FK_SEC_USER_SEC_USER__SEC_USER" msdata:parent="SEC_USER" msdata:child="SEC_USER_ROLE" msdata:parentkey="SEC_USER_ID" msdata:childkey="SEC_USER_ID" msprop:Generator_UserChildTable="SEC_USER_ROLE" msprop:Generator_ChildPropName="GetSEC_USER_ROLERows" msprop:Generator_UserRelationName="FK_SEC_USER_SEC_USER__SEC_USER" msprop:Generator_RelationVarName="relationFK_SEC_USER_SEC_USER__SEC_USER" msprop:Generator_UserParentTable="SEC_USER" msprop:Generator_ParentPropName="SEC_USERRow" />
+      <msdata:Relationship name="FK_SEC_USER_WORK_ID1_WORKER" msdata:parent="WORKER" msdata:child="SEC_USER" msdata:parentkey="WORK_ID" msdata:childkey="WORK_ID" msprop:Generator_UserChildTable="SEC_USER" msprop:Generator_ChildPropName="GetSEC_USERRows" msprop:Generator_UserRelationName="FK_SEC_USER_WORK_ID1_WORKER" msprop:Generator_RelationVarName="relationFK_SEC_USER_WORK_ID1_WORKER" msprop:Generator_UserParentTable="WORKER" msprop:Generator_ParentPropName="WORKERRow" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>

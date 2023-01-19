@@ -37,6 +37,7 @@ namespace _SEC_USERS_GUI
             this.bs_SEC_ROLE = new System.Windows.Forms.BindingSource(this.components);
             this.bs_SEC_USER_TYPE = new System.Windows.Forms.BindingSource(this.components);
             this.bs_SEC_USER_FROM_SEC_ROLES = new System.Windows.Forms.BindingSource(this.components);
+            this.bs_WORKER = new System.Windows.Forms.BindingSource(this.components);
             this.TLP_UserInfoContainer = new System.Windows.Forms.TableLayoutPanel();
             this.checkBoxIsDisabled = new System.Windows.Forms.CheckBox();
             this.lbl_UserLogin = new System.Windows.Forms.Label();
@@ -47,6 +48,8 @@ namespace _SEC_USERS_GUI
             this.checkBoxNoCheck = new System.Windows.Forms.CheckBox();
             this.comboBox_TypeUser = new System.Windows.Forms.ComboBox();
             this.checkBoxBuiltIn = new System.Windows.Forms.CheckBox();
+            this.lbl_WorkUser = new System.Windows.Forms.Label();
+            this.comboBox_WORKER_FULL_NAME = new System.Windows.Forms.ComboBox();
             this.TLP_Buttons = new System.Windows.Forms.TableLayoutPanel();
             this.btn_SaveExecute = new System.Windows.Forms.Button();
             this.btn_CancelExecute = new System.Windows.Forms.Button();
@@ -61,6 +64,7 @@ namespace _SEC_USERS_GUI
             ((System.ComponentModel.ISupportInitialize)(this.bs_SEC_ROLE)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bs_SEC_USER_TYPE)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bs_SEC_USER_FROM_SEC_ROLES)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bs_WORKER)).BeginInit();
             this.TLP_UserInfoContainer.SuspendLayout();
             this.TLP_Buttons.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Roles)).BeginInit();
@@ -91,32 +95,45 @@ namespace _SEC_USERS_GUI
             this.bs_SEC_USER_FROM_SEC_ROLES.DataMember = "FK_SEC_USER_SEC_USER__SEC_USER";
             this.bs_SEC_USER_FROM_SEC_ROLES.DataSource = this.bs_SEC_USER;
             // 
+            // bs_WORKER
+            // 
+            this.bs_WORKER.DataMember = "WORKER";
+            this.bs_WORKER.DataSource = this.dts_SEC_USERS;
+            // 
             // TLP_UserInfoContainer
             // 
             this.TLP_UserInfoContainer.ColumnCount = 2;
             this.TLP_UserInfoContainer.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33F));
             this.TLP_UserInfoContainer.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 67F));
-            this.TLP_UserInfoContainer.Controls.Add(this.checkBoxIsDisabled, 0, 4);
+            this.TLP_UserInfoContainer.Controls.Add(this.checkBoxIsDisabled, 0, 5);
             this.TLP_UserInfoContainer.Controls.Add(this.lbl_UserLogin, 0, 1);
             this.TLP_UserInfoContainer.Controls.Add(this.lbl_userTypeId, 0, 2);
             this.TLP_UserInfoContainer.Controls.Add(this.lbl_UserFIO, 0, 0);
             this.TLP_UserInfoContainer.Controls.Add(this.textBox_FIO, 1, 0);
             this.TLP_UserInfoContainer.Controls.Add(this.textBox_Login, 1, 1);
-            this.TLP_UserInfoContainer.Controls.Add(this.checkBoxNoCheck, 0, 5);
+            this.TLP_UserInfoContainer.Controls.Add(this.checkBoxNoCheck, 0, 6);
             this.TLP_UserInfoContainer.Controls.Add(this.comboBox_TypeUser, 1, 2);
-            this.TLP_UserInfoContainer.Controls.Add(this.checkBoxBuiltIn, 0, 3);
+            this.TLP_UserInfoContainer.Controls.Add(this.checkBoxBuiltIn, 0, 4);
+            this.TLP_UserInfoContainer.Controls.Add(this.lbl_WorkUser, 0, 3);
+            this.TLP_UserInfoContainer.Controls.Add(this.comboBox_WORKER_FULL_NAME, 1, 3);
             this.TLP_UserInfoContainer.Dock = System.Windows.Forms.DockStyle.Top;
             this.TLP_UserInfoContainer.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
             this.TLP_UserInfoContainer.Location = new System.Drawing.Point(0, 0);
             this.TLP_UserInfoContainer.Name = "TLP_UserInfoContainer";
-            this.TLP_UserInfoContainer.RowCount = 6;
-            this.TLP_UserInfoContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.669F));
-            this.TLP_UserInfoContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.669F));
-            this.TLP_UserInfoContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.669F));
-            this.TLP_UserInfoContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.662F));
-            this.TLP_UserInfoContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.662F));
-            this.TLP_UserInfoContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.669F));
-            this.TLP_UserInfoContainer.Size = new System.Drawing.Size(436, 320);
+            this.TLP_UserInfoContainer.RowCount = 12;
+            this.TLP_UserInfoContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.333332F));
+            this.TLP_UserInfoContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.333332F));
+            this.TLP_UserInfoContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.333332F));
+            this.TLP_UserInfoContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.333332F));
+            this.TLP_UserInfoContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.333332F));
+            this.TLP_UserInfoContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.333332F));
+            this.TLP_UserInfoContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.333332F));
+            this.TLP_UserInfoContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.333332F));
+            this.TLP_UserInfoContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.333332F));
+            this.TLP_UserInfoContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.333332F));
+            this.TLP_UserInfoContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.333332F));
+            this.TLP_UserInfoContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.333332F));
+            this.TLP_UserInfoContainer.Size = new System.Drawing.Size(436, 437);
             this.TLP_UserInfoContainer.TabIndex = 0;
             // 
             // checkBoxIsDisabled
@@ -125,7 +142,7 @@ namespace _SEC_USERS_GUI
             this.checkBoxIsDisabled.AutoSize = true;
             this.TLP_UserInfoContainer.SetColumnSpan(this.checkBoxIsDisabled, 2);
             this.checkBoxIsDisabled.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.bs_SEC_USER, "SEC_USER_DISABLED", true));
-            this.checkBoxIsDisabled.Location = new System.Drawing.Point(131, 230);
+            this.checkBoxIsDisabled.Location = new System.Drawing.Point(131, 189);
             this.checkBoxIsDisabled.Name = "checkBoxIsDisabled";
             this.checkBoxIsDisabled.Size = new System.Drawing.Size(174, 17);
             this.checkBoxIsDisabled.TabIndex = 3;
@@ -136,7 +153,7 @@ namespace _SEC_USERS_GUI
             // 
             this.lbl_UserLogin.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lbl_UserLogin.AutoSize = true;
-            this.lbl_UserLogin.Location = new System.Drawing.Point(15, 73);
+            this.lbl_UserLogin.Location = new System.Drawing.Point(15, 47);
             this.lbl_UserLogin.Name = "lbl_UserLogin";
             this.lbl_UserLogin.Size = new System.Drawing.Size(112, 13);
             this.lbl_UserLogin.TabIndex = 1;
@@ -146,7 +163,7 @@ namespace _SEC_USERS_GUI
             // 
             this.lbl_userTypeId.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lbl_userTypeId.AutoSize = true;
-            this.lbl_userTypeId.Location = new System.Drawing.Point(21, 126);
+            this.lbl_userTypeId.Location = new System.Drawing.Point(21, 83);
             this.lbl_userTypeId.Name = "lbl_userTypeId";
             this.lbl_userTypeId.Size = new System.Drawing.Size(100, 13);
             this.lbl_userTypeId.TabIndex = 5;
@@ -157,7 +174,7 @@ namespace _SEC_USERS_GUI
             this.lbl_UserFIO.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lbl_UserFIO.AutoSize = true;
             this.lbl_UserFIO.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lbl_UserFIO.Location = new System.Drawing.Point(3, 20);
+            this.lbl_UserFIO.Location = new System.Drawing.Point(3, 11);
             this.lbl_UserFIO.Name = "lbl_UserFIO";
             this.lbl_UserFIO.Size = new System.Drawing.Size(137, 13);
             this.lbl_UserFIO.TabIndex = 0;
@@ -167,7 +184,7 @@ namespace _SEC_USERS_GUI
             // 
             this.textBox_FIO.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.textBox_FIO.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bs_SEC_USER, "SEC_USER_FIO", true));
-            this.textBox_FIO.Location = new System.Drawing.Point(176, 16);
+            this.textBox_FIO.Location = new System.Drawing.Point(176, 8);
             this.textBox_FIO.Name = "textBox_FIO";
             this.textBox_FIO.Size = new System.Drawing.Size(226, 20);
             this.textBox_FIO.TabIndex = 6;
@@ -176,7 +193,7 @@ namespace _SEC_USERS_GUI
             // 
             this.textBox_Login.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.textBox_Login.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bs_SEC_USER, "SEC_USER_LOGIN", true));
-            this.textBox_Login.Location = new System.Drawing.Point(176, 69);
+            this.textBox_Login.Location = new System.Drawing.Point(176, 44);
             this.textBox_Login.Name = "textBox_Login";
             this.textBox_Login.Size = new System.Drawing.Size(226, 20);
             this.textBox_Login.TabIndex = 7;
@@ -187,7 +204,7 @@ namespace _SEC_USERS_GUI
             this.checkBoxNoCheck.AutoSize = true;
             this.TLP_UserInfoContainer.SetColumnSpan(this.checkBoxNoCheck, 2);
             this.checkBoxNoCheck.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.bs_SEC_USER, "SEC_USER_NO_CHECK", true));
-            this.checkBoxNoCheck.Location = new System.Drawing.Point(109, 284);
+            this.checkBoxNoCheck.Location = new System.Drawing.Point(109, 225);
             this.checkBoxNoCheck.Name = "checkBoxNoCheck";
             this.checkBoxNoCheck.Size = new System.Drawing.Size(218, 17);
             this.checkBoxNoCheck.TabIndex = 10;
@@ -202,7 +219,7 @@ namespace _SEC_USERS_GUI
             this.comboBox_TypeUser.DisplayMember = "SEC_USER_TYPE_NAME";
             this.comboBox_TypeUser.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox_TypeUser.FormattingEnabled = true;
-            this.comboBox_TypeUser.Location = new System.Drawing.Point(176, 122);
+            this.comboBox_TypeUser.Location = new System.Drawing.Point(176, 79);
             this.comboBox_TypeUser.Name = "comboBox_TypeUser";
             this.comboBox_TypeUser.Size = new System.Drawing.Size(226, 21);
             this.comboBox_TypeUser.TabIndex = 11;
@@ -214,12 +231,36 @@ namespace _SEC_USERS_GUI
             this.checkBoxBuiltIn.AutoSize = true;
             this.TLP_UserInfoContainer.SetColumnSpan(this.checkBoxBuiltIn, 2);
             this.checkBoxBuiltIn.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.bs_SEC_USER, "SEC_USER_BUILTIN", true));
-            this.checkBoxBuiltIn.Location = new System.Drawing.Point(96, 177);
+            this.checkBoxBuiltIn.Location = new System.Drawing.Point(96, 153);
             this.checkBoxBuiltIn.Name = "checkBoxBuiltIn";
             this.checkBoxBuiltIn.Size = new System.Drawing.Size(244, 17);
             this.checkBoxBuiltIn.TabIndex = 8;
             this.checkBoxBuiltIn.Text = "Пользователь является администратором";
             this.checkBoxBuiltIn.UseVisualStyleBackColor = true;
+            // 
+            // lbl_WorkUser
+            // 
+            this.lbl_WorkUser.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lbl_WorkUser.AutoSize = true;
+            this.lbl_WorkUser.Location = new System.Drawing.Point(41, 119);
+            this.lbl_WorkUser.Name = "lbl_WorkUser";
+            this.lbl_WorkUser.Size = new System.Drawing.Size(60, 13);
+            this.lbl_WorkUser.TabIndex = 5;
+            this.lbl_WorkUser.Text = "Сотрудник";
+            // 
+            // comboBox_WORKER_FULL_NAME
+            // 
+            this.comboBox_WORKER_FULL_NAME.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.comboBox_WORKER_FULL_NAME.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.bs_WORKER, "WORK_ID", true));
+            this.comboBox_WORKER_FULL_NAME.DataSource = this.bs_WORKER;
+            this.comboBox_WORKER_FULL_NAME.DisplayMember = "WORK_FULL_NAME";
+            this.comboBox_WORKER_FULL_NAME.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox_WORKER_FULL_NAME.FormattingEnabled = true;
+            this.comboBox_WORKER_FULL_NAME.Location = new System.Drawing.Point(176, 115);
+            this.comboBox_WORKER_FULL_NAME.Name = "comboBox_WORKER_FULL_NAME";
+            this.comboBox_WORKER_FULL_NAME.Size = new System.Drawing.Size(226, 21);
+            this.comboBox_WORKER_FULL_NAME.TabIndex = 11;
+            this.comboBox_WORKER_FULL_NAME.ValueMember = "WORK_ID";
             // 
             // TLP_Buttons
             // 
@@ -229,7 +270,7 @@ namespace _SEC_USERS_GUI
             this.TLP_Buttons.Controls.Add(this.btn_SaveExecute, 0, 0);
             this.TLP_Buttons.Controls.Add(this.btn_CancelExecute, 1, 0);
             this.TLP_Buttons.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.TLP_Buttons.Location = new System.Drawing.Point(0, 509);
+            this.TLP_Buttons.Location = new System.Drawing.Point(0, 626);
             this.TLP_Buttons.Name = "TLP_Buttons";
             this.TLP_Buttons.RowCount = 1;
             this.TLP_Buttons.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -273,8 +314,8 @@ namespace _SEC_USERS_GUI
             this.sECROLEIDDataGridViewTextBoxColumn,
             this.sECUSERIDDataGridViewTextBoxColumn});
             this.dataGridView_Roles.DataSource = this.bs_SEC_USER_FROM_SEC_ROLES;
-            this.dataGridView_Roles.Dock = System.Windows.Forms.DockStyle.Top;
-            this.dataGridView_Roles.Location = new System.Drawing.Point(0, 320);
+            this.dataGridView_Roles.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.dataGridView_Roles.Location = new System.Drawing.Point(0, 443);
             this.dataGridView_Roles.Name = "dataGridView_Roles";
             this.dataGridView_Roles.Size = new System.Drawing.Size(436, 183);
             this.dataGridView_Roles.TabIndex = 3;
@@ -329,7 +370,7 @@ namespace _SEC_USERS_GUI
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(436, 566);
+            this.ClientSize = new System.Drawing.Size(436, 683);
             this.Controls.Add(this.dataGridView_Roles);
             this.Controls.Add(this.TLP_Buttons);
             this.Controls.Add(this.TLP_UserInfoContainer);
@@ -342,6 +383,7 @@ namespace _SEC_USERS_GUI
             ((System.ComponentModel.ISupportInitialize)(this.bs_SEC_ROLE)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bs_SEC_USER_TYPE)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bs_SEC_USER_FROM_SEC_ROLES)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bs_WORKER)).EndInit();
             this.TLP_UserInfoContainer.ResumeLayout(false);
             this.TLP_UserInfoContainer.PerformLayout();
             this.TLP_Buttons.ResumeLayout(false);
@@ -356,6 +398,7 @@ namespace _SEC_USERS_GUI
         private System.Windows.Forms.BindingSource bs_SEC_ROLE;
         private System.Windows.Forms.BindingSource bs_SEC_USER_TYPE;
         private System.Windows.Forms.BindingSource bs_SEC_USER_FROM_SEC_ROLES;
+        private System.Windows.Forms.BindingSource bs_WORKER;
         private System.Windows.Forms.TableLayoutPanel TLP_UserInfoContainer;
         private System.Windows.Forms.TableLayoutPanel TLP_Buttons;
         private System.Windows.Forms.Label lbl_UserLogin;
@@ -376,6 +419,8 @@ namespace _SEC_USERS_GUI
         private System.Windows.Forms.DataGridViewButtonColumn ButtonInDataGrid_RemoveRole;
         private System.Windows.Forms.DataGridViewTextBoxColumn sECROLEIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn sECUSERIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Label lbl_WorkUser;
+        private System.Windows.Forms.ComboBox comboBox_WORKER_FULL_NAME;
 
 
         // Здесь добавлены свойства для доступа к элементам GUI

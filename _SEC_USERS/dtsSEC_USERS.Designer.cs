@@ -32,11 +32,15 @@ namespace _SEC_USERS {
         
         private SEC_USER_TYPEDataTable tableSEC_USER_TYPE;
         
+        private WORKERDataTable tableWORKER;
+        
         private global::System.Data.DataRelation relationFK_SEC_USER_SEC_USER_TYPE;
         
         private global::System.Data.DataRelation relationFK_SEC_USER_SEC_USER__SEC_ROLE;
         
         private global::System.Data.DataRelation relationFK_SEC_USER_SEC_USER__SEC_USER;
+        
+        private global::System.Data.DataRelation relationFK_SEC_USER_WORK_ID1_WORKER;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -77,6 +81,9 @@ namespace _SEC_USERS {
                 }
                 if ((ds.Tables["SEC_USER_TYPE"] != null)) {
                     base.Tables.Add(new SEC_USER_TYPEDataTable(ds.Tables["SEC_USER_TYPE"]));
+                }
+                if ((ds.Tables["WORKER"] != null)) {
+                    base.Tables.Add(new WORKERDataTable(ds.Tables["WORKER"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -133,6 +140,16 @@ namespace _SEC_USERS {
         public SEC_USER_TYPEDataTable SEC_USER_TYPE {
             get {
                 return this.tableSEC_USER_TYPE;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public WORKERDataTable WORKER {
+            get {
+                return this.tableWORKER;
             }
         }
         
@@ -215,6 +232,9 @@ namespace _SEC_USERS {
                 if ((ds.Tables["SEC_USER_TYPE"] != null)) {
                     base.Tables.Add(new SEC_USER_TYPEDataTable(ds.Tables["SEC_USER_TYPE"]));
                 }
+                if ((ds.Tables["WORKER"] != null)) {
+                    base.Tables.Add(new WORKERDataTable(ds.Tables["WORKER"]));
+                }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
                 this.Namespace = ds.Namespace;
@@ -272,9 +292,16 @@ namespace _SEC_USERS {
                     this.tableSEC_USER_TYPE.InitVars();
                 }
             }
+            this.tableWORKER = ((WORKERDataTable)(base.Tables["WORKER"]));
+            if ((initTable == true)) {
+                if ((this.tableWORKER != null)) {
+                    this.tableWORKER.InitVars();
+                }
+            }
             this.relationFK_SEC_USER_SEC_USER_TYPE = this.Relations["FK_SEC_USER_SEC_USER_TYPE"];
             this.relationFK_SEC_USER_SEC_USER__SEC_ROLE = this.Relations["FK_SEC_USER_SEC_USER__SEC_ROLE"];
             this.relationFK_SEC_USER_SEC_USER__SEC_USER = this.Relations["FK_SEC_USER_SEC_USER__SEC_USER"];
+            this.relationFK_SEC_USER_WORK_ID1_WORKER = this.Relations["FK_SEC_USER_WORK_ID1_WORKER"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -293,6 +320,8 @@ namespace _SEC_USERS {
             base.Tables.Add(this.tableSEC_USER_ROLE);
             this.tableSEC_USER_TYPE = new SEC_USER_TYPEDataTable();
             base.Tables.Add(this.tableSEC_USER_TYPE);
+            this.tableWORKER = new WORKERDataTable();
+            base.Tables.Add(this.tableWORKER);
             this.relationFK_SEC_USER_SEC_USER_TYPE = new global::System.Data.DataRelation("FK_SEC_USER_SEC_USER_TYPE", new global::System.Data.DataColumn[] {
                         this.tableSEC_USER_TYPE.SEC_USER_TYPE_IDColumn}, new global::System.Data.DataColumn[] {
                         this.tableSEC_USER.SEC_USER_TYPE_IDColumn}, false);
@@ -305,6 +334,10 @@ namespace _SEC_USERS {
                         this.tableSEC_USER.SEC_USER_IDColumn}, new global::System.Data.DataColumn[] {
                         this.tableSEC_USER_ROLE.SEC_USER_IDColumn}, false);
             this.Relations.Add(this.relationFK_SEC_USER_SEC_USER__SEC_USER);
+            this.relationFK_SEC_USER_WORK_ID1_WORKER = new global::System.Data.DataRelation("FK_SEC_USER_WORK_ID1_WORKER", new global::System.Data.DataColumn[] {
+                        this.tableWORKER.WORK_IDColumn}, new global::System.Data.DataColumn[] {
+                        this.tableSEC_USER.WORK_IDColumn}, false);
+            this.Relations.Add(this.relationFK_SEC_USER_WORK_ID1_WORKER);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -328,6 +361,12 @@ namespace _SEC_USERS {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private bool ShouldSerializeSEC_USER_TYPE() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private bool ShouldSerializeWORKER() {
             return false;
         }
         
@@ -397,6 +436,9 @@ namespace _SEC_USERS {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public delegate void SEC_USER_TYPERowChangeEventHandler(object sender, SEC_USER_TYPERowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public delegate void WORKERRowChangeEventHandler(object sender, WORKERRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -904,7 +946,7 @@ namespace _SEC_USERS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public SEC_USERRow AddSEC_USERRow(int SEC_USER_ID, string SEC_USER_LOGIN, string SEC_USER_PASSWORD, string SEC_USER_FIO, bool SEC_USER_BUILTIN, bool SEC_USER_DISABLED, bool SEC_USER_NO_CHECK, int WORK_ID, string SEC_USER_KKM_PASSWORD, string SEC_USER_PROCURATORY, string SEC_USER_KKM_LOGIN, string SEC_USER_KKM_INN, SEC_USER_TYPERow parentSEC_USER_TYPERowByFK_SEC_USER_SEC_USER_TYPE, string SEC_ROLES) {
+            public SEC_USERRow AddSEC_USERRow(int SEC_USER_ID, string SEC_USER_LOGIN, string SEC_USER_PASSWORD, string SEC_USER_FIO, bool SEC_USER_BUILTIN, bool SEC_USER_DISABLED, bool SEC_USER_NO_CHECK, WORKERRow parentWORKERRowByFK_SEC_USER_WORK_ID1_WORKER, string SEC_USER_KKM_PASSWORD, string SEC_USER_PROCURATORY, string SEC_USER_KKM_LOGIN, string SEC_USER_KKM_INN, SEC_USER_TYPERow parentSEC_USER_TYPERowByFK_SEC_USER_SEC_USER_TYPE, string SEC_ROLES) {
                 SEC_USERRow rowSEC_USERRow = ((SEC_USERRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         SEC_USER_ID,
@@ -914,13 +956,16 @@ namespace _SEC_USERS {
                         SEC_USER_BUILTIN,
                         SEC_USER_DISABLED,
                         SEC_USER_NO_CHECK,
-                        WORK_ID,
+                        null,
                         SEC_USER_KKM_PASSWORD,
                         SEC_USER_PROCURATORY,
                         SEC_USER_KKM_LOGIN,
                         SEC_USER_KKM_INN,
                         null,
                         SEC_ROLES};
+                if ((parentWORKERRowByFK_SEC_USER_WORK_ID1_WORKER != null)) {
+                    columnValuesArray[7] = parentWORKERRowByFK_SEC_USER_WORK_ID1_WORKER[0];
+                }
                 if ((parentSEC_USER_TYPERowByFK_SEC_USER_SEC_USER_TYPE != null)) {
                     columnValuesArray[12] = parentSEC_USER_TYPERowByFK_SEC_USER_SEC_USER_TYPE[0];
                 }
@@ -1698,6 +1743,280 @@ namespace _SEC_USERS {
         }
         
         /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class WORKERDataTable : global::System.Data.TypedTableBase<WORKERRow> {
+            
+            private global::System.Data.DataColumn columnWORK_ID;
+            
+            private global::System.Data.DataColumn columnWORK_FULL_NAME;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public WORKERDataTable() {
+                this.TableName = "WORKER";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            internal WORKERDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected WORKERDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn WORK_IDColumn {
+                get {
+                    return this.columnWORK_ID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn WORK_FULL_NAMEColumn {
+                get {
+                    return this.columnWORK_FULL_NAME;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public WORKERRow this[int index] {
+                get {
+                    return ((WORKERRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event WORKERRowChangeEventHandler WORKERRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event WORKERRowChangeEventHandler WORKERRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event WORKERRowChangeEventHandler WORKERRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event WORKERRowChangeEventHandler WORKERRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void AddWORKERRow(WORKERRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public WORKERRow AddWORKERRow(int WORK_ID, string WORK_FULL_NAME) {
+                WORKERRow rowWORKERRow = ((WORKERRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        WORK_ID,
+                        WORK_FULL_NAME};
+                rowWORKERRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowWORKERRow);
+                return rowWORKERRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public WORKERRow FindByWORK_ID(int WORK_ID) {
+                return ((WORKERRow)(this.Rows.Find(new object[] {
+                            WORK_ID})));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                WORKERDataTable cln = ((WORKERDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new WORKERDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            internal void InitVars() {
+                this.columnWORK_ID = base.Columns["WORK_ID"];
+                this.columnWORK_FULL_NAME = base.Columns["WORK_FULL_NAME"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            private void InitClass() {
+                this.columnWORK_ID = new global::System.Data.DataColumn("WORK_ID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnWORK_ID);
+                this.columnWORK_FULL_NAME = new global::System.Data.DataColumn("WORK_FULL_NAME", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnWORK_FULL_NAME);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnWORK_ID}, true));
+                this.columnWORK_ID.AllowDBNull = false;
+                this.columnWORK_ID.Unique = true;
+                this.columnWORK_FULL_NAME.ReadOnly = true;
+                this.columnWORK_FULL_NAME.MaxLength = 122;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public WORKERRow NewWORKERRow() {
+                return ((WORKERRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new WORKERRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(WORKERRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.WORKERRowChanged != null)) {
+                    this.WORKERRowChanged(this, new WORKERRowChangeEvent(((WORKERRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.WORKERRowChanging != null)) {
+                    this.WORKERRowChanging(this, new WORKERRowChangeEvent(((WORKERRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.WORKERRowDeleted != null)) {
+                    this.WORKERRowDeleted(this, new WORKERRowChangeEvent(((WORKERRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.WORKERRowDeleting != null)) {
+                    this.WORKERRowDeleting(this, new WORKERRowChangeEvent(((WORKERRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void RemoveWORKERRow(WORKERRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                dtsSEC_USERS ds = new dtsSEC_USERS();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "WORKERDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
         public partial class SEC_ROLERow : global::System.Data.DataRow {
@@ -1982,6 +2301,17 @@ namespace _SEC_USERS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public WORKERRow WORKERRow {
+                get {
+                    return ((WORKERRow)(this.GetParentRow(this.Table.ParentRelations["FK_SEC_USER_WORK_ID1_WORKER"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_SEC_USER_WORK_ID1_WORKER"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsSEC_USER_PASSWORDNull() {
                 return this.IsNull(this.tableSEC_USER.SEC_USER_PASSWORDColumn);
             }
@@ -2208,6 +2538,71 @@ namespace _SEC_USERS {
         }
         
         /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class WORKERRow : global::System.Data.DataRow {
+            
+            private WORKERDataTable tableWORKER;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            internal WORKERRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableWORKER = ((WORKERDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int WORK_ID {
+                get {
+                    return ((int)(this[this.tableWORKER.WORK_IDColumn]));
+                }
+                set {
+                    this[this.tableWORKER.WORK_IDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string WORK_FULL_NAME {
+                get {
+                    try {
+                        return ((string)(this[this.tableWORKER.WORK_FULL_NAMEColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'WORK_FULL_NAME\' в таблице \'WORKER\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableWORKER.WORK_FULL_NAMEColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsWORK_FULL_NAMENull() {
+                return this.IsNull(this.tableWORKER.WORK_FULL_NAMEColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetWORK_FULL_NAMENull() {
+                this[this.tableWORKER.WORK_FULL_NAMEColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public SEC_USERRow[] GetSEC_USERRows() {
+                if ((this.Table.ChildRelations["FK_SEC_USER_WORK_ID1_WORKER"] == null)) {
+                    return new SEC_USERRow[0];
+                }
+                else {
+                    return ((SEC_USERRow[])(base.GetChildRows(this.Table.ChildRelations["FK_SEC_USER_WORK_ID1_WORKER"])));
+                }
+            }
+        }
+        
+        /// <summary>
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
@@ -2329,6 +2724,40 @@ namespace _SEC_USERS {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public SEC_USER_TYPERow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public class WORKERRowChangeEvent : global::System.EventArgs {
+            
+            private WORKERRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public WORKERRowChangeEvent(WORKERRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public WORKERRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -4387,6 +4816,217 @@ SELECT SEC_USER_TYPE_ID, SEC_USER_TYPE_NAME FROM SEC_USER_TYPE WHERE (SEC_USER_T
     }
     
     /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class WORKERTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
+        
+        private global::System.Data.SqlClient.SqlConnection _connection;
+        
+        private global::System.Data.SqlClient.SqlTransaction _transaction;
+        
+        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public WORKERTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        internal global::System.Data.SqlClient.SqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        internal global::System.Data.SqlClient.SqlTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "WORKER";
+            tableMapping.ColumnMappings.Add("WORK_ID", "WORK_ID");
+            tableMapping.ColumnMappings.Add("WORK_FULL_NAME", "WORK_FULL_NAME");
+            this._adapter.TableMappings.Add(tableMapping);
+            this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.DeleteCommand.Connection = this.Connection;
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM [WORKER] WHERE (([WORK_ID] = @Original_WORK_ID))";
+            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_WORK_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "WORK_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.UpdateCommand.Connection = this.Connection;
+            this._adapter.UpdateCommand.CommandText = "UPDATE [WORKER] SET [WORK_ID] = @WORK_ID WHERE (([WORK_ID] = @Original_WORK_ID));" +
+                "\r\nSELECT WORK_ID, WORK_SURNAME + \' \' + WORK_NAME + \' \' + WORK_PATRONIMIC AS WORK" +
+                "_FULL_NAME FROM WORKER WHERE (WORK_ID = @WORK_ID)";
+            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@WORK_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "WORK_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_WORK_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "WORK_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::System.Data.SqlClient.SqlConnection();
+            this._connection.ConnectionString = global::_SEC_USERS.Properties.Settings.Default.clinic10ConnectionString;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = "SELECT        WORK_ID, WORK_SURNAME + \' \' + WORK_NAME + \' \' + WORK_PATRONIMIC AS " +
+                "WORK_FULL_NAME\r\nFROM            WORKER";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(dtsSEC_USERS.WORKERDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual dtsSEC_USERS.WORKERDataTable GetData() {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            dtsSEC_USERS.WORKERDataTable dataTable = new dtsSEC_USERS.WORKERDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(dtsSEC_USERS.WORKERDataTable dataTable) {
+            return this.Adapter.Update(dataTable);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(dtsSEC_USERS dataSet) {
+            return this.Adapter.Update(dataSet, "WORKER");
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow dataRow) {
+            return this.Adapter.Update(new global::System.Data.DataRow[] {
+                        dataRow});
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow[] dataRows) {
+            return this.Adapter.Update(dataRows);
+        }
+    }
+    
+    /// <summary>
     ///TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
     ///</summary>
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -4405,6 +5045,8 @@ SELECT SEC_USER_TYPE_ID, SEC_USER_TYPE_NAME FROM SEC_USER_TYPE WHERE (SEC_USER_T
         private SEC_USER_ROLETableAdapter _sEC_USER_ROLETableAdapter;
         
         private SEC_USER_TYPETableAdapter _sEC_USER_TYPETableAdapter;
+        
+        private WORKERTableAdapter _wORKERTableAdapter;
         
         private bool _backupDataSetBeforeUpdate;
         
@@ -4479,6 +5121,20 @@ SELECT SEC_USER_TYPE_ID, SEC_USER_TYPE_NAME FROM SEC_USER_TYPE WHERE (SEC_USER_T
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
+            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
+            "a", "System.Drawing.Design.UITypeEditor")]
+        public WORKERTableAdapter WORKERTableAdapter {
+            get {
+                return this._wORKERTableAdapter;
+            }
+            set {
+                this._wORKERTableAdapter = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public bool BackupDataSetBeforeUpdate {
             get {
                 return this._backupDataSetBeforeUpdate;
@@ -4512,6 +5168,10 @@ SELECT SEC_USER_TYPE_ID, SEC_USER_TYPE_NAME FROM SEC_USER_TYPE WHERE (SEC_USER_T
                             && (this._sEC_USER_TYPETableAdapter.Connection != null))) {
                     return this._sEC_USER_TYPETableAdapter.Connection;
                 }
+                if (((this._wORKERTableAdapter != null) 
+                            && (this._wORKERTableAdapter.Connection != null))) {
+                    return this._wORKERTableAdapter.Connection;
+                }
                 return null;
             }
             set {
@@ -4537,6 +5197,9 @@ SELECT SEC_USER_TYPE_ID, SEC_USER_TYPE_NAME FROM SEC_USER_TYPE WHERE (SEC_USER_T
                 if ((this._sEC_USER_TYPETableAdapter != null)) {
                     count = (count + 1);
                 }
+                if ((this._wORKERTableAdapter != null)) {
+                    count = (count + 1);
+                }
                 return count;
             }
         }
@@ -4554,6 +5217,15 @@ SELECT SEC_USER_TYPE_ID, SEC_USER_TYPE_NAME FROM SEC_USER_TYPE WHERE (SEC_USER_T
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
                     result = (result + this._sEC_USER_TYPETableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._wORKERTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.WORKER.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._wORKERTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -4599,6 +5271,14 @@ SELECT SEC_USER_TYPE_ID, SEC_USER_TYPE_NAME FROM SEC_USER_TYPE WHERE (SEC_USER_T
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
                     result = (result + this._sEC_USER_TYPETableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._wORKERTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.WORKER.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._wORKERTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -4657,6 +5337,14 @@ SELECT SEC_USER_TYPE_ID, SEC_USER_TYPE_NAME FROM SEC_USER_TYPE WHERE (SEC_USER_T
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._sEC_ROLETableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._wORKERTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.WORKER.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._wORKERTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -4727,6 +5415,11 @@ SELECT SEC_USER_TYPE_ID, SEC_USER_TYPE_NAME FROM SEC_USER_TYPE WHERE (SEC_USER_T
                 throw new global::System.ArgumentException("Все адаптеры таблицы, управляемые диспетчером адаптера таблицы TableAdapterManage" +
                         "r, должны использовать одинаковую строку подключения.");
             }
+            if (((this._wORKERTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._wORKERTableAdapter.Connection) == false))) {
+                throw new global::System.ArgumentException("Все адаптеры таблицы, управляемые диспетчером адаптера таблицы TableAdapterManage" +
+                        "r, должны использовать одинаковую строку подключения.");
+            }
             global::System.Data.IDbConnection workConnection = this.Connection;
             if ((workConnection == null)) {
                 throw new global::System.ApplicationException("TableAdapterManager не содержит сведений о подключении. Укажите для каждого адапт" +
@@ -4793,6 +5486,15 @@ SELECT SEC_USER_TYPE_ID, SEC_USER_TYPE_NAME FROM SEC_USER_TYPE WHERE (SEC_USER_T
                     if (this._sEC_USER_TYPETableAdapter.Adapter.AcceptChangesDuringUpdate) {
                         this._sEC_USER_TYPETableAdapter.Adapter.AcceptChangesDuringUpdate = false;
                         adaptersWithAcceptChangesDuringUpdate.Add(this._sEC_USER_TYPETableAdapter.Adapter);
+                    }
+                }
+                if ((this._wORKERTableAdapter != null)) {
+                    revertConnections.Add(this._wORKERTableAdapter, this._wORKERTableAdapter.Connection);
+                    this._wORKERTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
+                    this._wORKERTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
+                    if (this._wORKERTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._wORKERTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._wORKERTableAdapter.Adapter);
                     }
                 }
                 // 
@@ -4868,6 +5570,10 @@ SELECT SEC_USER_TYPE_ID, SEC_USER_TYPE_NAME FROM SEC_USER_TYPE WHERE (SEC_USER_T
                 if ((this._sEC_USER_TYPETableAdapter != null)) {
                     this._sEC_USER_TYPETableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._sEC_USER_TYPETableAdapter]));
                     this._sEC_USER_TYPETableAdapter.Transaction = null;
+                }
+                if ((this._wORKERTableAdapter != null)) {
+                    this._wORKERTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._wORKERTableAdapter]));
+                    this._wORKERTableAdapter.Transaction = null;
                 }
                 if ((0 < adaptersWithAcceptChangesDuringUpdate.Count)) {
                     global::System.Data.Common.DataAdapter[] adapters = new System.Data.Common.DataAdapter[adaptersWithAcceptChangesDuringUpdate.Count];

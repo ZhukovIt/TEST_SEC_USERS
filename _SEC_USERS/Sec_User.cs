@@ -108,6 +108,14 @@ namespace _SEC_USERS
             }
         }
 
+        public int? WorkId
+        {
+            get
+            {
+                return m_SecUserRow.WORK_ID;
+            }
+        }
+
         public DataView Create_SEC_USER_DataView()
         {
             return new DataView(m_dts_SEC_USERS.SEC_USER);

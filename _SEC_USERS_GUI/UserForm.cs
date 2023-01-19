@@ -54,9 +54,13 @@ namespace _SEC_USERS_GUI
             bs_SEC_USER.DataSource = m_Sec_User.Create_SEC_USER_DataView();
             bs_SEC_ROLE.DataSource = m_WorkerDB.Create_SEC_ROLE_DataView();
             bs_SEC_USER_TYPE.DataSource = m_WorkerDB.Create_SEC_USER_TYPE_DataView();
+            bs_WORKER.DataSource = m_WorkerDB.Create_WORKER_DataView();
             string nameSelectedValueDataBindings = comboBox_TypeUser.DataBindings["SelectedValue"].BindingMemberInfo.BindingMember;
             comboBox_TypeUser.DataBindings.RemoveAt(0);
             comboBox_TypeUser.DataBindings.Add(new Binding("SelectedValue", bs_SEC_USER, nameSelectedValueDataBindings, true));
+            nameSelectedValueDataBindings = comboBox_WORKER_FULL_NAME.DataBindings["SelectedValue"].BindingMemberInfo.BindingMember;
+            comboBox_WORKER_FULL_NAME.DataBindings.RemoveAt(0);
+            comboBox_WORKER_FULL_NAME.DataBindings.Add(new Binding("SelectedValue", bs_WORKER, nameSelectedValueDataBindings, true));
             RoleName.DataSource = bs_SEC_ROLE;
             RoleName.DataPropertyName = RoleName.DataPropertyName;
             RoleName.DisplayMember = RoleName.DisplayMember;
