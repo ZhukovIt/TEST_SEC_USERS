@@ -3454,7 +3454,7 @@ VALUES (
             this._commandCollection[12].Connection = this.Connection;
             this._commandCollection[12].CommandText = @"UPDATE       SEC_USER
 SET                SEC_USER_LOGIN = @SEC_USER_LOGIN, SEC_USER_FIO = @SEC_USER_FIO, SEC_USER_BUILTIN = @SEC_USER_BUILTIN, SEC_USER_DISABLED = @SEC_USER_DISABLED, 
-                         SEC_USER_NO_CHECK = @SEC_USER_NO_CHECK, SEC_USER_TYPE_ID = @SEC_USER_TYPE_ID, WORK_ID = @WORK_ID, SEC_PROCURATORY = @SEC_PROCURATORY, SEC_KKM_LOGIN = @SEC_KKM_LOGIN, SEC_KKM_PASSWORD = @SEC_KKM_PASSWORD, SEC_KKM_INN = @SEC_KKM_INN
+                         SEC_USER_NO_CHECK = @SEC_USER_NO_CHECK, SEC_USER_TYPE_ID = @SEC_USER_TYPE_ID, WORK_ID = @WORK_ID, SEC_USER_PROCURATORY = @SEC_USER_PROCURATORY, SEC_USER_KKM_LOGIN = @SEC_USER_KKM_LOGIN, SEC_USER_KKM_PASSWORD = @SEC_USER_KKM_PASSWORD, SEC_USER_KKM_INN = @SEC_USER_KKM_INN
 WHERE        (SEC_USER_ID = @SEC_USER_ID);";
             this._commandCollection[12].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[12].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SEC_USER_LOGIN", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "SEC_USER_LOGIN", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -3464,10 +3464,10 @@ WHERE        (SEC_USER_ID = @SEC_USER_ID);";
             this._commandCollection[12].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SEC_USER_NO_CHECK", global::System.Data.SqlDbType.Bit, 1, global::System.Data.ParameterDirection.Input, 0, 0, "SEC_USER_NO_CHECK", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[12].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SEC_USER_TYPE_ID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "SEC_USER_TYPE_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[12].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@WORK_ID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "WORK_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[12].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SEC_PROCURATORY", global::System.Data.SqlDbType.Variant, 1024, global::System.Data.ParameterDirection.Input, 0, 0, "SEC_PROCURATORY", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[12].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SEC_KKM_LOGIN", global::System.Data.SqlDbType.Variant, 1024, global::System.Data.ParameterDirection.Input, 0, 0, "SEC_KKM_LOGIN", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[12].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SEC_KKM_PASSWORD", global::System.Data.SqlDbType.Variant, 1024, global::System.Data.ParameterDirection.Input, 0, 0, "SEC_KKM_PASSWORD", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[12].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SEC_KKM_INN", global::System.Data.SqlDbType.Variant, 1024, global::System.Data.ParameterDirection.Input, 0, 0, "SEC_KKM_INN", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[12].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SEC_USER_PROCURATORY", global::System.Data.SqlDbType.VarChar, 500, global::System.Data.ParameterDirection.Input, 0, 0, "SEC_USER_PROCURATORY", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[12].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SEC_USER_KKM_LOGIN", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "SEC_USER_KKM_LOGIN", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[12].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SEC_USER_KKM_PASSWORD", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "SEC_USER_KKM_PASSWORD", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[12].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SEC_USER_KKM_INN", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "SEC_USER_KKM_INN", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[12].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SEC_USER_ID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "SEC_USER_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
@@ -3866,7 +3866,7 @@ WHERE        (SEC_USER_ID = @SEC_USER_ID);";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, false)]
-        public virtual int UpdateUser(string SEC_USER_LOGIN, string SEC_USER_FIO, bool SEC_USER_BUILTIN, global::System.Nullable<bool> SEC_USER_DISABLED, global::System.Nullable<bool> SEC_USER_NO_CHECK, int SEC_USER_TYPE_ID, global::System.Nullable<int> WORK_ID, object SEC_PROCURATORY, object SEC_KKM_LOGIN, object SEC_KKM_PASSWORD, object SEC_KKM_INN, int SEC_USER_ID) {
+        public virtual int UpdateUser(string SEC_USER_LOGIN, string SEC_USER_FIO, bool SEC_USER_BUILTIN, global::System.Nullable<bool> SEC_USER_DISABLED, global::System.Nullable<bool> SEC_USER_NO_CHECK, int SEC_USER_TYPE_ID, global::System.Nullable<int> WORK_ID, string SEC_USER_PROCURATORY, string SEC_USER_KKM_LOGIN, string SEC_USER_KKM_PASSWORD, string SEC_USER_KKM_INN, int SEC_USER_ID) {
             global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[12];
             if ((SEC_USER_LOGIN == null)) {
                 throw new global::System.ArgumentNullException("SEC_USER_LOGIN");
@@ -3900,29 +3900,29 @@ WHERE        (SEC_USER_ID = @SEC_USER_ID);";
             else {
                 command.Parameters[6].Value = global::System.DBNull.Value;
             }
-            if ((SEC_PROCURATORY == null)) {
-                throw new global::System.ArgumentNullException("SEC_PROCURATORY");
+            if ((SEC_USER_PROCURATORY == null)) {
+                command.Parameters[7].Value = global::System.DBNull.Value;
             }
             else {
-                command.Parameters[7].Value = ((object)(SEC_PROCURATORY));
+                command.Parameters[7].Value = ((string)(SEC_USER_PROCURATORY));
             }
-            if ((SEC_KKM_LOGIN == null)) {
-                throw new global::System.ArgumentNullException("SEC_KKM_LOGIN");
-            }
-            else {
-                command.Parameters[8].Value = ((object)(SEC_KKM_LOGIN));
-            }
-            if ((SEC_KKM_PASSWORD == null)) {
-                throw new global::System.ArgumentNullException("SEC_KKM_PASSWORD");
+            if ((SEC_USER_KKM_LOGIN == null)) {
+                command.Parameters[8].Value = global::System.DBNull.Value;
             }
             else {
-                command.Parameters[9].Value = ((object)(SEC_KKM_PASSWORD));
+                command.Parameters[8].Value = ((string)(SEC_USER_KKM_LOGIN));
             }
-            if ((SEC_KKM_INN == null)) {
-                throw new global::System.ArgumentNullException("SEC_KKM_INN");
+            if ((SEC_USER_KKM_PASSWORD == null)) {
+                command.Parameters[9].Value = global::System.DBNull.Value;
             }
             else {
-                command.Parameters[10].Value = ((object)(SEC_KKM_INN));
+                command.Parameters[9].Value = ((string)(SEC_USER_KKM_PASSWORD));
+            }
+            if ((SEC_USER_KKM_INN == null)) {
+                command.Parameters[10].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[10].Value = ((string)(SEC_USER_KKM_INN));
             }
             command.Parameters[11].Value = ((int)(SEC_USER_ID));
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;

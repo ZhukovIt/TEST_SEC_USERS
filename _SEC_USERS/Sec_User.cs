@@ -112,10 +112,6 @@ namespace _SEC_USERS
         {
             get
             {
-                if (m_SecUserRow.IsWORK_IDNull())
-                {
-                    return null;
-                }
                 return m_SecUserRow.WORK_ID;
             }
         }
@@ -124,10 +120,6 @@ namespace _SEC_USERS
         {
             get
             {
-                if (m_SecUserRow.IsSEC_USER_PROCURATORYNull())
-                {
-                    return "";
-                }
                 return m_SecUserRow.SEC_USER_PROCURATORY;
             }
         }
@@ -136,10 +128,6 @@ namespace _SEC_USERS
         {
             get
             {
-                if (m_SecUserRow.IsSEC_USER_KKM_LOGINNull())
-                {
-                    return "";
-                }
                 return m_SecUserRow.SEC_USER_KKM_LOGIN;
             }
         }
@@ -148,10 +136,6 @@ namespace _SEC_USERS
         {
             get
             {
-                if (m_SecUserRow.IsSEC_USER_KKM_PASSWORDNull())
-                {
-                    return "";
-                }
                 return m_SecUserRow.SEC_USER_KKM_PASSWORD;
             }
         }
@@ -160,10 +144,6 @@ namespace _SEC_USERS
         {
             get
             {
-                if (m_SecUserRow.IsSEC_USER_KKM_INNNull())
-                {
-                    return "";
-                }
                 return m_SecUserRow.SEC_USER_KKM_INN;
             }
         }
