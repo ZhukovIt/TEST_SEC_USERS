@@ -164,7 +164,7 @@ namespace _SEC_USERS_GUI
             base.FillData();
             try
             {
-                m_WorkerDB.TA_SEC_USER.UpdateUser(m_Login, m_FIO, m_BuiltIn, m_Disabled, m_NoCheck, m_TypeId, m_WorkId, m_Procuratory, m_KKM_LOGIN, m_KKM_PASSWORD, m_KKM_INN, m_Id);
+                
             }
             catch (Exception)
             {
