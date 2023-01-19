@@ -17,7 +17,7 @@ namespace _SEC_USERS_GUI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new UsersForm());
+            Application.Run(new PasswordValidateForm());
         }
     }
 }

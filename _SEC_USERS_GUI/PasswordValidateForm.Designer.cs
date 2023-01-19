@@ -135,6 +135,7 @@ namespace _SEC_USERS_GUI
             this.ClientSize = new System.Drawing.Size(393, 190);
             this.Controls.Add(this.TLP_MainContainer);
             this.Name = "PasswordValidateForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Изменение пароля пользователя";
             this.TLP_MainContainer.ResumeLayout(false);
             this.TLP_MainContainer.PerformLayout();
