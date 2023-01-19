@@ -20,6 +20,7 @@ namespace _SEC_USERS
         private SEC_USERTableAdapter m_ta_CURRENT_SEC_USER;
         private SEC_USER_ROLETableAdapter m_ta_CURRENT_SEC_USER_ROLE;
         private SEC_USER_TYPETableAdapter m_ta_SEC_USER_TYPE;
+        public string currentLogin;
         private static dtsSEC_USERS m_dtsSEC_USERS = new dtsSEC_USERS();
 
         public dtsSEC_USERS Get_dts_SEC_USERS
@@ -167,34 +168,48 @@ namespace _SEC_USERS
             return TA_SEC_USER.Check_SEC_USER_LOGIN_IN_SEC_USER(login) == 0;
         }
 
-        public Sec_User CreateSecUser(int newUserId, bool _)
+        private dtsSEC_USERS CreateDataSetAndFillData(OperationEnum operation, int SecUserId = 0)
         {
             dtsSEC_USERS dts_SEC_USERS = new dtsSEC_USERS();
 
-            try
+            if (operation == OperationEnum.Add)
             {
-                TA_CURRENT_SEC_USER.InsertNewUser(newUserId, "", "", false, false, false, 5);
-                TA_CURRENT_SEC_USER.FillByUser(dts_SEC_USERS.SEC_USER, newUserId);
+                dtsSEC_USERS.SEC_USERRow New_SEC_USER_Row = dts_SEC_USERS.SEC_USER.NewSEC_USERRow();
 
-                Sec_User user = new Sec_User(dts_SEC_USERS);
+                int newUserId = ((int)TA_SEC_USER.GetMaxIdFromSEC_USER()) + 1;
 
-                return user;
+                New_SEC_USER_Row.SEC_USER_ID = newUserId;
+                New_SEC_USER_Row.SEC_USER_FIO = "";
+                New_SEC_USER_Row.SEC_USER_LOGIN = "";
+                New_SEC_USER_Row.SEC_USER_BUILTIN = false;
+                New_SEC_USER_Row.SEC_USER_DISABLED = false;
+                New_SEC_USER_Row.SEC_USER_NO_CHECK = false;
+                New_SEC_USER_Row.SEC_USER_TYPE_ID = 5;
+
+                dts_SEC_USERS.SEC_USER.AddSEC_USERRow(New_SEC_USER_Row);
             }
-            catch (Exception)
+            else if (operation == OperationEnum.Edit)
             {
-                return null;
+                TA_CURRENT_SEC_USER.FillByUser(dts_SEC_USERS.SEC_USER, SecUserId);
+                TA_CURRENT_SEC_USER_ROLE.FillByUser(dts_SEC_USERS.SEC_USER_ROLE, SecUserId);
             }
+
+            currentLogin = dts_SEC_USERS.SEC_USER.Rows[0].Field<string>("SEC_USER_LOGIN");
+
+            return dts_SEC_USERS;
+        }
+
+        public Sec_User CreateSecUser()
+        {
+            Sec_User user = new Sec_User(CreateDataSetAndFillData(OperationEnum.Add), SaveDataFromSecUser);
+            user.SetWorkerDB(this);
+            return user;
         }
 
         public Sec_User CreateSecUser(int SecUserId)
         {
-            dtsSEC_USERS dts_SEC_USERS = new dtsSEC_USERS();
-
-            TA_CURRENT_SEC_USER.FillByUser(dts_SEC_USERS.SEC_USER, SecUserId);
-            TA_CURRENT_SEC_USER_ROLE.FillByUser(dts_SEC_USERS.SEC_USER_ROLE, SecUserId);
-
-            Sec_User user = new Sec_User(dts_SEC_USERS);
-
+            Sec_User user = new Sec_User(CreateDataSetAndFillData(OperationEnum.Edit, SecUserId), SaveDataFromSecUser);
+            user.SetWorkerDB(this);
             return user;
         }
 
@@ -209,7 +224,7 @@ namespace _SEC_USERS
 
             try
             {
-                TA_SEC_USER.InsertNewUser(user.UserId, $"_{user.UserLogin}", user.UserFIO, user.BuiltIn, user.IsDisabled, user.NoCheck, user.TypeId);
+                TA_SEC_USER.InsertNewUser(user.UserId + 1, $"_{user.UserLogin}", user.UserFIO, user.BuiltIn, user.IsDisabled, user.NoCheck, user.TypeId);
             }
             catch (Exception)
             {
@@ -282,6 +297,12 @@ namespace _SEC_USERS
             {
                 TA_SEC_USER_ROLE.DeleteRelationFromUser(SEC_USER_ID, SEC_ROLE_ID);
             }
+        }
+
+        private void SaveDataFromSecUser(dtsSEC_USERS dts_SEC_USERS)
+        {
+            TA_SEC_USER.Update(dts_SEC_USERS.SEC_USER);
+            TA_SEC_USER_ROLE.Update(dts_SEC_USERS.SEC_USER_ROLE);
         }
     }
 }

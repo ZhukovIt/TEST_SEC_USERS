@@ -1,4 +1,5 @@
-﻿using System;
+﻿using _SEC_USERS_GUI;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -13,6 +14,7 @@ namespace _SEC_USERS
         private dtsSEC_USERS m_dts_SEC_USERS;
         private WorkerDB m_WorkerDB;
         private dtsSEC_USERS.SEC_USERRow m_SecUserRow;
+        private Action<dtsSEC_USERS> m_Delegate_SaveChangesFromUser;
 
         public Sec_User(dtsSEC_USERS dts_SEC_USERS)
         {
@@ -21,6 +23,11 @@ namespace _SEC_USERS
             {
                 m_SecUserRow = (dtsSEC_USERS.SEC_USERRow)m_dts_SEC_USERS.SEC_USER.Rows[0];
             }
+        }
+
+        public Sec_User(dtsSEC_USERS dts_SEC_USERS, Action<dtsSEC_USERS> action_SaveChangesFromUser) : this(dts_SEC_USERS)
+        {
+            m_Delegate_SaveChangesFromUser = action_SaveChangesFromUser;
         }
 
         public Sec_User(dtsSEC_USERS dts_SEC_USERS, int newUserId) : this(dts_SEC_USERS)
@@ -162,17 +169,23 @@ namespace _SEC_USERS
             return new DataView(m_dts_SEC_USERS.SEC_USER_ROLE);
         }
 
-        public void Save()
+        public ExceptEnum ExecuteSaveFromSecUser()
         {
-            dtsSEC_USERSTableAdapters.SEC_USERTableAdapter ta_SEC_USER = new dtsSEC_USERSTableAdapters.SEC_USERTableAdapter();
-            ta_SEC_USER.Connection = ConnectionSingleton.getInstance();
-
-            dtsSEC_USERSTableAdapters.SEC_USER_ROLETableAdapter ta_SEC_USER_ROLE = new dtsSEC_USERSTableAdapters.SEC_USER_ROLETableAdapter();
-            ta_SEC_USER_ROLE.Connection = ConnectionSingleton.getInstance();
-
-
-            ta_SEC_USER.Update(m_dts_SEC_USERS.SEC_USER);
-            ta_SEC_USER_ROLE.Update(m_dts_SEC_USERS.SEC_USER_ROLE);
+            if (string.IsNullOrEmpty(UserLogin))
+            {
+                return ExceptEnum.LoginIsNullOrEmpty;
+            }
+            else if (m_WorkerDB.currentLogin == UserLogin)
+            {
+                m_Delegate_SaveChangesFromUser.Invoke(m_dts_SEC_USERS);
+                return ExceptEnum.LoginIsNotChange;
+            }
+            else if (((int)m_WorkerDB.TA_SEC_USER.Check_SEC_USER_LOGIN_Unique(UserLogin)) > 0)
+            {
+                return ExceptEnum.LoginIsNotUnique;
+            }
+            m_Delegate_SaveChangesFromUser.Invoke(m_dts_SEC_USERS);
+            return ExceptEnum.OK;
         }
     }
 }

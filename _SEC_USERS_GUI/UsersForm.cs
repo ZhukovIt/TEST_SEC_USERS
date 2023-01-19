@@ -46,35 +46,16 @@ namespace _SEC_USERS_GUI
 
         private void btn_AddNewUser_Click(object sender, EventArgs e)
         {
-            int newUserId = ((int)m_WorkerDB.TA_SEC_USER.GetMaxIdFromSEC_USER()) + 1;
-            Sec_User currentUser = m_WorkerDB.CreateSecUser(newUserId, true);
-            if (currentUser == null)
-            {
-                int emptyLoginId = (int)m_WorkerDB.TA_SEC_USER.GetIdFromEmpltyLogin();
-                m_WorkerDB.TA_SEC_USER.DeleteUserFromId(emptyLoginId);
-                currentUser = m_WorkerDB.CreateSecUser(newUserId, true);
-            }
+            Sec_User currentUser = m_WorkerDB.CreateSecUser();
             UserForm form = new UserForm(m_WorkerDB, currentUser);
-            FormState state = new UserFormAddingState(form, currentUser);
-            form.SetState(state);
             DialogResult result = form.ShowDialog();
             if (result == DialogResult.OK)
             {
                 m_WorkerDB.LoadData();
-                dgv_SEC_USERS.Update();
-                int Pos = bs_SEC_USERS.Find("SEC_USER_ID", newUserId);
+                int Pos = bs_SEC_USERS.Find("SEC_USER_ID", currentUser.UserId);
                 if (Pos >= 0)
                 {
                     bs_SEC_USERS.Position = Pos;
-                }
-            }
-            else
-            {
-                int? emptyUserId = m_WorkerDB.TA_SEC_USER.CheckEmptyUser();
-                if (emptyUserId != null)
-                {
-                    m_WorkerDB.TA_SEC_USER.DeleteUserFromId((int)emptyUserId);
-                    m_WorkerDB.LoadData();
                 }
             }
         }
@@ -85,10 +66,8 @@ namespace _SEC_USERS_GUI
             int selectedUserId = currentRow.Field<int>("SEC_USER_ID");
             int newUserId = ((int)m_WorkerDB.TA_SEC_USER.GetMaxIdFromSEC_USER()) + 1;
             Sec_User currentUser = m_WorkerDB.CreateSecUser(newUserId, selectedUserId);
-            m_WorkerDB.CopyRelationsFrom_SEC_USER_ID(selectedUserId, newUserId);
+            m_WorkerDB.CopyRelationsFrom_SEC_USER_ID(selectedUserId, newUserId + 1);
             UserForm form = new UserForm(m_WorkerDB, currentUser);
-            FormState state = new UserFormCopyingState(form, currentUser);
-            form.SetState(state);
             try
             {
                 DialogResult result = form.ShowDialog();
@@ -118,17 +97,13 @@ namespace _SEC_USERS_GUI
         {
             int selectedUserId = ((DataRowView)bs_SEC_USERS.Current).Row.Field<int>("SEC_USER_ID");
             Sec_User currentUser = m_WorkerDB.CreateSecUser(selectedUserId);
-            currentUser.SetWorkerDB(m_WorkerDB);
             UserForm form = new UserForm(m_WorkerDB, currentUser);
-            FormState state = new UserFormEditingState(form, currentUser);
-            form.SetState(state);
             DialogResult result = form.ShowDialog();
             if (result != DialogResult.OK)
             {
                 form.UndoUserRoles();
             }
             m_WorkerDB.LoadData();
-            dgv_SEC_USERS.Update();
             int Pos = bs_SEC_USERS.Find("SEC_USER_ID", selectedUserId);
             if (Pos >= 0)
             {
