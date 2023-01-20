@@ -15,6 +15,7 @@ namespace _SEC_USERS
         private WorkerDB m_WorkerDB;
         private dtsSEC_USERS.SEC_USERRow m_SecUserRow;
         private Action<dtsSEC_USERS> m_Delegate_SaveChangesFromUser;
+        private OperationEnum m_state;
 
         public Sec_User(dtsSEC_USERS dts_SEC_USERS)
         {
@@ -43,6 +44,11 @@ namespace _SEC_USERS
         {
             m_dts_SEC_USERS = dts_SEC_USERS;
             m_SecUserRow = secUserRow;
+        }
+
+        public void SetState(OperationEnum state)
+        {
+            m_state = state;
         }
 
         public dtsSEC_USERS User_dts_SEC_USERS
@@ -175,7 +181,7 @@ namespace _SEC_USERS
             {
                 return ExceptEnum.LoginIsNullOrEmpty;
             }
-            else if (m_WorkerDB.currentLogin == UserLogin)
+            else if (m_WorkerDB.currentLogin == UserLogin && m_state == OperationEnum.Edit)
             {
                 m_Delegate_SaveChangesFromUser.Invoke(m_dts_SEC_USERS);
                 return ExceptEnum.LoginIsNotChange;

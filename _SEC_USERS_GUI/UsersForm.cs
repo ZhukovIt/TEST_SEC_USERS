@@ -46,7 +46,7 @@ namespace _SEC_USERS_GUI
 
         private void btn_AddNewUser_Click(object sender, EventArgs e)
         {
-            Sec_User currentUser = m_WorkerDB.CreateAddSecUser();
+            Sec_User currentUser = m_WorkerDB.CreateSecUser(OperationEnum.Add);
             UserForm form = new UserForm(m_WorkerDB, currentUser);
             DialogResult result = form.ShowDialog();
             if (result == DialogResult.OK)
@@ -62,41 +62,28 @@ namespace _SEC_USERS_GUI
 
         private void btn_AddNewUserWithCopy_Click(object sender, EventArgs e)
         {
-            DataRow currentRow = ((DataRowView)bs_SEC_USERS.Current).Row;
-            int selectedUserId = currentRow.Field<int>("SEC_USER_ID");
-            int newUserId = ((int)m_WorkerDB.TA_SEC_USER.GetMaxIdFromSEC_USER()) + 1;
-            Sec_User currentUser = m_WorkerDB.CreateCopySecUser(selectedUserId);
-            m_WorkerDB.CopyRelationsFrom_SEC_USER_ID(selectedUserId, newUserId + 1);
+            int selectedUserId = ((DataRowView)bs_SEC_USERS.Current).Row.Field<int>("SEC_USER_ID");
+            Sec_User currentUser = m_WorkerDB.CreateSecUser(OperationEnum.Copy, selectedUserId);
             UserForm form = new UserForm(m_WorkerDB, currentUser);
-            try
+            DialogResult result = form.ShowDialog();
+            int Pos;
+            if (result == DialogResult.OK)
             {
-                DialogResult result = form.ShowDialog();
-                int Pos;
-                if (result == DialogResult.OK)
-                {
-                    m_WorkerDB.LoadData();
-                    dgv_SEC_USERS.Update();
-                    Pos = bs_SEC_USERS.Find("SEC_USER_ID", newUserId);
-                }
-                else
-                {
-                    m_WorkerDB.TA_SEC_USER.DeleteUserFromId(newUserId);
-                    m_WorkerDB.LoadData();
-                    dgv_SEC_USERS.Update();
-                    Pos = bs_SEC_USERS.Find("SEC_USER_ID", selectedUserId);
-                }
-                if (Pos >= 0) bs_SEC_USERS.Position = Pos;
+                m_WorkerDB.LoadData();
+                Pos = bs_SEC_USERS.Find("SEC_USER_ID", currentUser.UserId);
             }
-            catch(Exception)
+            else
             {
-
+                m_WorkerDB.LoadData();
+                Pos = bs_SEC_USERS.Find("SEC_USER_ID", selectedUserId);
             }
+            if (Pos >= 0) bs_SEC_USERS.Position = Pos;
         }
 
         private void btn_EditUser_Click(object sender, EventArgs e)
         {
             int selectedUserId = ((DataRowView)bs_SEC_USERS.Current).Row.Field<int>("SEC_USER_ID");
-            Sec_User currentUser = m_WorkerDB.CreateEditSecUser(selectedUserId);
+            Sec_User currentUser = m_WorkerDB.CreateSecUser(OperationEnum.Edit, selectedUserId);
             UserForm form = new UserForm(m_WorkerDB, currentUser);
             DialogResult result = form.ShowDialog();
             if (result != DialogResult.OK)
