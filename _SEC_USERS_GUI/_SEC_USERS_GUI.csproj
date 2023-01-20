@@ -87,6 +87,9 @@
     <EmbeddedResource Include="DeleteAnswerForm.resx">
       <DependentUpon>DeleteAnswerForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PasswordValidateForm.resx">
+      <DependentUpon>PasswordValidateForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

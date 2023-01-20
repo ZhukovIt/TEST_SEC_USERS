@@ -115,6 +115,7 @@ namespace _SEC_USERS_GUI
             this.TLP_UserInfoContainer.ColumnCount = 2;
             this.TLP_UserInfoContainer.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
             this.TLP_UserInfoContainer.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
+            this.TLP_UserInfoContainer.Controls.Add(this.button1, 0, 11);
             this.TLP_UserInfoContainer.Controls.Add(this.checkBoxIsDisabled, 0, 5);
             this.TLP_UserInfoContainer.Controls.Add(this.lbl_UserLogin, 0, 1);
             this.TLP_UserInfoContainer.Controls.Add(this.lbl_userTypeId, 0, 2);
@@ -134,7 +135,6 @@ namespace _SEC_USERS_GUI
             this.TLP_UserInfoContainer.Controls.Add(this.textBox2, 1, 8);
             this.TLP_UserInfoContainer.Controls.Add(this.textBox3, 1, 9);
             this.TLP_UserInfoContainer.Controls.Add(this.textBox4, 1, 10);
-            this.TLP_UserInfoContainer.Controls.Add(this.label5, 0, 11);
             this.TLP_UserInfoContainer.Dock = System.Windows.Forms.DockStyle.Top;
             this.TLP_UserInfoContainer.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
             this.TLP_UserInfoContainer.Location = new System.Drawing.Point(0, 0);
@@ -536,7 +536,7 @@ namespace _SEC_USERS_GUI
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button button1;
 
 
         // Здесь добавлены свойства для доступа к элементам GUI
