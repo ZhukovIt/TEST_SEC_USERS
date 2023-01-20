@@ -15,7 +15,6 @@ namespace _SEC_USERS_GUI
     public partial class UserForm : Form
     {
         private WorkerDB m_WorkerDB;
-        private FormState m_State;
         private Sec_User m_Sec_User;
         private List<int> m_SEC_ROLE_IDS_From_Undo_Roles;
 
@@ -33,20 +32,6 @@ namespace _SEC_USERS_GUI
             m_WorkerDB = workerDB;
             m_Sec_User = secUser;
             m_SEC_ROLE_IDS_From_Undo_Roles = new List<int>();
-        }
-
-        public void SetState(FormState state)
-        {
-            m_State = state;
-            StateRequest();
-        }
-
-        internal void StateRequest()
-        {
-            if (!m_State.TryExecute())
-            {
-                MessageBox.Show(m_State.ExceptionMessage);
-            }
         }
 
         private void SettingBindingSources()
@@ -119,14 +104,7 @@ namespace _SEC_USERS_GUI
                         {
 
                         }
-                        if (m_State.GetType().ToString().Contains("Adding"))
-                        {
-                            m_WorkerDB.Fill_SEC_USER_ROLE_DataTable(m_Sec_User.User_dts_SEC_USERS, m_Sec_User.UserId);
-                        }
-                        else
-                        {
-                            m_WorkerDB.UpdateUserDataSet(m_Sec_User.User_dts_SEC_USERS, m_Sec_User.UserId);
-                        }
+                        m_WorkerDB.UpdateUserDataSet(m_Sec_User.User_dts_SEC_USERS, m_Sec_User.UserId);
                         m_Sec_User.UpdateUserSecRow();
                     }
                 }
@@ -148,14 +126,7 @@ namespace _SEC_USERS_GUI
                         {
 
                         }
-                        if (m_State.GetType().ToString().Contains("Adding"))
-                        {
-                            m_WorkerDB.Fill_SEC_USER_ROLE_DataTable(m_Sec_User.User_dts_SEC_USERS, m_Sec_User.UserId);
-                        }
-                        else
-                        {
-                            m_WorkerDB.UpdateUserDataSet(m_Sec_User.User_dts_SEC_USERS, m_Sec_User.UserId);
-                        }
+                        m_WorkerDB.UpdateUserDataSet(m_Sec_User.User_dts_SEC_USERS, m_Sec_User.UserId);
                         m_Sec_User.UpdateUserSecRow();
                     }
                 }
@@ -164,14 +135,7 @@ namespace _SEC_USERS_GUI
                     int SEC_ROLE_ID = (int)dataGridView_Roles[columnIndex - 2, rowIndex].Value;
                     int SEC_USER_ID = m_Sec_User.UserId;
                     m_WorkerDB.TA_SEC_USER_ROLE.DeleteRelationFromUser(SEC_USER_ID, SEC_ROLE_ID);
-                    if (m_State.GetType().ToString().Contains("Adding"))
-                    {
-                        m_WorkerDB.Fill_SEC_USER_ROLE_DataTable(m_Sec_User.User_dts_SEC_USERS, m_Sec_User.UserId);
-                    }
-                    else
-                    {
-                        m_WorkerDB.UpdateUserDataSet(m_Sec_User.User_dts_SEC_USERS, m_Sec_User.UserId);
-                    }
+                    m_WorkerDB.UpdateUserDataSet(m_Sec_User.User_dts_SEC_USERS, m_Sec_User.UserId);
                     m_Sec_User.UpdateUserSecRow();
                 }
             }
@@ -182,6 +146,30 @@ namespace _SEC_USERS_GUI
             finally
             {
                 m_WorkerDB.LoadData();
+            }
+        }
+
+        private void btn_SaveExecute_Click(object sender, EventArgs e)
+        {
+            bs_SEC_ROLE.EndEdit();
+            bs_SEC_USER.EndEdit();
+            bs_SEC_USER_TYPE.EndEdit();
+            ExceptEnum result = m_Sec_User.ExecuteSaveFromSecUser();
+            if (result == ExceptEnum.LoginIsNullOrEmpty)
+            {
+                MessageBox.Show("Введите логин!");
+            }
+            else if (result == ExceptEnum.LoginIsNotChange)
+            {
+                DialogResult = DialogResult.OK;
+            }
+            else if (result == ExceptEnum.LoginIsNotUnique)
+            {
+                MessageBox.Show("Такой логин уже существует! Введите другой!");
+            }
+            else if (result == ExceptEnum.OK)
+            {
+                DialogResult = DialogResult.OK;
             }
         }
     }

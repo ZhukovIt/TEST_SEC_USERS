@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using _SEC_USERS;
 using _SEC_USERS.dtsSEC_USERSTableAdapters;
 
@@ -20,6 +21,7 @@ namespace _SEC_USERS
         private SEC_USERTableAdapter m_ta_CURRENT_SEC_USER;
         private SEC_USER_ROLETableAdapter m_ta_CURRENT_SEC_USER_ROLE;
         private SEC_USER_TYPETableAdapter m_ta_SEC_USER_TYPE;
+        public string currentLogin;
         private static dtsSEC_USERS m_dtsSEC_USERS = new dtsSEC_USERS();
 
         public dtsSEC_USERS Get_dts_SEC_USERS
@@ -167,59 +169,112 @@ namespace _SEC_USERS
             return TA_SEC_USER.Check_SEC_USER_LOGIN_IN_SEC_USER(login) == 0;
         }
 
-        public Sec_User CreateSecUser(int newUserId, bool _)
+        private dtsSEC_USERS CreateDataSetAndFillData(OperationEnum operation, int SecUserId)
         {
             dtsSEC_USERS dts_SEC_USERS = new dtsSEC_USERS();
 
-            try
+            if (operation == OperationEnum.Add)
             {
-                TA_CURRENT_SEC_USER.InsertNewUser(newUserId, "", "", false, false, false, 5);
-                TA_CURRENT_SEC_USER.FillByUser(dts_SEC_USERS.SEC_USER, newUserId);
+                dtsSEC_USERS.SEC_USERRow New_SEC_USER_Row = dts_SEC_USERS.SEC_USER.NewSEC_USERRow();
 
-                Sec_User user = new Sec_User(dts_SEC_USERS);
+                int newUserId = ((int)TA_SEC_USER.GetMaxIdFromSEC_USER()) + 1;
 
-                return user;
+                New_SEC_USER_Row.SEC_USER_ID = newUserId;
+                New_SEC_USER_Row.SEC_USER_FIO = "";
+                New_SEC_USER_Row.SEC_USER_LOGIN = "";
+                New_SEC_USER_Row.SEC_USER_BUILTIN = false;
+                New_SEC_USER_Row.SEC_USER_DISABLED = false;
+                New_SEC_USER_Row.SEC_USER_NO_CHECK = false;
+                New_SEC_USER_Row.SEC_USER_TYPE_ID = 5;
+
+                dts_SEC_USERS.SEC_USER.AddSEC_USERRow(New_SEC_USER_Row);
             }
-            catch (Exception)
+            else if (operation == OperationEnum.Copy)
             {
-                return null;
+                dtsSEC_USERS.SEC_USERRow selectedUser = TA_SEC_USER.GetDataByUser(SecUserId)[0];
+                dtsSEC_USERS.SEC_USER_ROLEDataTable userRoles = TA_SEC_USER_ROLE.GetDataByUser(SecUserId);
+
+                dtsSEC_USERS.SEC_USERRow New_SEC_USER_Row = dts_SEC_USERS.SEC_USER.NewSEC_USERRow();
+
+                int newUserId = ((int)TA_SEC_USER.GetMaxIdFromSEC_USER()) + 1;
+
+                New_SEC_USER_Row.SEC_USER_ID = newUserId;
+                New_SEC_USER_Row.SEC_USER_FIO = selectedUser.SEC_USER_FIO;
+                New_SEC_USER_Row.SEC_USER_LOGIN = selectedUser.SEC_USER_LOGIN;
+                New_SEC_USER_Row.SEC_USER_BUILTIN = selectedUser.SEC_USER_BUILTIN;
+                New_SEC_USER_Row.SEC_USER_DISABLED = selectedUser.SEC_USER_DISABLED;
+                New_SEC_USER_Row.SEC_USER_NO_CHECK = selectedUser.SEC_USER_NO_CHECK;
+                New_SEC_USER_Row.SEC_USER_TYPE_ID = selectedUser.SEC_USER_TYPE_ID;
+                try
+                {
+                    New_SEC_USER_Row.SEC_USER_PROCURATORY = selectedUser.SEC_USER_PROCURATORY;
+                }
+                catch(StrongTypingException)
+                {
+                    New_SEC_USER_Row.SEC_USER_PROCURATORY = "";
+                }
+                finally
+                {
+                    try
+                    {
+                        New_SEC_USER_Row.SEC_USER_KKM_LOGIN = selectedUser.SEC_USER_KKM_LOGIN;
+                    }
+                    catch(StrongTypingException)
+                    {
+                        New_SEC_USER_Row.SEC_USER_KKM_LOGIN = "";
+                    }
+                    finally
+                    {
+                        try
+                        {
+                            New_SEC_USER_Row.SEC_USER_KKM_PASSWORD = selectedUser.SEC_USER_KKM_PASSWORD;
+                        }
+                        catch(StrongTypingException)
+                        {
+                            New_SEC_USER_Row.SEC_USER_KKM_PASSWORD = "";
+                        }
+                        finally
+                        {
+                            try
+                            {
+                                New_SEC_USER_Row.SEC_USER_KKM_INN = selectedUser.SEC_USER_KKM_INN;
+                            }
+                            catch(StrongTypingException)
+                            {
+                                New_SEC_USER_Row.SEC_USER_KKM_INN = "";
+                            }
+                        }
+                    }
+                }
+
+                dts_SEC_USERS.SEC_USER.AddSEC_USERRow(New_SEC_USER_Row);
+
+                foreach (dtsSEC_USERS.SEC_USER_ROLERow userRole in userRoles)
+                {
+                    dtsSEC_USERS.SEC_USER_ROLERow New_SEC_USER_ROLE_Row = dts_SEC_USERS.SEC_USER_ROLE.NewSEC_USER_ROLERow();
+
+                    New_SEC_USER_ROLE_Row.SEC_USER_ID = newUserId;
+                    New_SEC_USER_ROLE_Row.SEC_ROLE_ID = userRole.SEC_ROLE_ID;
+
+                    dts_SEC_USERS.SEC_USER_ROLE.AddSEC_USER_ROLERow(New_SEC_USER_ROLE_Row);
+                }
             }
+            else if (operation == OperationEnum.Edit)
+            {
+                TA_CURRENT_SEC_USER.FillByUser(dts_SEC_USERS.SEC_USER, SecUserId);
+                TA_CURRENT_SEC_USER_ROLE.FillByUser(dts_SEC_USERS.SEC_USER_ROLE, SecUserId);
+            }
+
+            currentLogin = dts_SEC_USERS.SEC_USER.Rows[0].Field<string>("SEC_USER_LOGIN");
+
+            return dts_SEC_USERS;
         }
 
-        public Sec_User CreateSecUser(int SecUserId)
+        public Sec_User CreateSecUser(OperationEnum state, int selectedUserId = 0)
         {
-            dtsSEC_USERS dts_SEC_USERS = new dtsSEC_USERS();
-
-            TA_CURRENT_SEC_USER.FillByUser(dts_SEC_USERS.SEC_USER, SecUserId);
-            TA_CURRENT_SEC_USER_ROLE.FillByUser(dts_SEC_USERS.SEC_USER_ROLE, SecUserId);
-
-            Sec_User user = new Sec_User(dts_SEC_USERS);
-
-            return user;
-        }
-
-        public Sec_User CreateSecUser(int newUserId, int SecUserId)
-        {
-            dtsSEC_USERS dts_SEC_USERS = new dtsSEC_USERS();
-
-            TA_CURRENT_SEC_USER.FillByUser(dts_SEC_USERS.SEC_USER, SecUserId);
-            TA_CURRENT_SEC_USER_ROLE.FillByUser(dts_SEC_USERS.SEC_USER_ROLE, SecUserId);
-
-            Sec_User user = new Sec_User(dts_SEC_USERS, newUserId);
-
-            try
-            {
-                TA_SEC_USER.InsertNewUser(user.UserId, $"_{user.UserLogin}", user.UserFIO, user.BuiltIn, user.IsDisabled, user.NoCheck, user.TypeId);
-            }
-            catch (Exception)
-            {
-                TA_SEC_USER.DeleteUserFromId((int)TA_SEC_USER.GetUserIdFromUserLogin($"_{user.UserLogin}"));
-                user = new Sec_User(dts_SEC_USERS, newUserId);
-                TA_SEC_USER.InsertNewUser(user.UserId, $"_{user.UserLogin}", user.UserFIO, user.BuiltIn, user.IsDisabled, user.NoCheck, user.TypeId);
-            }
-
-            LoadData();
-
+            Sec_User user = new Sec_User(CreateDataSetAndFillData(state, selectedUserId), SaveDataFromSecUser);
+            user.SetWorkerDB(this);
+            user.SetState(state);
             return user;
         }
 
@@ -267,6 +322,27 @@ namespace _SEC_USERS
             {
                 TA_SEC_USER_ROLE.InsertNewRelationFromUser(SEC_ROLE_ID, NEW_SEC_USER_ID);
             }
+        }
+
+        public void DeleteRelationsFrom_SEC_USER_ID(int SEC_USER_ID)
+        {
+            List<int> SEC_ROLE_IDS = new List<int>();
+
+            foreach (dtsSEC_USERS.SEC_USER_ROLERow row in TA_SEC_USER_ROLE.GetDataByUserTest(SEC_USER_ID))
+            {
+                SEC_ROLE_IDS.Add(row.SEC_ROLE_ID);
+            }
+
+            foreach (int SEC_ROLE_ID in SEC_ROLE_IDS)
+            {
+                TA_SEC_USER_ROLE.DeleteRelationFromUser(SEC_USER_ID, SEC_ROLE_ID);
+            }
+        }
+
+        private void SaveDataFromSecUser(dtsSEC_USERS dts_SEC_USERS)
+        {
+            TA_SEC_USER.Update(dts_SEC_USERS.SEC_USER);
+            TA_SEC_USER_ROLE.Update(dts_SEC_USERS.SEC_USER_ROLE);
         }
     }
 }
